@@ -1,0 +1,38 @@
+# The showcase cards. URLs, repos and tech labels are language-neutral and live
+# here; the human-readable blurbs are translated in
+# content/<lang>/sections/showcase.md under [blurbs], keyed by `id`.
+
+[[items]]
+  id    = "book"
+  name  = "The Art of PostgreSQL"
+  url   = "https://theartofpostgresql.com/"
+  kind  = "book"
+  meta  = "2019 · 52 chapters"
+
+[[items]]
+  id    = "blog"
+  name  = "tapoueh.org"
+  url   = "https://tapoueh.org/"
+  kind  = "writing"
+  meta  = "since 2005"
+
+[[items]]
+  id    = "pgcopydb"
+  name  = "pgcopydb"
+  url   = "https://github.com/dimitri/pgcopydb"
+  kind  = "oss"
+  meta  = "C · author, maintainer"
+
+[[items]]
+  id    = "pgloader"
+  name  = "pgloader"
+  url   = "https://github.com/dimitri/pgloader"
+  kind  = "oss"
+  meta  = "Common Lisp · author, maintainer"
+
+[[items]]
+  id    = "pg_auto_failover"
+  name  = "pg_auto_failover"
+  url   = "https://github.com/hapostgres/pg_auto_failover"
+  kind  = "oss"
+  meta  = "C · author"

@@ -1,0 +1,53 @@
+{{- $anchor := .Params.anchor | default .File.ContentBaseName -}}
+<section id="{{ $anchor }}" class="section section-masterclass" aria-labelledby="{{ $anchor }}-h">
+  <div class="wrap">
+    <p class="kicker mono">{{ .Params.kicker }}</p>
+    <h2 id="{{ $anchor }}-h">{{ .Title }}</h2>
+    <p class="lede">{{ .Params.summary }}</p>
+
+    {{- /* Scarcity is stated, not implied. It sits above the fold of the
+           section, before the price and before the form. */ -}}
+    {{- with .Params.scarcity }}
+    <aside class="scarcity">
+      <p class="scarcity-figure mono"><strong>{{ .max_per_year }}</strong> <span>{{ .label }}</span></p>
+      <p class="scarcity-note">{{ .note }}</p>
+    </aside>
+    {{- end }}
+
+    <div class="prose">{{ .Content }}</div>
+
+    {{- with .Params.agenda }}
+    <ol class="agenda">
+      {{- range . }}
+      <li class="agenda-step" id="agenda-{{ .id }}">
+        <h3 class="mono">{{ .name }}</h3>
+        <p>{{ .lede }}</p>
+      </li>
+      {{- end }}
+    </ol>
+    {{- end }}
+
+    {{- with .Params.materials }}
+    <aside class="note">
+      <p class="note-title mono">{{ .title }}</p>
+      <p>{{ .note }}</p>
+    </aside>
+    {{- end }}
+
+    {{- with .Params.pricing }}
+    {{- $cur := .currency }}
+    <ul class="format-grid">
+      {{- range .formats }}
+      <li class="format" id="format-{{ .id }}">
+        <h3>{{ .name }}</h3>
+        <p class="format-price mono">{{ lang.FormatCurrency 0 $cur .price }}</p>
+        <p class="format-lede">{{ .lede }}</p>
+      </li>
+      {{- end }}
+    </ul>
+    <p class="price-note">{{ .note }}</p>
+    {{- end }}
+  </div>
+
+  {{ partial "forms/masterclass.html" . }}
+</section>

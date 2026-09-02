@@ -1,0 +1,24 @@
+{{- /* Overrides Hugo's built-in alias template. Hugo always writes a redirect
+       at / when defaultContentLanguageInSubdir is on, and it points at the
+       default language unconditionally; this adds a browser-language branch on
+       top, while keeping the meta refresh as the no-JS fallback. */ -}}
+<!DOCTYPE html>
+<html lang="{{ site.Language.Lang }}">
+<head>
+  <meta charset="utf-8">
+  <title>{{ site.Title }}</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <meta http-equiv="refresh" content="0; url={{ .Permalink }}">
+  <script>
+    // Send the visitor to their own language when we publish it; the meta
+    // refresh above is what happens without JS.
+    (function () {
+      var langs = [{{ range $i, $s := hugo.Sites }}{{ if $i }},{{ end }}{{ $s.Language.Lang }}{{ end }}];
+      var want = (navigator.language || "").slice(0, 2).toLowerCase();
+      if (langs.indexOf(want) !== -1) location.replace("/" + want + "/");
+    })();
+  </script>
+</head>
+<body><p><a href="{{ .Permalink }}">{{ site.Title }}</a></p></body>
+</html>

@@ -1,0 +1,77 @@
+# YeSQL — bilingual (fr/en) marketing site.
+#
+# Note: no `theme` key at all. An empty `theme = ""` is a hard error from Hugo
+# 0.165 onward; this site's layouts live at the project root by design.
+
+baseURL = "https://yesql.fr/"
+title = "YeSQL"
+
+defaultContentLanguage = "fr"
+defaultContentLanguageInSubdir = true
+
+publishDir = "docs"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+
+# The landing page is assembled from headless section pages; there are no
+# taxonomies and no RSS to speak of.
+[outputs]
+  home = ["HTML"]
+  section = ["HTML"]
+  page = ["HTML"]
+
+[params]
+  # Which language `hreflang="x-default"` should point at.
+  defaultLang = "fr"
+
+  # ConvertKit / Kit form UIDs. TODO: replace the placeholders with the real
+  # form ids from https://app.kit.com/forms — one form per CTA, deliberately
+  # NOT shared, so the three conversion paths stay measurable separately.
+  [params.kit]
+    base        = "https://app.kit.com/forms"
+    quote       = "0000000"   # TODO: enterprise contract — quote request
+    club        = "0000000"   # TODO: user club — email capture
+    masterclass = "0000000"   # TODO: masterclass — booking request
+
+  # Reciprocal links, for mutual domain authority. TODO: add the matching
+  # inbound links on those sites pointing back here.
+  [params.crosslinks]
+    book = "https://theartofpostgresql.com/"
+    blog = "https://tapoueh.org/"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    noClasses = false
+
+[languages]
+  [languages.fr]
+    label = "Français"
+    # Bare `fr`, not `fr-FR`: this is a language signal, not a region target.
+    locale = "fr"
+    weight = 1
+    contentDir = "content/fr"
+    title = "YeSQL — Support et expertise PostgreSQL"
+    [languages.fr.params]
+      description = "Support PostgreSQL entreprise, formation PostgreSQL avancée et expertise pgloader, pgcopydb et pg_auto_failover, par leur auteur."
+  [languages.en]
+    label = "English"
+    locale = "en"
+    weight = 2
+    contentDir = "content/en"
+    title = "YeSQL — PostgreSQL support and expertise"
+    [languages.en.params]
+      description = "PostgreSQL enterprise support, advanced PostgreSQL training, and pgloader, pgcopydb and pg_auto_failover expertise, from their author."
+
+# The section pages under content/<lang>/sections/ hold the landing page copy.
+# They are never rendered as pages of their own and never listed; home.html
+# pulls them in by name.
+[[cascade]]
+  [cascade.build]
+    render = "never"
+    list   = "never"
+  [cascade.target]
+    # The glob must name the section page itself as well as its children,
+    # otherwise Hugo builds an empty /sections/ list page with no layout.
+    path = "{/sections,/sections/**}"

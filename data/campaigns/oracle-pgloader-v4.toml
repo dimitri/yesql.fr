@@ -1,0 +1,34 @@
+# Fund-a-feature campaign figures — LANGUAGE-NEUTRAL, single source of truth.
+# The prose lives in content/<lang>/campaigns/oracle-pgloader-v4/index.md,
+# which points here with `campaign = "oracle-pgloader-v4"`.
+#
+# Update `raised`, `backers` and `updated` here and both language versions of
+# the site move together. No number is ever duplicated.
+
+status     = "open"        # open | funded | closed
+currency   = "EUR"
+
+target     = 50000         # full scope
+threshold  = 20000         # below this, development does not start
+raised     = 18750
+backers    = 23
+
+opened     = "2026-01-15"
+deadline   = "2026-06-30"
+updated    = "2026-09-02"
+
+project    = "pgloader"
+repo       = "https://github.com/dimitri/pgloader"
+license    = "PostgreSQL License"
+pledge_url = "https://example.invalid/pledge/oracle-pgloader-v4"  # TODO: real pledge URL
+
+# Amounts only. The labels are translated, in the content file's [tier_labels].
+[[tiers]]
+  id     = "individual"
+  amount = 250
+[[tiers]]
+  id     = "company"
+  amount = 5000
+[[tiers]]
+  id     = "sponsor"
+  amount = 15000

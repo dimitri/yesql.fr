@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section class="section">
+  <div class="wrap">
+    <p class="kicker mono">{{ i18n "fund_a_feature" }}</p>
+    <h1>{{ .Title | default (i18n "fund_a_feature") }}</h1>
+    <div class="prose">{{ .Content }}</div>
+    <div class="campaign-grid">
+      {{- range .Pages.ByWeight }}{{ partial "campaign/card.html" . }}{{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,160 @@
+/* Fund-a-feature widget and campaign pages. */
+
+.campaign-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin: 2rem 0 0;
+}
+@media (min-width: 56rem) { .campaign-grid { grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr)); } }
+
+.campaign-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.4rem 1.5rem;
+}
+.campaign-card[data-status="closed"] { border-left-color: var(--line); opacity: 0.75; }
+.campaign-card[data-status="funded"] { border-left-color: var(--ok); }
+.campaign-card h3 { margin-bottom: 0.4rem; }
+.campaign-card h3 a { color: var(--text); text-decoration: none; }
+.campaign-card h3 a:hover { color: var(--accent); }
+.campaign-summary { color: var(--text-muted); font-size: 0.92rem; }
+
+.campaign-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-faint);
+  margin-bottom: 0.6rem;
+}
+.campaign-status {
+  border: 1px solid var(--accent-line);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.68rem;
+}
+[data-status="closed"] .campaign-status { border-color: var(--line); color: var(--text-faint); }
+[data-status="funded"] .campaign-status { border-color: var(--ok); color: var(--ok); }
+
+/* ---- the bar -------------------------------------------------------------- */
+
+.fund { margin: 1.25rem 0 0; }
+
+.fund-bar {
+  position: relative;
+  height: 0.65rem;
+  background: var(--bg-sunken);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: visible;   /* the threshold marker overflows the bar vertically */
+}
+
+.fund-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--accent);
+  border-radius: 999px;
+  /* Width is clamped to 100% in the template; an overfunded campaign still
+     prints its true percentage in the legend below. */
+  max-width: 100%;
+}
+.fund-fill.is-over { background: var(--ok); }
+
+/* Same coordinate space as the fill (percent of the bar's width), so the marker
+   sits exactly at threshold/target with no manual offset. */
+.fund-threshold {
+  position: absolute;
+  top: -0.3rem;
+  bottom: -0.3rem;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--warn);
+  border-radius: 1px;
+}
+.fund-threshold.is-met { background: var(--ok); }
+
+.fund-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem 0.6rem;
+  margin: 0.7rem 0 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+.fund-legend strong { color: var(--text); font-size: 1.05rem; }
+.fund-pct { color: var(--accent); }
+.fund-backers { color: var(--text-faint); }
+.fund-backers::before { content: "· "; }
+
+.fund-threshold-note {
+  margin: 0.5rem 0 0;
+  font-size: 0.84rem;
+  color: var(--warn);
+  background: var(--warn-wash);
+  border-radius: var(--radius-sm);
+  padding: 0.45rem 0.65rem;
+}
+.fund-threshold-note.is-met { color: var(--ok); background: transparent; padding-left: 0; }
+
+/* ---- campaign page -------------------------------------------------------- */
+
+.campaign { padding: var(--step) 0; }
+.campaign .fund { margin: 2rem 0; }
+
+/* Sits between the prose headings and the metadata, so it reads as a label
+   rather than as another section title. */
+.pledge-heading {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-faint);
+  margin: 2.5rem 0 0;
+}
+
+.pledge-tiers { list-style: none; padding: 0; margin: 1rem 0 2rem; display: grid; gap: 0.6rem; }
+.pledge-tier {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.9rem;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.9rem;
+  background: var(--bg-raised);
+}
+.pledge-amount { color: var(--accent); font-weight: 600; white-space: nowrap; }
+.pledge-label { color: var(--text-muted); font-size: 0.9rem; flex: 1 1 16ch; }
+
+.campaign-meta {
+  margin: 2rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line-soft);
+  font-size: 0.84rem;
+  display: grid;
+  gap: 0.5rem;
+}
+.campaign-meta > div { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.campaign-meta dt {
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-size: 0.72rem;
+  min-width: 9rem;
+}
+.campaign-meta dd { margin: 0; color: var(--text-muted); overflow-wrap: anywhere; }
+
+.campaign-past { margin-top: 2rem; }
+.campaign-past summary {
+  cursor: pointer;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}

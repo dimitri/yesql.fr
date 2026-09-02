@@ -1,0 +1,99 @@
+{{- /* One @graph per page. Organization is declared once and referenced by
+       @id from the Service and Course nodes, so nothing is repeated. Every
+       figure is read from the same key the visible partial prints — there is
+       no second copy of a price anywhere in this file. */ -}}
+{{- if .IsHome -}}
+{{- $org := hugo.Data.org -}}
+{{- $home := .Permalink -}}
+{{- $orgID := printf "%s#org" $home -}}
+
+{{- $orgNode := dict
+      "@type"   "Organization"
+      "@id"     $orgID
+      "name"    $org.legalName
+      "url"     $home
+      "email"   $org.email
+      "logo"    ($org.logo | absURL)
+      "sameAs"  $org.sameAs
+      "foundingDate" $org.foundingDate
+      "founder" (dict "@type" "Person" "name" $org.founder)
+      "address" (merge (dict "@type" "PostalAddress") $org.address) -}}
+{{- with site.GetPage "/sections/hero" -}}
+  {{- $orgNode = merge $orgNode (dict "description" .Params.summary) -}}
+{{- end -}}
+{{- $g := slice $orgNode -}}
+
+{{- /* --- Enterprise contract: Service, quote-based so no Offer price --- */ -}}
+{{- with site.GetPage "/sections/contract" -}}
+  {{- $anchor := .Params.anchor | default .File.ContentBaseName -}}
+  {{- $url := printf "%s#%s" $home $anchor -}}
+  {{- $catalog := slice -}}
+  {{- range .Params.tiers -}}
+    {{- $catalog = $catalog | append (dict
+        "@type" "Offer"
+        "name"  .name
+        "url"   (printf "%s#tier-%s" $home .id)
+        "availability" "https://schema.org/InStock"
+        "itemOffered" (dict
+            "@type" "Service"
+            "name" .name
+            "description" (delimit .bullets " · "))) -}}
+  {{- end -}}
+  {{- $g = $g | append (dict
+      "@type"       "Service"
+      "@id"         $url
+      "name"        .Title
+      "serviceType" .Params.service.type
+      "description" .Params.summary
+      "url"         $url
+      "inLanguage"  site.Language.Lang
+      "provider"    (dict "@id" $orgID)
+      "areaServed"  (dict "@type" "Place" "name" .Params.service.areaServed)
+      "hasOfferCatalog" (dict
+          "@type" "OfferCatalog"
+          "name"  .Title
+          "itemListElement" $catalog)) -}}
+{{- end -}}
+
+{{- /* --- Masterclass: Course, one CourseInstance per priced format --- */ -}}
+{{- with site.GetPage "/sections/masterclass" -}}
+  {{- $anchor := .Params.anchor | default .File.ContentBaseName -}}
+  {{- $url := printf "%s#%s" $home $anchor -}}
+  {{- $cur := .Params.pricing.currency -}}
+  {{- $mode := .Params.course.mode -}}
+  {{- $instances := slice -}}
+  {{- range .Params.pricing.formats -}}
+    {{- $instances = $instances | append (dict
+        "@type"          "CourseInstance"
+        "name"           .name
+        "description"    .lede
+        "courseMode"     $mode
+        "courseWorkload" .workload
+        "inLanguage"     site.Language.Lang
+        "offers"         (dict
+            "@type"         "Offer"
+            "price"         .price
+            "priceCurrency" $cur
+            "category"      "Paid"
+            "availability"  "https://schema.org/LimitedAvailability"
+            "url"           $url)) -}}
+  {{- end -}}
+  {{- $g = $g | append (dict
+      "@type"       "Course"
+      "@id"         $url
+      "name"        .Title
+      "description" .Params.summary
+      "url"         $url
+      "inLanguage"  site.Language.Lang
+      "provider"    (dict "@id" $orgID)
+      "offers"      (dict
+          "@type" "AggregateOffer"
+          "priceCurrency" $cur
+          "lowPrice"  (index (sort .Params.pricing.formats "price" "asc") 0).price
+          "highPrice" (index (sort .Params.pricing.formats "price" "desc") 0).price
+          "offerCount" (len .Params.pricing.formats))
+      "hasCourseInstance" $instances) -}}
+{{- end -}}
+
+<script type="application/ld+json">{{ (dict "@context" "https://schema.org" "@graph" $g) | jsonify | safeJS }}</script>
+{{- end -}}

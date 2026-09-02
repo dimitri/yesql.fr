@@ -1,0 +1,32 @@
+{{- $anchor := .Params.anchor | default .File.ContentBaseName -}}
+<section id="{{ $anchor }}" class="section section-contract" aria-labelledby="{{ $anchor }}-h">
+  <div class="wrap">
+    <p class="kicker mono">{{ .Params.kicker }}</p>
+    <h2 id="{{ $anchor }}-h">{{ .Title }}</h2>
+    <p class="lede">{{ .Params.summary }}</p>
+    <div class="prose">{{ .Content }}</div>
+
+    <ul class="tier-grid">
+      {{- range .Params.tiers }}
+      <li class="tier" id="tier-{{ .id }}">
+        <p class="tier-tag mono">{{ .tag }}</p>
+        <h3>{{ .name }}</h3>
+        <ul class="tier-bullets">
+          {{- range .bullets }}
+          <li>{{ . }}</li>
+          {{- end }}
+        </ul>
+      </li>
+      {{- end }}
+    </ul>
+
+    {{- with .Params.subcontracting }}
+    <aside class="note">
+      <p class="note-title mono">{{ .title }}</p>
+      <p>{{ .note }}</p>
+    </aside>
+    {{- end }}
+  </div>
+
+  {{ partial "forms/quote.html" . }}
+</section>

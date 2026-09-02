@@ -1,0 +1,22 @@
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="{{ site.Home.RelPermalink }}">
+      <span class="brand-mark" aria-hidden="true">ye</span><span class="brand-word">SQL</span>
+    </a>
+    <nav class="nav" aria-label="{{ site.Title }}">
+      {{- $items := slice "contract" "club" "masterclass" -}}
+      {{- range $items }}
+        {{- with site.GetPage (printf "/sections/%s" .) }}
+      <a href="{{ site.Home.RelPermalink }}#{{ .File.ContentBaseName }}">{{ .Title }}</a>
+        {{- end }}
+      {{- end }}
+    </nav>
+    <div class="header-actions">
+      {{ partial "langswitch.html" . }}
+      <button type="button" class="theme-toggle" data-theme-toggle
+              aria-label="{{ i18n "theme_toggle" }}" title="{{ i18n "theme_toggle" }}">
+        <span aria-hidden="true" data-theme-icon>◐</span>
+      </button>
+    </div>
+  </div>
+</header>

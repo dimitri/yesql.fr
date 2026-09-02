@@ -1,0 +1,25 @@
+{{- /* Outbound links only. No conversion CTA here by design: this section
+       exists to be checked, not to convert. */ -}}
+{{- $anchor := .Params.anchor | default .File.ContentBaseName -}}
+{{- $blurbs := .Params.blurbs -}}
+<section id="{{ $anchor }}" class="section section-showcase" aria-labelledby="{{ $anchor }}-h">
+  <div class="wrap">
+    <p class="kicker mono">{{ .Params.kicker }}</p>
+    <h2 id="{{ $anchor }}-h">{{ .Title }}</h2>
+    <p class="lede">{{ .Params.summary }}</p>
+
+    <ul class="showcase-grid">
+      {{- range hugo.Data.showcase.items }}
+      <li class="showcase-card" data-kind="{{ .kind }}">
+        <a class="showcase-link" href="{{ .url }}" rel="noopener">
+          <h3 class="mono">{{ .name }}</h3>
+          <p class="showcase-blurb">{{ index $blurbs .id }}</p>
+          <p class="showcase-meta mono">{{ .meta }}</p>
+        </a>
+      </li>
+      {{- end }}
+    </ul>
+
+    <div class="prose">{{ .Content }}</div>
+  </div>
+</section>

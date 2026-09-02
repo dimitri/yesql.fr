@@ -1,0 +1,84 @@
+/* The three CTAs. Each form gets its own block, its own heading and its own
+   button treatment; they are never rendered adjacent to each other. */
+
+.form-block {
+  margin-top: var(--step);
+  padding: 1.75rem 0 var(--step);
+  border-top: 1px solid var(--line-soft);
+}
+/* The form blocks share the page's outer gutter so they line up with the
+   section content above them, and constrain only the form itself to a
+   readable measure — centring the whole block would leave every form visibly
+   offset from the left-aligned section it belongs to. */
+.form-block > .wrap { max-width: var(--wrap); }
+.form-block .form-title,
+.form-block .form-note,
+.form-block .form,
+.form-block .form-privacy { max-width: var(--wrap-narrow); }
+
+/* Quote: the qualifying one. Raised panel, primary button. */
+.form-quote {
+  background: var(--bg-raised);
+  border-top: 2px solid var(--accent);
+}
+/* Club: the low-friction one. Flat, quiet, inline. */
+.form-club {
+  background: transparent;
+  border-top: 1px dashed var(--line);
+}
+/* Masterclass: the scarce one. Deep accent edge. */
+.form-masterclass {
+  background: var(--bg-raised);
+  border-top: 2px solid var(--accent-deep);
+}
+
+.form-title { font-size: 1.15rem; margin-bottom: 0.35rem; }
+.form-note { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem; }
+.form-scarcity { color: var(--warn); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.07em; }
+
+.form { margin: 0; }
+.field { margin: 0 0 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
+.field label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.field .req { color: var(--accent); text-transform: none; letter-spacing: 0; font-size: 0.72rem; }
+.field .opt { color: var(--text-faint); text-transform: none; letter-spacing: 0; font-size: 0.72rem; }
+
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  max-width: 100%;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.7rem;
+}
+.field textarea { resize: vertical; min-height: 6rem; }
+.field input::placeholder, .field textarea::placeholder { color: var(--text-faint); }
+.field input:focus, .field textarea:focus, .field select:focus { border-color: var(--accent); }
+
+.field-submit { margin-top: 1.25rem; }
+@media (max-width: 30rem) {
+  .field-submit .btn { display: block; width: 100%; }
+}
+
+/* Club form: email and button side by side once there is room. */
+@media (min-width: 34rem) {
+  .form-inline { display: flex; align-items: flex-end; gap: 0.75rem; }
+  .form-inline .field { flex: 1 1 auto; margin-bottom: 0; }
+  .form-inline .field-submit { flex: 0 0 auto; margin-top: 0; }
+}
+
+.form-privacy { color: var(--text-faint); font-size: 0.8rem; margin-top: 1rem; }

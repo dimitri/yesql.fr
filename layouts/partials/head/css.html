@@ -1,0 +1,11 @@
+{{- /* One request: concatenated, minified, content-hashed. The order matters —
+       tokens first, everything downstream reads its custom properties. */ -}}
+{{- $css := slice
+      (resources.Get "css/tokens.css")
+      (resources.Get "css/base.css")
+      (resources.Get "css/layout.css")
+      (resources.Get "css/sections.css")
+      (resources.Get "css/campaign.css")
+      (resources.Get "css/forms.css")
+    | resources.Concat "css/yesql.css" | minify | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">

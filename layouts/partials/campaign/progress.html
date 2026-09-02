@@ -1,0 +1,40 @@
+{{- /* The funding widget. Rendered identically by the homepage card and the
+       campaign page, from the same facts dict.
+
+       ctx: the dict returned by campaign/facts.html */ -}}
+{{- $c := . -}}
+<div class="fund" data-status="{{ $c.status }}">
+  <div class="fund-bar" role="progressbar"
+       aria-valuemin="0" aria-valuemax="100"
+       aria-valuenow="{{ math.Round $c.pctClamped }}"
+       aria-label="{{ i18n "fund_progress" }}">
+    {{- /* The fill is clamped at 100% so an overfunded bar does not overflow,
+           while the legend below still prints the true percentage. */ -}}
+    <span class="fund-fill{{ if $c.overfunded }} is-over{{ end }}"
+          style="{{ printf "width:%.2f%%" $c.pctClamped | safeCSS }}"></span>
+    {{- /* Same coordinate space as the fill, so the marker lines up with the
+           threshold by construction rather than by hand. aria-hidden: the
+           sentence below states the same fact in words. */ -}}
+    <span class="fund-threshold{{ if $c.thresholdMet }} is-met{{ end }}"
+          style="{{ printf "left:%.2f%%" $c.pctThreshold | safeCSS }}"
+          aria-hidden="true"
+          title="{{ i18n "fund_threshold_marker" }} — {{ lang.FormatCurrency 0 $c.currency $c.threshold }}"></span>
+  </div>
+
+  <p class="fund-legend">
+    <strong class="mono">{{ lang.FormatCurrency 0 $c.currency $c.raised }}</strong>
+    <span class="fund-of">{{ i18n "fund_of" }} {{ lang.FormatCurrency 0 $c.currency $c.target }}</span>
+    <span class="fund-pct mono">{{ lang.FormatPercent 0 $c.pct }}</span>
+    <span class="fund-backers">{{ i18n "fund_backers" (dict "Count" $c.backers) }}</span>
+  </p>
+
+  <p class="fund-threshold-note{{ if $c.thresholdMet }} is-met{{ end }}">
+    {{- if $c.thresholdMet -}}
+      {{ i18n "fund_threshold_met" (dict "Amount" (lang.FormatCurrency 0 $c.currency $c.threshold)) }}
+    {{- else -}}
+      {{ i18n "fund_threshold_pending" (dict
+           "Amount"    (lang.FormatCurrency 0 $c.currency $c.threshold)
+           "Remaining" (lang.FormatCurrency 0 $c.currency $c.missing)) }}
+    {{- end -}}
+  </p>
+</div>

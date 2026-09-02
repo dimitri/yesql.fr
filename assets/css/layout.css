@@ -1,0 +1,178 @@
+/* Page frame: header, wraps, footer, buttons. Mobile-first throughout. */
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+.wrap-narrow { max-width: var(--wrap-narrow); }
+
+/* ---- header --------------------------------------------------------------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line-soft);
+}
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 3.5rem;
+  flex-wrap: wrap;
+}
+
+.brand {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-decoration: none;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.brand-mark { color: var(--accent); }
+
+.nav {
+  display: flex;
+  gap: 1.1rem;
+  margin-right: auto;
+  overflow-x: auto;
+  scrollbar-width: none;
+  font-size: 0.9rem;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 0.35rem 0;
+  border-bottom: 2px solid transparent;
+}
+.nav a:hover { color: var(--text); border-bottom-color: var(--accent-line); }
+
+.header-actions { display: flex; align-items: center; gap: 0.5rem; }
+
+.langswitch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+.langswitch .lang {
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--text-faint);
+}
+.langswitch a.lang:hover { color: var(--text); background: var(--bg-sunken); }
+.langswitch .is-current { color: var(--text); background: var(--accent-wash); }
+
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  width: 1.9rem;
+  height: 1.9rem;
+  line-height: 1;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.theme-toggle:hover { color: var(--text); border-color: var(--accent-line); }
+
+@media (max-width: 42rem) {
+  .site-header .wrap { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+  .nav { order: 3; width: 100%; margin-right: 0; }
+  .header-actions { margin-left: auto; }
+}
+
+/* ---- buttons -------------------------------------------------------------- */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 0.72rem 1.25rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1.2;
+  text-align: center;
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--on-accent);
+  border-color: var(--accent);
+}
+.btn-primary:hover { background: var(--accent-strong); border-color: var(--accent-strong); color: var(--on-accent); }
+
+/* The club CTA is deliberately quieter than the quote CTA: it is a low-commitment
+   action and must not compete with it visually. */
+.btn-club {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent-line);
+}
+.btn-club:hover { background: var(--accent-wash); color: var(--accent-strong); }
+
+/* The masterclass CTA is the scarce one: solid, but in the deep tone, so the
+   three CTAs are never mistaken for each other. */
+.btn-masterclass {
+  background: var(--accent-deep);
+  color: #fff;
+  border-color: var(--accent-deep);
+}
+.btn-masterclass:hover { filter: brightness(1.12); color: #fff; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: var(--line);
+}
+.btn-ghost:hover { color: var(--text); border-color: var(--accent-line); }
+
+.cta-row { margin: 1.5rem 0 0; }
+@media (max-width: 30rem) {
+  .cta-row .btn { display: block; width: 100%; }
+}
+
+/* ---- footer --------------------------------------------------------------- */
+
+.site-footer {
+  border-top: 1px solid var(--line-soft);
+  background: var(--bg-sunken);
+  padding: var(--step) 0 2.5rem;
+}
+.footer-lead { max-width: 46ch; }
+.footer-name { font-size: 1.1rem; color: var(--text); margin-bottom: 0.35rem; }
+.footer-summary { color: var(--text-muted); font-size: 0.94rem; }
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.75rem 0 1rem;
+  font-size: 0.92rem;
+}
+.footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line-soft);
+  font-size: 0.88rem;
+}
+.footer-meta a { color: var(--text-muted); }
+.footer-copy {
+  margin-top: 1.5rem;
+  color: var(--text-faint);
+  font-size: 0.8rem;
+}

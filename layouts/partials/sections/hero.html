@@ -1,0 +1,24 @@
+{{- $anchor := .Params.anchor | default .File.ContentBaseName -}}
+<section id="{{ $anchor }}" class="section section-hero" aria-labelledby="{{ $anchor }}-h">
+  <div class="wrap">
+    <p class="kicker mono">{{ .Params.kicker }}</p>
+    <h1 id="{{ $anchor }}-h">{{ .Title }}</h1>
+    <p class="lede">{{ .Params.summary | .RenderString }}</p>
+    <div class="prose">{{ .Content }}</div>
+
+    {{- with .Params.proof }}
+    <ul class="proof" aria-label="{{ $.Params.kicker }}">
+      {{- range . }}
+      <li class="proof-item">
+        <span class="proof-value mono">{{ .value }}</span>
+        <span class="proof-label">{{ .label }}</span>
+      </li>
+      {{- end }}
+    </ul>
+    {{- end }}
+
+    <p class="cta-row">
+      <a class="btn btn-primary" href="{{ .Params.cta.href }}">{{ .Params.cta.label }}</a>
+    </p>
+  </div>
+</section>

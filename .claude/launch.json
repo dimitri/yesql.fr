@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "yesql",
+      "runtimeExecutable": "hugo",
+      "runtimeArgs": [
+        "server",
+        "--port",
+        "1414",
+        "--disableFastRender"
+      ],
+      "port": 1414,
+      "url": "http://localhost:1414"
+    }
+  ]
+}

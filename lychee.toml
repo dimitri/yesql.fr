@@ -1,0 +1,8 @@
+# Link checking. The placeholder pledge URL points at .invalid on purpose and
+# must not fail the build until it is replaced with the real one.
+exclude = [
+  "^https://example\\.invalid",
+  "^https://app\\.kit\\.com/forms/0000000",
+  "^mailto:",
+]
+max_redirects = 5

@@ -1,0 +1,30 @@
+{{- /* CTA 1 of 3 — enterprise contract. The qualifying one: a quote needs
+       enough context to be worth writing. Its own Kit form id, so this
+       conversion path stays measurable on its own. */ -}}
+{{- $kit := site.Params.kit -}}
+<div class="form-block form-quote" id="form-quote">
+  <div class="wrap wrap-narrow">
+    <h3 class="form-title">{{ .Params.cta.label }}</h3>
+    <p class="form-note">{{ .Params.cta.note }}</p>
+    <form class="form" method="post" action="{{ $kit.base }}/{{ $kit.quote }}/subscriptions">
+      <p class="field">
+        <label for="quote-email">{{ i18n "form_email" }} <span class="req">{{ i18n "form_required" }}</span></label>
+        <input id="quote-email" type="email" name="email_address" required
+               autocomplete="email" placeholder="{{ i18n "form_email_ph" }}">
+      </p>
+      <p class="field">
+        <label for="quote-company">{{ i18n "form_company" }} <span class="opt">{{ i18n "form_optional" }}</span></label>
+        <input id="quote-company" type="text" name="fields[company]" autocomplete="organization">
+      </p>
+      <p class="field">
+        <label for="quote-need">{{ i18n "form_need" }} <span class="req">{{ i18n "form_required" }}</span></label>
+        <textarea id="quote-need" name="fields[need]" rows="5" required
+                  placeholder="{{ i18n "form_need_ph" }}"></textarea>
+      </p>
+      <p class="field field-submit">
+        <button class="btn btn-primary" type="submit">{{ .Params.cta.label }}</button>
+      </p>
+      <p class="form-privacy">{{ i18n "form_privacy" }}</p>
+    </form>
+  </div>
+</div>

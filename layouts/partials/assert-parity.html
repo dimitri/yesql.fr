@@ -1,0 +1,94 @@
+{{- /* Build-time drift guard, run once per section from home.html.
+
+       Section prose is duplicated across the fr and en trees on purpose — one
+       content edit stays one file — so something has to notice when a price is
+       changed in one language and not the other. errorf fails the build, which
+       means the drift surfaces in CI rather than on the live site.
+
+       The counterpart is fetched through hugo.Sites rather than through
+       .Translations: these section pages are headless (build.render = "never"),
+       and Hugo does not link translations for headless pages, so .Translations
+       is empty here.
+
+       ctx: a section Page. */ -}}
+{{- $p := . -}}
+{{- $name := $p.File.ContentBaseName -}}
+{{- $selfAnchor := $p.Params.anchor | default $name -}}
+{{- $selfLang := $p.Language.Lang -}}
+
+{{- range hugo.Sites -}}
+  {{- if ne .Language.Lang $selfLang -}}
+    {{- $t := .GetPage (printf "/sections/%s" $name) -}}
+    {{- if not $t -}}
+      {{- errorf "parity: content/%s/sections/%s.md exists but content/%s/sections/%s.md does not" $selfLang $name .Language.Lang $name -}}
+    {{- else -}}
+      {{- $where := printf "%s vs %s" $selfLang .Language.Lang -}}
+
+      {{- if ne $selfAnchor ($t.Params.anchor | default $name) -}}
+        {{- errorf "parity[%s] %s: anchor drift, #%s vs #%s" $where $name $selfAnchor ($t.Params.anchor | default $name) -}}
+      {{- end -}}
+
+      {{- /* Repeatable blocks: same count, same ids, same order. */ -}}
+      {{- range $key := slice "tiers" "proof" "agenda" -}}
+        {{- /* A section that has neither block is fine; one that has only
+               one side is exactly the drift we are looking for. */ -}}
+        {{- $mine := cond (isset $p.Params $key) (index $p.Params $key) slice -}}
+        {{- $theirs := cond (isset $t.Params $key) (index $t.Params $key) slice -}}
+        {{- if ne (len $mine) (len $theirs) -}}
+          {{- errorf "parity[%s] %s: %d %s vs %d" $where $name (len $mine) $key (len $theirs) -}}
+        {{- else -}}
+          {{- range $i, $m := $mine -}}
+            {{- $o := index $theirs $i -}}
+            {{- if and (isset $m "id") (isset $o "id") -}}
+              {{- if ne $m.id $o.id -}}
+                {{- errorf "parity[%s] %s: %s[%d] id drift, %q vs %q" $where $name $key $i $m.id $o.id -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{- /* Masterclass: these prices are shown to buyers, they must match. */ -}}
+      {{- with $p.Params.pricing -}}
+        {{- $tp := $t.Params.pricing -}}
+        {{- if ne .currency $tp.currency -}}
+          {{- errorf "parity[%s] %s: pricing currency drift, %q vs %q" $where $name .currency $tp.currency -}}
+        {{- end -}}
+        {{- if ne (len .formats) (len $tp.formats) -}}
+          {{- errorf "parity[%s] %s: %d pricing formats vs %d" $where $name (len .formats) (len $tp.formats) -}}
+        {{- else -}}
+          {{- range $i, $f := .formats -}}
+            {{- $o := index $tp.formats $i -}}
+            {{- if ne $f.id $o.id -}}{{ errorf "parity[%s] %s: format[%d] id drift, %q vs %q" $where $name $i $f.id $o.id }}{{ end -}}
+            {{- if ne $f.price $o.price -}}{{ errorf "parity[%s] %s: price drift for %q, %v vs %v" $where $name $f.id $f.price $o.price }}{{ end -}}
+            {{- if ne $f.workload $o.workload -}}{{ errorf "parity[%s] %s: workload drift for %q, %q vs %q" $where $name $f.id $f.workload $o.workload }}{{ end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{- /* Scarcity is a public commitment: it cannot say 4 in one language. */ -}}
+      {{- with $p.Params.scarcity -}}
+        {{- if ne .max_per_year $t.Params.scarcity.max_per_year -}}
+          {{- errorf "parity[%s] %s: scarcity drift, %v vs %v" $where $name .max_per_year $t.Params.scarcity.max_per_year -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{- /* Club: subscription tier ids and prices. */ -}}
+      {{- with $p.Params.subscription -}}
+        {{- $ts := $t.Params.subscription -}}
+        {{- if ne .currency $ts.currency -}}
+          {{- errorf "parity[%s] %s: subscription currency drift" $where $name -}}
+        {{- end -}}
+        {{- if ne (len .tiers) (len $ts.tiers) -}}
+          {{- errorf "parity[%s] %s: %d subscription tiers vs %d" $where $name (len .tiers) (len $ts.tiers) -}}
+        {{- else -}}
+          {{- range $i, $s := .tiers -}}
+            {{- $o := index $ts.tiers $i -}}
+            {{- if ne $s.id $o.id -}}{{ errorf "parity[%s] %s: subscription tier[%d] id drift, %q vs %q" $where $name $i $s.id $o.id }}{{ end -}}
+            {{- if ne $s.price $o.price -}}{{ errorf "parity[%s] %s: subscription price drift for %q, %v vs %v" $where $name $s.id $s.price $o.price }}{{ end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

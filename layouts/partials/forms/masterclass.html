@@ -1,0 +1,38 @@
+{{- /* CTA 3 of 3 — masterclass booking. Qualifying: format and timeframe
+       decide whether a slot exists at all. Scarcity is repeated here, at the
+       point of decision. */ -}}
+{{- $kit := site.Params.kit -}}
+<div class="form-block form-masterclass" id="form-masterclass">
+  <div class="wrap wrap-narrow">
+    <h3 class="form-title">{{ .Params.cta.label }}</h3>
+    <p class="form-note form-scarcity mono">{{ .Params.cta.note }}</p>
+    <form class="form" method="post" action="{{ $kit.base }}/{{ $kit.masterclass }}/subscriptions">
+      <p class="field">
+        <label for="mc-email">{{ i18n "form_email" }} <span class="req">{{ i18n "form_required" }}</span></label>
+        <input id="mc-email" type="email" name="email_address" required
+               autocomplete="email" placeholder="{{ i18n "form_email_ph" }}">
+      </p>
+      <p class="field">
+        <label for="mc-company">{{ i18n "form_company" }} <span class="req">{{ i18n "form_required" }}</span></label>
+        <input id="mc-company" type="text" name="fields[company]" required autocomplete="organization">
+      </p>
+      <p class="field">
+        <label for="mc-format">{{ i18n "form_format" }}</label>
+        <select id="mc-format" name="fields[format]">
+          {{- $cur := .Params.pricing.currency }}
+          {{- range .Params.pricing.formats }}
+          <option value="{{ .id }}">{{ .name }} — {{ lang.FormatCurrency 0 $cur .price }}</option>
+          {{- end }}
+        </select>
+      </p>
+      <p class="field">
+        <label for="mc-when">{{ i18n "form_timeframe" }}</label>
+        <input id="mc-when" type="text" name="fields[timeframe]" placeholder="{{ i18n "form_timeframe_ph" }}">
+      </p>
+      <p class="field field-submit">
+        <button class="btn btn-masterclass" type="submit">{{ .Params.cta.label }}</button>
+      </p>
+      <p class="form-privacy">{{ i18n "form_privacy" }}</p>
+    </form>
+  </div>
+</div>

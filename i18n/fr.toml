@@ -1,0 +1,52 @@
+# Generic chrome only. Anything that reads as *copy* belongs in
+# content/fr/sections/*.md, not here.
+
+skip_to_content = "Aller au contenu"
+switch_language = "Passer en anglais"
+theme_toggle    = "Basculer le thème clair / sombre"
+learn_more      = "En savoir plus"
+back_home       = "Retour à l'accueil"
+
+# --- fund-a-feature widget ---------------------------------------------------
+fund_a_feature   = "Financer une fonctionnalité"
+fund_progress    = "Progression du financement"
+fund_of          = "sur"
+fund_raised      = "collectés"
+fund_status_open   = "en cours"
+fund_status_funded = "financée"
+fund_status_closed = "clôturée"
+
+
+fund_threshold_pending = "Seuil de démarrage : {{ .Amount }}. Il manque {{ .Remaining }} — en dessous, le développement ne commence pas."
+fund_threshold_met     = "Seuil de {{ .Amount }} atteint : le développement est engagé."
+fund_threshold_marker  = "Seuil de démarrage"
+fund_deadline          = "Échéance"
+fund_source            = "Code source"
+fund_license           = "Licence"
+fund_updated           = "Chiffres au"
+fund_pledge_tiers      = "Paliers de contribution"
+past_campaigns         = "Campagnes passées"
+no_open_campaign       = "Aucune campagne en cours. Rejoignez le club pour être prévenu de la prochaine."
+
+# --- forms -------------------------------------------------------------------
+form_email        = "Adresse e-mail"
+form_email_ph     = "vous@entreprise.com"
+form_company      = "Société"
+form_need         = "Votre besoin"
+form_need_ph      = "Version de PostgreSQL, volumétrie, contexte, échéance."
+form_format       = "Format"
+form_timeframe    = "Période envisagée"
+form_timeframe_ph = "T2 2026, par exemple"
+form_required     = "obligatoire"
+form_optional     = "facultatif"
+form_privacy      = "Une seule adresse, utilisée pour vous répondre. Désinscription en un clic."
+
+# --- footer ------------------------------------------------------------------
+footer_legal   = "Mentions légales"
+footer_contact = "Contact"
+
+# A TOML table swallows every key declared after it, so the one plural form on
+# this site lives at the very end of the file. Add new flat keys ABOVE it.
+[fund_backers]
+  one   = "{{ .Count }} contributeur"
+  other = "{{ .Count }} contributeurs"

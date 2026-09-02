@@ -1,0 +1,298 @@
+/* The five landing-page sections. */
+
+.section { padding: var(--step) 0; border-bottom: 1px solid var(--line-soft); }
+.section:last-of-type { border-bottom: 0; }
+
+.kicker {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin: 0 0 0.75rem;
+}
+
+.lede {
+  font-size: clamp(1.05rem, 2.1vw, 1.25rem);
+  color: var(--text-muted);
+  max-width: 60ch;
+  margin-bottom: 1.5rem;
+}
+
+.note {
+  border-left: 2px solid var(--accent-line);
+  background: var(--accent-wash);
+  padding: 1rem 1.1rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin: 2rem 0 0;
+  max-width: 62ch;
+  color: var(--text-muted);
+  font-size: 0.94rem;
+}
+.note-title {
+  color: var(--text);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+}
+
+.price-note {
+  color: var(--text-faint);
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+.empty { color: var(--text-faint); font-size: 0.94rem; }
+
+/* ---- hero ----------------------------------------------------------------- */
+
+.section-hero { padding-top: calc(var(--step) * 0.9); }
+.section-hero h1 { max-width: 20ch; }
+
+/* Proof before promise: the credentials sit above the CTA, not below it. */
+.proof {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  display: grid;
+  gap: 1px;
+  background: var(--line-soft);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.proof-item {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  background: var(--bg-raised);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.proof-value {
+  color: var(--text);
+  font-size: 0.98rem;
+  overflow-wrap: anywhere;
+}
+.proof-label { color: var(--text-faint); font-size: 0.85rem; line-height: 1.4; }
+@media (min-width: 48rem) {
+  .proof { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---- showcase ------------------------------------------------------------- */
+
+.showcase-grid {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 40rem) { .showcase-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 64rem) { .showcase-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.showcase-card { margin: 0; }
+.showcase-link {
+  display: block;
+  height: 100%;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.15rem 1.2rem;
+  text-decoration: none;
+  color: inherit;
+}
+.showcase-link:hover { border-color: var(--accent-line); background: var(--accent-wash); }
+.showcase-link h3 { color: var(--accent); margin-bottom: 0.5rem; overflow-wrap: anywhere; }
+.showcase-blurb { color: var(--text-muted); font-size: 0.92rem; }
+.showcase-meta {
+  color: var(--text-faint);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0.75rem 0 0;
+}
+
+/* ---- contract ------------------------------------------------------------- */
+
+/* Card grid, never a table: a pricing table is the one thing guaranteed to
+   scroll sideways on a phone. */
+.tier-grid {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 52rem) { .tier-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.tier {
+  margin: 0;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.35rem 1.3rem;
+}
+.tier-tag {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.tier h3 { margin-bottom: 0.75rem; }
+.tier-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+.tier-bullets li {
+  padding-left: 1.1rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.tier-bullets li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+/* ---- club ----------------------------------------------------------------- */
+
+/* Two mechanisms, two cards, visibly separate. */
+.club-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+@media (min-width: 56rem) { .club-grid { grid-template-columns: 1fr 1fr; align-items: start; } }
+
+.club-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.4rem;
+}
+.club-fund { border-top: 3px solid var(--accent); }
+.club-sub  { border-top: 3px solid var(--accent-deep); }
+.club-tag {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-faint);
+  margin-bottom: 0.5rem;
+}
+.club-lede { color: var(--text-muted); font-size: 0.95rem; }
+.club-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.club-bullets li { padding-left: 1.1rem; position: relative; }
+.club-bullets li::before {
+  content: "+";
+  position: absolute; left: 0;
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+.sub-tiers { list-style: none; padding: 0; margin: 1.25rem 0 0; display: grid; gap: 0.85rem; }
+.sub-tier {
+  margin: 0;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1rem;
+  background: var(--bg);
+}
+.sub-tier h4 { margin-bottom: 0.2rem; }
+.sub-price { margin: 0 0 0.35rem; display: flex; align-items: baseline; gap: 0.35rem; flex-wrap: wrap; }
+.sub-amount { color: var(--accent); font-size: 1.15rem; font-weight: 600; }
+.sub-period { color: var(--text-faint); font-size: 0.8rem; }
+.sub-lede { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 0.5rem; }
+.sub-bullets {
+  list-style: none; padding: 0; margin: 0;
+  font-size: 0.85rem; color: var(--text-faint);
+}
+.sub-bullets li { padding-left: 0.9rem; position: relative; margin-bottom: 0.25rem; }
+.sub-bullets li::before {
+  content: "·"; position: absolute; left: 0.15rem; color: var(--accent);
+}
+
+/* ---- masterclass ---------------------------------------------------------- */
+
+/* Scarcity is stated as a fact, in the same visual language as the numbers
+   elsewhere, and placed before the price. */
+.scarcity {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.25rem;
+  border: 1px solid var(--accent-line);
+  background: var(--accent-wash);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  margin: 0 0 2rem;
+}
+.scarcity-figure {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+.scarcity-figure strong { font-size: 2rem; color: var(--accent); line-height: 1; }
+.scarcity-figure span {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text);
+}
+.scarcity-note { margin: 0; color: var(--text-muted); font-size: 0.9rem; flex: 1 1 20ch; }
+
+.agenda {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  display: grid;
+  gap: 1rem;
+  counter-reset: step;
+}
+@media (min-width: 48rem) { .agenda { grid-template-columns: 1fr 1fr; } }
+.agenda-step {
+  margin: 0;
+  border-left: 2px solid var(--accent-line);
+  padding: 0.15rem 0 0.15rem 1rem;
+  counter-increment: step;
+}
+.agenda-step h3 { color: var(--accent); font-size: 0.95rem; }
+.agenda-step h3::before { content: counter(step) ". "; color: var(--text-faint); }
+.agenda-step p { color: var(--text-muted); font-size: 0.92rem; }
+
+.format-grid {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 44rem) { .format-grid { grid-template-columns: 1fr 1fr; } }
+.format {
+  margin: 0;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.35rem 1.3rem;
+}
+.format-price {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0.25rem 0 0.5rem;
+  overflow-wrap: anywhere;
+}
+.format-lede { color: var(--text-muted); font-size: 0.92rem; margin: 0; }

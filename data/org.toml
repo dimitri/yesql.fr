@@ -1,0 +1,21 @@
+# Language-neutral company identity. Feeds the schema.org Organization node and
+# the footer. Nothing here is translated.
+
+legalName  = "YeSQL"
+founder    = "Dimitri Fontaine"
+email      = "contact@yesql.fr"
+vatID      = "FRXXXXXXXXXXX"        # TODO: real VAT number
+siret      = "XXX XXX XXX XXXXX"    # TODO: real SIRET
+logo       = "/img/yesql-mark.svg"
+foundingDate = "2019"
+pgSince    = 1999                   # first production PostgreSQL, drives "25+ years"
+
+sameAs = [
+  "https://github.com/dimitri",
+  "https://tapoueh.org/",
+  "https://theartofpostgresql.com/",
+]
+
+[address]
+  addressCountry  = "FR"
+  addressLocality = "Paris"

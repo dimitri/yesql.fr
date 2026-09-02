@@ -1,0 +1,83 @@
+{{- /* Two mechanisms, two cards, never merged. Card A pulls its campaigns from
+       content/<lang>/campaigns/ automatically — there is no slug list to keep
+       in sync, and closing a campaign is one word in one data file. */ -}}
+{{- $anchor := .Params.anchor | default .File.ContentBaseName -}}
+<section id="{{ $anchor }}" class="section section-club" aria-labelledby="{{ $anchor }}-h">
+  <div class="wrap">
+    <p class="kicker mono">{{ .Params.kicker }}</p>
+    <h2 id="{{ $anchor }}-h">{{ .Title }}</h2>
+    <p class="lede">{{ .Params.summary }}</p>
+    <div class="prose">{{ .Content }}</div>
+
+    <div class="club-grid">
+
+      {{- /* ---- Card A: fund a feature ---------------------------------- */}}
+      {{- with .Params.fund }}
+      <article class="club-card club-fund" aria-labelledby="club-fund-h">
+        <p class="club-tag mono">{{ .tag }}</p>
+        <h3 id="club-fund-h">{{ .title }}</h3>
+        <p class="club-lede">{{ .lede }}</p>
+        <ul class="club-bullets">
+          {{- range .bullets }}
+          <li>{{ . }}</li>
+          {{- end }}
+        </ul>
+      </article>
+      {{- end }}
+
+      {{- /* ---- Card B: pro support subscription ------------------------- */}}
+      {{- with .Params.subscription }}
+      <article class="club-card club-sub" aria-labelledby="club-sub-h">
+        <p class="club-tag mono">{{ .tag }}</p>
+        <h3 id="club-sub-h">{{ .title }}</h3>
+        <p class="club-lede">{{ .lede }}</p>
+        {{- $cur := .currency }}{{ $period := .period }}
+        <ul class="sub-tiers">
+          {{- range .tiers }}
+          <li class="sub-tier" id="sub-{{ .id }}">
+            <h4>{{ .name }}</h4>
+            <p class="sub-price mono">
+              <span class="sub-amount">{{ lang.FormatCurrency 0 $cur .price }}</span>
+              <span class="sub-period">/ {{ $period }}</span>
+            </p>
+            <p class="sub-lede">{{ .lede }}</p>
+            <ul class="sub-bullets">
+              {{- range .bullets }}
+              <li>{{ . }}</li>
+              {{- end }}
+            </ul>
+          </li>
+          {{- end }}
+        </ul>
+        <p class="price-note">{{ .price_note }}</p>
+      </article>
+      {{- end }}
+    </div>
+
+    {{- /* Open campaigns, discovered from the campaigns section. */ -}}
+    {{- $open := slice }}{{ $past := slice }}
+    {{- range where site.RegularPages "Section" "campaigns" }}
+      {{- $f := partialCached "campaign/facts.html" .Params.campaign .Params.campaign }}
+      {{- if $f.isOpen }}{{ $open = $open | append . }}{{ else }}{{ $past = $past | append . }}{{ end }}
+    {{- end }}
+
+    {{- if $open }}
+    <div class="campaign-grid">
+      {{- range sort $open "Weight" }}{{ partial "campaign/card.html" . }}{{ end }}
+    </div>
+    {{- else }}
+    <p class="empty">{{ i18n "no_open_campaign" }}</p>
+    {{- end }}
+
+    {{- with $past }}
+    <details class="campaign-past">
+      <summary>{{ i18n "past_campaigns" }}</summary>
+      <div class="campaign-grid">
+        {{- range sort . "Weight" }}{{ partial "campaign/card.html" . }}{{ end }}
+      </div>
+    </details>
+    {{- end }}
+  </div>
+
+  {{ partial "forms/club.html" . }}
+</section>

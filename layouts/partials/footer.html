@@ -1,0 +1,22 @@
+{{- $f := site.GetPage "/sections/footer" -}}
+<footer class="site-footer" id="footer">
+  <div class="wrap">
+    {{- with $f }}
+    <div class="footer-lead">
+      <p class="footer-name mono">{{ .Title }}</p>
+      <p class="footer-summary">{{ .Params.summary }}</p>
+    </div>
+    <nav class="footer-links" aria-label="{{ .Title }}">
+      {{- range .Params.links }}
+      <a href="{{ .url }}" rel="noopener">{{ .label }}</a>
+      {{- end }}
+    </nav>
+    <div class="footer-meta">
+      <a href="{{ .Params.legal.href }}">{{ .Params.legal.label }}</a>
+      <a href="mailto:{{ hugo.Data.org.email }}">{{ i18n "footer_contact" }}</a>
+      {{ partial "langswitch.html" $ }}
+    </div>
+    {{- end }}
+    <p class="footer-copy mono">© {{ now.Year }} {{ hugo.Data.org.legalName }} · {{ hugo.Data.org.founder }}</p>
+  </div>
+</footer>

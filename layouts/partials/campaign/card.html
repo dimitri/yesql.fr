@@ -1,0 +1,15 @@
+{{- /* Compact campaign card, used in the club section and on the campaign
+       list page. ctx: the campaign Page. */ -}}
+{{- $c := partialCached "campaign/facts.html" .Params.campaign .Params.campaign -}}
+<article class="campaign-card" data-status="{{ $c.status }}">
+  <p class="campaign-kicker mono">
+    {{ i18n "fund_a_feature" }} · {{ $c.project }}
+    <span class="campaign-status">{{ i18n (printf "fund_status_%s" $c.status) }}</span>
+  </p>
+  <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  <p class="campaign-summary">{{ .Params.summary }}</p>
+  {{ partial "campaign/progress.html" $c }}
+  <p class="cta-row">
+    <a class="btn btn-ghost" href="{{ .RelPermalink }}">{{ .Params.cta.label | default (i18n "learn_more") }}</a>
+  </p>
+</article>

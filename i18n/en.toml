@@ -1,0 +1,52 @@
+# Generic chrome only. Anything that reads as *copy* belongs in
+# content/en/sections/*.md, not here.
+
+skip_to_content = "Skip to content"
+switch_language = "Switch to French"
+theme_toggle    = "Toggle light / dark theme"
+learn_more      = "Read more"
+back_home       = "Back home"
+
+# --- fund-a-feature widget ---------------------------------------------------
+fund_a_feature   = "Fund a feature"
+fund_progress    = "Funding progress"
+fund_of          = "of"
+fund_raised      = "raised"
+fund_status_open   = "open"
+fund_status_funded = "funded"
+fund_status_closed = "closed"
+
+
+fund_threshold_pending = "Start threshold: {{ .Amount }}. {{ .Remaining }} to go — below it, development does not start."
+fund_threshold_met     = "{{ .Amount }} threshold reached: development is committed."
+fund_threshold_marker  = "Start threshold"
+fund_deadline          = "Deadline"
+fund_source            = "Source"
+fund_license           = "License"
+fund_updated           = "Figures as of"
+fund_pledge_tiers      = "Pledge tiers"
+past_campaigns         = "Past campaigns"
+no_open_campaign       = "No campaign is open right now. Join the club to hear about the next one."
+
+# --- forms -------------------------------------------------------------------
+form_email        = "Email address"
+form_email_ph     = "you@company.com"
+form_company      = "Company"
+form_need         = "What you need"
+form_need_ph      = "PostgreSQL version, data volume, context, timeline."
+form_format       = "Format"
+form_timeframe    = "Preferred timeframe"
+form_timeframe_ph = "Q2 2026, for instance"
+form_required     = "required"
+form_optional     = "optional"
+form_privacy      = "One address, used to reply to you. One-click unsubscribe."
+
+# --- footer ------------------------------------------------------------------
+footer_legal   = "Legal notice"
+footer_contact = "Contact"
+
+# A TOML table swallows every key declared after it, so the one plural form on
+# this site lives at the very end of the file. Add new flat keys ABOVE it.
+[fund_backers]
+  one   = "{{ .Count }} backer"
+  other = "{{ .Count }} backers"

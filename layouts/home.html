@@ -1,0 +1,15 @@
+{{ define "main" }}
+{{- /* Section order lives here, and only here. Each name is simultaneously:
+         the content file  content/<lang>/sections/<name>.md
+         the partial       layouts/partials/sections/<name>.html
+         the anchor id     #<name>, which the CTAs scroll to.
+       Reordering the page means reordering this slice. Nothing carries a
+       weight, so fr and en cannot drift into different orders. */ -}}
+{{- $order := slice "hero" "showcase" "contract" "club" "masterclass" -}}
+{{- range $order }}
+  {{- $p := site.GetPage (printf "/sections/%s" .) -}}
+  {{- if not $p }}{{ errorf "missing content/%s/sections/%s.md" site.Language.Lang . }}{{ end -}}
+  {{- partial "assert-parity.html" $p -}}
+  {{- partial (printf "sections/%s.html" .) $p }}
+{{- end }}
+{{ end }}

@@ -1,0 +1,39 @@
+{{- /* Resolve one campaign's figures and derive everything the widgets need,
+       in one place, so the homepage card and the campaign page can never
+       disagree with each other.
+
+       in : campaign slug (string), i.e. the basename in data/campaigns/
+       out : the data file's keys, merged with the derived display values.
+
+       Call it as `partialCached "campaign/facts.html" $slug $slug` so the
+       arithmetic runs once per campaign per build. */ -}}
+{{- $slug := . -}}
+{{- $c := index hugo.Data.campaigns $slug -}}
+{{- if not $c -}}
+  {{- errorf "campaign: no data/campaigns/%s.toml — a campaign is one data file plus one content file per language" $slug -}}
+{{- end -}}
+
+{{- $target := float $c.target -}}
+{{- $raised := float $c.raised -}}
+{{- $thresh := float $c.threshold -}}
+
+{{- /* Multiply by the float literal 100.0 BEFORE dividing: `div` on two ints
+       is integer division, and 18750/50000 would collapse to 0. */ -}}
+{{- $pct := 0.0 -}}
+{{- $pctThreshold := 0.0 -}}
+{{- if gt $target 0.0 -}}
+  {{- $pct = div (mul $raised 100.0) $target -}}
+  {{- $pctThreshold = div (mul $thresh 100.0) $target -}}
+{{- end -}}
+
+{{- return merge $c (dict
+      "slug"          $slug
+      "pct"           $pct
+      "pctClamped"    (math.Min $pct 100.0)
+      "pctThreshold"  (math.Min $pctThreshold 100.0)
+      "thresholdMet"  (ge $c.raised $c.threshold)
+      "overfunded"    (gt $pct 100.0)
+      "missing"       (math.Max (sub $c.threshold $c.raised) 0)
+      "remaining"     (math.Max (sub $c.target $c.raised) 0)
+      "isOpen"        (eq $c.status "open")
+   ) -}}

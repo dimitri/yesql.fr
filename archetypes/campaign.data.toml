@@ -1,0 +1,31 @@
+# Fund-a-feature campaign figures — LANGUAGE-NEUTRAL, single source of truth.
+# The prose lives in content/<lang>/campaigns/<slug>/index.md, pointing here
+# with `campaign = "<slug>"`. No amount belongs in the content files.
+
+status     = "open"        # open | funded | closed
+currency   = "EUR"
+
+target     = 0             # full scope
+threshold  = 0             # below this, development does not start
+raised     = 0
+backers    = 0
+
+opened     = "1970-01-01"
+deadline   = "1970-01-01"
+updated    = "1970-01-01"
+
+project    = ""
+repo       = ""
+license    = "PostgreSQL License"
+pledge_url = ""
+
+# Amounts only. Labels are translated, in each content file's [tier_labels].
+[[tiers]]
+  id     = "individual"
+  amount = 250
+[[tiers]]
+  id     = "company"
+  amount = 5000
+[[tiers]]
+  id     = "sponsor"
+  amount = 15000

@@ -1,0 +1,19 @@
+{{- /* Links straight to this page's translation when there is one, and to the
+       other language's home page when there is not — never a dead end.
+
+       hugo.Sites, not site.Languages: the latter is deprecated as of 0.156. */ -}}
+<div class="langswitch">
+  {{- $current := site.Language.Lang -}}
+  {{- range hugo.Sites }}
+    {{- $lang := .Language.Lang -}}
+    {{- if eq $lang $current }}
+  <span class="lang is-current" aria-current="true">{{ $lang | upper }}</span>
+    {{- else }}
+      {{- $href := "" -}}
+      {{- range $.AllTranslations }}{{ if eq .Language.Lang $lang }}{{ $href = .RelPermalink }}{{ end }}{{ end -}}
+      {{- if not $href }}{{ $href = printf "/%s/" $lang }}{{ end }}
+  <a class="lang" href="{{ $href }}" hreflang="{{ $lang }}" lang="{{ $lang }}"
+     title="{{ i18n "switch_language" }}">{{ $lang | upper }}</a>
+    {{- end }}
+  {{- end }}
+</div>
