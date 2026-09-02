@@ -1,0 +1,49 @@
+{{- /* Renders the company identification block required by article 6-III of
+       the LCEN, from data/org.toml. Used by both legal notices so the SIREN,
+       VAT number and capital exist exactly once in the repository.
+
+       Usage in a content file: {{< org-legal >}} */ -}}
+{{- $o := hugo.Data.org -}}
+{{- $fr := eq site.Language.Lang "fr" -}}
+<dl class="legal-id">
+  <div>
+    <dt>{{ if $fr }}Dénomination{{ else }}Registered name{{ end }}</dt>
+    <dd>{{ $o.registryName }}</dd>
+  </div>
+  <div>
+    <dt>{{ if $fr }}Forme juridique{{ else }}Legal form{{ end }}</dt>
+    <dd>{{ $o.legalForm }}</dd>
+  </div>
+  <div>
+    <dt>{{ if $fr }}Capital social{{ else }}Share capital{{ end }}</dt>
+    <dd>{{ lang.FormatCurrency 0 $o.capitalCurrency $o.capital }}</dd>
+  </div>
+  <div>
+    <dt>{{ if $fr }}Siège social{{ else }}Registered office{{ end }}</dt>
+    <dd>{{ $o.address.streetAddress }}, {{ $o.address.postalCode }} {{ $o.address.addressLocality }}, France</dd>
+  </div>
+  <div>
+    <dt>SIREN</dt>
+    <dd class="mono">{{ $o.siren }}</dd>
+  </div>
+  <div>
+    <dt>SIRET {{ if $fr }}(siège){{ else }}(head office){{ end }}</dt>
+    <dd class="mono">{{ $o.siret }}</dd>
+  </div>
+  <div>
+    <dt>{{ if $fr }}Immatriculation{{ else }}Trade register{{ end }}</dt>
+    <dd class="mono">{{ $o.rcs }}</dd>
+  </div>
+  <div>
+    <dt>{{ if $fr }}TVA intracommunautaire{{ else }}VAT number{{ end }}</dt>
+    <dd class="mono">{{ $o.vatID }}</dd>
+  </div>
+  <div>
+    <dt>{{ if $fr }}Code APE{{ else }}Activity code{{ end }}</dt>
+    <dd class="mono">{{ $o.ape }} — {{ $o.apeLabel }}</dd>
+  </div>
+  <div>
+    <dt>{{ if $fr }}Contact{{ else }}Contact{{ end }}</dt>
+    <dd><a href="mailto:{{ $o.email }}">{{ $o.email }}</a></dd>
+  </div>
+</dl>

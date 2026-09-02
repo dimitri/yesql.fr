@@ -296,3 +296,32 @@
   overflow-wrap: anywhere;
 }
 .format-lede { color: var(--text-muted); font-size: 0.92rem; margin: 0; }
+
+/* ---- legal notice --------------------------------------------------------- */
+
+/* A definition list rather than a table: it stacks on a phone without any
+   horizontal scroll, and it is the right semantics for label/value pairs. */
+.legal-id {
+  margin: 1.5rem 0 2rem;
+  display: grid;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+}
+.legal-id > div {
+  display: grid;
+  gap: 0.15rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+.legal-id > div:last-child { border-bottom: 0; }
+.legal-id dt {
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.legal-id dd { margin: 0; color: var(--text); overflow-wrap: anywhere; }
+@media (min-width: 40rem) {
+  .legal-id > div { grid-template-columns: 14rem 1fr; gap: 1rem; align-items: baseline; }
+}

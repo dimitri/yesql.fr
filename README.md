@@ -39,7 +39,8 @@ language, with a meta refresh to `/fr/` as the no-JS fallback.
 | `make clean` | Remove `docs/` and the resource cache |
 
 Deployment is GitHub Pages from `docs/` on push to `main`, via
-`.github/workflows/deploy.yml`.
+`.github/workflows/deploy.yml`. See **[DEPLOY.md](DEPLOY.md)** for the repository
+setup, the DNS records for the apex domain, and the TLS steps.
 
 ---
 
@@ -86,7 +87,12 @@ French and English orders drift apart silently.
 
 Things that are not prose and must never exist twice:
 
-- `data/org.toml` — company identity, feeds the schema.org `Organization` node
+- `data/org.toml` — company identity: legal form, capital, SIREN/SIRET, VAT
+  number, registered office. Verified against the official registry at
+  <https://annuaire-entreprises.data.gouv.fr/entreprise/838806933>. It feeds the
+  schema.org `Organization` node, the footer, **and both legal notices** through
+  the `{{< org-legal >}}` shortcode — so each identifier exists exactly once in
+  the repository and cannot drift between the French and English pages.
 - `data/showcase.toml` — the showcase cards' URLs and technical labels (their
   descriptions are translated, in `sections/showcase.md` under `[blurbs]`)
 - `data/campaigns/*.toml` — campaign figures, see below
@@ -237,9 +243,6 @@ third-party requests.
 
 ## Other things marked TODO
 
-- `data/org.toml` — VAT number and SIRET
-- `content/fr/mentions-legales.md` and `content/en/legal-notice.md` — legal form,
-  capital, registered address
 - `data/campaigns/oracle-pgloader-v4.toml` — the real `pledge_url`
 - `hugo.toml` `[params.crosslinks]` — reciprocal links, once the matching inbound
   links exist on theartofpostgresql.com and tapoueh.org

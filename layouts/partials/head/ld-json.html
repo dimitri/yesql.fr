@@ -8,18 +8,26 @@
 {{- $orgID := printf "%s#org" $home -}}
 
 {{- $orgNode := dict
-      "@type"   "Organization"
-      "@id"     $orgID
-      "name"    $org.legalName
-      "url"     $home
-      "email"   $org.email
-      "logo"    ($org.logo | absURL)
-      "sameAs"  $org.sameAs
+      "@type"        "Organization"
+      "@id"          $orgID
+      "name"         $org.legalName
+      "legalName"    $org.registryName
+      "url"          $home
+      "email"        $org.email
+      "logo"         ($org.logo | absURL)
+      "sameAs"       $org.sameAs
       "foundingDate" $org.foundingDate
-      "founder" (dict "@type" "Person" "name" $org.founder)
-      "address" (merge (dict "@type" "PostalAddress") $org.address) -}}
+      "vatID"        $org.vatID
+      "taxID"        (replace $org.siret " " "")
+      "founder"      (dict "@type" "Person" "name" $org.founder)
+      "address"      (merge (dict "@type" "PostalAddress") $org.address)
+      "identifier"   (slice
+          (dict "@type" "PropertyValue" "propertyID" "SIREN" "value" (replace $org.siren " " ""))
+          (dict "@type" "PropertyValue" "propertyID" "SIRET" "value" (replace $org.siret " " ""))) -}}
+{{- /* The hero summary carries markdown emphasis for the visible page; strip
+       it here, JSON-LD wants plain text. */ -}}
 {{- with site.GetPage "/sections/hero" -}}
-  {{- $orgNode = merge $orgNode (dict "description" .Params.summary) -}}
+  {{- $orgNode = merge $orgNode (dict "description" (.Params.summary | markdownify | plainify | chomp)) -}}
 {{- end -}}
 {{- $g := slice $orgNode -}}
 

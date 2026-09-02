@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: build & deploy
 
 on:
   push:
@@ -15,36 +15,45 @@ concurrency:
   cancel-in-progress: true
 
 env:
+  # Keep in step with the local toolchain: hugo version.
   HUGO_VERSION: "0.164.0"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-      - uses: peaceiris/actions-hugo@v3
+
+      - name: Install Hugo (extended)
+        uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: "${{ env.HUGO_VERSION }}"
+          hugo-version: ${{ env.HUGO_VERSION }}
           extended: true
 
-      # The fr/en parity guard in layouts/partials/assert-parity.html raises
-      # errorf on drift, so a mismatched price fails right here.
+      # The fr/en parity guard in layouts/partials/assert-parity.html calls
+      # errorf on drift, so a price changed in one language only fails here.
       - name: Build
         run: hugo --minify --gc --baseURL "https://yesql.fr/"
 
-      - name: Fail on template warnings
+      # Template lookup failures and broken content references are warnings,
+      # not errors, so they would otherwise ship silently.
+      - name: Fail on any Hugo warning
         run: |
           hugo --renderToMemory --logLevel warn --printPathWarnings 2>&1 | tee /tmp/hugo.log
-          ! grep -q '^WARN' /tmp/hugo.log
+          if grep -q '^WARN' /tmp/hugo.log; then
+            echo "::error::Hugo emitted warnings, see the log above"
+            exit 1
+          fi
 
-      - uses: lycheeverse/lychee-action@v2
+      - name: Check internal links
+        uses: lycheeverse/lychee-action@v2
         with:
-          args: "--offline --no-progress --root-dir docs docs/"
+          args: --offline --no-progress --root-dir docs docs/
           fail: true
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: ./docs
 
@@ -53,7 +62,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: "${{ steps.deployment.outputs.page_url }}"
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

@@ -1,14 +1,31 @@
-# Language-neutral company identity. Feeds the schema.org Organization node and
-# the footer. Nothing here is translated.
+# Language-neutral company identity. Feeds the schema.org Organization node,
+# the footer and both legal notices. Nothing here is translated.
+#
+# Source: the official INSEE-backed registry
+# https://annuaire-entreprises.data.gouv.fr/entreprise/838806933
+# Verified 2026-09-02.
 
-legalName  = "YeSQL"
-founder    = "Dimitri Fontaine"
-email      = "contact@yesql.fr"
-vatID      = "FRXXXXXXXXXXX"        # TODO: real VAT number
-siret      = "XXX XXX XXX XXXXX"    # TODO: real SIRET
-logo       = "/img/yesql-mark.svg"
-foundingDate = "2019"
-pgSince    = 1999                   # first production PostgreSQL, drives "25+ years"
+legalName    = "YeSQL"
+registryName = "YESQL"                  # exactly as registered at the RCS
+founder      = "Dimitri Fontaine"
+role         = "Président"
+email        = "contact@yesql.fr"
+logo         = "/img/yesql-mark.svg"
+
+# Registration
+legalForm    = "Société par actions simplifiée (SAS)"
+capital      = 5000
+capitalCurrency = "EUR"
+siren        = "838 806 933"
+siret        = "838 806 933 00019"       # siège
+vatID        = "FR57838806933"
+rcs          = "RCS Paris 838 806 933"
+ape          = "6201Z"
+apeLabel     = "Programmation informatique"
+foundingDate = "2018-04-09"
+
+# First PostgreSQL database in production — drives the "25+ years" claim.
+pgSince = 1999
 
 sameAs = [
   "https://github.com/dimitri",
@@ -17,5 +34,7 @@ sameAs = [
 ]
 
 [address]
-  addressCountry  = "FR"
+  streetAddress   = "209 rue Saint-Honoré"
+  postalCode      = "75001"
   addressLocality = "Paris"
+  addressCountry  = "FR"
