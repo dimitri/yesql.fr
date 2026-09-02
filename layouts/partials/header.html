@@ -4,11 +4,12 @@
       <span class="brand-mark" aria-hidden="true">ye</span><span class="brand-word">SQL</span>
     </a>
     <nav class="nav" aria-label="{{ site.Title }}">
-      {{- $items := slice "contract" "club" "masterclass" -}}
-      {{- range $items }}
-        {{- with site.GetPage (printf "/sections/%s" .) }}
-      <a href="{{ site.Home.RelPermalink }}#{{ .File.ContentBaseName }}">{{ .Title }}</a>
-        {{- end }}
+      {{- /* Top-level pages only, ordered by the `weight` in their own front
+             matter, so the nav and the site structure cannot drift apart.
+             `nav` is a short label; `title` stays the page's real <h1>.
+             The `.Section` test is what keeps campaign pages out of here. */ -}}
+      {{- range sort (where (where site.RegularPages "Section" "") "Params.nav" "!=" nil) "Weight" }}
+      <a href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ .Params.nav }}</a>
       {{- end }}
     </nav>
     <div class="header-actions">

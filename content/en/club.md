@@ -1,5 +1,10 @@
 +++
 title   = "The user club"
+type    = "club"
+slug    = "club"
+weight  = 30
+nav     = "The club"
+description = "Pro support subscription for pg_auto_failover, pgcopydb and pgloader, plus threshold crowdfunding for open source features."
 kicker  = "Two mechanisms, kept apart"
 summary = "Fund one specific open source feature, or subscribe to recurring pro support on the tools I maintain."
 

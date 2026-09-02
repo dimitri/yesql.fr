@@ -45,6 +45,11 @@ form_privacy      = "Une seule adresse, utilisée pour vous répondre. Désinscr
 footer_legal   = "Mentions légales"
 footer_contact = "Contact"
 
+# --- études de cas ---------------------------------------------------------
+case_context = "Situation"
+case_finding = "Diagnostic"
+case_outcome = "Résultat"
+
 # A TOML table swallows every key declared after it, so the one plural form on
 # this site lives at the very end of the file. Add new flat keys ABOVE it.
 [fund_backers]

@@ -1,0 +1,25 @@
+{{- /* Every page on this site is meant to exist in both languages. This runs
+       from baseof.html for every page, so a page added in one language only —
+       or a slug renamed on one side — fails the build instead of quietly
+       shipping a site where the language switcher dead-ends.
+
+       Campaign bundles are exempt from failing: a campaign may legitimately be
+       drafted in one language first, so that case warns instead.
+
+       ctx: any Page. */ -}}
+{{- if .File -}}
+  {{- $p := . -}}
+  {{- $path := $p.Path -}}
+  {{- $selfLang := $p.Language.Lang -}}
+  {{- range hugo.Sites -}}
+    {{- if ne .Language.Lang $selfLang -}}
+      {{- if not (.GetPage $path) -}}
+        {{- if eq $p.Section "campaigns" -}}
+          {{- warnf "translation: %s has no %s counterpart at %q" $p.File.Path .Language.Lang $path -}}
+        {{- else -}}
+          {{- errorf "translation: %s exists in %s but %q has no counterpart in %s" $p.File.Path $selfLang $path .Language.Lang -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

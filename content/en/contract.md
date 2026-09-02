@@ -1,5 +1,10 @@
 +++
 title   = "Enterprise contract"
+type    = "contract"
+slug    = "contract"
+weight  = 10
+nav     = "Contract"
+description = "PostgreSQL enterprise support, advanced PostgreSQL training and migration expertise, from a PostgreSQL Major Contributor. Yearly contract, quote-based."
 kicker  = "Support · Training · Expertise"
 summary = "PostgreSQL enterprise support on a yearly contract: direct access to the author of pgloader, pgcopydb and pg_auto_failover, with no level-1 queue in between."
 

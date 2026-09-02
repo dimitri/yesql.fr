@@ -10,6 +10,7 @@
   {{/* Applied before first paint so an explicit light choice never flashes
        dark. Dark is the default, so no stored choice means: leave it. */}}
   <script>try{var t=localStorage.getItem("yesql-theme");if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+  {{- partial "assert-translated.html" . -}}
   {{ partial "head/meta.html" . }}
   {{ partial "head/hreflang.html" . }}
   {{ partial "head/css.html" . }}

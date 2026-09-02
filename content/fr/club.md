@@ -1,5 +1,10 @@
 +++
 title   = "Le club utilisateurs"
+type    = "club"
+slug    = "club"
+weight  = 30
+nav     = "Le club"
+description = "Support pro par abonnement sur pg_auto_failover, pgcopydb et pgloader, et financement participatif de fonctionnalités open source."
 kicker  = "Deux mécanismes, distincts"
 summary = "Financer une fonctionnalité open source précise, ou souscrire un support pro récurrent sur les outils que je maintiens."
 

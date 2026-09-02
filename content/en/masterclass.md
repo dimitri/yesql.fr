@@ -1,5 +1,10 @@
 +++
 title   = "The masterclass"
+type    = "masterclass"
+slug    = "masterclass"
+weight  = 20
+nav     = "Masterclass"
+description = "Advanced PostgreSQL training onsite, one or two days, built on your schema and your queries. €3,000 / €5,000, four sessions a year."
 kicker  = "The Art of PostgreSQL · onsite"
 summary = "Advanced PostgreSQL training, onsite, over one or two days, built on your schema and your queries. Four sessions a year, no more."
 

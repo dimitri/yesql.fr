@@ -4,7 +4,7 @@
 {{- $kit := site.Params.kit -}}
 <div class="form-block form-club" id="form-club">
   <div class="wrap wrap-narrow">
-    <h3 class="form-title">{{ .Params.cta.label }}</h3>
+    <h2 class="form-title">{{ .Params.cta.label }}</h2>
     <p class="form-note">{{ .Params.cta.note }}</p>
     <form class="form form-inline" method="post" action="{{ $kit.base }}/{{ $kit.club }}/subscriptions">
       <p class="field">

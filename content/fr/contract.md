@@ -1,5 +1,10 @@
 +++
 title   = "Contrat entreprise"
+type    = "contract"
+slug    = "contrat"
+weight  = 10
+nav     = "Contrat"
+description = "Support PostgreSQL entreprise, formation PostgreSQL avancée et expertise migration, par un contributeur majeur de PostgreSQL. Contrat annuel, sur devis."
 kicker  = "Support · Formation · Expertise"
 summary = "Support PostgreSQL entreprise à l'année : accès direct à l'auteur de pgloader, pgcopydb et pg_auto_failover, sans niveau 1 intermédiaire."
 

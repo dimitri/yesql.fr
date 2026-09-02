@@ -1,10 +1,16 @@
-{{- /* One @graph per page. Organization is declared once and referenced by
-       @id from the Service and Course nodes, so nothing is repeated. Every
-       figure is read from the same key the visible partial prints — there is
-       no second copy of a price anywhere in this file. */ -}}
-{{- if .IsHome -}}
+{{- /* One @graph per page.
+
+       Organization is emitted on every page and always carries the same @id, so
+       search engines see one entity across the site rather than one per page.
+       Service and Course are emitted only on the page that actually describes
+       them — which is the point of the multi-page structure: each offer gets a
+       real URL that its structured data can point at.
+
+       Every figure is read from the same front-matter key the visible partial
+       prints; there is no second copy of a price in this file. */ -}}
+
 {{- $org := hugo.Data.org -}}
-{{- $home := .Permalink -}}
+{{- $home := site.Home.Permalink -}}
 {{- $orgID := printf "%s#org" $home -}}
 
 {{- $orgNode := dict
@@ -19,28 +25,41 @@
       "foundingDate" $org.foundingDate
       "vatID"        $org.vatID
       "taxID"        (replace $org.siret " " "")
-      "founder"      (dict "@type" "Person" "name" $org.founder)
       "address"      (merge (dict "@type" "PostalAddress") $org.address)
       "identifier"   (slice
           (dict "@type" "PropertyValue" "propertyID" "SIREN" "value" (replace $org.siren " " ""))
           (dict "@type" "PropertyValue" "propertyID" "SIRET" "value" (replace $org.siret " " ""))) -}}
-{{- /* The hero summary carries markdown emphasis for the visible page; strip
-       it here, JSON-LD wants plain text. */ -}}
-{{- with site.GetPage "/sections/hero" -}}
+
+{{- /* The founder is the product here, so describe the person properly and
+       point at the PostgreSQL contributors list as the authoritative source. */ -}}
+{{- $person := dict
+      "@type"      "Person"
+      "@id"        (printf "%s#founder" $home)
+      "name"       $org.founder
+      "jobTitle"   $org.role
+      "sameAs"     $org.sameAs
+      "worksFor"   (dict "@id" $orgID) -}}
+{{- with site.GetPage "/about" -}}
+  {{- $person = merge $person (dict
+        "description" (.Params.summary | markdownify | plainify | chomp)
+        "url"         .Permalink
+        "image"       (.Params.photo.src | absURL)) -}}
+{{- end -}}
+{{- $orgNode = merge $orgNode (dict "founder" (dict "@id" (printf "%s#founder" $home))) -}}
+{{- with site.Home -}}
   {{- $orgNode = merge $orgNode (dict "description" (.Params.summary | markdownify | plainify | chomp)) -}}
 {{- end -}}
-{{- $g := slice $orgNode -}}
 
-{{- /* --- Enterprise contract: Service, quote-based so no Offer price --- */ -}}
-{{- with site.GetPage "/sections/contract" -}}
-  {{- $anchor := .Params.anchor | default .File.ContentBaseName -}}
-  {{- $url := printf "%s#%s" $home $anchor -}}
+{{- $g := slice $orgNode $person -}}
+
+{{- /* --- Enterprise contract: Service, quote-based, so no Offer price --- */ -}}
+{{- if eq .Type "contract" -}}
   {{- $catalog := slice -}}
   {{- range .Params.tiers -}}
     {{- $catalog = $catalog | append (dict
         "@type" "Offer"
         "name"  .name
-        "url"   (printf "%s#tier-%s" $home .id)
+        "url"   (printf "%s#tier-%s" $.Permalink .id)
         "availability" "https://schema.org/InStock"
         "itemOffered" (dict
             "@type" "Service"
@@ -49,11 +68,11 @@
   {{- end -}}
   {{- $g = $g | append (dict
       "@type"       "Service"
-      "@id"         $url
+      "@id"         (printf "%s#service" .Permalink)
       "name"        .Title
       "serviceType" .Params.service.type
       "description" .Params.summary
-      "url"         $url
+      "url"         .Permalink
       "inLanguage"  site.Language.Lang
       "provider"    (dict "@id" $orgID)
       "areaServed"  (dict "@type" "Place" "name" .Params.service.areaServed)
@@ -64,9 +83,7 @@
 {{- end -}}
 
 {{- /* --- Masterclass: Course, one CourseInstance per priced format --- */ -}}
-{{- with site.GetPage "/sections/masterclass" -}}
-  {{- $anchor := .Params.anchor | default .File.ContentBaseName -}}
-  {{- $url := printf "%s#%s" $home $anchor -}}
+{{- if eq .Type "masterclass" -}}
   {{- $cur := .Params.pricing.currency -}}
   {{- $mode := .Params.course.mode -}}
   {{- $instances := slice -}}
@@ -84,14 +101,14 @@
             "priceCurrency" $cur
             "category"      "Paid"
             "availability"  "https://schema.org/LimitedAvailability"
-            "url"           $url)) -}}
+            "url"           $.Permalink)) -}}
   {{- end -}}
   {{- $g = $g | append (dict
       "@type"       "Course"
-      "@id"         $url
+      "@id"         (printf "%s#course" .Permalink)
       "name"        .Title
       "description" .Params.summary
-      "url"         $url
+      "url"         .Permalink
       "inLanguage"  site.Language.Lang
       "provider"    (dict "@id" $orgID)
       "offers"      (dict
@@ -103,5 +120,13 @@
       "hasCourseInstance" $instances) -}}
 {{- end -}}
 
-<script type="application/ld+json">{{ (dict "@context" "https://schema.org" "@graph" $g) | jsonify | safeJS }}</script>
+{{- /* --- Breadcrumb on interior pages, so the offer URLs read as a tree --- */ -}}
+{{- if and .IsPage (ne .Type "legal") -}}
+  {{- $g = $g | append (dict
+      "@type" "BreadcrumbList"
+      "itemListElement" (slice
+          (dict "@type" "ListItem" "position" 1 "name" site.Title "item" $home)
+          (dict "@type" "ListItem" "position" 2 "name" .Title "item" .Permalink))) -}}
 {{- end -}}
+
+<script type="application/ld+json">{{ (dict "@context" "https://schema.org" "@graph" $g) | jsonify | safeJS }}</script>

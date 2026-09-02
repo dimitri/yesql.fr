@@ -12,7 +12,11 @@
       {{- end }}
     </nav>
     <div class="footer-meta">
-      <a href="{{ .Params.legal.href }}">{{ .Params.legal.label }}</a>
+      {{- /* Resolved, not hardcoded: the legal page's URL is localized by its
+             own `slug`, and the footer should not carry a second copy of it. */ -}}
+      {{- range site.RegularPages }}{{ if eq .Type "legal" }}
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{- end }}{{ end }}
       <a href="mailto:{{ hugo.Data.org.email }}">{{ i18n "footer_contact" }}</a>
       {{ partial "langswitch.html" $ }}
     </div>

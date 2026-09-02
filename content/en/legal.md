@@ -1,6 +1,8 @@
 +++
 title = "Legal notice"
-description = "Legal notice and publisher information for yesql.fr — YeSQL, a French société par actions simplifiée."
+type = "legal"
+slug = "legal-notice"
+description = "Legal notice for yesql.fr — YeSQL, a French société par actions simplifiée, SIREN 838 806 933."
 +++
 
 Published under article 6-III of French law no. 2004-575 of 21 June 2004 on

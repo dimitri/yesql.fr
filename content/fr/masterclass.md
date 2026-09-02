@@ -1,5 +1,10 @@
 +++
 title   = "La masterclass"
+type    = "masterclass"
+slug    = "masterclass"
+weight  = 20
+nav     = "Masterclass"
+description = "Formation PostgreSQL avancée sur site, une ou deux journées, à partir de votre schéma et de vos requêtes. 3 000 € / 5 000 €, quatre sessions par an."
 kicker  = "The Art of PostgreSQL · sur site"
 summary = "Formation PostgreSQL avancée sur site, sur une ou deux journées, à partir de votre schéma et de vos requêtes. Quatre sessions par an, pas davantage."
 

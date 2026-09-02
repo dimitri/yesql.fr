@@ -1,7 +1,9 @@
 {{ define "main" }}
 <article class="section">
   <div class="wrap wrap-narrow">
+    <p class="kicker mono">{{ .Params.kicker | default site.Title }}</p>
     <h1>{{ .Title }}</h1>
+    {{- with .Params.summary }}<p class="lede">{{ . }}</p>{{ end }}
     <div class="prose">{{ .Content }}</div>
   </div>
 </article>

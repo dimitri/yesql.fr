@@ -1,41 +1,30 @@
-{{- /* Two mechanisms, two cards, never merged. Card A pulls its campaigns from
-       content/<lang>/campaigns/ automatically — there is no slug list to keep
-       in sync, and closing a campaign is one word in one data file. */ -}}
+{{- /* Two mechanisms, two cards, never merged. The recurring subscription leads
+       because it is the model with a track record; threshold crowdfunding
+       follows it. Campaigns are discovered from content/<lang>/campaigns/
+       automatically — there is no slug list to keep in sync, and closing a
+       campaign is one word in one data file. */ -}}
 {{- $anchor := .Params.anchor | default .File.ContentBaseName -}}
 <section id="{{ $anchor }}" class="section section-club" aria-labelledby="{{ $anchor }}-h">
   <div class="wrap">
     <p class="kicker mono">{{ .Params.kicker }}</p>
-    <h2 id="{{ $anchor }}-h">{{ .Title }}</h2>
+    <h1 id="{{ $anchor }}-h">{{ .Title }}</h1>
     <p class="lede">{{ .Params.summary }}</p>
     <div class="prose">{{ .Content }}</div>
 
     <div class="club-grid">
 
-      {{- /* ---- Card A: fund a feature ---------------------------------- */}}
-      {{- with .Params.fund }}
-      <article class="club-card club-fund" aria-labelledby="club-fund-h">
-        <p class="club-tag mono">{{ .tag }}</p>
-        <h3 id="club-fund-h">{{ .title }}</h3>
-        <p class="club-lede">{{ .lede }}</p>
-        <ul class="club-bullets">
-          {{- range .bullets }}
-          <li>{{ . }}</li>
-          {{- end }}
-        </ul>
-      </article>
-      {{- end }}
-
-      {{- /* ---- Card B: pro support subscription ------------------------- */}}
+      {{- /* ---- Card A: pro support subscription ------------------------- */}}
       {{- with .Params.subscription }}
       <article class="club-card club-sub" aria-labelledby="club-sub-h">
         <p class="club-tag mono">{{ .tag }}</p>
-        <h3 id="club-sub-h">{{ .title }}</h3>
+        <h2 id="club-sub-h">{{ .title }}</h2>
         <p class="club-lede">{{ .lede }}</p>
-        {{- $cur := .currency }}{{ $period := .period }}
+        {{- $cur := .currency }}
+        {{- $period := .period }}
         <ul class="sub-tiers">
           {{- range .tiers }}
           <li class="sub-tier" id="sub-{{ .id }}">
-            <h4>{{ .name }}</h4>
+            <h3>{{ .name }}</h3>
             <p class="sub-price mono">
               <span class="sub-amount">{{ lang.FormatCurrency 0 $cur .price }}</span>
               <span class="sub-period">/ {{ $period }}</span>
@@ -50,6 +39,20 @@
           {{- end }}
         </ul>
         <p class="price-note">{{ .price_note }}</p>
+      </article>
+      {{- end }}
+
+      {{- /* ---- Card B: fund a feature (threshold crowdfunding) ---------- */}}
+      {{- with .Params.fund }}
+      <article class="club-card club-fund" aria-labelledby="club-fund-h">
+        <p class="club-tag mono">{{ .tag }}</p>
+        <h2 id="club-fund-h">{{ .title }}</h2>
+        <p class="club-lede">{{ .lede }}</p>
+        <ul class="club-bullets">
+          {{- range .bullets }}
+          <li>{{ . }}</li>
+          {{- end }}
+        </ul>
       </article>
       {{- end }}
     </div>

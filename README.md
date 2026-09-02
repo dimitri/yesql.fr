@@ -44,78 +44,80 @@ setup, the DNS records for the apex domain, and the TLS steps.
 
 ---
 
+## Site structure
+
+Hub and spokes. One page, one job, one call to action — a single page carrying
+three different offers serves neither the SEO targets (one URL cannot rank for
+three intents) nor conversion (three competing CTAs is a landing page with no
+landing).
+
+```
+/fr/                          hub — proof, three routes, one primary CTA
+/fr/contrat/                  ← "support PostgreSQL entreprise"   /en/contract/
+/fr/masterclass/              ← "formation PostgreSQL avancée"    /en/masterclass/
+/fr/club/                     subscription + campaigns            /en/club/
+/fr/references/               public proof, case studies          /en/references/
+/fr/a-propos/                 the person, the core contributions  /en/about/
+/fr/campaigns/<slug>/         one per campaign                    /en/campaigns/<slug>/
+/fr/mentions-legales/                                             /en/legal-notice/
+```
+
+URLs are localized by the `slug` in each page's front matter, but **the content
+filenames are language-neutral and identical in both trees** — `contract.md` in
+both, one slugged `contrat`, the other `contract`. That is what makes
+`/fr/contrat/` and `/en/contract/` link to each other as translations, and what
+lets the parity guard find a page's counterpart without a mapping table.
+
+The one exception is the `campaigns/` directory name, which stays English in
+both trees so the campaign layouts are shared. Campaign pages rank on the
+feature name, not on a generic French noun, so the cost is small.
+
 ## Where the copy lives
 
 Three places, each for one job. Knowing which is which is most of what you need
 to maintain this site.
 
-### 1. `content/{fr,en}/sections/*.md` — all landing-page copy
+### 1. Page front matter and body
 
-The homepage is assembled from six headless section files. They are never
-rendered as pages of their own; `layouts/home.html` pulls them in by name.
-
-```
-content/fr/sections/hero.md        ←→  content/en/sections/hero.md
-content/fr/sections/showcase.md    ←→  content/en/sections/showcase.md
-content/fr/sections/contract.md    ←→  content/en/sections/contract.md
-content/fr/sections/club.md        ←→  content/en/sections/club.md
-content/fr/sections/masterclass.md ←→  content/en/sections/masterclass.md
-content/fr/sections/footer.md      ←→  content/en/sections/footer.md
-```
-
-**The filenames are identical in both trees, on purpose.** The anchor id (`#contract`),
-the partial that renders it, and the parity check all derive from the filename,
-so nothing has to be kept in sync by hand. A CTA written as `href = "#contract"`
-resolves under `/fr/` and `/en/` alike.
-
-The front matter carries the structured bits (tiers, prices, bullets, CTA
-labels); the markdown body carries the paragraphs. Both language files use the
-same keys in the same order, so:
+Each page carries its own copy: the front matter holds the structured bits
+(tiers, prices, bullets, CTA labels, proof items), the markdown body holds the
+paragraphs. Both language files use the same keys in the same order, so:
 
 ```bash
-diff content/fr/sections/contract.md content/en/sections/contract.md
+diff content/fr/contract.md content/en/contract.md
 ```
 
 shows exactly the translated lines and nothing else. Keep it that way.
 
-**Section order** lives in one place: the `$order` slice at the top of
-`layouts/home.html`. Reordering the page means reordering that line. There are
-deliberately no `weight` values in the section front matter — they would let the
-French and English orders drift apart silently.
+Front matter keys that drive the site rather than the copy:
 
-### 2. `data/*.toml` — language-neutral facts
+| Key | What it does |
+|---|---|
+| `type` | Picks the layout: `layouts/<type>/page.html` |
+| `slug` | The localized last URL segment |
+| `weight` | Nav order — the header reads it, so nav and structure cannot drift |
+| `nav` | Short nav label, separate from the page's real `<h1>` |
+| `headline` | Home only: the `<h1>` a human reads, while `title` targets the query |
 
-Things that are not prose and must never exist twice:
+### 2. `content/{fr,en}/sections/*.md` — headless, shared fragments
 
-- `data/org.toml` — company identity: legal form, capital, SIREN/SIRET, VAT
-  number, registered office. Verified against the official registry at
-  <https://annuaire-entreprises.data.gouv.fr/entreprise/838806933>. It feeds the
-  schema.org `Organization` node, the footer, **and both legal notices** through
-  the `{{< org-legal >}}` shortcode — so each identifier exists exactly once in
-  the repository and cannot drift between the French and English pages.
-- `data/showcase.toml` — the showcase cards' URLs and technical labels (their
-  descriptions are translated, in `sections/showcase.md` under `[blurbs]`)
-- `data/campaigns/*.toml` — campaign figures, see below
+What is rendered inside another page rather than being a page: `showcase.md`
+(the hub's proof cards) and `footer.md`. They never get a URL of their own.
 
-### 3. `i18n/{fr,en}.toml` — template chrome only
+### 3. `data/*.toml` and `i18n/{fr,en}.toml`
+## The two build-time guards
 
-Around twenty generic strings that belong to templates rather than to any one
-page: form field labels, the funding widget's vocabulary, "skip to content".
+**`assert-translated.html`** runs from `baseof.html` for every page. A page that
+exists in one language and not the other fails the build, so the language
+switcher can never dead-end. Campaign bundles warn instead of failing, since a
+campaign may legitimately be drafted in one language first.
 
-Note the one gotcha: a TOML table swallows every key declared after it, so
-`[fund_backers]` (the plural form) sits at the very **end** of each file. Add new
-flat keys above it.
-
----
-
-## The fr/en parity guard
-
-Section prices are duplicated across the two language trees on purpose — that
+**`assert-parity.html`** runs from the layouts that render priced content.
+Prices are duplicated across the two language trees on purpose — that
 way one content change stays one file edit. `layouts/partials/assert-parity.html`
 runs at build time and calls `errorf` when the two sides disagree on anything a
 buyer sees:
 
-- a section that exists in one language but not the other
 - differing anchor ids
 - a different number of `[[tiers]]`, `[[proof]]` or `[[agenda]]` entries
 - a renamed or reordered `id` in any of those
@@ -124,8 +126,7 @@ buyer sees:
 - a subscription tier id or price that differs
 
 `errorf` fails the build, so drift is caught in CI rather than shipped. To see it
-work, change `price = 3000` in `content/fr/sections/masterclass.md` only, and run
-`make check`.
+work, change `price = 3000` in `content/fr/masterclass.md` only, and run `make check`.
 
 Campaign figures do *not* need this guard: they live in a single data file and
 cannot diverge in the first place.
@@ -214,14 +215,21 @@ the identical dict, so they cannot disagree with each other.
 They are deliberately distinct — visually, structurally, and in their
 analytics. Each posts to its own ConvertKit (Kit) form:
 
-| CTA | Section | Fields | Kit form id |
+| CTA | Page | Fields | Kit form id |
 |---|---|---|---|
-| Request a quote | contract | email, company, need | `params.kit.quote` |
-| Join the club | club | email only | `params.kit.club` |
-| Book a slot | masterclass | email, company, format, timeframe | `params.kit.masterclass` |
+| Request a quote | `/contrat/` · `/contract/` | email, company, need | `params.kit.quote` |
+| Join the club | `/club/` | email only | `params.kit.club` |
+| Book a slot | `/masterclass/` | email, company, format, timeframe | `params.kit.masterclass` |
 
-Never merge them into one form or place two in the same section: separate ids
-are what makes each conversion path measurable on its own.
+One per page, and never two on the same page: separate pages and separate form
+ids are what make each conversion path measurable on its own. The hub carries a
+single primary CTA — the contract — and routes to the other two rather than
+competing with them.
+
+`partials/cta-contract.html` renders that primary CTA, resolved from the
+contract page so its label and localized URL exist in one place. It closes the
+pages that build credibility without selling on their own (`/references/`,
+`/a-propos/`).
 
 ### Wiring up the forms
 
@@ -244,6 +252,12 @@ third-party requests.
 ## Other things marked TODO
 
 - `data/campaigns/oracle-pgloader-v4.toml` — the real `pledge_url`
+- **`content/{fr,en}/references.md` — the `[[cases]]` array is empty on purpose.**
+  The template is ready and the shape is documented in a comment inside each
+  file: *situation → what I found → what changed*, with a number. This is the
+  largest remaining gap between this site and every comparable consultancy, and
+  it is the one thing that cannot be written without you. Get written permission
+  before naming a client; "a European telecoms operator" still beats nothing.
 - `hugo.toml` `[params.crosslinks]` — reciprocal links, once the matching inbound
   links exist on theartofpostgresql.com and tapoueh.org
 
@@ -272,6 +286,7 @@ check. Remove those exclusions as you fill each one in.
 
 ## SEO
 
+Each page owns one intent, which is the point of the multi-page structure.
 Long-tail targets, baked into titles and summaries rather than stuffed:
 "support PostgreSQL entreprise" / "PostgreSQL enterprise support", "expert
 pgloader" / "pgloader expert", "formation PostgreSQL avancée" / "advanced
@@ -280,6 +295,9 @@ target.
 
 `hreflang` is emitted from `layouts/partials/head/hreflang.html` with a correct
 `x-default` pointing at the French version of each page. Schema.org
-`Organization`, `Service` and `Course` are emitted as a single `@graph` from
-`layouts/partials/head/ld-json.html`, reading the same front-matter keys the
-visible page prints — there is no second copy of a price anywhere.
+Structured data is emitted per page from `layouts/partials/head/ld-json.html`:
+`Organization` and `Person` on every page with a stable `@id` so they read as
+one entity across the site, `Service` only on the contract page, `Course` only
+on the masterclass page, and a `BreadcrumbList` on interior pages. Every figure
+is read from the same front-matter key the visible page prints — there is no
+second copy of a price anywhere.

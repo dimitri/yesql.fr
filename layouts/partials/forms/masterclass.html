@@ -4,7 +4,7 @@
 {{- $kit := site.Params.kit -}}
 <div class="form-block form-masterclass" id="form-masterclass">
   <div class="wrap wrap-narrow">
-    <h3 class="form-title">{{ .Params.cta.label }}</h3>
+    <h2 class="form-title">{{ .Params.cta.label }}</h2>
     <p class="form-note form-scarcity mono">{{ .Params.cta.note }}</p>
     <form class="form" method="post" action="{{ $kit.base }}/{{ $kit.masterclass }}/subscriptions">
       <p class="field">

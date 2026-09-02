@@ -1,0 +1,8 @@
+{{- /* The site's primary call to action, resolved from the contract page so
+       its label and localized URL exist in exactly one place. Used to close
+       the pages that build credibility but do not sell on their own. */ -}}
+{{- range site.RegularPages }}{{ if eq .Type "contract" }}
+<p class="cta-row">
+  <a class="btn btn-primary" href="{{ .RelPermalink }}">{{ .Params.cta.label }}</a>
+</p>
+{{- end }}{{ end }}

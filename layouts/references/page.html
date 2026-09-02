@@ -1,0 +1,57 @@
+{{ define "main" }}
+<article class="section section-references">
+  <div class="wrap">
+    <p class="kicker mono">{{ .Params.kicker }}</p>
+    <h1>{{ .Title }}</h1>
+    <p class="lede">{{ .Params.summary }}</p>
+    <div class="prose">{{ .Content }}</div>
+
+    {{- /* Public, checkable proof. Rendered first because it needs nobody's
+           permission and is therefore always here. */ -}}
+    {{- with .Params.public }}
+    <ul class="proof-grid">
+      {{- range . }}
+      <li class="proof-card" id="proof-{{ .id }}">
+        <p class="proof-tag mono">{{ .tag }}</p>
+        <h2>{{ .title }}</h2>
+        <p class="proof-lede">{{ $.RenderString .lede }}</p>
+        <p class="proof-link"><a href="{{ .url }}" rel="noopener">{{ .cta }} →</a></p>
+      </li>
+      {{- end }}
+    </ul>
+    {{- end }}
+
+    {{- /* Case studies, once there are real ones. The template is ready; the
+           array in the content file is empty on purpose. */ -}}
+    {{- with .Params.cases }}
+    <ul class="case-list">
+      {{- range . }}
+      <li class="case" id="case-{{ .id }}">
+        <p class="case-tag mono">{{ .tag }} · {{ .client }}</p>
+        <dl class="case-body">
+          <div><dt>{{ i18n "case_context" }}</dt><dd>{{ .context }}</dd></div>
+          <div><dt>{{ i18n "case_finding" }}</dt><dd>{{ .finding }}</dd></div>
+          <div><dt>{{ i18n "case_outcome" }}</dt><dd>{{ .outcome }}</dd></div>
+        </dl>
+        {{- with .quote }}
+        <blockquote class="case-quote">
+          <p>{{ . }}</p>
+        </blockquote>
+        {{- end }}
+        {{- with .author }}<p class="case-author mono">— {{ . }}</p>{{ end }}
+      </li>
+      {{- end }}
+    </ul>
+    {{- end }}
+
+    {{- with .Params.on_request }}
+    <aside class="note">
+      <p class="note-title mono">{{ .title }}</p>
+      <p>{{ .note }}</p>
+    </aside>
+    {{- end }}
+
+    {{ partial "cta-contract.html" . }}
+  </div>
+</article>
+{{ end }}

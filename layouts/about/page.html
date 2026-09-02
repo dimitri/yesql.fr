@@ -1,0 +1,48 @@
+{{ define "main" }}
+<article class="section section-about">
+  <div class="wrap">
+    <p class="kicker mono">{{ .Params.kicker }}</p>
+    <h1>{{ .Title }}</h1>
+    <p class="lede">{{ .Params.summary }}</p>
+
+    <div class="about-grid">
+      <div class="about-body">
+        {{- /* The core contributions come first: they are the one credential
+               that cannot be manufactured, and the whole site rests on them. */}}
+        {{- with .Params.core }}
+        <ul class="core-list">
+          {{- range . }}
+          <li class="core-item">
+            <h2 class="mono"><a href="{{ .url }}" rel="noopener">{{ .name }}</a></h2>
+            <p>{{ .lede }}</p>
+          </li>
+          {{- end }}
+        </ul>
+        {{- end }}
+        <div class="prose">{{ .Content }}</div>
+      </div>
+
+      <aside class="about-side">
+        {{- with .Params.photo }}
+        <figure class="portrait">
+          <img src="{{ .src }}" alt="{{ .alt }}" width="320" height="320" loading="lazy">
+          <figcaption class="mono">{{ .credit }}</figcaption>
+        </figure>
+        {{- end }}
+        {{- with .Params.facts }}
+        <dl class="facts">
+          {{- range . }}
+          <div>
+            <dt>{{ .label }}</dt>
+            <dd>{{ if .url }}<a href="{{ .url }}" rel="noopener">{{ .value }}</a>{{ else }}{{ .value }}{{ end }}</dd>
+          </div>
+          {{- end }}
+        </dl>
+        {{- end }}
+      </aside>
+    </div>
+
+    {{ partial "cta-contract.html" . }}
+  </div>
+</article>
+{{ end }}

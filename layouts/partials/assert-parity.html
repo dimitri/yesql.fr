@@ -1,4 +1,5 @@
-{{- /* Build-time drift guard, run once per section from home.html.
+{{- /* Build-time drift guard for the value-carrying pages, called from the
+       layouts that render priced content.
 
        Section prose is duplicated across the fr and en trees on purpose — one
        content edit stays one file — so something has to notice when a price is
@@ -16,11 +17,16 @@
 {{- $selfAnchor := $p.Params.anchor | default $name -}}
 {{- $selfLang := $p.Language.Lang -}}
 
+{{- /* .Path is the logical, language-neutral page path ("/contract"), so this
+       keeps working wherever the file lives — it does not care that the offer
+       pages moved out of /sections/ when the site went multi-page. */ -}}
+{{- $path := $p.Path -}}
+
 {{- range hugo.Sites -}}
   {{- if ne .Language.Lang $selfLang -}}
-    {{- $t := .GetPage (printf "/sections/%s" $name) -}}
+    {{- $t := .GetPage $path -}}
     {{- if not $t -}}
-      {{- errorf "parity: content/%s/sections/%s.md exists but content/%s/sections/%s.md does not" $selfLang $name .Language.Lang $name -}}
+      {{- errorf "parity: %s exists in %s but %q has no counterpart in %s" $p.File.Path $selfLang $path .Language.Lang -}}
     {{- else -}}
       {{- $where := printf "%s vs %s" $selfLang .Language.Lang -}}
 

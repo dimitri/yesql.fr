@@ -1,6 +1,6 @@
 +++
 title   = "YeSQL"
-summary = "PostgreSQL in production since 1999. Author of The Art of PostgreSQL, maintainer of pgloader, pgcopydb and pg_auto_failover."
+summary = "PostgreSQL Major Contributor, in production since 1999. CREATE EXTENSION and Event Triggers are mine. Author of The Art of PostgreSQL, maintainer of pgloader, pgcopydb and pg_auto_failover."
 
 [[links]]
   label = "The Art of PostgreSQL"
@@ -12,7 +12,4 @@ summary = "PostgreSQL in production since 1999. Author of The Art of PostgreSQL,
   label = "GitHub"
   url   = "https://github.com/dimitri"
 
-[legal]
-  label = "Legal notice"
-  href  = "/en/legal-notice/"
 +++

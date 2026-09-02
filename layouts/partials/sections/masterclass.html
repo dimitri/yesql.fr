@@ -2,7 +2,7 @@
 <section id="{{ $anchor }}" class="section section-masterclass" aria-labelledby="{{ $anchor }}-h">
   <div class="wrap">
     <p class="kicker mono">{{ .Params.kicker }}</p>
-    <h2 id="{{ $anchor }}-h">{{ .Title }}</h2>
+    <h1 id="{{ $anchor }}-h">{{ .Title }}</h1>
     <p class="lede">{{ .Params.summary }}</p>
 
     {{- /* Scarcity is stated, not implied. It sits above the fold of the
@@ -20,7 +20,7 @@
     <ol class="agenda">
       {{- range . }}
       <li class="agenda-step" id="agenda-{{ .id }}">
-        <h3 class="mono">{{ .name }}</h3>
+        <h2 class="mono">{{ .name }}</h2>
         <p>{{ .lede }}</p>
       </li>
       {{- end }}
@@ -39,7 +39,7 @@
     <ul class="format-grid">
       {{- range .formats }}
       <li class="format" id="format-{{ .id }}">
-        <h3>{{ .name }}</h3>
+        <h2>{{ .name }}</h2>
         <p class="format-price mono">{{ lang.FormatCurrency 0 $cur .price }}</p>
         <p class="format-lede">{{ .lede }}</p>
       </li>

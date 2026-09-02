@@ -1,6 +1,8 @@
 +++
 title = "Mentions légales"
-description = "Mentions légales et informations sur l'éditeur du site yesql.fr — YeSQL, société par actions simplifiée."
+type = "legal"
+slug = "mentions-legales"
+description = "Mentions légales du site yesql.fr — YeSQL, société par actions simplifiée, SIREN 838 806 933."
 +++
 
 Informations communiquées en application de l'article 6-III de la loi n° 2004-575

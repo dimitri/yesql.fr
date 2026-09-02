@@ -1,15 +1,56 @@
 {{ define "main" }}
-{{- /* Section order lives here, and only here. Each name is simultaneously:
-         the content file  content/<lang>/sections/<name>.md
-         the partial       layouts/partials/sections/<name>.html
-         the anchor id     #<name>, which the CTAs scroll to.
-       Reordering the page means reordering this slice. Nothing carries a
-       weight, so fr and en cannot drift into different orders. */ -}}
-{{- $order := slice "hero" "showcase" "contract" "club" "masterclass" -}}
-{{- range $order }}
-  {{- $p := site.GetPage (printf "/sections/%s" .) -}}
-  {{- if not $p }}{{ errorf "missing content/%s/sections/%s.md" site.Language.Lang . }}{{ end -}}
-  {{- partial "assert-parity.html" $p -}}
-  {{- partial (printf "sections/%s.html" .) $p }}
+{{- /* The hub routes; it does not sell. Proof first, then one card per offer,
+       then the public evidence. The single primary CTA is the contract — the
+       other two routes are secondary by design, so the page has one obvious
+       next step rather than three competing ones. */ -}}
+
+<section class="section section-hero" aria-labelledby="hero-h">
+  <div class="wrap">
+    <p class="kicker mono">{{ .Params.kicker }}</p>
+    <h1 id="hero-h">{{ .Params.headline | default .Title }}</h1>
+    <p class="lede">{{ .Params.summary | .RenderString }}</p>
+    <div class="prose">{{ .Content }}</div>
+
+    {{- with .Params.proof }}
+    <ul class="proof">
+      {{- range . }}
+      <li class="proof-item">
+        <span class="proof-value mono">
+          {{- if .href }}<a href="{{ .href }}" rel="noopener">{{ .value }}</a>{{ else }}{{ .value }}{{ end -}}
+        </span>
+        <span class="proof-label">{{ $.RenderString .label }}</span>
+      </li>
+      {{- end }}
+    </ul>
+    {{- end }}
+
+    <p class="cta-row">
+      <a class="btn btn-primary" href="{{ .Params.cta.href }}">{{ .Params.cta.label }}</a>
+    </p>
+  </div>
+</section>
+
+{{- with .Params.routes }}
+<section class="section section-routes" aria-labelledby="routes-h">
+  <div class="wrap">
+    <h2 id="routes-h" class="visually-hidden">{{ site.Title }}</h2>
+    <ul class="route-grid">
+      {{- range . }}
+      <li class="route{{ if .primary }} is-primary{{ end }}">
+        <a class="route-link" href="{{ .href }}">
+          <p class="route-tag mono">{{ .tag }}</p>
+          <h3>{{ .title }}</h3>
+          <p class="route-lede">{{ .lede }}</p>
+          <p class="route-cta mono">{{ .cta }} →</p>
+        </a>
+      </li>
+      {{- end }}
+    </ul>
+  </div>
+</section>
+{{- end }}
+
+{{- with site.GetPage "/sections/showcase" }}
+{{ partial "sections/showcase.html" . }}
 {{- end }}
 {{ end }}
