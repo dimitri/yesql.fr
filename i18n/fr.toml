@@ -29,8 +29,6 @@ past_campaigns         = "Campagnes passées"
 no_open_campaign       = "Aucune campagne en cours. Devenez membre pour être prévenu de la prochaine."
 
 # --- forms -------------------------------------------------------------------
-form_email        = "Adresse e-mail"
-form_email_ph     = "vous@entreprise.com"
 form_privacy      = "Une seule adresse, utilisée pour vous répondre. Désinscription en un clic."
 
 # --- footer ------------------------------------------------------------------

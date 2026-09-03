@@ -8,11 +8,6 @@ description = "Upstream maintenance for pgloader, pgcopydb, pg_auto_failover and
 kicker  = "Open source maintenance, co-funded"
 summary = "Fund the maintenance of the tools your production depends on, together. Prioritized fixes, releases shipped, roadmap influence — and a quarterly letter for members only."
 
-[cta]
-  label = "Become a member"
-  href  = "#form-members"
-  note  = "The quarterly letter is free. Maintenance tiers are bought on the store."
-
 # Labels for the recurring tiers, keyed by the `id` in data/members.toml.
 # No amount here: the prices live in the data file, exactly once.
 [tier_labels]

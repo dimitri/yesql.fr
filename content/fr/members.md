@@ -8,11 +8,6 @@ description = "Maintenance amont de pgloader, pgcopydb, pg_auto_failover et pgex
 kicker  = "Maintenance open source, co-financée"
 summary = "Financer ensemble la maintenance des outils dont vos productions dépendent. Correctifs priorisés, versions publiées, influence sur la feuille de route — et une lettre trimestrielle réservée aux membres."
 
-[cta]
-  label = "Devenir membre"
-  href  = "#form-members"
-  note  = "La lettre trimestrielle est gratuite. Les paliers de maintenance se souscrivent sur la boutique."
-
 # Libellés des paliers récurrents, indexés par l'`id` de data/members.toml.
 # Aucun montant ici : les prix sont dans le fichier de données, une seule fois.
 [tier_labels]

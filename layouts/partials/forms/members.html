@@ -1,21 +1,16 @@
 {{- /* CTA 2 of 3 — the members' quarterly letter. The low-friction one: email
        only, no qualifying question. The paid tiers do not go through here —
-       they check out on ThriveCart — so this form's only job is the letter. */ -}}
-{{- $kit := site.Params.kit -}}
+       they check out on ThriveCart — so this embed's only job is the letter.
+
+       Kit's own hosted async embed, the same integration pattern already
+       used on pgloader.io and theartofpostgresql.com, rather than a
+       hand-rolled form posting to Kit's legacy endpoint. */ -}}
+{{- $uid := site.Params.kit.uid -}}
 <div class="form-block form-members" id="form-members">
   <div class="wrap wrap-narrow">
     <h2 class="form-title">{{ .Params.newsletter.title }}</h2>
     <p class="form-note">{{ .Params.newsletter.note }}</p>
-    <form class="form form-inline" method="post" action="{{ $kit.base }}/{{ $kit.members }}/subscriptions">
-      <p class="field">
-        <label for="members-email">{{ i18n "form_email" }}</label>
-        <input id="members-email" type="email" name="email_address" required
-               autocomplete="email" placeholder="{{ i18n "form_email_ph" }}">
-      </p>
-      <p class="field field-submit">
-        <button class="btn btn-members" type="submit">{{ .Params.cta.label }}</button>
-      </p>
-    </form>
+    <script async data-uid="{{ $uid }}" src="https://yesql.kit.com/{{ $uid }}/index.js"></script>
     <p class="form-privacy">{{ i18n "form_privacy" }}</p>
   </div>
 </div>

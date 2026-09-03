@@ -118,16 +118,6 @@
 }
 .btn-primary:hover { background: var(--accent-strong); border-color: var(--accent-strong); color: var(--on-accent); }
 
-/* The Members CTA is deliberately quieter than the primary button: it is a
-   low-commitment action (a free newsletter signup) and must not compete
-   visually with a page's actual call to action. */
-.btn-members {
-  background: transparent;
-  color: var(--accent);
-  border-color: var(--accent-line);
-}
-.btn-members:hover { background: var(--accent-wash); color: var(--accent-strong); }
-
 .btn-ghost {
   background: transparent;
   color: var(--text-muted);

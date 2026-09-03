@@ -29,8 +29,6 @@ past_campaigns         = "Past campaigns"
 no_open_campaign       = "No campaign is open right now. Become a member to hear about the next one."
 
 # --- forms -------------------------------------------------------------------
-form_email        = "Email address"
-form_email_ph     = "you@company.com"
 form_privacy      = "One address, used to reply to you. One-click unsubscribe."
 
 # --- footer ------------------------------------------------------------------

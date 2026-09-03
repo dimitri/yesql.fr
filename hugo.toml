@@ -24,16 +24,12 @@ disableKinds = ["taxonomy", "term"]
   # Which language `hreflang="x-default"` should point at.
   defaultLang = "fr"
 
-  # ConvertKit / Kit form UIDs. TODO: replace the placeholders with the real
-  # form id from https://app.kit.com/forms — the only form left on the site,
-  # now that the quote and onsite-booking forms were both replaced by plain
-  # "email me" links (see layouts/partials/email-cta.html).
+  # Kit (formerly ConvertKit) newsletter embed — the quarterly letter signup
+  # on /members/, the only form left on the site now that the quote and
+  # onsite-booking forms were both replaced by plain "email me" links (see
+  # layouts/partials/email-cta.html). Account: yesql.kit.com.
   [params.kit]
-    # The account is yesql.ck.page (the embed on pgloader.io uses it). Kit
-    # accepts either host for the form POST; keep whichever the embed snippet
-    # shows.
-    base        = "https://app.kit.com/forms"
-    members     = "0000000"   # TODO: Members — quarterly letter signup
+    uid = "4546c0eb0e"
 
   # Reciprocal links, for mutual domain authority. TODO: add the matching
   # inbound links on those sites pointing back here.
