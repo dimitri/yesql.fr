@@ -77,7 +77,7 @@ summary = "Public work can be checked without asking me. Contract work is under 
   id    = "migrations"
   tag   = "migrations"
   title = "Migrations actually delivered"
-  lede  = "pgloader migrates whole databases from MySQL, SQLite, MS SQL Server and Oracle. The quotes below are from its users, published on pgloader.io."
+  lede  = "pgloader migrates whole databases from MySQL, SQLite and MS SQL Server. The quotes below are from its users, published on pgloader.io."
   url   = "https://pgloader.io/"
   cta   = "pgloader.io"
 [[public]]

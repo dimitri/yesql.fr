@@ -22,6 +22,7 @@ financée.
 C'est dans la [feuille de route de pgloader](https://pgloader.io/roadmap/)
 depuis des années, écrit noir sur blanc : certains éléments « ne se feront que
 si le projet reçoit des contributions financières ». Le support Oracle en fait
-partie, et la feuille de route nomme déjà l'approche — un pilote Common Lisp
-pour le protocole Oracle, sur le même modèle que le connecteur MS SQL Server
-existant.
+partie. pgloader v4 — la réécriture en Clojure en cours — se connecte déjà à
+MySQL, MS SQL Server et SQLite via JDBC ; cette campagne finance la
+construction de la source Oracle de la même façon, pas un pilote Common Lisp
+greffé sur l'ancien code.

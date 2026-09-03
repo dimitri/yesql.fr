@@ -19,6 +19,7 @@ November 2024 — the request did not go away, it just never got funded.
 
 It has been on [pgloader's own roadmap](https://pgloader.io/roadmap/) for
 years, stated plainly: some items "will only happen given some financial
-contributions to the project." Oracle support is one of them, and the roadmap
-already names the approach — a Common Lisp driver for the Oracle protocol,
-the same pattern used for the existing MS SQL Server connector.
+contributions to the project." Oracle support is one of them. pgloader v4 —
+the in-progress Clojure rewrite — already connects to MySQL, MS SQL Server
+and SQLite over JDBC; this campaign funds building the Oracle source the
+same way, not a Common Lisp driver bolted onto the old codebase.

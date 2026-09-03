@@ -79,7 +79,7 @@ summary = "Le travail public se vérifie sans me demander la permission. Le trav
   id    = "migrations"
   tag   = "migrations"
   title = "Des migrations réellement livrées"
-  lede  = "pgloader migre des bases entières depuis MySQL, SQLite, MS SQL Server et Oracle. Les retours ci-dessous viennent de ses utilisateurs, publiés sur pgloader.io."
+  lede  = "pgloader migre des bases entières depuis MySQL, SQLite et MS SQL Server. Les retours ci-dessous viennent de ses utilisateurs, publiés sur pgloader.io."
   url   = "https://pgloader.io/"
   cta   = "pgloader.io"
 [[public]]

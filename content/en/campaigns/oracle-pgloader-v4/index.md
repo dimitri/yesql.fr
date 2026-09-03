@@ -5,7 +5,7 @@ title    = "Oracle support for pgloader v4"
 campaign = "oracle-pgloader-v4"
 date     = 2026-01-15
 weight   = 10
-summary  = "Fund the rewrite of pgloader's Oracle connector for v4, released under an open source license."
+summary  = "Fund building Oracle support for pgloader v4, released under an open source license."
 description = "Funding campaign: Oracle support in pgloader v4. pgloader expert, Oracle to PostgreSQL migration."
 
 [cta]
@@ -19,20 +19,22 @@ description = "Funding campaign: Oracle support in pgloader v4. pgloader expert,
   sponsor    = "Sponsor — architecture review of your Oracle migration included"
 +++
 
-pgloader's Oracle connector works, and it carries ten years of technical debt.
-It depends on a JDBC layer that complicates installation, does not handle
-partitions properly, and treats `NUMBER` and `CLOB` types approximately.
+pgloader has never supported Oracle as a migration source — the gap has been
+on the record for a decade (see the evidence on the [campaigns
+page](/en/campaigns/)). This funds building it from scratch, inside pgloader
+v4: the in-progress Clojure rewrite that already migrates from MySQL, MS SQL
+Server and SQLite over JDBC.
 
 ## Where it stands
 
-The amount raised so far is my own investment — seed money to get the
-connector rewrite properly scoped before asking anyone else to back it.
-Backing from here is what moves it past the threshold and into active
-development.
+The amount raised so far is my own investment — seed money to get this
+properly scoped before asking anyone else to back it. Backing from here is
+what moves it past the threshold and into active development.
 
 ## What gets built
 
-- A full connector rewrite, with no Java dependency
+- A new Oracle source for pgloader v4, connecting over JDBC — the same
+  approach already used for MySQL, MS SQL Server and SQLite
 - Exact handling of `NUMBER`, `CLOB`, `BLOB`, `TIMESTAMP WITH TIME ZONE`
 - Support for partitioned tables and materialized views
 - Schema migration: constraints, indexes, sequences, comments
