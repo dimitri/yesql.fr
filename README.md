@@ -59,6 +59,7 @@ different documents.
 /fr/entreprise/               ← "support PostgreSQL entreprise"   /en/enterprise/
 /fr/immersion/                ← "formation PostgreSQL avancée"    /en/onsite/
 /fr/membres/                  OSS maintenance + campaigns         /en/members/
+/fr/financer-open-source/     essay: funding OSS outside a job    /en/funding-open-source/
 /fr/references/               public proof, user quotes           /en/references/
 /fr/a-propos/                 the person, the core contributions  /en/about/
 /fr/campaigns/<slug>/         one per campaign                    /en/campaigns/<slug>/
