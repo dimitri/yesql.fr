@@ -4,7 +4,7 @@ type    = "onsite"
 slug    = "onsite"
 weight  = 20
 nav     = "Onsite"
-description = "Onsite PostgreSQL engagement, one or two days, built on your schema and your queries. €3,000 / €5,000, four sessions a year in total, across all clients."
+description = "Onsite PostgreSQL engagement, one or two days, built on your schema and your queries. €3,000 / €6,000, four sessions a year in total, across all clients."
 kicker  = "Onsite · four a year, total"
 summary = "A day at your office with the author of The Art of PostgreSQL: half a day of presentation, half a day on your own queries. One or two days, four times a year — not four times per client."
 
@@ -53,7 +53,7 @@ summary = "A day at your office with the author of The Art of PostgreSQL: half a
   [[pricing.formats]]
     id       = "two-days"
     name     = "Two days"
-    price    = 5000
+    price    = 6000
     workload = "PT14H"
     lede     = "The long format: more ground covered, and the time to work through your queries one by one."
 

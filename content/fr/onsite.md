@@ -4,7 +4,7 @@ type    = "onsite"
 slug    = "immersion"
 weight  = 20
 nav     = "Immersion"
-description = "Immersion PostgreSQL sur site, une ou deux journées, à partir de votre schéma et de vos requêtes. 3 000 € / 5 000 €, quatre sessions par an au total, tous clients confondus."
+description = "Immersion PostgreSQL sur site, une ou deux journées, à partir de votre schéma et de vos requêtes. 3 000 € / 6 000 €, quatre sessions par an au total, tous clients confondus."
 kicker  = "Sur site · quatre par an, au total"
 summary = "Une journée chez vous avec l'auteur de The Art of PostgreSQL : une demi-journée de présentation, une demi-journée sur vos requêtes. Une ou deux journées, quatre fois par an — pas quatre fois par client."
 
@@ -53,7 +53,7 @@ summary = "Une journée chez vous avec l'auteur de The Art of PostgreSQL : une d
   [[pricing.formats]]
     id       = "two-days"
     name     = "Deux journées"
-    price    = 5000
+    price    = 6000
     workload = "PT14H"
     lede     = "Le format long : plus de sujets couverts, et le temps de reprendre vos requêtes une par une."
 

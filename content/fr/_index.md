@@ -37,7 +37,7 @@ summary = "Contributeur majeur de PostgreSQL, auteur de *The Art of PostgreSQL*,
 [[routes]]
   id    = "onsite"
   href  = "/fr/immersion/"
-  tag   = "sur site · 4/an au total · 3 000 € / 5 000 €"
+  tag   = "sur site · 4/an au total · 3 000 € / 6 000 €"
   title = "L'Immersion"
   lede  = "Une journée chez vous avec l'auteur de The Art of PostgreSQL, sur vos requêtes."
   cta   = "Réserver une session"
