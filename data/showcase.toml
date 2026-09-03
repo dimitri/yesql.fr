@@ -1,27 +1,10 @@
-# The showcase cards. URLs, repos and tech labels are language-neutral and live
-# here; the human-readable blurbs are translated in
-# content/<lang>/sections/showcase.md under [blurbs], keyed by `id`.
-
-[[items]]
-  id    = "book"
-  name  = "The Art of PostgreSQL"
-  url   = "https://theartofpostgresql.com/"
-  kind  = "book"
-  meta  = "2019 · 52 chapters"
-
-[[items]]
-  id    = "blog"
-  name  = "tapoueh.org"
-  url   = "https://tapoueh.org/"
-  kind  = "writing"
-  meta  = "since 2005"
-
-[[items]]
-  id    = "pgcopydb"
-  name  = "pgcopydb"
-  url   = "https://github.com/dimitri/pgcopydb"
-  kind  = "oss"
-  meta  = "C · author, maintainer"
+# Portfolio cards for the homepage. URLs, repos and tech labels are
+# language-neutral and live here; the human-readable blurbs are translated in
+# content/<lang>/sections/{showcase,writing}.md under [blurbs], keyed by `id`.
+#
+# `kind` groups items into the two homepage sections via each content file's
+# `showcase_kinds` front-matter filter: "oss" -> the OSS portfolio section,
+# "book"/"writing" -> the writing & teaching section.
 
 [[items]]
   id    = "pgloader"
@@ -29,6 +12,13 @@
   url   = "https://github.com/dimitri/pgloader"
   kind  = "oss"
   meta  = "Common Lisp → Clojure (v4) · author, maintainer"
+
+[[items]]
+  id    = "pgcopydb"
+  name  = "pgcopydb"
+  url   = "https://github.com/dimitri/pgcopydb"
+  kind  = "oss"
+  meta  = "C · author, maintainer"
 
 [[items]]
   id    = "pg_auto_failover"
@@ -43,3 +33,31 @@
   url   = "https://github.com/dimitri/pgextwlist"
   kind  = "oss"
   meta  = "C · author"
+
+[[items]]
+  id    = "book"
+  name  = "The Art of PostgreSQL"
+  url   = "https://theartofpostgresql.com/"
+  kind  = "book"
+  meta  = "2019 · 52 chapters"
+
+[[items]]
+  id    = "yesql-lessons"
+  name  = "YeSQL"
+  url   = "https://theartofpostgresql.com/yesql/"
+  kind  = "writing"
+  meta  = "24 free lessons · runs in your browser"
+
+[[items]]
+  id    = "blog"
+  name  = "tapoueh.org"
+  url   = "https://tapoueh.org/"
+  kind  = "writing"
+  meta  = "since 2005"
+
+[[items]]
+  id    = "talks"
+  name  = "Conference talks"
+  url   = "https://tapoueh.org/conf/"
+  kind  = "writing"
+  meta  = "regular speaker since 2008"

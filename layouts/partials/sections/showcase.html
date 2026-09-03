@@ -1,7 +1,15 @@
 {{- /* Outbound links only. No conversion CTA here by design: this section
-       exists to be checked, not to convert. */ -}}
+       exists to be checked, not to convert.
+
+       Reused for both the OSS portfolio and the writing & teaching sections —
+       the calling content file's `showcase_kinds` picks which items from
+       data/showcase.toml render here, so there is one partial and one grid
+       style for both rather than two near-identical copies. */ -}}
 {{- $anchor := .Params.anchor | default .File.ContentBaseName -}}
 {{- $blurbs := .Params.blurbs -}}
+{{- $kinds := .Params.showcase_kinds -}}
+{{- $items := hugo.Data.showcase.items -}}
+{{- with $kinds }}{{ $items = where hugo.Data.showcase.items "kind" "in" . }}{{ end -}}
 <section id="{{ $anchor }}" class="section section-showcase" aria-labelledby="{{ $anchor }}-h">
   <div class="wrap">
     <p class="kicker mono">{{ .Params.kicker }}</p>
@@ -9,7 +17,7 @@
     <p class="lede">{{ .Params.summary }}</p>
 
     <ul class="showcase-grid">
-      {{- range hugo.Data.showcase.items }}
+      {{- range $items }}
       <li class="showcase-card" data-kind="{{ .kind }}">
         <a class="showcase-link" href="{{ .url }}" rel="noopener">
           <h3 class="mono">{{ .name }}</h3>

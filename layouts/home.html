@@ -1,8 +1,8 @@
 {{ define "main" }}
-{{- /* The hub routes; it does not sell. Proof first, then one card per offer,
-       then the public evidence. The single primary CTA is the contract — the
-       other two routes are secondary by design, so the page has one obvious
-       next step rather than three competing ones. */ -}}
+{{- /* The hub. It shows the work — no primary CTA, no sales copy. One soft
+       closing line near the bottom covers the two paid offers; everything
+       above it is portfolio, presented flat. */ -}}
+{{- partial "assert-parity.html" . -}}
 
 <section class="section section-hero" aria-labelledby="hero-h">
   {{ partial "hero-graphic.html" . }}
@@ -24,34 +24,56 @@
       {{- end }}
     </ul>
     {{- end }}
-
-    <p class="cta-row">
-      <a class="btn btn-primary" href="{{ .Params.cta.href }}">{{ .Params.cta.label }}</a>
-    </p>
   </div>
 </section>
 
-{{- with .Params.routes }}
-<section class="section section-routes" aria-labelledby="routes-h">
+{{- with site.GetPage "/sections/showcase" }}
+{{ partial "sections/showcase.html" . }}
+{{- end }}
+
+{{- /* Fund a feature, given real prominence: its own section, high on the
+       page, right after the portfolio it funds. */ -}}
+{{- with .Params.fund }}
+<section class="section section-fund" aria-labelledby="fund-h">
   <div class="wrap">
-    <h2 id="routes-h" class="visually-hidden">{{ site.Title }}</h2>
-    <ul class="route-grid">
-      {{- range . }}
-      <li class="route{{ if .primary }} is-primary{{ end }}">
-        <a class="route-link" href="{{ .href }}">
-          <p class="route-tag mono">{{ .tag }}</p>
-          <h3>{{ .title }}</h3>
-          <p class="route-lede">{{ .lede }}</p>
-          <p class="route-cta mono">{{ .cta }} →</p>
-        </a>
-      </li>
-      {{- end }}
+    <p class="kicker mono">{{ .tag }}</p>
+    <h2 id="fund-h">{{ .title }}</h2>
+    <p class="lede">{{ .lede }}</p>
+    {{- with .bullets }}
+    <ul class="fund-bullets">
+      {{- range . }}<li>{{ . }}</li>{{ end }}
     </ul>
+    {{- end }}
+    {{ partial "campaign/open-list.html" . }}
   </div>
 </section>
 {{- end }}
 
-{{- with site.GetPage "/sections/showcase" }}
+{{- with site.GetPage "/sections/writing" }}
 {{ partial "sections/showcase.html" . }}
+{{- end }}
+
+{{- /* A compact pointer to the recurring side of funding, deliberately
+       lower-key than the campaign above it — the full tier ladder lives on
+       /members/, this is not a second copy of it. */ -}}
+{{- with .Params.members_teaser }}
+<section class="section section-members-teaser" aria-labelledby="members-teaser-h">
+  <div class="wrap wrap-narrow">
+    <p class="kicker mono">{{ .tag }}</p>
+    <h2 id="members-teaser-h">{{ .title }}</h2>
+    <p class="lede">{{ .lede }}</p>
+    <p class="cta-row"><a class="btn btn-ghost" href="{{ .href }}">{{ .cta }} →</a></p>
+  </div>
+</section>
+{{- end }}
+
+{{- /* The one soft closing line. A single paragraph, not a card, not a
+       button styled as primary — "oh, by the way" rather than a
+       landing-page CTA. No section landmark: this is a closing remark, not
+       another topic. */ -}}
+{{- with .Params.available }}
+<div class="wrap wrap-narrow section-available">
+  <p class="available-note">{{ $.RenderString . }}</p>
+</div>
 {{- end }}
 {{ end }}

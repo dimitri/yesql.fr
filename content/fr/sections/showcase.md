@@ -1,18 +1,16 @@
 +++
-title   = "Le travail, publiquement vérifiable"
-kicker  = "Références"
-summary = "Un livre, vingt ans d'écriture technique, quatre outils open source en production dans le monde entier."
+title   = "Le portfolio open source"
+kicker  = "Ce que je maintiens"
+summary = "Quatre outils, en production chez des équipes que je ne connais pas — et c'est très bien ainsi. Le code, les tickets et les discussions sont publics."
+showcase_kinds = ["oss"]
 
 # Descriptions des cartes, indexées par l'`id` de data/showcase.toml.
 # Les URL et les libellés techniques sont dans le fichier de données.
 [blurbs]
-  book             = "Le livre de référence sur l'écriture de SQL pour les développeurs. Utilisé comme support du séminaire."
-  blog             = "Le blog technique : PostgreSQL, SQL, Common Lisp, Emacs. En ligne depuis 2005."
+  pgloader         = "Migration vers PostgreSQL depuis MySQL, SQLite, MS SQL Server et fichiers CSV. Le standard de fait — Oracle est la pièce manquante, à financer ci-dessous."
   pgcopydb         = "Copie et migration PostgreSQL vers PostgreSQL en parallèle, avec reprise sur incident et suivi de la réplication logique."
-  pgloader         = "Migration vers PostgreSQL depuis MySQL, SQLite, MS SQL Server et fichiers CSV. Le standard de fait — Oracle est la pièce manquante, à financer (voir Membres)."
   pg_auto_failover = "Haute disponibilité PostgreSQL par bascule automatique, avec un moniteur qui garantit le quorum."
   pgextwlist       = "Liste blanche d'extensions PostgreSQL : un modèle « sudo » qui permet à un hébergeur d'autoriser CREATE EXTENSION sans donner les droits superutilisateur."
 +++
 
-Rien ici n'est une plaquette. Tout est public, lisible, et exploité en production
-par des équipes qui n'ont jamais eu à me parler.
+Aucune plaquette ici. Tout est public, lisible, et exploité en production par des équipes qui n'ont jamais eu à me parler.

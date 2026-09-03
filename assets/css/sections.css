@@ -491,49 +491,34 @@
   .legal-id > div { grid-template-columns: 14rem 1fr; gap: 1rem; align-items: baseline; }
 }
 
-/* ---- hub route cards ------------------------------------------------------ */
+/* ---- hub: fund-a-feature, members teaser, closing note -------------------- */
 
-/* The hub's job is to route, not to sell. Three cards, one visually primary,
-   so the page has a single obvious next step instead of three competing ones. */
-.section-routes { padding-top: 0; padding-bottom: calc(var(--step) * 0.6); border-bottom: 0; }
+/* The campaign section reuses .fund-bullets (already styled for the same
+   intro copy on /members/) and campaign/open-list.html's own markup, so it
+   needs no bullet/grid rules of its own here. */
+.section-fund { padding-top: 0; }
 
-.route-grid {
-  list-style: none;
-  padding: 0;
+.section-members-teaser {
+  padding: calc(var(--step) * 0.6) 0;
+  background: var(--bg-sunken);
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+.section-members-teaser .kicker { color: var(--text-faint); }
+
+/* The one soft closing line: prose, centered rhythm with the rest of the
+   page's narrow measure, no card, no primary button. */
+.section-available {
+  padding-top: calc(var(--step) * 0.7);
+  padding-bottom: calc(var(--step) * 0.7);
+}
+.available-note {
   margin: 0;
-  display: grid;
-  gap: 1rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
 }
-@media (min-width: 52rem) { .route-grid { grid-template-columns: repeat(3, 1fr); } }
-
-.route { margin: 0; }
-.route-link {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  background: var(--bg-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 1.4rem 1.35rem;
-  text-decoration: none;
-  color: inherit;
-}
-.route-link:hover { border-color: var(--accent-line); background: var(--accent-wash); }
-
-/* The contract is the primary route: solid accent edge, everything else quiet. */
-.route.is-primary .route-link { border-color: var(--accent-line); border-top: 3px solid var(--accent); }
-
-.route-tag {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  color: var(--text-faint);
-  margin-bottom: 0.5rem;
-}
-.route.is-primary .route-tag { color: var(--accent); }
-.route-link h3 { margin-bottom: 0.5rem; }
-.route-lede { color: var(--text-muted); font-size: 0.93rem; flex: 1 1 auto; }
-.route-cta { color: var(--accent); font-size: 0.85rem; margin: 1rem 0 0; }
+.available-note a { color: var(--accent); }
 
 /* ---- about ---------------------------------------------------------------- */
 

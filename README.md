@@ -46,13 +46,16 @@ setup, the DNS records for the apex domain, and the TLS steps.
 
 ## Site structure
 
-Hub and spokes. One page, one job, one call to action — a single page carrying
-three different offers serves neither the SEO targets (one URL cannot rank for
-three intents) nor conversion (three competing CTAs is a landing page with no
-landing).
+Hub and spokes. The home page is a **portfolio hub, not a landing page** — it
+presents the work (OSS tools, writing, funding) flat, with no primary
+call-to-action, and closes with one soft line pointing at the two paid offers.
+Each paid offer still gets its own page with its own commercial intent — one
+page, one job, one call to action there — because a hub can't simultaneously
+read as a portfolio and rank hardest for a commercial search phrase; those are
+different documents.
 
 ```
-/fr/                          hub — proof, three routes, one primary CTA
+/fr/                          hub — portfolio, OSS, funding, writing, one soft closing note
 /fr/entreprise/               ← "support PostgreSQL entreprise"   /en/enterprise/
 /fr/immersion/                ← "formation PostgreSQL avancée"    /en/onsite/
 /fr/membres/                  OSS maintenance + campaigns         /en/members/
@@ -121,12 +124,26 @@ Front matter keys that drive the site rather than the copy:
 | `slug` | The localized last URL segment |
 | `weight` | Nav order — the header reads it, so nav and structure cannot drift |
 | `nav` | Short nav label, separate from the page's real `<h1>` |
-| `headline` | Home only: the `<h1>` a human reads, while `title` targets the query |
+| `headline` | Home only: the `<h1>` a human reads. `title` is home's own `<title>` tag (the one page that does not suffix `site.Title` — see `layouts/partials/head/meta.html`) and now targets identity ("YeSQL — Dimitri Fontaine") rather than a commercial phrase; that keyword targeting still lives on `/entreprise/`, `/immersion/` and `/membres/`. |
 
 ### 2. `content/{fr,en}/sections/*.md` — headless, shared fragments
 
 What is rendered inside another page rather than being a page: `showcase.md`
-(the hub's proof cards) and `footer.md`. They never get a URL of their own.
+(the OSS portfolio cards) and `writing.md` (the writing & teaching cards) both
+read `data/showcase.toml`, filtered by each file's own `showcase_kinds`
+front-matter key — one partial, `layouts/partials/sections/showcase.html`,
+renders both. `footer.md` is the third. None of the three ever get a URL of
+their own.
+
+**A TOML footgun worth knowing about**, because it silently ate a whole
+section once: a bare `key = value` written *after* a `[table]` header belongs
+to that table, not to the top level, until the next `[table]` or the end of
+the file. `content/{fr,en}/_index.md`'s `available` closing note learned this
+the hard way — it was first written after `[members_teaser]` and silently
+became `members_teaser.available` instead of a top-level key, so the section
+just never rendered, with no error anywhere. It now sits above every `[table]`
+header in that file. If a front-matter key mysteriously does nothing, check
+what table it actually landed in before assuming the template is broken.
 
 ### 3. `data/*.toml` and `i18n/{fr,en}.toml`
 ## The two build-time guards
@@ -330,6 +347,14 @@ Long-tail targets, baked into titles and summaries rather than stuffed:
 pgloader" / "pgloader expert", "formation PostgreSQL avancée" / "advanced
 PostgreSQL training". Generic "PostgreSQL consultant" is deliberately not a
 target.
+
+The home page is the one exception, and deliberately so: it targets identity
+("Dimitri Fontaine", "YeSQL") and the portfolio's own long-tail (the OSS tools
+by name, "fund pgloader Oracle support") rather than any commercial phrase —
+that keyword surface stays entirely on the three offer pages. This trades away
+some chance of home ranking for "postgresql expert" in exchange for a page
+that reads honestly as a portfolio rather than a landing page wearing a
+portfolio's clothes.
 
 `hreflang` is emitted from `layouts/partials/head/hreflang.html` with a correct
 `x-default` pointing at the French version of each page. Schema.org

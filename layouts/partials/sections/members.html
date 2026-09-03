@@ -103,28 +103,7 @@
     </div>
     {{- end }}
 
-    {{- $open := slice }}{{ $past := slice }}
-    {{- range where site.RegularPages "Section" "campaigns" }}
-      {{- $f := partialCached "campaign/facts.html" .Params.campaign .Params.campaign }}
-      {{- if $f.isOpen }}{{ $open = $open | append . }}{{ else }}{{ $past = $past | append . }}{{ end }}
-    {{- end }}
-
-    {{- if $open }}
-    <div class="campaign-grid">
-      {{- range sort $open "Weight" }}{{ partial "campaign/card.html" . }}{{ end }}
-    </div>
-    {{- else }}
-    <p class="empty">{{ i18n "no_open_campaign" }}</p>
-    {{- end }}
-
-    {{- with $past }}
-    <details class="campaign-past">
-      <summary>{{ i18n "past_campaigns" }}</summary>
-      <div class="campaign-grid">
-        {{- range sort . "Weight" }}{{ partial "campaign/card.html" . }}{{ end }}
-      </div>
-    </details>
-    {{- end }}
+    {{ partial "campaign/open-list.html" . }}
   </div>
 
   {{ partial "forms/members.html" . }}

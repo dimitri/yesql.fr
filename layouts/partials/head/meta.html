@@ -1,7 +1,10 @@
 {{- $desc := .Description -}}
 {{- if not $desc }}{{ $desc = .Params.summary }}{{ end -}}
 {{- if not $desc }}{{ $desc = site.Params.description }}{{ end -}}
-{{- $title := cond .IsHome site.Title (printf "%s · %s" .Title site.Title) -}}
+{{- /* The homepage gets its own rich <title> from its front matter, not the
+       short site.Title used to suffix every other page's title — see
+       content/<lang>/_index.md. */ -}}
+{{- $title := cond .IsHome .Title (printf "%s · %s" .Title site.Title) -}}
 <title>{{ $title }}</title>
 <meta name="description" content="{{ $desc }}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
