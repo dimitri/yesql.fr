@@ -36,16 +36,20 @@
 
     {{- with .Params.pricing }}
     {{- $cur := .currency }}
+    {{- $note := .note }}
     <ul class="format-grid">
       {{- range .formats }}
       <li class="format" id="format-{{ .id }}">
         <h2>{{ .name }}</h2>
         <p class="format-price mono">{{ lang.FormatCurrency 0 $cur .price }}</p>
+        {{- /* The expenses caveat sits right under the number it qualifies,
+               not only once at the bottom of the section — a price nobody
+               reads past is a price that surprises someone later. */ -}}
+        <p class="format-expenses">{{ $note }}</p>
         <p class="format-lede">{{ .lede }}</p>
       </li>
       {{- end }}
     </ul>
-    <p class="price-note">{{ .note }}</p>
     {{- end }}
   </div>
 

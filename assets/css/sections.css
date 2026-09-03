@@ -36,11 +36,6 @@
   margin-bottom: 0.4rem;
 }
 
-.price-note {
-  color: var(--text-faint);
-  font-size: 0.85rem;
-  margin-top: 1rem;
-}
 .empty { color: var(--text-faint); font-size: 0.94rem; }
 
 /* ---- hero ----------------------------------------------------------------- */
@@ -367,6 +362,11 @@
   color: var(--accent);
   margin: 0.25rem 0 0.5rem;
   overflow-wrap: anywhere;
+}
+.format-expenses {
+  color: var(--text-faint);
+  font-size: 0.78rem;
+  margin: 0 0 0.75rem;
 }
 .format-lede { color: var(--text-muted); font-size: 0.92rem; margin: 0; }
 

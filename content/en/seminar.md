@@ -36,7 +36,11 @@ summary = "The onsite PostgreSQL seminar: half a day presented by the author of 
 # Prices shown: unlike the enterprise contract, this one is a firm price.
 [pricing]
   currency = "EUR"
-  note     = "Excluding travel and accommodation, billed at cost."
+  # Repeated under EACH price (not only as a footnote at the bottom): the kind
+  # of detail that gets discovered too late if it only appears once, at the
+  # very end. A surprise expenses invoice is the fastest way to undo the trust
+  # a public price is supposed to build.
+  note     = "Excluding travel and accommodation, billed separately at cost, on top of the price above."
 
   [[pricing.formats]]
     id       = "one-day"

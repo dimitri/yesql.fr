@@ -36,7 +36,11 @@ summary = "Le séminaire PostgreSQL sur site : une demi-journée de présentatio
 # Tarifs affichés : ici, contrairement au contrat entreprise, le prix est ferme.
 [pricing]
   currency = "EUR"
-  note     = "Hors frais de déplacement et d'hébergement, facturés au réel."
+  # Répété sous CHAQUE prix (pas seulement en note de bas de page) : c'est le
+  # genre de détail qu'on découvre trop tard s'il n'est visible qu'une fois,
+  # tout en bas. Une facture surprise sur les frais est le plus sûr moyen de
+  # perdre la confiance qu'un prix public est censé construire.
+  note     = "Hors frais de déplacement et d'hébergement, facturés au réel, en sus du prix ci-dessus."
 
   [[pricing.formats]]
     id       = "one-day"
