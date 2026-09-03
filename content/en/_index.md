@@ -36,7 +36,7 @@ summary = "PostgreSQL Major Contributor, author of *The Art of PostgreSQL*, main
 [[routes]]
   id    = "seminar"
   href  = "/en/seminar/"
-  tag   = "onsite · 4 a year"
+  tag   = "onsite · 4 a year · €3,000 / €5,000"
   title = "The Seminar"
   lede  = "A day onsite with the author of The Art of PostgreSQL, on your own queries."
   cta   = "Book a slot"

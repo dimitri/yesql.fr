@@ -28,11 +28,18 @@
   name  = "pgloader"
   url   = "https://github.com/dimitri/pgloader"
   kind  = "oss"
-  meta  = "Common Lisp · author, maintainer"
+  meta  = "Common Lisp → Clojure (v4) · author, maintainer"
 
 [[items]]
   id    = "pg_auto_failover"
   name  = "pg_auto_failover"
   url   = "https://github.com/hapostgres/pg_auto_failover"
+  kind  = "oss"
+  meta  = "C · author"
+
+[[items]]
+  id    = "pgextwlist"
+  name  = "pgextwlist"
+  url   = "https://github.com/dimitri/pgextwlist"
   kind  = "oss"
   meta  = "C · author"
