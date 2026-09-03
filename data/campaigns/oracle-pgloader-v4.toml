@@ -22,13 +22,5 @@ repo       = "https://github.com/dimitri/pgloader"
 license    = "PostgreSQL License"
 pledge_url = "https://example.invalid/pledge/oracle-pgloader-v4"  # TODO: real pledge URL
 
-# Amounts only. The labels are translated, in the content file's [tier_labels].
-[[tiers]]
-  id     = "individual"
-  amount = 250
-[[tiers]]
-  id     = "company"
-  amount = 5000
-[[tiers]]
-  id     = "sponsor"
-  amount = 15000
+# No fixed tiers, on purpose: pledge what makes sense for you, see the
+# content file's "How much to pledge" section.
