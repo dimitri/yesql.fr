@@ -60,10 +60,6 @@ summary = "Le travail public se vérifie sans me demander la permission. Le trav
   title = "Ce que disent les utilisateurs"
   note  = "Comme publié dans le [livre blanc 2018 de pgloader](https://pgloader.io/MigratingToPostgreSQL.pdf), ou, pour CommaFeed, dans leur propre tweet."
 
-[on_request]
-  title = "Références clients"
-  note  = "Les missions sont couvertes par des accords de confidentialité. Je donne des références nominatives, avec l'accord des clients concernés, au moment du devis — et je vous mets en relation directe quand c'est pertinent."
-
 # La preuve publique, elle, n'a besoin de l'accord de personne.
 [[public]]
   id    = "core"

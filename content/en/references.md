@@ -58,10 +58,6 @@ summary = "Public work can be checked without asking me. Contract work is under 
   title = "What users say"
   note  = "As published in [pgloader's 2018 white paper](https://pgloader.io/MigratingToPostgreSQL.pdf), or in the case of CommaFeed, in their own tweet."
 
-[on_request]
-  title = "Client references"
-  note  = "Engagements are covered by confidentiality agreements. I give named references, with those clients' agreement, at quote time — and put you in direct contact where that helps."
-
 # Public proof needs nobody's permission.
 [[public]]
   id    = "core"
