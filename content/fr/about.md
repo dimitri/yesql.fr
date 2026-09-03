@@ -31,7 +31,7 @@ summary = "Contributeur majeur de PostgreSQL. Deux de ces contributions — CREA
 [[facts]]
   label = "Debian"
   value = "Mainteneur, co-constructeur de apt.postgresql.org"
-  url   = "https://wiki.postgresql.org/wiki/Apt"
+  url   = "https://qa.debian.org/developer.php?login=dim@tapoueh.org"
 [[facts]]
   label = "Conférences"
   value = "Orateur régulier depuis 2008"

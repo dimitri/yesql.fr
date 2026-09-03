@@ -31,7 +31,7 @@ summary = "PostgreSQL Major Contributor. Two of the contributions — CREATE EXT
 [[facts]]
   label = "Debian"
   value = "Maintainer, co-builder of apt.postgresql.org"
-  url   = "https://wiki.postgresql.org/wiki/Apt"
+  url   = "https://qa.debian.org/developer.php?login=dim@tapoueh.org"
 [[facts]]
   label = "Conferences"
   value = "Regular speaker since 2008"
