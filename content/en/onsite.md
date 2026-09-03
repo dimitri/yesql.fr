@@ -75,7 +75,7 @@ summary = "A complete technical session, prepared for you and delivered in perso
     "Days 3 and 4 — the two onsite days",
     "Day 5 — travel back",
   ]
-  note = "A full week. Booked as the Full week format below — travel and accommodation are included in that price, not billed on top."
+  note = "A full week. Booked as the Full week format below — travel and accommodation are billed separately at cost, business class on the long-haul legs."
 
 # Prices shown: unlike the enterprise contract, this one is a firm price.
 [pricing]
@@ -104,7 +104,7 @@ summary = "A complete technical session, prepared for you and delivered in perso
     price    = 12500
     workload = "PT14H"
     lede     = "The two-day format, for long-distance travel: a full week door to door, jet lag included."
-    note     = "Travel and accommodation included in the price — business class on long-haul flights. Nothing added afterward."
+    note     = "Excluding travel and accommodation, billed separately at cost — business class on long-haul flights, on top of the price above."
 
 [course]
   mode = "onsite"

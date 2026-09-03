@@ -77,7 +77,7 @@ summary = "Une session technique complète, préparée pour vous et animée en p
     "Jours 3 et 4 — les deux journées sur site",
     "Jour 5 — trajet retour",
   ]
-  note = "Une semaine complète. Réservée sous la forme du forfait « Semaine complète » ci-dessous — déplacement et hébergement sont inclus dans ce prix, pas facturés en plus."
+  note = "Une semaine complète. Réservée sous la forme du forfait « Semaine complète » ci-dessous — déplacement et hébergement sont facturés au réel, classe affaires sur les vols long-courrier."
 
 # Tarifs affichés : ici, contrairement au contrat entreprise, le prix est ferme.
 [pricing]
@@ -106,7 +106,7 @@ summary = "Une session technique complète, préparée pour vous et animée en p
     price    = 12500
     workload = "PT14H"
     lede     = "Le format deux journées, pour les déplacements longue distance : une semaine complète porte à porte, décalage horaire compris."
-    note     = "Déplacement et hébergement inclus dans le prix — classe affaires sur les vols long-courrier. Rien n'est ajouté ensuite."
+    note     = "Hors frais de déplacement et d'hébergement, facturés au réel — classe affaires sur les vols long-courrier, en sus du prix ci-dessus."
 
 [course]
   mode = "onsite"
