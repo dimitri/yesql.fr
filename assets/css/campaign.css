@@ -8,11 +8,6 @@
 @media (min-width: 56rem) { .campaign-grid { grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr)); } }
 
 .campaign-card {
-  /* The grid track can stretch a lone card (auto-fit + a single item = 100%
-     of the row) to a width nothing here was designed for — capped so one
-     open campaign, the common case under "one feature at a time", still
-     reads as a card and not a banner. */
-  max-width: 34rem;
   background: var(--bg-raised);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -22,27 +17,30 @@
    here rather than a colored one keeps that the only place status reads. */
 .campaign-card[data-status="closed"] { opacity: 0.75; }
 .campaign-card[data-status="funded"] { border-color: var(--ok); }
-/* Title and buttons share a row: title takes whatever space the buttons
-   don't need, buttons stay pinned top-right and never shrink. Wraps to
-   two lines only when the card is too narrow to fit both. */
+/* Grid, not flex: column 1 is exactly as wide as the title needs (up to the
+   space the buttons leave it), column 2 is exactly as wide as the buttons
+   need, and nothing stretches to manufacture a gap between them. The title
+   wraps within its own column if the card is narrow; the buttons never do,
+   pinned to the card's own top-right corner by being the last column. */
 .campaign-card-head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.6rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  column-gap: 1rem;
   margin-bottom: 0.4rem;
 }
-.campaign-card-head h3 { margin: 0; flex: 1 1 14rem; }
+.campaign-card-head h3 { margin: 0; }
 .campaign-card h3 a { color: var(--text); text-decoration: none; }
 .campaign-card h3 a:hover { color: var(--accent); }
 .campaign-summary { color: var(--text-muted); font-size: 0.92rem; }
 
-/* Two buttons, one row: "See the case" and the real payment button both
-   fit on the same line, wrapping only if there's no room at all. */
-.campaign-card-head .cta-row { display: flex; flex-wrap: wrap; gap: 0.6rem; flex: 0 0 auto; margin-left: auto; }
-.campaign-card-head .cta-row .btn { flex: 0 0 auto; }
-@media (max-width: 30rem) { .campaign-card-head .cta-row .btn { display: inline-block; width: auto; } }
+.campaign-card-head .cta-row { display: flex; gap: 0.6rem; white-space: nowrap; }
+/* Below this, the two buttons no longer fit next to even a short title —
+   drop to a stacked layout rather than crush them. */
+@media (max-width: 26rem) {
+  .campaign-card-head { grid-template-columns: 1fr; row-gap: 0.6rem; }
+  .campaign-card-head .cta-row { white-space: normal; flex-wrap: wrap; }
+}
 
 .campaign-kicker {
   display: flex;
