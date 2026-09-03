@@ -20,6 +20,13 @@
         </ul>
         {{- end }}
         <div class="prose">{{ .Content }}</div>
+
+        {{- with .Params.archive }}
+        <figure class="archive-photo">
+          <img src="{{ .src }}" alt="{{ .alt }}" loading="lazy">
+          <figcaption class="mono">{{ .caption }}</figcaption>
+        </figure>
+        {{- end }}
       </div>
 
       <aside class="about-side">

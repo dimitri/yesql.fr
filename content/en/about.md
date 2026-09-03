@@ -13,6 +13,11 @@ summary = "PostgreSQL Major Contributor. Two of the contributions — CREATE EXT
   alt = "Dimitri Fontaine"
   credit = "Picture by Oleg Bartunov"
 
+[archive]
+  src     = "/img/pgcon-2006-toronto.jpg"
+  alt     = "The PostgreSQL directional sign at PGCon 2006 in Toronto, covered in the attending hackers' signatures"
+  caption = "PGCon 2006, Toronto — the venue sign, signed by everyone in the room. Mine is in there somewhere."
+
 # Core PostgreSQL contributions. This is the strongest proof on the site: this
 # code runs everywhere, including at your competitors'.
 [[core]]

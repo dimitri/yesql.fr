@@ -603,6 +603,19 @@
   margin-top: 0.5rem;
 }
 
+.archive-photo { margin: 2.5rem 0 0; }
+.archive-photo img {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  display: block;
+}
+.archive-photo figcaption {
+  color: var(--text-faint);
+  font-size: 0.78rem;
+  margin-top: 0.6rem;
+}
+
 .facts { margin: 0; display: grid; gap: 0.85rem; font-size: 0.9rem; }
 .facts > div { display: grid; gap: 0.15rem; }
 .facts dt {

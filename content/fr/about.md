@@ -13,6 +13,11 @@ summary = "Contributeur majeur de PostgreSQL. Deux de ces contributions — CREA
   alt = "Dimitri Fontaine"
   credit = "Photo : Oleg Bartunov"
 
+[archive]
+  src     = "/img/pgcon-2006-toronto.jpg"
+  alt     = "Le panneau directionnel PostgreSQL du PGCon 2006 à Toronto, couvert des signatures des personnes présentes"
+  caption = "PGCon 2006, Toronto — le panneau de la salle, signé par tout le monde. Le mien y est aussi, quelque part."
+
 # Les contributions au cœur de PostgreSQL. C'est la preuve la plus forte du
 # site : ce code tourne chez tout le monde, y compris chez vos concurrents.
 [[core]]
