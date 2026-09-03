@@ -31,26 +31,16 @@ available = "Si tout ça vous est directement utile : je prends un petit nombre 
   value = "pgloader · pgcopydb · pg_auto_failover · pgextwlist"
   label = "auteur et mainteneur"
 
-# Financer une fonctionnalité — mis en avant : sa propre section, haut sur la
-# page, juste après le portfolio open source qu'elle finance. Texte
-# d'introduction seulement ; les campagnes elles-mêmes sont découvertes dans
-# content/fr/campaigns/ par partials/campaign/open-list.html.
-[fund]
-  tag   = "campagne à seuil"
-  title = "Financer une fonctionnalité"
-  lede  = "Certaines fonctionnalités dépassent ce que couvre la maintenance courante. C'est le cas en ce moment : un périmètre écrit, un montant cible, et un seuil de démarrage publié en dessous duquel le travail ne commence pas."
-  bullets = [
-    "Périmètre technique écrit à l'avance, pas une intention",
-    "Seuil de démarrage affiché, pas implicite",
-    "Le résultat est open source, y compris pour ceux qui n'ont pas financé",
-  ]
-
 # Un renvoi discret vers le volet récurrent du financement — l'échelle
 # complète des paliers vit sur /membres/, ceci n'en est pas une seconde copie.
+# La campagne en cours est maintenant une carte dans la grille du portfolio
+# open source ci-dessus, pas sa propre section, donc ce bloc présente
+# l'*autre* façon de financer le travail plutôt que de supposer que le
+# lecteur vient de voir une section dédiée à la campagne juste avant.
 [members_teaser]
-  tag   = "l'autre façon de soutenir ce travail"
-  title = "Support récurrent, si une campagne ne convient pas"
-  lede  = "Les membres financent la maintenance au quotidien de ces outils, toute l'année : correctifs prioritaires, influence sur la feuille de route, une lettre trimestrielle sur ce qui a bougé. Les paliers commencent gratuitement."
+  tag   = "une autre façon de soutenir ce travail"
+  title = "Support récurrent, finançant la maintenance toute l'année"
+  lede  = "Au-delà de financer une fonctionnalité précise : les membres financent la maintenance au quotidien de ces outils — correctifs prioritaires, influence sur la feuille de route, une lettre trimestrielle sur ce qui a bougé. Les paliers commencent gratuitement."
   cta   = "Voir les paliers"
   href  = "/fr/membres/"
 +++

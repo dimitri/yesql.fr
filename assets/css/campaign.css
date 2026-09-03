@@ -10,12 +10,13 @@
 .campaign-card {
   background: var(--bg-raised);
   border: 1px solid var(--line);
-  border-left: 3px solid var(--accent);
   border-radius: var(--radius);
   padding: 1.4rem 1.4rem 1.5rem;
 }
-.campaign-card[data-status="closed"] { border-left-color: var(--line); opacity: 0.75; }
-.campaign-card[data-status="funded"] { border-left-color: var(--ok); }
+/* Status is already stated in words by .campaign-status; a plain border
+   here rather than a colored one keeps that the only place status reads. */
+.campaign-card[data-status="closed"] { opacity: 0.75; }
+.campaign-card[data-status="funded"] { border-color: var(--ok); }
 .campaign-card h3 { margin-bottom: 0.4rem; }
 .campaign-card h3 a { color: var(--text); text-decoration: none; }
 .campaign-card h3 a:hover { color: var(--accent); }

@@ -27,26 +27,11 @@
   </div>
 </section>
 
+{{- /* The OSS portfolio carries the current funding campaign as one more
+       card, in the same grid as the tools it funds, rather than as its own
+       section — see showcase.html's show_campaign_card handling. */ -}}
 {{- with site.GetPage "/sections/showcase" }}
 {{ partial "sections/showcase.html" . }}
-{{- end }}
-
-{{- /* Fund a feature, given real prominence: its own section, high on the
-       page, right after the portfolio it funds. */ -}}
-{{- with .Params.fund }}
-<section class="section section-fund" aria-labelledby="fund-h">
-  <div class="wrap">
-    <p class="kicker mono">{{ .tag }}</p>
-    <h2 id="fund-h">{{ .title }}</h2>
-    <p class="lede">{{ .lede }}</p>
-    {{- with .bullets }}
-    <ul class="fund-bullets">
-      {{- range . }}<li>{{ . }}</li>{{ end }}
-    </ul>
-    {{- end }}
-    {{ partial "campaign/open-list.html" . }}
-  </div>
-</section>
 {{- end }}
 
 {{- with site.GetPage "/sections/writing" }}

@@ -31,26 +31,15 @@ available = "If any of this is directly useful to your team: I take on a small n
   value = "pgloader · pgcopydb · pg_auto_failover · pgextwlist"
   label = "author and maintainer"
 
-# Fund a feature — given real prominence: its own section, high on the page,
-# right after the OSS portfolio it funds. Intro copy only; the campaigns
-# themselves are discovered from content/en/campaigns/ by
-# partials/campaign/open-list.html.
-[fund]
-  tag   = "threshold campaign"
-  title = "Fund a feature"
-  lede  = "Some features are bigger than day-to-day maintenance can cover. This is the current one: a written scope, a target amount, and a published start threshold below which the work does not happen."
-  bullets = [
-    "Technical scope written up front, not an intention",
-    "Start threshold shown, not implied",
-    "The result is open source, including for those who did not fund it",
-  ]
-
 # A quiet pointer to the recurring side of OSS funding — the full tier ladder
-# lives on /members/, this is not a second copy of it.
+# lives on /members/, this is not a second copy of it. The current campaign
+# is now a card inside the OSS portfolio grid above, not its own section, so
+# this introduces the *other* way to fund the work rather than assuming the
+# reader just saw a dedicated campaign section immediately before it.
 [members_teaser]
-  tag   = "the other way to back this work"
-  title = "Recurring support, if a campaign is not the fit"
-  lede  = "Members fund the day-to-day maintenance of these tools year-round: priority fixes, roadmap input, a quarterly letter on what moved. Tiers start free."
+  tag   = "another way to back this work"
+  title = "Recurring support, funding maintenance year-round"
+  lede  = "Beyond backing a specific feature: Members fund the day-to-day maintenance of these tools — priority fixes, roadmap input, a quarterly letter on what moved. Tiers start free."
   cta   = "See the tiers"
   href  = "/en/members/"
 +++

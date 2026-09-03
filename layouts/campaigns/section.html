@@ -1,13 +1,25 @@
 {{ define "main" }}
+{{- /* Up front: the current campaign, by name, with the real evidence for it
+       — not a generic explainer of how funding campaigns work in general.
+       The methodology (why only one campaign runs at a time) moves to a
+       plain note at the bottom, after the reader has already seen the thing
+       it is a policy about. */ -}}
 <section class="section section-decorated">
   {{ partial "backgrounds/threshold.html" . }}
   <div class="wrap">
-    <p class="kicker mono">{{ i18n "fund_a_feature" }}</p>
+    <p class="kicker mono">{{ .Params.kicker | default (i18n "fund_a_feature") }}</p>
     <h1>{{ .Title | default (i18n "fund_a_feature") }}</h1>
     <div class="prose">{{ .Content }}</div>
     <div class="campaign-grid">
       {{- range .Pages.ByWeight }}{{ partial "campaign/card.html" . }}{{ end }}
     </div>
+
+    {{- with .Params.policy }}
+    <aside class="note">
+      <p class="note-title mono">{{ .title }}</p>
+      <p>{{ .note }}</p>
+    </aside>
+    {{- end }}
   </div>
 </section>
 {{ end }}

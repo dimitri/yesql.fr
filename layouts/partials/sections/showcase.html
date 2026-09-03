@@ -1,5 +1,6 @@
-{{- /* Outbound links only. No conversion CTA here by design: this section
-       exists to be checked, not to convert.
+{{- /* Outbound links only, plus — on the OSS portfolio only — the current
+       funding campaign as one more card. No conversion CTA otherwise: this
+       section exists to be checked, not to convert.
 
        Reused for both the OSS portfolio and the writing & teaching sections —
        the calling content file's `showcase_kinds` picks which items from
@@ -10,6 +11,21 @@
 {{- $kinds := .Params.showcase_kinds -}}
 {{- $items := hugo.Data.showcase.items -}}
 {{- with $kinds }}{{ $items = where hugo.Data.showcase.items "kind" "in" . }}{{ end -}}
+
+{{- /* Single-person shop, one campaign at a time — so this is "the current
+       campaign" rather than a loop over several. Same live figures as the
+       campaign page itself, computed once by campaign/facts.html. */ -}}
+{{- $campaign := "" -}}
+{{- $campaignFacts := "" -}}
+{{- if .Params.show_campaign_card -}}
+  {{- range where site.RegularPages "Section" "campaigns" -}}
+    {{- if not $campaign -}}
+      {{- $f := partialCached "campaign/facts.html" .Params.campaign .Params.campaign -}}
+      {{- if $f.isOpen -}}{{ $campaign = . }}{{ $campaignFacts = $f }}{{ end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
 <section id="{{ $anchor }}" class="section section-showcase" aria-labelledby="{{ $anchor }}-h">
   <div class="wrap">
     <p class="kicker mono">{{ .Params.kicker }}</p>
@@ -23,6 +39,15 @@
           <h3 class="mono">{{ .name }}</h3>
           <p class="showcase-blurb">{{ index $blurbs .id }}</p>
           <p class="showcase-meta mono">{{ .meta }}</p>
+        </a>
+      </li>
+      {{- end }}
+      {{- with $campaign }}
+      <li class="showcase-card" data-kind="campaign">
+        <a class="showcase-link" href="{{ .RelPermalink }}">
+          <h3 class="mono">{{ i18n "fund_a_feature" }}</h3>
+          <p class="showcase-blurb">{{ .Params.summary }}</p>
+          <p class="showcase-meta mono">{{ lang.FormatPercent 0 $campaignFacts.pct }} {{ i18n "fund_of" }} {{ lang.FormatCurrency 0 $campaignFacts.currency $campaignFacts.target }}</p>
         </a>
       </li>
       {{- end }}

@@ -3,6 +3,7 @@ title   = "The open source portfolio"
 kicker  = "What I maintain"
 summary = "Four tools, running in production for teams I have never met — and that is exactly how it should be. The code, the issues and the discussions are all public."
 showcase_kinds = ["oss"]
+show_campaign_card = true
 
 # Card descriptions, keyed by the `id` in data/showcase.toml. URLs and technical
 # labels live in the data file.

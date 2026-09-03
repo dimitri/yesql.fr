@@ -42,6 +42,34 @@
   meta  = "2019 · 52 chapters"
 
 [[items]]
+  id    = "courses"
+  name  = "The Art of PostgreSQL — Courses"
+  url   = "https://theartofpostgresql.com/course/"
+  kind  = "writing"
+  meta  = "3 tiers, 6 courses, 48 modules"
+
+[[items]]
+  id    = "live-masterclass"
+  name  = "Live Masterclass"
+  url   = "https://theartofpostgresql.com/masterclass/"
+  kind  = "writing"
+  meta  = "3h live sessions, quarterly cohort"
+
+[[items]]
+  id    = "teams"
+  name  = "Team offering"
+  url   = "https://theartofpostgresql.com/teams/"
+  kind  = "writing"
+  meta  = "5 seats to start, $399/seat/yr"
+
+[[items]]
+  id    = "lab"
+  name  = "The Art of PostgreSQL — Lab"
+  url   = "https://github.com/dimitri/TheArtOfPostgreSQL"
+  kind  = "writing"
+  meta  = "docker compose up · zero install"
+
+[[items]]
   id    = "yesql-lessons"
   name  = "YeSQL"
   url   = "https://theartofpostgresql.com/yesql/"
