@@ -389,25 +389,6 @@
 }
 .scarcity-note { margin: 0; color: var(--text-muted); font-size: 0.9rem; flex: 1 1 20ch; }
 
-.agenda {
-  list-style: none;
-  padding: 0;
-  margin: 2rem 0 0;
-  display: grid;
-  gap: 1rem;
-  counter-reset: step;
-}
-@media (min-width: 48rem) { .agenda { grid-template-columns: 1fr 1fr; } }
-.agenda-step {
-  margin: 0;
-  border-left: 2px solid var(--accent-line);
-  padding: 0.15rem 0 0.15rem 1rem;
-  counter-increment: step;
-}
-.agenda-step h2 { color: var(--accent); font-size: 0.95rem; }
-.agenda-step h2::before { content: counter(step) ". "; color: var(--text-faint); }
-.agenda-step p { color: var(--text-muted); font-size: 0.92rem; }
-
 /* ---- how a session comes together ----------------------------------------- */
 
 .workflow {
@@ -452,7 +433,9 @@
   gap: 1.25rem;
   margin: 2.5rem 0 0;
 }
-@media (min-width: 48rem) { .travel-grid { grid-template-columns: 1fr 1fr; } }
+/* Three cards: skip the 2-column phase, which would orphan the third card
+   alone on its own row — stack on narrow/medium, one row from 60rem up. */
+@media (min-width: 60rem) { .travel-grid { grid-template-columns: repeat(3, 1fr); } }
 
 .travel-card {
   border: 1px solid var(--line);
@@ -507,7 +490,9 @@
   display: grid;
   gap: 1rem;
 }
-@media (min-width: 44rem) { .format-grid { grid-template-columns: 1fr 1fr; } }
+/* Three cards: skip the 2-column phase, which would orphan the third card
+   alone on its own row — stack on narrow/medium, one row from 60rem up. */
+@media (min-width: 60rem) { .format-grid { grid-template-columns: repeat(3, 1fr); } }
 .format h2 { font-size: 1.15rem; }
 .format {
   margin: 0;

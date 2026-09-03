@@ -15,16 +15,6 @@ summary = "A complete technical session, prepared for you and delivered in perso
   label = "onsite sessions a year"
   note  = "Kept deliberately small. Working directly with production teams is what keeps the material honest — it is also what feeds the book, the training, and the open source tools. Splitting the year between all of that, rather than being booked solid on one of them, is what keeps each part real."
 
-# How a day runs.
-[[agenda]]
-  id    = "morning"
-  name  = "Morning — presentation"
-  lede  = "Half a day of structured material, drawn from the book and reworked for your context."
-[[agenda]]
-  id    = "afternoon"
-  name  = "Afternoon — Q&A and real cases"
-  lede  = "Half a day on your queries, your schema, your query plans. No generic examples."
-
 [materials]
   title = "Materials sent in advance"
   note  = "The book and the course material are sent to attendees before the session, so that the day is spent on questions rather than on discovery."
@@ -50,10 +40,20 @@ summary = "A complete technical session, prepared for you and delivered in perso
   id    = "day"
   step  = "4"
   name  = "The day itself"
-  lede  = "Presentation in the morning, your queries in the afternoon — see the agenda above."
+  lede  = "Presentation in the morning, your queries in the afternoon — see the Local scenario below for exactly how the day runs."
 
-# Travel changes which format is possible, not just the comfort level. Two
-# scenarios, described the way they actually run.
+# How the day runs changes with the distance travelled, not just the comfort
+# level. Three scenarios, described the way they actually run — Local first,
+# since it is the simplest and the most common.
+[[travel]]
+  id      = "local"
+  title   = "Local"
+  example = "Paris"
+  steps = [
+    "Morning — presentation",
+    "Afternoon — Q&A and real cases",
+  ]
+  note = "Single day, no lodging. The one-day format, run start to finish on-site, no travel scenario to plan around."
 [[travel]]
   id      = "short"
   title   = "Short travel"
@@ -75,7 +75,7 @@ summary = "A complete technical session, prepared for you and delivered in perso
     "Days 3 and 4 — the two onsite days",
     "Day 5 — travel back",
   ]
-  note = "A full week. For these destinations only the two-day format makes sense — the one-day format is not offered. The rest day is billed at the day rate, on top of the two-day package: three billed days in total, plus travel and accommodation at cost."
+  note = "A full week. Booked as the Full week format below — travel and accommodation are included in that price, not billed on top."
 
 # Prices shown: unlike the enterprise contract, this one is a firm price.
 [pricing]
@@ -98,6 +98,13 @@ summary = "A complete technical session, prepared for you and delivered in perso
     price    = 8000
     workload = "PT14H"
     lede     = "Preparation is the same regardless of format and is shared across both days: more ground covered, and the time to work through your queries one by one."
+  [[pricing.formats]]
+    id       = "full-week"
+    name     = "Full week"
+    price    = 12500
+    workload = "PT14H"
+    lede     = "The two-day format, for long-distance travel: a full week door to door, jet lag included."
+    note     = "Travel and accommodation included in the price — business class on long-haul flights. Nothing added afterward."
 
 [course]
   mode = "onsite"

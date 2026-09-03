@@ -84,7 +84,7 @@ site ends up quoting three different prices for the same thing.
 | Page | The offer | Prices live in |
 |---|---|---|
 | `/entreprise/` | One-off engagements and second opinions. **No day-to-day operations** — the page says so and names Data Bene for that work. | Nowhere: quote-based |
-| `/immersion/` | A full-day, personally-delivered, fully-customized technical session — not a generic deck. Distinct from theartofpostgresql.com's **Live Masterclass**, which is remote, recurring and open to all; the page says so and links to it. Scarcity ("4 a year") is framed as a deliberate trade-off — onsite time competes with OSS maintenance and the teaching material for the same weeks — rather than as a rationing notice, and it is a total across all clients, not per client; see every mention of the figure on the page and on `/entreprise/`. The `[[workflow]]` (booking → materials → logistics → the day) and `[[travel]]` (short vs. long trip, and why long trips only offer the two-day format) arrays are structurally guarded like `[[agenda]]` — same count, same ids, same order in both languages — even though their prose isn't diffed word for word. | The page's own front matter, guarded by `assert-parity` |
+| `/immersion/` | A full-day, personally-delivered, fully-customized technical session — not a generic deck. Distinct from theartofpostgresql.com's **Live Masterclass**, which is remote, recurring and open to all; the page says so and links to it. Scarcity ("4 a year") is framed as a deliberate trade-off — onsite time competes with OSS maintenance and the teaching material for the same weeks — rather than as a rationing notice, and it is a total across all clients, not per client; see every mention of the figure on the page and on `/entreprise/`. The `[[workflow]]` (booking → materials → logistics → the day) and `[[travel]]` arrays are structurally guarded — same count, same ids, same order in both languages — even though their prose isn't diffed word for word. `[[travel]]` covers three scenarios in the order they're offered: Local (Paris, single day, no lodging) first, then Short travel and Long travel; Long travel points at the third `[[pricing.formats]]` tier, Full week, which bundles travel and accommodation (business class on long-haul legs) into the price instead of billing them at cost like the other two tiers. | The page's own front matter, guarded by `assert-parity` |
 | `/membres/` | Upstream maintenance for pgloader, pgcopydb, pg_auto_failover, pgextwlist. | `data/members.toml` |
 
 **Members is not a new product.** It is the programme already sold at
@@ -136,6 +136,17 @@ front-matter key — one partial, `layouts/partials/sections/showcase.html`,
 renders both. `footer.md` is the third. None of the three ever get a URL of
 their own.
 
+`showcase.md` also carries `show_campaign_card = true`: the current open
+funding campaign (found the same way `campaign/open-list.html` finds it —
+`.Params.show_campaign_card` triggers a lookup of the first campaign with
+`isOpen`) renders as one more card in the same grid as the OSS tools, rather
+than as its own home-page section — there is only ever one campaign open at a
+time, so it earns a card, not a section. `writing.md` lists six cards for what
+was one generic book card: the book itself, the three-tier courses, the
+recurring Live Masterclass, the per-seat team offering, the `docker compose`
+hands-on lab, and the free YeSQL lessons — each an `id` in
+`data/showcase.toml` with its own `[blurbs]` entry per language.
+
 **A TOML footgun worth knowing about**, because it silently ate a whole
 section once: a bare `key = value` written *after* a `[table]` header belongs
 to that table, not to the top level, until the next `[table]` or the end of
@@ -161,7 +172,7 @@ runs at build time and calls `errorf` when the two sides disagree on anything a
 buyer sees:
 
 - differing anchor ids
-- a different number of `[[tiers]]`, `[[proof]]` or `[[agenda]]` entries
+- a different number of `[[tiers]]`, `[[proof]]`, `[[workflow]]` or `[[travel]]` entries
 - a renamed or reordered `id` in any of those
 - an onsite price, currency or ISO workload that differs
 - a scarcity figure that differs
@@ -211,7 +222,7 @@ English would show different totals.
 
 | Key | Meaning |
 |---|---|
-| `status` | `open`, `funded` or `closed`. `open` campaigns show on the homepage; the others move into the "past campaigns" fold. Closing a campaign is this one word. |
+| `status` | `open`, `funded` or `closed`. `open` campaigns show on the Members page and as a card in the homepage's OSS portfolio; the others move into the "past campaigns" fold. Closing a campaign is this one word. |
 | `currency` | ISO code. Formats per language automatically (`3 000 €` / `€3,000`). |
 | `target` | Full scope. The progress bar's 100%. |
 | `threshold` | **Below this, development does not start.** Drawn as a marker on the bar and stated in words underneath. |
@@ -251,8 +262,11 @@ One Hugo detail worth knowing before you touch that file: it multiplies by the
 float literal `100.0` *before* dividing. `div` on two integers is integer
 division, and `18750 / 50000` would collapse to `0`.
 
-The homepage card and the full campaign page render the identical widget from
-the identical dict, so they cannot disagree with each other.
+The Members page's card (`campaign/card.html`, via `campaign/open-list.html`)
+and the full campaign page render the identical widget from the identical
+dict, so they cannot disagree with each other. The homepage's OSS-portfolio
+card is lighter still — just a "15% of €50,000" line pulled from the same
+dict — since there it is one card among several, not the page's whole point.
 
 ---
 

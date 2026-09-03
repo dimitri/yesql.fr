@@ -16,16 +16,6 @@ summary = "Une session technique complète, préparée pour vous et animée en p
   label = "sessions sur site par an"
   note  = "Volontairement peu nombreuses. Le contact direct avec des équipes en production est ce qui garde le contenu honnête — c'est aussi ce qui nourrit le livre, la formation et les outils open source. Répartir l'année entre tout ça, plutôt que d'être occupé à temps plein sur un seul de ces volets, c'est ce qui garde chaque partie réelle."
 
-# Déroulé d'une journée type.
-[[agenda]]
-  id    = "morning"
-  name  = "Matin — présentation"
-  lede  = "Une demi-journée de contenu structuré, tiré du livre et retravaillé pour votre contexte."
-[[agenda]]
-  id    = "afternoon"
-  name  = "Après-midi — questions et cas réels"
-  lede  = "Une demi-journée sur vos requêtes, votre schéma, vos plans d'exécution. Pas d'exemple générique."
-
 [materials]
   title = "Support envoyé à l'avance"
   note  = "Le livre et les supports sont envoyés aux participants avant la session, pour que la journée serve aux questions plutôt qu'à la découverte."
@@ -52,10 +42,20 @@ summary = "Une session technique complète, préparée pour vous et animée en p
   id    = "day"
   step  = "4"
   name  = "Le jour J"
-  lede  = "Présentation le matin, vos requêtes l'après-midi — voir le déroulé ci-dessus."
+  lede  = "Présentation le matin, vos requêtes l'après-midi — voir le scénario Local ci-dessous pour le déroulé exact."
 
-# Le déplacement change le format possible, pas seulement le confort. Deux
-# scénarios, décrits tels qu'ils se déroulent réellement.
+# Le déroulé change avec la distance parcourue, pas seulement le confort.
+# Trois scénarios, décrits tels qu'ils se déroulent réellement — Local
+# d'abord, puisque c'est le plus simple et le plus fréquent.
+[[travel]]
+  id      = "local"
+  title   = "Local"
+  example = "Paris"
+  steps = [
+    "Matin — présentation",
+    "Après-midi — questions et cas réels",
+  ]
+  note = "Une seule journée, sans hébergement. Le format une journée, du début à la fin sur place, sans scénario de déplacement à prévoir."
 [[travel]]
   id      = "short"
   title   = "Déplacement court"
@@ -77,7 +77,7 @@ summary = "Une session technique complète, préparée pour vous et animée en p
     "Jours 3 et 4 — les deux journées sur site",
     "Jour 5 — trajet retour",
   ]
-  note = "Une semaine complète. Pour ces destinations, seul le format deux journées a du sens — le format une journée n'est pas proposé. La journée de repos est facturée au tarif journalier, en plus du forfait deux journées : au total trois journées facturées, plus déplacement et hébergement au tarif réel."
+  note = "Une semaine complète. Réservée sous la forme du forfait « Semaine complète » ci-dessous — déplacement et hébergement sont inclus dans ce prix, pas facturés en plus."
 
 # Tarifs affichés : ici, contrairement au contrat entreprise, le prix est ferme.
 [pricing]
@@ -100,6 +100,13 @@ summary = "Une session technique complète, préparée pour vous et animée en p
     price    = 8000
     workload = "PT14H"
     lede     = "La préparation est la même quel que soit le format et se partage sur les deux journées : plus de sujets couverts, et le temps de reprendre vos requêtes une par une."
+  [[pricing.formats]]
+    id       = "full-week"
+    name     = "Semaine complète"
+    price    = 12500
+    workload = "PT14H"
+    lede     = "Le format deux journées, pour les déplacements longue distance : une semaine complète porte à porte, décalage horaire compris."
+    note     = "Déplacement et hébergement inclus dans le prix — classe affaires sur les vols long-courrier. Rien n'est ajouté ensuite."
 
 [course]
   mode = "onsite"

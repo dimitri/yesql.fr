@@ -18,17 +18,6 @@
 
     <div class="prose">{{ .Content }}</div>
 
-    {{- with .Params.agenda }}
-    <ol class="agenda">
-      {{- range . }}
-      <li class="agenda-step" id="agenda-{{ .id }}">
-        <h2 class="mono">{{ .name }}</h2>
-        <p>{{ .lede }}</p>
-      </li>
-      {{- end }}
-    </ol>
-    {{- end }}
-
     {{- with .Params.materials }}
     <aside class="note">
       <p class="note-title mono">{{ .title }}</p>
@@ -80,7 +69,7 @@
         {{- /* The expenses caveat sits right under the number it qualifies,
                not only once at the bottom of the section — a price nobody
                reads past is a price that surprises someone later. */ -}}
-        <p class="format-expenses">{{ $note }}</p>
+        <p class="format-expenses">{{ .note | default $note }}</p>
         <p class="format-lede">{{ .lede }}</p>
       </li>
       {{- end }}
