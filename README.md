@@ -84,7 +84,7 @@ site ends up quoting three different prices for the same thing.
 | Page | The offer | Prices live in |
 |---|---|---|
 | `/entreprise/` | One-off engagements and second opinions. **No day-to-day operations** — the page says so and names Data Bene for that work. | Nowhere: quote-based |
-| `/immersion/` | A full-day, personally-delivered, fully-customized technical session — not a generic deck. Distinct from theartofpostgresql.com's **Live Masterclass**, which is remote, recurring and open to all; the page says so and links to it. Scarcity ("4 a year") is stated as a total across all clients, not per client — see every mention of the figure on the page and on `/entreprise/`. The `[[workflow]]` (booking → materials → logistics → the day) and `[[travel]]` (short vs. long trip, and why long trips only offer the two-day format) arrays are structurally guarded like `[[agenda]]` — same count, same ids, same order in both languages — even though their prose isn't diffed word for word. | The page's own front matter, guarded by `assert-parity` |
+| `/immersion/` | A full-day, personally-delivered, fully-customized technical session — not a generic deck. Distinct from theartofpostgresql.com's **Live Masterclass**, which is remote, recurring and open to all; the page says so and links to it. Scarcity ("4 a year") is framed as a deliberate trade-off — onsite time competes with OSS maintenance and the teaching material for the same weeks — rather than as a rationing notice, and it is a total across all clients, not per client; see every mention of the figure on the page and on `/entreprise/`. The `[[workflow]]` (booking → materials → logistics → the day) and `[[travel]]` (short vs. long trip, and why long trips only offer the two-day format) arrays are structurally guarded like `[[agenda]]` — same count, same ids, same order in both languages — even though their prose isn't diffed word for word. | The page's own front matter, guarded by `assert-parity` |
 | `/membres/` | Upstream maintenance for pgloader, pgcopydb, pg_auto_failover, pgextwlist. | `data/members.toml` |
 
 **Members is not a new product.** It is the programme already sold at
@@ -178,7 +178,11 @@ cannot diverge in the first place.
 ## Adding a "fund a feature" campaign
 
 Campaigns are a reusable template. A new campaign is **three files and zero
-template changes**.
+template changes** — that includes the nav: the "Campaign" / "Collecte" entry
+in `layouts/partials/header.html` points at the stable `/campaigns/` section
+index, not at any one campaign's slug, on purpose. A single-person shop runs
+one campaign at a time, so the index always shows the current one without the
+nav ever needing an edit when it rotates.
 
 ```bash
 make new-campaign SLUG=oracle-pgloader-v4
@@ -252,43 +256,40 @@ the identical dict, so they cannot disagree with each other.
 
 ---
 
-## The three CTAs
+## Contact and checkout: one form left, everything else is direct
 
-They are deliberately distinct — visually, structurally, and in their
-analytics. Each posts to its own ConvertKit (Kit) form:
+Only one form remains on the whole site — the rest were replaced by plain
+"email me" links, on purpose, when the enterprise and onsite pages moved away
+from a lead-capture funnel toward a direct correspondence model.
 
-| CTA | Page | Fields | Kit form id |
+| Action | Page | How | Kit form id / target |
 |---|---|---|---|
-| Request a quote | `/entreprise/` · `/enterprise/` | email, company, need | `params.kit.quote` |
-| Quarterly letter | `/membres/` · `/members/` | email only | `params.kit.members` |
-| Book a slot | `/immersion/` · `/onsite/` | email, company, format, timeframe | `params.kit.onsite` |
+| Quarterly letter | `/membres/` · `/members/` | Kit form, email only | `params.kit.members` |
+| "Anything else" | `/entreprise/` · `/enterprise/` | `mailto:` to `dim@tapoueh.org` | — |
+| Book a slot | `/immersion/` · `/onsite/` | `mailto:` to `dim@tapoueh.org` | — |
+| Get a member tier | `/membres/` · `/members/` | Direct link on each paid card | `data/members.toml`'s `checkout` (shared: all tiers check out on the same ThriveCart URL — verified live, there is no per-tier URL) |
 
-Members' *paid* tiers do not go through a form at all — they check out on
-ThriveCart. The Kit form on that page is only the quarterly letter.
+Both `mailto:` links go through `layouts/partials/email-cta.html`, which reads
+a page's own `[contact]` front-matter block (`label`, `note`, `email`,
+`subject`) — one partial, reused wherever the next step is "write to me"
+rather than "fill this in."
 
-One per page, and never two on the same page: separate pages and separate form
-ids are what make each conversion path measurable on its own. The hub carries a
-single primary CTA — the contract — and routes to the other two rather than
-competing with them.
-
-`partials/cta-contract.html` renders that primary CTA, resolved from the
-contract page so its label and localized URL exist in one place. It closes the
+`partials/cta-contract.html` renders a closing link to the enterprise page,
+resolved so its localized URL exists in one place. It closes the
 pages that build credibility without selling on their own (`/references/`,
 `/a-propos/`).
 
-### Wiring up the forms
+### Wiring up the one form
 
-Replace the three `0000000` placeholders in `hugo.toml`:
+Replace the `0000000` placeholder in `hugo.toml`:
 
 ```toml
 [params.kit]
   base        = "https://app.kit.com/forms"
-  quote       = "0000000"
   members     = "0000000"
-  onsite      = "0000000"
 ```
 
-The form ids come from each form's embed snippet in the Kit dashboard. The
+The form id comes from that form's embed snippet in the Kit dashboard. The
 account is `yesql.ck.page` — the embed already running on pgloader.io uses it. The
 markup posts directly — no Kit JavaScript is loaded, so the site stays free of
 third-party requests.

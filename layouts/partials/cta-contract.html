@@ -1,8 +1,11 @@
-{{- /* The site's primary call to action, resolved from the contract page so
-       its label and localized URL exist in exactly one place. Used to close
-       the pages that build credibility but do not sell on their own. */ -}}
+{{- /* A closing link to the enterprise page, resolved so its localized URL
+       exists in exactly one place. Used to close the pages that build
+       credibility but do not sell on their own. Uses the page's own title
+       as the link text — that page dropped its single page-level CTA label
+       when it moved from a quote form to two linked cards, so there is no
+       one CTA string left to borrow. */ -}}
 {{- range site.RegularPages }}{{ if eq .Type "contract" }}
 <p class="cta-row">
-  <a class="btn btn-primary" href="{{ .RelPermalink }}">{{ .Params.cta.label }}</a>
+  <a class="btn btn-primary" href="{{ .RelPermalink }}">{{ .Title }} →</a>
 </p>
 {{- end }}{{ end }}
