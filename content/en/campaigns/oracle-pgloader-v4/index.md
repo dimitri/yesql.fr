@@ -10,6 +10,13 @@ description = "Funding campaign: Oracle support in pgloader v4. pgloader expert,
 
 [cta]
   label = "Back this"
+
+# Tier labels, keyed by the `id` of the [[tiers]] in the data file. The amounts
+# live in the data file, not here.
+[tier_labels]
+  individual = "Backer — credited in the release notes"
+  company    = "Company — one real migration case prioritized in the test suite"
+  sponsor    = "Sponsor — architecture review of your Oracle migration included"
 +++
 
 pgloader's Oracle connector works, and it carries ten years of technical debt.
@@ -39,19 +46,10 @@ own campaign if there is demand for it.
 
 ## The threshold
 
-Your pledge is charged right away — there is no way to know in advance
-whether the campaign reaches the threshold. If it doesn't, every pledge is
-refunded in full. Above the threshold, work begins and code ships
-continuously, under the same license as the rest of pgloader.
+Below the start threshold, development does not start and pledges are not
+charged. Above it, work begins and code ships continuously, under the same
+license as the rest of pgloader.
 
 Reaching the full target funds the entire scope. Between the threshold and the
 target, scope is cut in the order of the list above, and the list of what will
 actually ship is published before development starts.
-
-## How much to pledge
-
-Pledge what makes sense for you. A symbolic amount if you're simply rooting
-for this; more if a properly rewritten Oracle connector — no JDBC, correct
-`NUMBER` and `CLOB` handling, partitioned tables — is worth real budget to
-your team. Every pledge counts the same way toward the threshold, whatever
-the amount.

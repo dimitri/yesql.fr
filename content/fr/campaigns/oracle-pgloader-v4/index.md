@@ -10,6 +10,13 @@ description = "Campagne de financement : support Oracle dans pgloader v4. Expert
 
 [cta]
   label = "Contribuer"
+
+# Libellés des paliers, indexés par l'`id` des [[tiers]] du fichier de données.
+# Les montants sont dans le fichier de données, pas ici.
+[tier_labels]
+  individual = "Contributeur — mention dans les notes de version"
+  company    = "Entreprise — un cas de migration réel priorisé dans les tests"
+  sponsor    = "Sponsor — revue d'architecture de votre migration Oracle incluse"
 +++
 
 Le connecteur Oracle de pgloader fonctionne, et il porte dix ans de dette
@@ -41,21 +48,10 @@ fera l'objet d'une campagne distincte s'il y a une demande.
 
 ## Le seuil
 
-Votre contribution est débitée immédiatement — impossible de savoir à
-l'avance si la campagne atteindra son seuil. Si ce n'est pas le cas, chaque
-contribution est intégralement remboursée. Au-dessus du seuil, le travail
-démarre et le code est publié au fil de l'eau, sous la même licence que le
-reste de pgloader.
+En dessous du seuil de démarrage, le développement ne commence pas et les
+engagements ne sont pas appelés. Au-dessus, le travail démarre et le code est
+publié au fil de l'eau, sous la même licence que le reste de pgloader.
 
 Atteindre la cible complète finance le périmètre entier. Entre le seuil et la
 cible, le périmètre est réduit dans l'ordre de la liste ci-dessus, et la liste
 de ce qui est effectivement livré est publiée avant le début du développement.
-
-## Combien contribuer
-
-Contribuez ce qui a du sens pour vous. Un montant symbolique si vous
-souhaitez simplement soutenir le projet ; davantage si un connecteur Oracle
-correctement réécrit — sans JDBC, avec un traitement exact de `NUMBER` et
-`CLOB`, le support des tables partitionnées — représente un vrai budget pour
-votre équipe. Chaque contribution compte de la même façon vers le seuil,
-quel que soit son montant.
