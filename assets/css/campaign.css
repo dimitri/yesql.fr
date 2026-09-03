@@ -34,7 +34,11 @@
 .campaign-card h3 a:hover { color: var(--accent); }
 .campaign-summary { color: var(--text-muted); font-size: 0.92rem; }
 
-.campaign-card-head .cta-row { display: flex; gap: 0.6rem; white-space: nowrap; }
+/* margin: 0 is load-bearing — .cta-row is a <p> and layout.css gives it a
+   1.5rem top margin, which inside this grid cell pushes the buttons down,
+   makes the whole header row that much taller, and shoves the summary
+   below it: a blank band across the card. */
+.campaign-card-head .cta-row { display: flex; gap: 0.6rem; margin: 0; white-space: nowrap; }
 /* Below this, the two buttons no longer fit next to even a short title —
    drop to a stacked layout rather than crush them. */
 @media (max-width: 26rem) {
