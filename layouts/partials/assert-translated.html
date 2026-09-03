@@ -3,21 +3,30 @@
        or a slug renamed on one side — fails the build instead of quietly
        shipping a site where the language switcher dead-ends.
 
-       Campaign bundles are exempt from failing: a campaign may legitimately be
-       drafted in one language first, so that case warns instead.
+       Two exemptions:
+       - Campaign bundles: a campaign may legitimately be drafted in one
+         language first, so that case warns instead of failing.
+       - `translation_exempt = true`: a page that is deliberately
+         single-language forever, not just not-yet-translated (e.g. a Kit
+         redirect landing page, English only, not in the language switcher
+         because it is not in the nav at all) — skipped silently, since
+         warning forever about a page that will never gain a translation is
+         just noise.
 
        ctx: any Page. */ -}}
 {{- if .File -}}
   {{- $p := . -}}
-  {{- $path := $p.Path -}}
-  {{- $selfLang := $p.Language.Lang -}}
-  {{- range hugo.Sites -}}
-    {{- if ne .Language.Lang $selfLang -}}
-      {{- if not (.GetPage $path) -}}
-        {{- if eq $p.Section "campaigns" -}}
-          {{- warnf "translation: %s has no %s counterpart at %q" $p.File.Path .Language.Lang $path -}}
-        {{- else -}}
-          {{- errorf "translation: %s exists in %s but %q has no counterpart in %s" $p.File.Path $selfLang $path .Language.Lang -}}
+  {{- if not $p.Params.translation_exempt -}}
+    {{- $path := $p.Path -}}
+    {{- $selfLang := $p.Language.Lang -}}
+    {{- range hugo.Sites -}}
+      {{- if ne .Language.Lang $selfLang -}}
+        {{- if not (.GetPage $path) -}}
+          {{- if eq $p.Section "campaigns" -}}
+            {{- warnf "translation: %s has no %s counterpart at %q" $p.File.Path .Language.Lang $path -}}
+          {{- else -}}
+            {{- errorf "translation: %s exists in %s but %q has no counterpart in %s" $p.File.Path $selfLang $path .Language.Lang -}}
+          {{- end -}}
         {{- end -}}
       {{- end -}}
     {{- end -}}

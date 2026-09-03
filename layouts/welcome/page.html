@@ -1,0 +1,21 @@
+{{ define "main" }}
+<article class="section">
+  <div class="wrap wrap-narrow">
+    <p class="kicker mono">{{ .Params.kicker }}</p>
+    <h1>{{ .Title }}</h1>
+    <p class="lede">{{ .Params.summary }}</p>
+    <div class="prose">{{ .Content }}</div>
+
+    {{- with .Params.links }}
+    <ul class="core-list">
+      {{- range . }}
+      <li class="core-item">
+        <h2><a href="{{ .href }}">{{ .label }}</a></h2>
+        <p>{{ .lede }}</p>
+      </li>
+      {{- end }}
+    </ul>
+    {{- end }}
+  </div>
+</article>
+{{ end }}
