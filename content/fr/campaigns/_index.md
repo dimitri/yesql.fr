@@ -13,15 +13,15 @@ kicker = "Financer une fonctionnalité"
 pgloader migre depuis MySQL, SQLite et MS SQL Server. Pas depuis Oracle — et ce
 manque est documenté depuis dix ans : le
 [ticket #244](https://github.com/dimitri/pgloader/issues/244), ouvert en juin
-2015, demandait exactement ça, en citant « de nombreux systèmes d'entreprise
-[qui] tournent encore sous Oracle ». On demande encore dans le
+2015, demandait exactement ça, en citant « de nombreux systèmes d'entreprise
+[qui] tournent encore sous Oracle ». On demande encore dans le
 [ticket #1625](https://github.com/dimitri/pgloader/issues/1625), ouvert en
 novembre 2024 — la demande n'a pas disparu, elle n'a simplement jamais été
 financée.
 
 C'est dans la [feuille de route de pgloader](https://pgloader.io/roadmap/)
-depuis des années, écrit noir sur blanc : certains éléments « ne se feront que
-si le projet reçoit des contributions financières ». Le support Oracle en fait
+depuis des années, écrit noir sur blanc : certains éléments « ne se feront que
+si le projet reçoit des contributions financières ». Le support Oracle en fait
 partie, et la feuille de route nomme déjà l'approche — un pilote Common Lisp
 pour le protocole Oracle, sur le même modèle que le connecteur MS SQL Server
 existant.

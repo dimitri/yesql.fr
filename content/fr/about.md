@@ -59,7 +59,7 @@ passé plusieurs années chez 2ndQuadrant à faire du conseil et du développeme
 PostgreSQL, puis rejoint Citus Data pour travailler sur PostgreSQL distribué et
 construire pg_auto_failover. Citus a été racheté par Microsoft en 2019.
 
-## Pourquoi « YeSQL »
+## Pourquoi « YeSQL »
 
 C'était un jeu de mots sur NoSQL, à l'époque où tout le monde expliquait que le
 relationnel avait fait son temps. La blague a vieilli, la position non : ces

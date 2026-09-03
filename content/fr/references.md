@@ -15,7 +15,7 @@ summary = "Le travail public se vérifie sans me demander la permission. Le trav
 # Pour en ajouter une, copier ce bloc et le remplir. La forme qui convainc est
 # toujours la même : situation → ce que j'ai trouvé → ce qui a changé, avec un
 # chiffre. Demander l'accord écrit du client avant de le nommer ; sans accord,
-# « un opérateur télécom européen » vaut mieux que rien.
+# « un opérateur télécom européen » vaut mieux que rien.
 #
 # [[cases]]
 #   id      = "slug-du-cas"

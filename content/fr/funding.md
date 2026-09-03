@@ -9,8 +9,8 @@ kicker  = "En dehors du cadre salarié"
 summary = "La plupart des conseils sur la pérennité de l'open source supposent qu'un employeur accepte de payer pour ça. Voici quoi faire quand ce n'est pas envisageable — en tant qu'individu, ou en tant qu'entreprise dont les ingénieurs utilisent un outil que personne, chez elle, ne maintient."
 +++
 
-Il existe une réponse toute faite à « comment s'assurer que l'open source dont
-on dépend reste maintenu » : faire en sorte que l'employeur autorise du temps
+Il existe une réponse toute faite à « comment s'assurer que l'open source dont
+on dépend reste maintenu » : faire en sorte que l'employeur autorise du temps
 payé dessus, faire sponsoriser une fondation par son entreprise, ou acheter du
 support auprès de l'éditeur qui a construit le projet. Tout cela est réel, et
 ça fonctionne — quand il y a un employeur, une fondation ou un éditeur dans la
@@ -20,7 +20,7 @@ La plupart des logiciels dont vous dépendez réellement n'ont rien de tout ça.
 Une part énorme de l'infrastructure critique est le dépôt d'une seule
 personne, maintenu sur des soirées et des week-ends, sans entreprise derrière
 et sans ligne budgétaire nulle part qui porte son nom. C'est le vrai sujet de
-cette page : pas « convainquez votre employeur », mais ce qu'un individu, ou
+cette page : pas « convainquez votre employeur », mais ce qu'un individu, ou
 une entreprise sans chemin interne pour sponsoriser le temps d'un salarié,
 peut réellement faire.
 
@@ -45,7 +45,7 @@ parce que c'est exactement à quoi ressemble, par défaut, un projet à
 mainteneur unique et non financé — et la plupart d'entre eux ressemblent
 exactement à ça.
 
-## Ce que « contribuer » veut vraiment dire
+## Ce que « contribuer » veut vraiment dire
 
 Il n'y a que deux choses à mettre dans un projet open source : du temps ou de
 l'argent. Le temps salarié est le mécanisme vers lequel la plupart des
@@ -118,11 +118,11 @@ vérifiées et complètes, des mois auparavant.
 
 J'ai écrit sur ce problème dès 2018, alors que pgloader accompagnait déjà des
 entreprises qui quittaient Oracle et d'autres bases de données historiques.
-Une phrase de ce vieil article dit : *« je ne connais personne qui coderait
-le support d'Oracle™ dans pgloader sur son temps libre. »* À l'époque, les
+Une phrase de ce vieil article dit : *« je ne connais personne qui coderait
+le support d'Oracle™ dans pgloader sur son temps libre. »* À l'époque, les
 meilleurs outils que je pouvais proposer étaient exactement ceux décrits
-ci-dessus dans leur version 2018 — une « Moral License » ponctuelle et un
-« Patrons Membership » récurrent, tous deux via Gumroad, tous deux
+ci-dessus dans leur version 2018 — une « Moral License » ponctuelle et un
+« Patrons Membership » récurrent, tous deux via Gumroad, tous deux
 aujourd'hui arrêtés.
 
 Huit ans plus tard, cette phrase a une réponse : [Membres](/fr/membres/)
@@ -152,6 +152,6 @@ exigent seulement quelqu'un prêt à dépenser de l'argent sur un logiciel dont
 l'entreprise dépend déjà.
 
 Dans tous les cas : du temps ou de l'argent, mais quelque chose. L'alternative
-n'est pas « le projet reste gratuit pour toujours ». L'alternative est un
+n'est pas « le projet reste gratuit pour toujours ». L'alternative est un
 mainteneur épuisé, et vous qui découvrez, de la manière la plus difficile, ce
 que ça coûte réellement.

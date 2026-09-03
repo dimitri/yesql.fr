@@ -11,7 +11,7 @@ show_campaign_card = true
   pgloader         = "Migration vers PostgreSQL depuis MySQL, SQLite, MS SQL Server et fichiers CSV. Le standard de fait — Oracle est la pièce manquante, à financer ci-dessous."
   pgcopydb         = "Copie et migration PostgreSQL vers PostgreSQL en parallèle, avec reprise sur incident et suivi de la réplication logique."
   pg_auto_failover = "Haute disponibilité PostgreSQL par bascule automatique, avec un moniteur qui garantit le quorum."
-  pgextwlist       = "Liste blanche d'extensions PostgreSQL : un modèle « sudo » qui permet à un hébergeur d'autoriser CREATE EXTENSION sans donner les droits superutilisateur."
+  pgextwlist       = "Liste blanche d'extensions PostgreSQL : un modèle « sudo » qui permet à un hébergeur d'autoriser CREATE EXTENSION sans donner les droits superutilisateur."
 +++
 
 Aucune plaquette ici. Tout est public, lisible, et exploité en production par des équipes qui n'ont jamais eu à me parler.

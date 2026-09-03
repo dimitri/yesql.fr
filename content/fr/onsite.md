@@ -15,7 +15,7 @@ summary = "Une session technique complète, préparée pour vous et animée en p
   kicker       = "Pourquoi ce contenu reste honnête"
   max_per_year = 4
   label = "sessions sur site par an"
-  note  = "Le contact direct avec des équipes en production est ce qui garde le contenu honnête — c'est aussi ce qui nourrit le livre, la formation et les outils open source. Répartir l'année entre tout ça, plutôt que la remplir avec un seul de ces volets, c'est ce qui garde chaque partie réelle."
+  note  = "De vrais systèmes en production sont la matière première du livre, de la formation et des outils open source — mais les écrire et les maintenir prend du temps aussi. Quatre sessions par an, c'est l'équilibre qui garde les deux honnêtes : assez de contact avec de vrais systèmes pour rester ancré, assez de temps pour vraiment écrire dessus."
 
 [materials]
   title = "Support envoyé à l'avance"
@@ -67,7 +67,7 @@ summary = "Une session technique complète, préparée pour vous et animée en p
     "Mercredi matin — seconde session",
     "Mercredi après-midi — trajet retour",
   ]
-  note = "Le format « une journée » (deux demi-journées) tient sur deux jours de calendrier, aller-retour compris."
+  note = "Le format « une journée » (deux demi-journées) tient sur deux jours de calendrier, aller-retour compris."
 [[travel]]
   id      = "long"
   title   = "Déplacement long"
@@ -78,7 +78,7 @@ summary = "Une session technique complète, préparée pour vous et animée en p
     "Jours 3 et 4 — les deux journées sur site",
     "Jour 5 — trajet retour",
   ]
-  note = "Une semaine complète. Réservée sous la forme du forfait « Semaine complète » ci-dessous — déplacement et hébergement sont facturés au réel, classe affaires sur les vols long-courrier."
+  note = "Une semaine complète. Réservée sous la forme du forfait « Semaine complète » ci-dessous — déplacement et hébergement sont facturés au réel, classe affaires sur les vols long-courrier."
 
 # Tarifs affichés : ici, contrairement au contrat entreprise, le prix est ferme.
 [pricing]

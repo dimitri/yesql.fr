@@ -14,7 +14,7 @@ summary = "A complete technical session, prepared for you and delivered in perso
   kicker       = "Why this stays honest"
   max_per_year = 4
   label = "onsite sessions a year"
-  note  = "Working directly with production teams is what keeps the material honest — it's also what feeds the book, the training, and the open source tools. Splitting the year across all of that, rather than filling it with just one, is what keeps each part real."
+  note  = "Real production systems are the raw material behind the book, the training, and the open source tools — but writing and maintaining those takes time too. Four sessions a year is the balance that keeps both honest: enough contact with real systems to stay grounded, enough time left to actually write about it."
 
 [materials]
   title = "Materials sent in advance"
