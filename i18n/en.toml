@@ -9,6 +9,7 @@ back_campaigns  = "All campaigns"
 
 # --- fund-a-feature widget ---------------------------------------------------
 fund_a_feature   = "Fund a feature"
+fund_see_case    = "See the case"
 fund_progress    = "Funding progress"
 fund_of          = "of"
 fund_raised      = "raised"

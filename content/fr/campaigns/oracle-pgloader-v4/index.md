@@ -8,6 +8,10 @@ weight   = 10
 summary  = "Financer la construction du support Oracle pour pgloader v4, publiée sous licence libre."
 description = "Campagne de financement : support Oracle dans pgloader v4. Expert pgloader, migration Oracle vers PostgreSQL."
 
+# Le bouton de paiement de cette page. Pas réutilisé sur la carte de la
+# grille /campaigns/ — celle-ci renvoie vers cette page, pas vers
+# pledge_url, donc elle a son propre libellé (fund_see_case dans i18n)
+# plutôt que de promettre un paiement qu'elle ne déclenche pas.
 [cta]
   label = "Contribuer"
 

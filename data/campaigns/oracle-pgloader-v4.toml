@@ -20,7 +20,7 @@ updated    = "2026-09-03"
 project    = "pgloader"
 repo       = "https://github.com/dimitri/pgloader"
 license    = "PostgreSQL License"
-pledge_url = "https://example.invalid/pledge/oracle-pgloader-v4"  # TODO: real pledge URL
+pledge_url = "https://sales.theartofpostgresql.com/yesql-oss-campaign/"
 
 # Amounts only. The labels are translated, in the content file's [tier_labels].
 [[tiers]]

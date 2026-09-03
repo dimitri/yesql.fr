@@ -8,6 +8,10 @@ weight   = 10
 summary  = "Fund building Oracle support for pgloader v4, released under an open source license."
 description = "Funding campaign: Oracle support in pgloader v4. pgloader expert, Oracle to PostgreSQL migration."
 
+# The payment button on this page. Not reused on the campaign card in the
+# /campaigns/ grid — that one links to this page, not to pledge_url, so it
+# gets its own label (fund_see_case in i18n) rather than promising a charge
+# it doesn't make.
 [cta]
   label = "Back this"
 

@@ -9,6 +9,7 @@ back_campaigns  = "Toutes les campagnes"
 
 # --- fund-a-feature widget ---------------------------------------------------
 fund_a_feature   = "Financer une fonctionnalité"
+fund_see_case    = "Voir le dossier"
 fund_progress    = "Progression du financement"
 fund_of          = "sur"
 fund_raised      = "collectés"
