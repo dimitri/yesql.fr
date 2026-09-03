@@ -54,8 +54,8 @@ landing).
 ```
 /fr/                          hub — proof, three routes, one primary CTA
 /fr/entreprise/               ← "support PostgreSQL entreprise"   /en/enterprise/
-/fr/seminaire/                ← "formation PostgreSQL avancée"    /en/seminar/
-/fr/cercle/                   OSS maintenance + campaigns         /en/circle/
+/fr/immersion/                ← "formation PostgreSQL avancée"    /en/onsite/
+/fr/membres/                  OSS maintenance + campaigns         /en/members/
 /fr/references/               public proof, user quotes           /en/references/
 /fr/a-propos/                 the person, the core contributions  /en/about/
 /fr/campaigns/<slug>/         one per campaign                    /en/campaigns/<slug>/
@@ -80,21 +80,21 @@ site ends up quoting three different prices for the same thing.
 | Page | The offer | Prices live in |
 |---|---|---|
 | `/entreprise/` | One-off engagements and second opinions. **No day-to-day operations** — the page says so and names Data Bene for that work. | Nowhere: quote-based |
-| `/seminaire/` | The onsite day. Distinct from theartofpostgresql.com's **Live Masterclass**, which is remote, recurring and open to all; the page says so and links to it. | The page's own front matter, guarded by `assert-parity` |
-| `/cercle/` | Upstream maintenance for pgloader, pgcopydb, pg_auto_failover, pgextwlist. | `data/circle.toml` |
+| `/immersion/` | The onsite day. Distinct from theartofpostgresql.com's **Live Masterclass**, which is remote, recurring and open to all; the page says so and links to it. Scarcity ("4 a year") is stated as a total across all clients, not per client — see every mention of the figure on the page and on `/entreprise/`. | The page's own front matter, guarded by `assert-parity` |
+| `/membres/` | Upstream maintenance for pgloader, pgcopydb, pg_auto_failover, pgextwlist. | `data/members.toml` |
 
-**The Circle is not a new product.** It is the programme already sold at
+**Members is not a new product.** It is the programme already sold at
 <https://oss.theartofpostgresql.com/>, checked out through ThriveCart at
-<https://sales.theartofpostgresql.com/oss-sponsors/>. `data/circle.toml`
+<https://sales.theartofpostgresql.com/oss-sponsors/>. `data/members.toml`
 mirrors those tiers (€0 / €100 / €800 / €2k a month, plus €10k per release and
 €3k fast-lane) so this site can describe them without a second price list
 drifting away from the real one. **When a price changes over there, change it
 in that one file.** The tier ids are the join between the data file and the
-translated labels in `content/{fr,en}/circle.md`.
+translated labels in `content/{fr,en}/members.md`.
 
-What the Circle adds on this side is the **quarterly members' letter** — what
-moved in The Art of PostgreSQL and in the maintained projects. That is the only
-thing on the page that goes through a Kit form; the paid tiers go to ThriveCart.
+What membership adds on this side is the **quarterly letter** — what moved in
+The Art of PostgreSQL and in the maintained projects. That is the only thing on
+the page that goes through a Kit form; the paid tiers go to ThriveCart.
 
 ## Where the copy lives
 
@@ -145,12 +145,12 @@ buyer sees:
 - differing anchor ids
 - a different number of `[[tiers]]`, `[[proof]]` or `[[agenda]]` entries
 - a renamed or reordered `id` in any of those
-- a masterclass price, currency or ISO workload that differs
+- an onsite price, currency or ISO workload that differs
 - a scarcity figure that differs
 - a subscription tier id or price that differs
 
 `errorf` fails the build, so drift is caught in CI rather than shipped. To see it
-work, change `price = 3000` in `content/fr/masterclass.md` only, and run `make check`.
+work, change `price = 3000` in `content/fr/onsite.md` only, and run `make check`.
 
 Campaign figures do *not* need this guard: they live in a single data file and
 cannot diverge in the first place.
@@ -242,11 +242,11 @@ analytics. Each posts to its own ConvertKit (Kit) form:
 | CTA | Page | Fields | Kit form id |
 |---|---|---|---|
 | Request a quote | `/entreprise/` · `/enterprise/` | email, company, need | `params.kit.quote` |
-| Quarterly letter | `/cercle/` · `/circle/` | email only | `params.kit.circle` |
-| Book a slot | `/seminaire/` · `/seminar/` | email, company, format, timeframe | `params.kit.seminar` |
+| Quarterly letter | `/membres/` · `/members/` | email only | `params.kit.members` |
+| Book a slot | `/immersion/` · `/onsite/` | email, company, format, timeframe | `params.kit.onsite` |
 
-The Circle's *paid* tiers do not go through a form at all — they check out on
-ThriveCart. The Kit form on that page is only the members' letter.
+Members' *paid* tiers do not go through a form at all — they check out on
+ThriveCart. The Kit form on that page is only the quarterly letter.
 
 One per page, and never two on the same page: separate pages and separate form
 ids are what make each conversion path measurable on its own. The hub carries a
@@ -266,8 +266,8 @@ Replace the three `0000000` placeholders in `hugo.toml`:
 [params.kit]
   base        = "https://app.kit.com/forms"
   quote       = "0000000"
-  circle      = "0000000"
-  seminar     = "0000000"
+  members     = "0000000"
+  onsite      = "0000000"
 ```
 
 The form ids come from each form's embed snippet in the Kit dashboard. The
@@ -336,6 +336,6 @@ target.
 Structured data is emitted per page from `layouts/partials/head/ld-json.html`:
 `Organization` and `Person` on every page with a stable `@id` so they read as
 one entity across the site, `Service` only on the contract page, `Course` only
-on the masterclass page, and a `BreadcrumbList` on interior pages. Every figure
+on the onsite page, and a `BreadcrumbList` on interior pages. Every figure
 is read from the same front-matter key the visible page prints — there is no
 second copy of a price anywhere.
