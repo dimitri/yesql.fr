@@ -39,7 +39,7 @@
   name  = "The Art of PostgreSQL"
   url   = "https://theartofpostgresql.com/"
   kind  = "book"
-  meta  = "2019 · 52 chapters"
+  meta  = "2019–2026 · 52 chapters"
 
 [[items]]
   id    = "courses"
