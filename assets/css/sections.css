@@ -360,34 +360,43 @@
 
 /* ---- onsite ------------------------------------------------------------- */
 
-/* Scarcity is stated as a fact, in the same visual language as the numbers
-   elsewhere, and placed before the price. */
+/* Scarcity is stated as a fact, not implied — but the reason (the note) is
+   the card's argument, so it leads and reads at prose size; "4 a year" is a
+   capacity number, not a pitch, so it trails as a small stat. Capped to the
+   same measure as the surrounding prose (not the full .wrap) so it reads as
+   part of the column instead of a page-wide banner dropped into it. */
 .scarcity {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.5rem 1.25rem;
+  max-width: 62ch;
   border: 1px solid var(--accent-line);
   background: var(--accent-wash);
   border-radius: var(--radius);
   padding: 1.1rem 1.25rem;
   margin: 0 0 2rem;
 }
+.scarcity-kicker {
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--accent);
+}
+.scarcity-note { margin: 0 0 0.85rem; color: var(--text); font-size: 0.95rem; }
 .scarcity-figure {
   margin: 0;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--accent-line);
   display: flex;
   align-items: baseline;
-  gap: 0.5rem;
+  gap: 0.4rem;
   flex-wrap: wrap;
 }
-.scarcity-figure strong { font-size: 2rem; color: var(--accent); line-height: 1; }
+.scarcity-figure strong { font-size: 0.95rem; color: var(--accent); line-height: 1; }
 .scarcity-figure span {
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--text);
+  color: var(--text-muted);
 }
-.scarcity-note { margin: 0; color: var(--text-muted); font-size: 0.9rem; flex: 1 1 20ch; }
 
 /* ---- how a session comes together ----------------------------------------- */
 

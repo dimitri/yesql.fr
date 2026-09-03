@@ -8,11 +8,16 @@
 
     {{- /* Scarcity is stated, not implied — and framed as a trade-off with
            reasons, not as a rationing notice. It sits above the fold, before
-           the price. */ -}}
+           the price.
+
+           Led with the reason (the note), not the number: "4 a year" is a
+           capacity fact, not a selling point, so it reads here as a small
+           trailing stat rather than the card's headline. */ -}}
     {{- with .Params.scarcity }}
     <aside class="scarcity">
-      <p class="scarcity-figure mono"><strong>{{ .max_per_year }}</strong> <span>{{ .label }}</span></p>
+      <p class="scarcity-kicker mono">{{ .kicker }}</p>
       <p class="scarcity-note">{{ .note }}</p>
+      <p class="scarcity-figure mono"><strong>{{ .max_per_year }}</strong> <span>{{ .label }}</span></p>
     </aside>
     {{- end }}
 

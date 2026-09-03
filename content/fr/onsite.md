@@ -12,9 +12,10 @@ summary = "Une session technique complète, préparée pour vous et animée en p
 # petit nombre parce que l'arbitrage qu'il protège est dit clairement, pas
 # sous-entendu.
 [scarcity]
+  kicker       = "Pourquoi ce contenu reste honnête"
   max_per_year = 4
   label = "sessions sur site par an"
-  note  = "Volontairement peu nombreuses. Le contact direct avec des équipes en production est ce qui garde le contenu honnête — c'est aussi ce qui nourrit le livre, la formation et les outils open source. Répartir l'année entre tout ça, plutôt que d'être occupé à temps plein sur un seul de ces volets, c'est ce qui garde chaque partie réelle."
+  note  = "Le contact direct avec des équipes en production est ce qui garde le contenu honnête — c'est aussi ce qui nourrit le livre, la formation et les outils open source. Répartir l'année entre tout ça, plutôt que la remplir avec un seul de ces volets, c'est ce qui garde chaque partie réelle."
 
 [materials]
   title = "Support envoyé à l'avance"

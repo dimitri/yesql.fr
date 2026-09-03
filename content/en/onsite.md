@@ -11,9 +11,10 @@ summary = "A complete technical session, prepared for you and delivered in perso
 # Scarcity as a quality signal, not a rationing notice: it is a small number
 # because the trade-off it protects is stated plainly, not implied.
 [scarcity]
+  kicker       = "Why this stays honest"
   max_per_year = 4
   label = "onsite sessions a year"
-  note  = "Kept deliberately small. Working directly with production teams is what keeps the material honest — it is also what feeds the book, the training, and the open source tools. Splitting the year between all of that, rather than being booked solid on one of them, is what keeps each part real."
+  note  = "Working directly with production teams is what keeps the material honest — it's also what feeds the book, the training, and the open source tools. Splitting the year across all of that, rather than filling it with just one, is what keeps each part real."
 
 [materials]
   title = "Materials sent in advance"
