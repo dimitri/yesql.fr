@@ -114,7 +114,7 @@ summary = "Une session technique complète, préparée pour vous et animée en p
 
 [contact]
   label   = "Réserver une session"
-  note    = "Dites-moi approximativement quand, et une ou deux journées — on affine le reste ensemble. Aucun formulaire entre nous."
+  note    = "Dites-moi approximativement quand, et une ou deux journées — on affine le reste ensemble. Aucun formulaire entre nous. Je facture l'entreprise qui réserve la session, paiement dû en totalité à réception de la facture ; le déplacement et l'hébergement sont soit facturés avec, soit réglés directement par vous — selon ce qui est le plus simple."
   email   = "dim@tapoueh.org"
   subject = "Session sur site"
 +++

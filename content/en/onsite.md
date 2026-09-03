@@ -112,7 +112,7 @@ summary = "A complete technical session, prepared for you and delivered in perso
 
 [contact]
   label   = "Book a slot"
-  note    = "Tell me roughly when, and whether one day or two — we work out the rest from there. No form in between."
+  note    = "Tell me roughly when, and whether one day or two — we work out the rest from there. No form in between. I invoice the company booking the slot, payment due in full on receipt; travel and accommodation are either invoiced alongside it or paid directly by you, whichever's easier."
   email   = "dim@tapoueh.org"
   subject = "Onsite session"
 +++
