@@ -22,6 +22,13 @@
 .campaign-card h3 a:hover { color: var(--accent); }
 .campaign-summary { color: var(--text-muted); font-size: 0.92rem; }
 
+/* Two buttons, one row: "See the case" and the real payment button both
+   fit on the same line at card width, wrapping only if the card gets
+   narrow enough that they can't. */
+.campaign-card .cta-row { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.campaign-card .cta-row .btn { flex: 0 0 auto; }
+@media (max-width: 30rem) { .campaign-card .cta-row .btn { width: auto; } }
+
 .campaign-kicker {
   display: flex;
   flex-wrap: wrap;

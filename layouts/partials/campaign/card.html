@@ -9,12 +9,15 @@
   <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
   <p class="campaign-summary">{{ .Params.summary }}</p>
   {{ partial "campaign/progress.html" $c }}
-  {{- /* Deliberately not .Params.cta.label: that string is the detail
-         page's actual payment button, which this card is not — it links
-         to more information, not to a charge, so it needs its own,
-         honest label rather than borrowing one that promises an action
-         this click doesn't take. */}}
+  {{- /* Two honest buttons, not one borrowed label: "See the case" links to
+         this same detail page's evidence and terms, and — while the
+         campaign is open — the real payment button sits right next to it
+         for whoever already knows they're backing this. Neither promises
+         an action the other one takes. */}}
   <p class="cta-row">
     <a class="btn btn-ghost" href="{{ .RelPermalink }}">{{ i18n "fund_see_case" }}</a>
+    {{- if $c.isOpen }}
+    <a class="btn btn-primary" href="{{ $c.pledge_url }}" rel="noopener nofollow">{{ .Params.cta.label }}</a>
+    {{- end }}
   </p>
 </article>
