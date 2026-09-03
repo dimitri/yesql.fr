@@ -94,6 +94,42 @@
   .section-hero .prose { max-width: 46ch; }
 }
 
+/* ---- page-header art -------------------------------------------------------
+   The same grid+motif treatment as the hero, generalized so every page can
+   open on a small piece of the same visual family instead of a flat title.
+   Deliberately quieter than the hero's own — smaller, dimmer, no entrance
+   animation — so the homepage still reads as the one place with the most
+   presence, and the rest of the site reads as its siblings, not its equal. */
+.section-decorated {
+  position: relative;
+  overflow: hidden;
+}
+.section-decorated > .wrap { position: relative; z-index: 1; }
+.section-decorated::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(110% 85% at 82% 28%, #000 0%, transparent 70%);
+          mask-image: radial-gradient(110% 85% at 82% 28%, #000 0%, transparent 70%);
+  pointer-events: none;
+}
+.bg-art {
+  display: none;
+  position: absolute;
+  top: 2.5rem;
+  right: -2.5rem;
+  width: min(24rem, 34vw);
+  height: auto;
+  color: var(--accent);
+  opacity: 0.24;
+  pointer-events: none;
+}
+@media (min-width: 64rem) { .bg-art { display: block; } }
+
 /* Proof before promise: the credentials sit above the CTA, not below it. */
 .proof {
   list-style: none;

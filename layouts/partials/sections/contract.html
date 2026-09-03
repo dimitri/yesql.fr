@@ -1,5 +1,6 @@
 {{- $anchor := .Params.anchor | default .File.ContentBaseName -}}
-<section id="{{ $anchor }}" class="section section-contract" aria-labelledby="{{ $anchor }}-h">
+<section id="{{ $anchor }}" class="section section-contract section-decorated" aria-labelledby="{{ $anchor }}-h">
+  {{ partial "backgrounds/direct-line.html" . }}
   <div class="wrap">
     <p class="kicker mono">{{ .Params.kicker }}</p>
     <h1 id="{{ $anchor }}-h">{{ .Title }}</h1>

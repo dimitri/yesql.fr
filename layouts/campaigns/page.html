@@ -1,10 +1,12 @@
 {{ define "main" }}
 {{- if not .IsTranslated }}{{ warnf "campaign %s has no translation" .File.Path }}{{ end -}}
 {{- $c := partialCached "campaign/facts.html" .Params.campaign .Params.campaign -}}
-<article class="campaign" data-status="{{ $c.status }}">
+<article class="campaign section-decorated" data-status="{{ $c.status }}">
+  {{ partial "backgrounds/threshold.html" . }}
   <div class="wrap wrap-narrow">
     <p class="campaign-kicker mono">
-      <a href="{{ site.Home.RelPermalink }}#club">{{ i18n "fund_a_feature" }}</a> · {{ $c.project }}
+      {{- $campaigns := site.GetPage "/campaigns" }}
+      <a href="{{ with $campaigns }}{{ .RelPermalink }}{{ else }}{{ site.Home.RelPermalink }}{{ end }}">{{ i18n "fund_a_feature" }}</a> · {{ $c.project }}
       <span class="campaign-status">{{ i18n (printf "fund_status_%s" $c.status) }}</span>
     </p>
     <h1>{{ .Title }}</h1>
@@ -41,7 +43,7 @@
     </dl>
 
     <p class="cta-row">
-      <a class="btn btn-ghost" href="{{ site.Home.RelPermalink }}#club">{{ i18n "back_home" }}</a>
+      <a class="btn btn-ghost" href="{{ with $campaigns }}{{ .RelPermalink }}{{ else }}{{ site.Home.RelPermalink }}{{ end }}">{{ i18n "back_campaigns" }}</a>
     </p>
   </div>
 </article>

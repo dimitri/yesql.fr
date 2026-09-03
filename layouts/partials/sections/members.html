@@ -12,7 +12,8 @@
 {{- $c := hugo.Data.members -}}
 {{- $labels := .Params.tier_labels -}}
 {{- $anchor := .Params.anchor | default .File.ContentBaseName -}}
-<section id="{{ $anchor }}" class="section section-members" aria-labelledby="{{ $anchor }}-h">
+<section id="{{ $anchor }}" class="section section-members section-decorated" aria-labelledby="{{ $anchor }}-h">
+  {{ partial "backgrounds/ladder.html" . }}
   <div class="wrap">
     <p class="kicker mono">{{ .Params.kicker }}</p>
     <h1 id="{{ $anchor }}-h">{{ .Title }}</h1>

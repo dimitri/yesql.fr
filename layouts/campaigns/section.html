@@ -1,5 +1,6 @@
 {{ define "main" }}
-<section class="section">
+<section class="section section-decorated">
+  {{ partial "backgrounds/threshold.html" . }}
   <div class="wrap">
     <p class="kicker mono">{{ i18n "fund_a_feature" }}</p>
     <h1>{{ .Title | default (i18n "fund_a_feature") }}</h1>

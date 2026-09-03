@@ -1,5 +1,6 @@
 {{ define "main" }}
-<article class="section section-references">
+<article class="section section-references section-decorated">
+  {{ partial "backgrounds/checkmarks.html" . }}
   <div class="wrap">
     <p class="kicker mono">{{ .Params.kicker }}</p>
     <h1>{{ .Title }}</h1>

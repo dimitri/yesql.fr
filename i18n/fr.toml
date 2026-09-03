@@ -5,7 +5,7 @@ skip_to_content = "Aller au contenu"
 switch_language = "Passer en anglais"
 theme_toggle    = "Basculer le thème clair / sombre"
 learn_more      = "En savoir plus"
-back_home       = "Retour à l'accueil"
+back_campaigns  = "Toutes les campagnes"
 
 # --- fund-a-feature widget ---------------------------------------------------
 fund_a_feature   = "Financer une fonctionnalité"

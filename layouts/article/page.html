@@ -1,0 +1,15 @@
+{{- /* Own layout for `type = "article"` (currently just the funding-OSS
+       essay), split off from the generic layouts/page.html so this page can
+       carry the decorative background without also putting art behind the
+       legal notice, which shares that generic layout and should stay plain. */ -}}
+{{ define "main" }}
+<article class="section section-decorated">
+  {{ partial "backgrounds/mesh.html" . }}
+  <div class="wrap wrap-narrow">
+    <p class="kicker mono">{{ .Params.kicker | default site.Title }}</p>
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.summary }}<p class="lede">{{ . }}</p>{{ end }}
+    <div class="prose">{{ .Content }}</div>
+  </div>
+</article>
+{{ end }}

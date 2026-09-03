@@ -5,7 +5,7 @@ skip_to_content = "Skip to content"
 switch_language = "Switch to French"
 theme_toggle    = "Toggle light / dark theme"
 learn_more      = "Read more"
-back_home       = "Back home"
+back_campaigns  = "All campaigns"
 
 # --- fund-a-feature widget ---------------------------------------------------
 fund_a_feature   = "Fund a feature"
