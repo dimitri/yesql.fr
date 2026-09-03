@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#336791"/>
-  <text x="32" y="44" font-family="IBM Plex Mono, ui-monospace, monospace"
-        font-size="34" font-weight="600" fill="#ffffff" text-anchor="middle">y</text>
+  <rect width="64" height="64" rx="12" fill="#14101f"/>
+  <rect x="25" y="7" width="14" height="14" rx="3" fill="none" stroke="#7CD9A8" stroke-width="4"/>
+  <rect x="7" y="39" width="14" height="14" rx="3" fill="#7CD9A8" stroke="#7CD9A8" stroke-width="4"/>
+  <rect x="43" y="39" width="14" height="14" rx="3" fill="none" stroke="#7CD9A8" stroke-width="4"/>
+  <path d="M32 21 V30 M32 30 L17 41 M32 30 L47 41" stroke="#7CD9A8" stroke-width="4" stroke-linecap="round" fill="none"/>
 </svg>

@@ -1,6 +1,17 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="{{ site.Home.RelPermalink }}">
+      {{- /* The plan-node mark: a query plan, root and two children — the
+             site's own hero motif collapsed to icon scale. currentColor so
+             it takes --accent-strong below and stays legible on both
+             grounds, rather than the fixed light green used where the mark
+             stands alone (favicon, JSON-LD logo). */ -}}
+      <svg class="brand-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <rect x="25" y="7" width="14" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="4"/>
+        <rect x="7" y="39" width="14" height="14" rx="3" fill="currentColor" stroke="currentColor" stroke-width="4"/>
+        <rect x="43" y="39" width="14" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="4"/>
+        <path d="M32 21 V30 M32 30 L17 41 M32 30 L47 41" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
+      </svg>
       <span class="brand-mark" aria-hidden="true">ye</span><span class="brand-word">SQL</span>
     </a>
     <nav class="nav" aria-label="{{ site.Title }}">

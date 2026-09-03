@@ -39,25 +39,26 @@ summary = "Le travail public se vérifie sans me demander la permission. Le trav
 # Retours d'utilisateurs de pgloader, nommés exactement comme leurs auteurs
 # les ont publiés eux-mêmes — dans le livre blanc 2018 de pgloader, ou dans
 # leur propre tweet. Ne jamais inventer une attribution qui n'est pas déjà
-# publique à la source.
+# publique à la source. Le texte des citations reste en anglais, langue
+# d'origine : traduire une citation directe la dénature.
 [[quotes]]
   id     = "iwoca"
-  text   = "Nous avons pu migrer notre base de données principale de MySQL vers Postgres, en déplaçant des centaines de tables utilisées par notre projet Django complexe. Dimitri a implémenté une nouvelle fonctionnalité pour nous, rapidement et proprement."
+  text   = "We were able to migrate our main database from MySQL to Postgres, moving hundreds of tables used by our complex Django project. Dimitri implemented a new feature for us quickly and smoothly."
   source = "Andrea Crotti, Iwoca"
 [[quotes]]
   id     = "complex"
-  text   = "Fusionbox a utilisé pgloader sur un projet pour une grande agence gouvernementale. Nous devions migrer un gros volume de données depuis un cluster SQL Server existant vers une nouvelle solution PostgreSQL. pgloader a considérablement réduit le temps nécessaire pour mener à bien cette migration complexe."
+  text   = "Fusionbox used pgloader on a project for a large government agency. We needed to migrate a large set of data from an existing SQL Server cluster to a new PostgreSQL solution. pgloader greatly reduced the time required to accomplish this complex migration."
   source = "Alexander Groth, Fusionbox"
   url    = "http://www.fusionbox.com/"
 [[quotes]]
   id     = "one-tb"
-  text   = "A rendu notre migration vraiment facile (~1 To)."
-  source = "CommaFeed, sur Twitter"
+  text   = "Made our migration really easy (~1Tb)."
+  source = "CommaFeed, via Twitter"
   url    = "https://twitter.com/CommaFeed/status/568053907370450944"
 [[quotes]]
   id     = "one-liner"
-  text   = "Presque trop facile — j'ai lancé la ligne de commande et j'ai attendu 48 heures. Rien à changer côté application, grâce à Hibernate."
-  source = "CommaFeed, sur Twitter"
+  text   = "Almost too easy — I just ran the one-liner and waited for 48 hours. Nothing to change in the app, thanks to Hibernate."
+  source = "CommaFeed, via Twitter"
   url    = "https://twitter.com/CommaFeed/status/568053907370450944"
 
 [quotes_note]
