@@ -4,9 +4,9 @@ type    = "onsite"
 slug    = "onsite"
 weight  = 20
 nav     = "Onsite"
-description = "Onsite PostgreSQL engagement, one or two days, built on your schema and your queries. €3,000 / €6,000, four sessions a year in total, across all clients."
+description = "A full-day, personally-delivered, fully-customized technical session, built on your schema and your queries. €4,500 / €8,000, four sessions a year in total, across all clients."
 kicker  = "Onsite · four a year, total"
-summary = "A day at your office with the author of The Art of PostgreSQL: half a day of presentation, half a day on your own queries. One or two days, four times a year — not four times per client."
+summary = "A complete technical session, prepared for you and delivered in person: half a day of presentation, half a day on your own queries. One or two days, four times a year — not four times per client."
 
 [cta]
   label = "Book a slot"
@@ -35,6 +35,54 @@ summary = "A day at your office with the author of The Art of PostgreSQL: half a
   title = "Materials sent in advance"
   note  = "The book and the course material are sent to attendees before the session, so that the day is spent on questions rather than on discovery."
 
+# How a session comes together, in four steps. Deliberately simple: this is
+# not a statement of work, it is enough to know what to expect and when.
+[[workflow]]
+  id    = "book"
+  step  = "1"
+  name  = "Book a date"
+  lede  = "As early as possible, and at least six weeks before the session — the time it takes to prepare content that speaks to your code, not a generic example."
+[[workflow]]
+  id    = "materials"
+  step  = "2"
+  name  = "Send your material"
+  lede  = "Two weeks before: schema (DDL), a handful of slow queries with their EXPLAIN output, and the business context — data volumes, constraints, what has already been tried."
+[[workflow]]
+  id    = "logistics"
+  step  = "3"
+  name  = "Confirm logistics"
+  lede  = "One week before: location, room, projector, VPN access if needed, and the list of attendees."
+[[workflow]]
+  id    = "day"
+  step  = "4"
+  name  = "The day itself"
+  lede  = "Presentation in the morning, your queries in the afternoon — see the agenda above."
+
+# Travel changes which format is possible, not just the comfort level. Two
+# scenarios, described the way they actually run.
+[[travel]]
+  id      = "short"
+  title   = "Short travel"
+  example = "France, nearby Europe"
+  steps = [
+    "Tuesday morning — travel out",
+    "Tuesday afternoon — first session",
+    "Wednesday morning — second session",
+    "Wednesday afternoon — travel back",
+  ]
+  note = "The one-day format (two half-days) fits into two calendar days, round trip included."
+[[travel]]
+  id      = "long"
+  title   = "Long travel"
+  example = "outside Europe"
+  steps = [
+    "Day 1 — travel out",
+    "Day 2 — rest (jet lag)",
+    "Days 3 and 4 — the two onsite days",
+    "Day 5 — travel back",
+  ]
+  note = "A full week. For these destinations only the two-day format makes sense — the one-day format is not offered. The rest day is billed at the day rate, on top of the two-day package: three billed days in total, plus travel and accommodation at cost."
+
 # Prices shown: unlike the enterprise contract, this one is a firm price.
 [pricing]
   currency = "EUR"
@@ -47,23 +95,25 @@ summary = "A day at your office with the author of The Art of PostgreSQL: half a
   [[pricing.formats]]
     id       = "one-day"
     name     = "One day"
-    price    = 3000
+    price    = 4500
     workload = "PT7H"
     lede     = "Half a day of presentation, half a day of questions and real cases."
   [[pricing.formats]]
     id       = "two-days"
     name     = "Two days"
-    price    = 6000
+    price    = 8000
     workload = "PT14H"
-    lede     = "The long format: more ground covered, and the time to work through your queries one by one."
+    lede     = "Preparation is the same regardless of format and is shared across both days: more ground covered, and the time to work through your queries one by one."
 
 [course]
   mode = "onsite"
 +++
 
-The onsite engagement takes the content of *The Art of PostgreSQL* and puts it
-against your code. The point is not to cover a syllabus, it is that your team
-leaves with their own queries rewritten.
+The onsite is a complete technical session: prepared specifically for you, and
+delivered in person, not a generic deck recited. It takes the content of
+*The Art of PostgreSQL* and puts it against your code. The point is not to
+cover a syllabus, it is that your team leaves with their own queries
+rewritten.
 
 Not to be confused with the [Live Masterclass](https://theartofpostgresql.com/masterclass/),
 which is the remote, recurring format open to everyone. The onsite happens at

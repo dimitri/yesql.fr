@@ -34,6 +34,39 @@
     </aside>
     {{- end }}
 
+    {{- /* Four steps, deliberately plain: what happens and when, not a
+           statement of work. */ -}}
+    {{- with .Params.workflow }}
+    <ol class="workflow">
+      {{- range . }}
+      <li class="workflow-step" id="workflow-{{ .id }}">
+        <span class="workflow-num mono">{{ .step }}</span>
+        <h2>{{ .name }}</h2>
+        <p>{{ .lede }}</p>
+      </li>
+      {{- end }}
+    </ol>
+    {{- end }}
+
+    {{- /* Travel is not just comfort — for a long trip only the two-day
+           format is offered at all, which is why this sits right before the
+           prices rather than as an FAQ footnote. */ -}}
+    {{- with .Params.travel }}
+    <div class="travel-grid">
+      {{- range . }}
+      <article class="travel-card" id="travel-{{ .id }}">
+        <p class="travel-tag mono">{{ .title }} — {{ .example }}</p>
+        <ol class="travel-steps">
+          {{- range .steps }}
+          <li>{{ . }}</li>
+          {{- end }}
+        </ol>
+        <p class="travel-note">{{ .note }}</p>
+      </article>
+      {{- end }}
+    </div>
+    {{- end }}
+
     {{- with .Params.pricing }}
     {{- $cur := .currency }}
     {{- $note := .note }}

@@ -35,7 +35,7 @@
       {{- end -}}
 
       {{- /* Repeatable blocks: same count, same ids, same order. */ -}}
-      {{- range $key := slice "tiers" "proof" "agenda" -}}
+      {{- range $key := slice "tiers" "proof" "agenda" "workflow" "travel" -}}
         {{- /* A section that has neither block is fine; one that has only
                one side is exactly the drift we are looking for. */ -}}
         {{- $mine := cond (isset $p.Params $key) (index $p.Params $key) slice -}}

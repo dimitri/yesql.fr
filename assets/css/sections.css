@@ -340,6 +340,98 @@
 .agenda-step h2::before { content: counter(step) ". "; color: var(--text-faint); }
 .agenda-step p { color: var(--text-muted); font-size: 0.92rem; }
 
+/* ---- how a session comes together ----------------------------------------- */
+
+.workflow {
+  list-style: none;
+  padding: 0;
+  margin: 2.5rem 0 0;
+  display: grid;
+  gap: 1.1rem;
+}
+@media (min-width: 40rem) { .workflow { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 64rem) { .workflow { grid-template-columns: repeat(4, 1fr); } }
+
+.workflow-step {
+  margin: 0;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.2rem 1.3rem;
+}
+.workflow-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 999px;
+  background: var(--accent-wash);
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+}
+.workflow-step h2 { font-size: 1rem; margin-bottom: 0.4rem; }
+.workflow-step p { color: var(--text-muted); font-size: 0.88rem; margin: 0; }
+
+/* ---- travel ----------------------------------------------------------------
+   Travel changes which price format is even offered, so this sits right
+   before the prices — a decision input, not an FAQ footnote. */
+
+.travel-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin: 2.5rem 0 0;
+}
+@media (min-width: 48rem) { .travel-grid { grid-template-columns: 1fr 1fr; } }
+
+.travel-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.4rem 1.3rem;
+  background: var(--bg-sunken);
+}
+.travel-tag {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin-bottom: 0.9rem;
+}
+.travel-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  counter-reset: travel-step;
+}
+.travel-steps li {
+  counter-increment: travel-step;
+  position: relative;
+  padding-left: 1.7rem;
+  margin: 0 0 0.55rem;
+  color: var(--text);
+  font-size: 0.92rem;
+}
+.travel-steps li::before {
+  content: counter(travel-step);
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 999px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.travel-note { color: var(--text-muted); font-size: 0.86rem; margin: 0; }
+
 .format-grid {
   list-style: none;
   padding: 0;

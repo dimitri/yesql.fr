@@ -4,9 +4,9 @@ type    = "onsite"
 slug    = "immersion"
 weight  = 20
 nav     = "Immersion"
-description = "Immersion PostgreSQL sur site, une ou deux journées, à partir de votre schéma et de vos requêtes. 3 000 € / 6 000 €, quatre sessions par an au total, tous clients confondus."
+description = "Journée technique sur site, personnalisée et animée en personne : à partir de votre schéma et de vos requêtes. 4 500 € / 8 000 €, quatre sessions par an au total, tous clients confondus."
 kicker  = "Sur site · quatre par an, au total"
-summary = "Une journée chez vous avec l'auteur de The Art of PostgreSQL : une demi-journée de présentation, une demi-journée sur vos requêtes. Une ou deux journées, quatre fois par an — pas quatre fois par client."
+summary = "Une session technique complète, préparée pour vous et animée en personne : une demi-journée de présentation, une demi-journée sur vos requêtes. Une ou deux journées, quatre fois par an — pas quatre fois par client."
 
 [cta]
   label = "Réserver une session"
@@ -35,6 +35,55 @@ summary = "Une journée chez vous avec l'auteur de The Art of PostgreSQL : une d
   title = "Support envoyé à l'avance"
   note  = "Le livre et les supports sont envoyés aux participants avant la session, pour que la journée serve aux questions plutôt qu'à la découverte."
 
+# Comment une session se prépare, en quatre étapes. Volontairement simple :
+# ce n'est pas un cahier des charges, c'est de quoi savoir à quoi s'attendre
+# et quand s'y prendre.
+[[workflow]]
+  id    = "book"
+  step  = "1"
+  name  = "Réserver une date"
+  lede  = "Au plus tôt, et six semaines avant la session au minimum — le temps de préparer un contenu qui parle de votre code, pas d'un exemple générique."
+[[workflow]]
+  id    = "materials"
+  step  = "2"
+  name  = "Envoyer votre matériel"
+  lede  = "Deux semaines avant : schéma (DDL), quelques requêtes lentes avec leur EXPLAIN, et le contexte métier — volumétrie, contraintes, ce qui a déjà été essayé."
+[[workflow]]
+  id    = "logistics"
+  step  = "3"
+  name  = "Confirmer la logistique"
+  lede  = "Une semaine avant : lieu, salle, vidéoprojecteur, accès VPN si besoin, et la liste des participants."
+[[workflow]]
+  id    = "day"
+  step  = "4"
+  name  = "Le jour J"
+  lede  = "Présentation le matin, vos requêtes l'après-midi — voir le déroulé ci-dessus."
+
+# Le déplacement change le format possible, pas seulement le confort. Deux
+# scénarios, décrits tels qu'ils se déroulent réellement.
+[[travel]]
+  id      = "short"
+  title   = "Déplacement court"
+  example = "France, Europe proche"
+  steps = [
+    "Mardi matin — trajet aller",
+    "Mardi après-midi — première session",
+    "Mercredi matin — seconde session",
+    "Mercredi après-midi — trajet retour",
+  ]
+  note = "Le format « une journée » (deux demi-journées) tient sur deux jours de calendrier, aller-retour compris."
+[[travel]]
+  id      = "long"
+  title   = "Déplacement long"
+  example = "hors Europe"
+  steps = [
+    "Jour 1 — trajet aller",
+    "Jour 2 — repos (décalage horaire)",
+    "Jours 3 et 4 — les deux journées sur site",
+    "Jour 5 — trajet retour",
+  ]
+  note = "Une semaine complète. Pour ces destinations, seul le format deux journées a du sens — le format une journée n'est pas proposé. La journée de repos est facturée au tarif journalier, en plus du forfait deux journées : au total trois journées facturées, plus déplacement et hébergement au tarif réel."
+
 # Tarifs affichés : ici, contrairement au contrat entreprise, le prix est ferme.
 [pricing]
   currency = "EUR"
@@ -47,23 +96,25 @@ summary = "Une journée chez vous avec l'auteur de The Art of PostgreSQL : une d
   [[pricing.formats]]
     id       = "one-day"
     name     = "Une journée"
-    price    = 3000
+    price    = 4500
     workload = "PT7H"
     lede     = "Une demi-journée de présentation, une demi-journée de questions et de cas réels."
   [[pricing.formats]]
     id       = "two-days"
     name     = "Deux journées"
-    price    = 6000
+    price    = 8000
     workload = "PT14H"
-    lede     = "Le format long : plus de sujets couverts, et le temps de reprendre vos requêtes une par une."
+    lede     = "La préparation est la même quel que soit le format et se partage sur les deux journées : plus de sujets couverts, et le temps de reprendre vos requêtes une par une."
 
 [course]
   mode = "onsite"
 +++
 
-L'immersion reprend le contenu de *The Art of PostgreSQL* et le confronte à
-votre code. L'objectif n'est pas de couvrir un programme, c'est que votre équipe
-reparte avec ses propres requêtes réécrites.
+L'immersion est une session technique complète : préparée spécifiquement pour
+vous, et animée en personne, pas un support générique récité. Elle reprend le
+contenu de *The Art of PostgreSQL* et le confronte à votre code. L'objectif
+n'est pas de couvrir un programme, c'est que votre équipe reparte avec ses
+propres requêtes réécrites.
 
 À ne pas confondre avec la [Live Masterclass](https://theartofpostgresql.com/masterclass/),
 qui est le format à distance, récurrent et ouvert à tous. L'immersion se tient

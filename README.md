@@ -80,7 +80,7 @@ site ends up quoting three different prices for the same thing.
 | Page | The offer | Prices live in |
 |---|---|---|
 | `/entreprise/` | One-off engagements and second opinions. **No day-to-day operations** — the page says so and names Data Bene for that work. | Nowhere: quote-based |
-| `/immersion/` | The onsite day. Distinct from theartofpostgresql.com's **Live Masterclass**, which is remote, recurring and open to all; the page says so and links to it. Scarcity ("4 a year") is stated as a total across all clients, not per client — see every mention of the figure on the page and on `/entreprise/`. | The page's own front matter, guarded by `assert-parity` |
+| `/immersion/` | A full-day, personally-delivered, fully-customized technical session — not a generic deck. Distinct from theartofpostgresql.com's **Live Masterclass**, which is remote, recurring and open to all; the page says so and links to it. Scarcity ("4 a year") is stated as a total across all clients, not per client — see every mention of the figure on the page and on `/entreprise/`. The `[[workflow]]` (booking → materials → logistics → the day) and `[[travel]]` (short vs. long trip, and why long trips only offer the two-day format) arrays are structurally guarded like `[[agenda]]` — same count, same ids, same order in both languages — even though their prose isn't diffed word for word. | The page's own front matter, guarded by `assert-parity` |
 | `/membres/` | Upstream maintenance for pgloader, pgcopydb, pg_auto_failover, pgextwlist. | `data/members.toml` |
 
 **Members is not a new product.** It is the programme already sold at
@@ -150,7 +150,7 @@ buyer sees:
 - a subscription tier id or price that differs
 
 `errorf` fails the build, so drift is caught in CI rather than shipped. To see it
-work, change `price = 3000` in `content/fr/onsite.md` only, and run `make check`.
+work, change `price = 4500` in `content/fr/onsite.md` only, and run `make check`.
 
 Campaign figures do *not* need this guard: they live in a single data file and
 cannot diverge in the first place.
