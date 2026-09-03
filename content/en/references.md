@@ -49,13 +49,8 @@ summary = "Public work can be checked without asking me. Contract work is under 
   source = "Alexander Groth, Fusionbox"
   url    = "http://www.fusionbox.com/"
 [[quotes]]
-  id     = "one-tb"
-  text   = "Made our migration really easy (~1Tb)."
-  source = "CommaFeed, via Twitter"
-  url    = "https://twitter.com/CommaFeed/status/568053907370450944"
-[[quotes]]
-  id     = "one-liner"
-  text   = "Almost too easy — I just ran the one-liner and waited for 48 hours. Nothing to change in the app, thanks to Hibernate."
+  id     = "commafeed"
+  text   = "It made our migration from MySQL to PostgreSQL really easy (~1Tb) — almost too easy: I just ran the one-liner and waited for 48 hours. Nothing to change in the app, thanks to Hibernate."
   source = "CommaFeed, via Twitter"
   url    = "https://twitter.com/CommaFeed/status/568053907370450944"
 
