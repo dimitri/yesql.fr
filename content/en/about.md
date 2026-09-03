@@ -38,7 +38,7 @@ summary = "PostgreSQL Major Contributor. Two of the contributions — CREATE EXT
   url   = "https://tapoueh.org/conf/"
 [[facts]]
   label = "Background"
-  value = "2ndQuadrant, then Citus Data — acquired by Microsoft in 2019"
+  value = "Founded Dalibo (2005) and 2ndQuadrant France (2012); Citus Data, then Microsoft by acquisition (2018–2025)"
 [[facts]]
   label = "Book"
   value = "The Art of PostgreSQL, 52 chapters"

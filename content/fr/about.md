@@ -38,7 +38,7 @@ summary = "Contributeur majeur de PostgreSQL. Deux de ces contributions — CREA
   url   = "https://tapoueh.org/conf/"
 [[facts]]
   label = "Parcours"
-  value = "2ndQuadrant, puis Citus Data — racheté par Microsoft en 2019"
+  value = "Fondateur de Dalibo (2005) et 2ndQuadrant France (2012) ; Citus Data, puis Microsoft par acquisition (2018–2025)"
 [[facts]]
   label = "Livre"
   value = "The Art of PostgreSQL, 52 chapitres"
