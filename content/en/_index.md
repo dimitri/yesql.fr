@@ -34,19 +34,19 @@ summary = "PostgreSQL Major Contributor, author of *The Art of PostgreSQL*, main
   cta   = "Request a quote"
   primary = true
 [[routes]]
-  id    = "seminar"
-  href  = "/en/seminar/"
-  tag   = "onsite · 4 a year · €3,000 / €5,000"
-  title = "The Seminar"
-  lede  = "A day onsite with the author of The Art of PostgreSQL, on your own queries."
+  id    = "onsite"
+  href  = "/en/onsite/"
+  tag   = "onsite · 4/year total · €3,000 / €5,000"
+  title = "The Onsite"
+  lede  = "A day at your office with the author of The Art of PostgreSQL, on your own queries."
   cta   = "Book a slot"
 [[routes]]
-  id    = "circle"
-  href  = "/en/circle/"
+  id    = "members"
+  href  = "/en/members/"
   tag   = "open source"
-  title = "The Circle"
+  title = "Members"
   lede  = "Fund the maintenance of pgloader, pgcopydb and pg_auto_failover, together."
-  cta   = "Join the Circle"
+  cta   = "Become a member"
 +++
 
 You are not buying a level-1 queue. You talk directly to the person who wrote

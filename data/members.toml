@@ -1,4 +1,4 @@
-# The Circle — the members' side of the open source maintenance programme.
+# Members — the enterprise side of the open source maintenance programme.
 #
 # These tiers are NOT invented here. They are the ones already sold at
 # https://oss.theartofpostgresql.com/ and checked out through ThriveCart at
@@ -7,7 +7,7 @@
 # away from the real one.
 #
 # LANGUAGE-NEUTRAL: amounts, ids and URLs only. Every label and description is
-# translated in content/<lang>/circle.md, keyed by these ids.
+# translated in content/<lang>/members.md, keyed by these ids.
 #
 # When a price changes at oss.theartofpostgresql.com, change it here and both
 # language versions of this site follow.

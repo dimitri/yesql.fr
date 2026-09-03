@@ -1,19 +1,19 @@
 +++
-title   = "The Circle"
-type    = "circle"
-slug    = "circle"
+title   = "Members"
+type    = "members"
+slug    = "members"
 weight  = 30
-nav     = "The Circle"
+nav     = "Members"
 description = "Upstream maintenance for pgloader, pgcopydb, pg_auto_failover and pgextwlist: prioritized fixes, roadmap influence, and a quarterly letter for members only."
 kicker  = "Open source maintenance, co-funded"
 summary = "Fund the maintenance of the tools your production depends on, together. Prioritized fixes, releases shipped, roadmap influence — and a quarterly letter for members only."
 
 [cta]
-  label = "Join the Circle"
-  href  = "#form-circle"
+  label = "Become a member"
+  href  = "#form-members"
   note  = "The quarterly letter is free. Maintenance tiers are bought on the store."
 
-# Labels for the recurring tiers, keyed by the `id` in data/circle.toml.
+# Labels for the recurring tiers, keyed by the `id` in data/members.toml.
 # No amount here: the prices live in the data file, exactly once.
 [tier_labels]
   [tier_labels.community]
@@ -47,10 +47,10 @@ summary = "Fund the maintenance of the tools your production depends on, togethe
 
 [programme]
   title = "The tiers live on oss.theartofpostgresql.com"
-  note  = "The maintenance programme and its store already exist; I am not duplicating them here. This page explains what they are for and what the Circle adds to them. You subscribe over there."
+  note  = "The maintenance programme and its store already exist; I am not duplicating them here. This page explains what they are for and what membership adds to them. You subscribe over there."
   cta   = "See the programme"
 
-# The Circle's own benefit — the one the store does not sell.
+# Membership's own benefit — the one the store does not sell.
 [newsletter]
   title = "The quarterly letter"
   tag   = "members only"
@@ -75,8 +75,9 @@ summary = "Fund the maintenance of the tools your production depends on, togethe
   ]
 +++
 
-The tools I maintain run in production for people I have never met, and that is
-exactly as it should be. But maintenance costs something, and somebody pays it:
-either you, waiting on a fix, or a group of companies funding it together.
+The tools I maintain run in production for people I have never met, and that
+is exactly as it should be. But maintenance costs something, and somebody
+pays it: either you, waiting on a fix, or a group of companies funding it
+together and becoming, in exchange, members of the programme.
 
-The Circle is the second option.
+Becoming a member is the second option.

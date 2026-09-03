@@ -1,16 +1,18 @@
-{{- /* The Circle.
+{{- /* Members.
 
        The tiers are NOT defined here or in the content file — they are the
        ones already sold at oss.theartofpostgresql.com, mirrored once in
-       data/circle.toml. The content file supplies only the translated labels,
-       keyed by the same ids. That way there is one price list, not three.
+       data/members.toml. The content file supplies only the translated
+       labels, keyed by the same ids. That way there is one price list, not
+       three.
 
        Order on the page: what you get and what it costs, then the members'
-       letter (the Circle's own benefit), then the threshold campaigns. */ -}}
-{{- $c := hugo.Data.circle -}}
+       letter (the one benefit membership adds that the store does not sell),
+       then the threshold campaigns. */ -}}
+{{- $c := hugo.Data.members -}}
 {{- $labels := .Params.tier_labels -}}
 {{- $anchor := .Params.anchor | default .File.ContentBaseName -}}
-<section id="{{ $anchor }}" class="section section-circle" aria-labelledby="{{ $anchor }}-h">
+<section id="{{ $anchor }}" class="section section-members" aria-labelledby="{{ $anchor }}-h">
   <div class="wrap">
     <p class="kicker mono">{{ .Params.kicker }}</p>
     <h1 id="{{ $anchor }}-h">{{ .Title }}</h1>
@@ -72,7 +74,7 @@
     </aside>
     {{- end }}
 
-    {{- /* ---- The members' letter — the Circle's own benefit ----------- */}}
+    {{- /* ---- The members' letter — membership's own benefit ----------- */}}
     {{- with .Params.newsletter }}
     <article class="letter" aria-labelledby="letter-h">
       <p class="letter-tag mono">{{ .tag }}</p>
@@ -90,10 +92,10 @@
     {{- /* ---- Threshold campaigns ------------------------------------- */}}
     {{- with .Params.fund }}
     <div class="fund-intro">
-      <p class="club-tag mono">{{ .tag }}</p>
+      <p class="fund-tag mono">{{ .tag }}</p>
       <h2>{{ .title }}</h2>
-      <p class="club-lede">{{ .lede }}</p>
-      <ul class="club-bullets">
+      <p class="fund-lede">{{ .lede }}</p>
+      <ul class="fund-bullets">
         {{- range .bullets }}
         <li>{{ . }}</li>
         {{- end }}
@@ -125,5 +127,5 @@
     {{- end }}
   </div>
 
-  {{ partial "forms/circle.html" . }}
+  {{ partial "forms/members.html" . }}
 </section>

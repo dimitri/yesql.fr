@@ -77,7 +77,7 @@ summary = "Le travail public se vérifie sans me demander la permission. Le trav
   id    = "book"
   tag   = "écrit"
   title = "The Art of PostgreSQL"
-  lede  = "52 chapitres sur l'écriture de SQL pour les développeurs, et vingt ans d'écriture technique sur tapoueh.org. C'est le support de la masterclass, et vous pouvez le juger avant d'acheter quoi que ce soit."
+  lede  = "52 chapitres sur l'écriture de SQL pour les développeurs, et vingt ans d'écriture technique sur tapoueh.org. C'est le support de l'Immersion, et vous pouvez le juger avant d'acheter quoi que ce soit."
   url   = "https://theartofpostgresql.com/"
   cta   = "Le livre"
 +++

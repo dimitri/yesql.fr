@@ -1,23 +1,25 @@
 +++
-title   = "The Seminar"
-type    = "seminar"
-slug    = "seminar"
+title   = "The Onsite"
+type    = "onsite"
+slug    = "onsite"
 weight  = 20
-nav     = "Seminar"
-description = "Onsite PostgreSQL seminar, one or two days, built on your schema and your queries. €3,000 / €5,000, four sessions a year."
-kicker  = "Onsite · four a year"
-summary = "The onsite PostgreSQL seminar: half a day presented by the author of The Art of PostgreSQL, half a day on your own queries. One or two days, four times a year."
+nav     = "Onsite"
+description = "Onsite PostgreSQL engagement, one or two days, built on your schema and your queries. €3,000 / €5,000, four sessions a year in total, across all clients."
+kicker  = "Onsite · four a year, total"
+summary = "A day at your office with the author of The Art of PostgreSQL: half a day of presentation, half a day on your own queries. One or two days, four times a year — not four times per client."
 
 [cta]
   label = "Book a slot"
-  href  = "#form-masterclass"
-  note  = "Limited availability — four sessions a year."
+  href  = "#form-onsite"
+  note  = "Limited availability: four sessions a year in total, across all clients."
 
-# Scarcity is a calendar fact, not a sales argument. It is displayed.
+# Scarcity is a calendar fact, not a sales argument, and it applies to the
+# WHOLE calendar, not to any one client: the label and the note both say so
+# explicitly, so there is nothing left to read ambiguously.
 [scarcity]
   max_per_year = 4
-  label = "sessions per year, maximum"
-  note  = "The rest of the year goes to support and open source development. Slots are usually booked one to two quarters ahead."
+  label = "sessions a year, total — across all clients"
+  note  = "This is not four sessions per client: it is four sessions for the year, across every company combined. The rest of the year goes to support and open source development. Slots are usually booked one to two quarters ahead."
 
 # How a day runs.
 [[agenda]]
@@ -59,10 +61,10 @@ summary = "The onsite PostgreSQL seminar: half a day presented by the author of 
   mode = "onsite"
 +++
 
-The seminar takes the content of *The Art of PostgreSQL* and puts it against
-your code. The point is not to cover a syllabus, it is that your team leaves
-with their own queries rewritten.
+The onsite engagement takes the content of *The Art of PostgreSQL* and puts it
+against your code. The point is not to cover a syllabus, it is that your team
+leaves with their own queries rewritten.
 
 Not to be confused with the [Live Masterclass](https://theartofpostgresql.com/masterclass/),
-which is the remote, recurring format open to everyone. The seminar happens at
+which is the remote, recurring format open to everyone. The onsite happens at
 your office, once, on your code.

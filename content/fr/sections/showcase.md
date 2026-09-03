@@ -9,7 +9,7 @@ summary = "Un livre, vingt ans d'écriture technique, quatre outils open source 
   book             = "Le livre de référence sur l'écriture de SQL pour les développeurs. Utilisé comme support du séminaire."
   blog             = "Le blog technique : PostgreSQL, SQL, Common Lisp, Emacs. En ligne depuis 2005."
   pgcopydb         = "Copie et migration PostgreSQL vers PostgreSQL en parallèle, avec reprise sur incident et suivi de la réplication logique."
-  pgloader         = "Migration vers PostgreSQL depuis MySQL, SQLite, MS SQL Server et fichiers CSV. Le standard de fait — Oracle est la pièce manquante, à financer (voir Le Cercle)."
+  pgloader         = "Migration vers PostgreSQL depuis MySQL, SQLite, MS SQL Server et fichiers CSV. Le standard de fait — Oracle est la pièce manquante, à financer (voir Membres)."
   pg_auto_failover = "Haute disponibilité PostgreSQL par bascule automatique, avec un moniteur qui garantit le quorum."
   pgextwlist       = "Liste blanche d'extensions PostgreSQL : un modèle « sudo » qui permet à un hébergeur d'autoriser CREATE EXTENSION sans donner les droits superutilisateur."
 +++

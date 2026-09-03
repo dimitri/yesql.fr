@@ -1,23 +1,25 @@
 +++
-title   = "Le Séminaire"
-type    = "seminar"
-slug    = "seminaire"
+title   = "L'Immersion"
+type    = "onsite"
+slug    = "immersion"
 weight  = 20
-nav     = "Séminaire"
-description = "Séminaire PostgreSQL sur site, une ou deux journées, à partir de votre schéma et de vos requêtes. 3 000 € / 5 000 €, quatre sessions par an."
-kicker  = "Sur site · quatre par an"
-summary = "Le séminaire PostgreSQL sur site : une demi-journée de présentation par l'auteur de The Art of PostgreSQL, une demi-journée sur vos requêtes. Une ou deux journées, quatre fois par an."
+nav     = "Immersion"
+description = "Immersion PostgreSQL sur site, une ou deux journées, à partir de votre schéma et de vos requêtes. 3 000 € / 5 000 €, quatre sessions par an au total, tous clients confondus."
+kicker  = "Sur site · quatre par an, au total"
+summary = "Une journée chez vous avec l'auteur de The Art of PostgreSQL : une demi-journée de présentation, une demi-journée sur vos requêtes. Une ou deux journées, quatre fois par an — pas quatre fois par client."
 
 [cta]
   label = "Réserver une session"
-  href  = "#form-masterclass"
-  note  = "Disponibilité limitée — quatre sessions par an."
+  href  = "#form-onsite"
+  note  = "Disponibilité limitée : quatre sessions par an au total, tous clients confondus."
 
-# La rareté est un fait du calendrier, pas un argument. Elle est affichée.
+# La rareté est un fait du calendrier, pas un argument, et elle porte sur le
+# calendrier ENTIER, pas sur un client donné : le libellé et la note le disent
+# explicitement pour ne rien laisser à l'ambiguïté.
 [scarcity]
   max_per_year = 4
-  label = "sessions par an, maximum"
-  note  = "Le reste de l'année part en support et en développement open source. Les créneaux se réservent généralement un à deux trimestres à l'avance."
+  label = "sessions par an, au total — tous clients confondus"
+  note  = "Ce n'est pas quatre sessions par client : c'est quatre sessions pour l'année, toutes entreprises confondues. Le reste de l'année part en support et en développement open source. Les créneaux se réservent généralement un à deux trimestres à l'avance."
 
 # Déroulé d'une journée type.
 [[agenda]]
@@ -59,10 +61,10 @@ summary = "Le séminaire PostgreSQL sur site : une demi-journée de présentatio
   mode = "onsite"
 +++
 
-Le séminaire reprend le contenu de *The Art of PostgreSQL* et le confronte à
+L'immersion reprend le contenu de *The Art of PostgreSQL* et le confronte à
 votre code. L'objectif n'est pas de couvrir un programme, c'est que votre équipe
 reparte avec ses propres requêtes réécrites.
 
 À ne pas confondre avec la [Live Masterclass](https://theartofpostgresql.com/masterclass/),
-qui est le format à distance, récurrent et ouvert à tous. Le séminaire se tient
+qui est le format à distance, récurrent et ouvert à tous. L'immersion se tient
 chez vous, une fois, sur votre code.

@@ -14,16 +14,16 @@ summary = "I am not a services company. One person, one-off engagements, and a p
   note  = "Answer within two business days. If what you need is day-to-day operations, I will say so immediately and point you elsewhere."
 
 # What I actually do. No rate card here: scope is a conversation, and the only
-# firm price on this site is the seminar's.
+# firm price on this site is the Onsite's.
 [[tiers]]
-  id      = "seminar"
+  id      = "onsite"
   name    = "The engagement"
   tag     = "conference format"
   bullets = [
     "A day onsite, conference format: a talk, then your own queries",
     "On your real schema, your query plans, your data volumes",
-    "Four a year, no more",
-    "Firm price, published on the seminar page",
+    "Four a year in total, across all clients — not four per client",
+    "Firm price, published on the Onsite page",
   ]
 
 [[tiers]]
@@ -45,7 +45,7 @@ summary = "I am not a services company. One person, one-off engagements, and a p
     "pgloader, pgcopydb, pg_auto_failover, pgextwlist",
     "Prioritized fixes, releases shipped, influence on the roadmap",
     "Recurring subscription, public pricing",
-    "That is what the Circle is for — the tiers are on its own page",
+    "That is what Members is for — the tiers are on its own page",
   ]
 
 # The most important part of this page: say no clearly, and say who to ask

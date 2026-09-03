@@ -82,8 +82,8 @@
           "itemListElement" $catalog)) -}}
 {{- end -}}
 
-{{- /* --- Seminar: Course, one CourseInstance per priced format --- */ -}}
-{{- if eq .Type "seminar" -}}
+{{- /* --- Onsite: Course, one CourseInstance per priced format --- */ -}}
+{{- if eq .Type "onsite" -}}
   {{- $cur := .Params.pricing.currency -}}
   {{- $mode := .Params.course.mode -}}
   {{- $instances := slice -}}

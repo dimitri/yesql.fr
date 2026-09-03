@@ -35,19 +35,19 @@ summary = "Contributeur majeur de PostgreSQL, auteur de *The Art of PostgreSQL*,
   cta   = "Demander un devis"
   primary = true
 [[routes]]
-  id    = "seminar"
-  href  = "/fr/seminaire/"
-  tag   = "sur site · 4 par an · 3 000 € / 5 000 €"
-  title = "Le Séminaire"
-  lede  = "Une journée sur site avec l'auteur de The Art of PostgreSQL, sur vos requêtes."
+  id    = "onsite"
+  href  = "/fr/immersion/"
+  tag   = "sur site · 4/an au total · 3 000 € / 5 000 €"
+  title = "L'Immersion"
+  lede  = "Une journée chez vous avec l'auteur de The Art of PostgreSQL, sur vos requêtes."
   cta   = "Réserver une session"
 [[routes]]
-  id    = "circle"
-  href  = "/fr/cercle/"
+  id    = "members"
+  href  = "/fr/membres/"
   tag   = "open source"
-  title = "Le Cercle"
+  title = "Membres"
   lede  = "Financer ensemble la maintenance de pgloader, pgcopydb et pg_auto_failover."
-  cta   = "Rejoindre le Cercle"
+  cta   = "Devenir membre"
 +++
 
 Vous n'achetez pas un niveau 1. Vous parlez directement à la personne qui a

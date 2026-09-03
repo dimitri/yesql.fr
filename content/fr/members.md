@@ -1,19 +1,19 @@
 +++
-title   = "Le Cercle"
-type    = "circle"
-slug    = "cercle"
+title   = "Membres"
+type    = "members"
+slug    = "membres"
 weight  = 30
-nav     = "Le Cercle"
+nav     = "Membres"
 description = "Maintenance amont de pgloader, pgcopydb, pg_auto_failover et pgextwlist : correctifs priorisés, influence sur la feuille de route, et une lettre trimestrielle réservée aux membres."
 kicker  = "Maintenance open source, co-financée"
 summary = "Financer ensemble la maintenance des outils dont vos productions dépendent. Correctifs priorisés, versions publiées, influence sur la feuille de route — et une lettre trimestrielle réservée aux membres."
 
 [cta]
-  label = "Rejoindre le Cercle"
-  href  = "#form-circle"
+  label = "Devenir membre"
+  href  = "#form-members"
   note  = "La lettre trimestrielle est gratuite. Les paliers de maintenance se souscrivent sur la boutique."
 
-# Libellés des paliers récurrents, indexés par l'`id` de data/circle.toml.
+# Libellés des paliers récurrents, indexés par l'`id` de data/members.toml.
 # Aucun montant ici : les prix sont dans le fichier de données, une seule fois.
 [tier_labels]
   [tier_labels.community]
@@ -47,10 +47,10 @@ summary = "Financer ensemble la maintenance des outils dont vos productions dép
 
 [programme]
   title = "Les paliers vivent sur oss.theartofpostgresql.com"
-  note  = "Le programme de maintenance et sa boutique existent déjà : je ne les duplique pas ici. Cette page explique à quoi ils servent et ce que le Cercle y ajoute ; la souscription se fait là-bas."
+  note  = "Le programme de maintenance et sa boutique existent déjà : je ne les duplique pas ici. Cette page explique à quoi ils servent et ce que le statut de membre y ajoute ; la souscription se fait là-bas."
   cta   = "Voir le programme"
 
-# Le bénéfice propre au Cercle, celui qui n'existe pas sur la boutique.
+# Le bénéfice propre aux membres, celui qui n'existe pas sur la boutique.
 [newsletter]
   title = "La lettre trimestrielle"
   tag   = "réservée aux membres"
@@ -78,6 +78,7 @@ summary = "Financer ensemble la maintenance des outils dont vos productions dép
 Les outils que je maintiens tournent en production chez des gens que je ne
 connais pas, et c'est très bien ainsi. Mais la maintenance a un coût, et
 quelqu'un le paie : soit vous, en attendant un correctif, soit un ensemble
-d'entreprises qui le financent ensemble.
+d'entreprises qui le financent ensemble et deviennent, en échange, membres du
+programme.
 
-Le Cercle est la seconde option.
+Devenir membre est la seconde option.

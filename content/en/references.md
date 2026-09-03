@@ -77,7 +77,7 @@ summary = "Public work can be checked without asking me. Contract work is under 
   id    = "book"
   tag   = "written"
   title = "The Art of PostgreSQL"
-  lede  = "52 chapters on writing SQL for developers, and twenty years of technical writing on tapoueh.org. It is the masterclass material, and you can judge it before buying anything."
+  lede  = "52 chapters on writing SQL for developers, and twenty years of technical writing on tapoueh.org. It is the Onsite material, and you can judge it before buying anything."
   url   = "https://theartofpostgresql.com/"
   cta   = "The book"
 +++

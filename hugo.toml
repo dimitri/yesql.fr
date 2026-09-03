@@ -33,8 +33,8 @@ disableKinds = ["taxonomy", "term"]
     # for these three forms shows.
     base        = "https://app.kit.com/forms"
     quote       = "0000000"   # TODO: enterprise contract — quote request
-    circle      = "0000000"   # TODO: the Circle — quarterly letter signup
-    seminar     = "0000000"   # TODO: seminar — booking request
+    members     = "0000000"   # TODO: Members — quarterly letter signup
+    onsite      = "0000000"   # TODO: onsite — booking request
 
   # Reciprocal links, for mutual domain authority. TODO: add the matching
   # inbound links on those sites pointing back here.

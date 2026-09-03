@@ -206,7 +206,7 @@
   font-family: var(--font-mono);
 }
 
-/* ---- the Circle ----------------------------------------------------------- */
+/* ---- Members ----------------------------------------------------------- */
 
 .projects {
   color: var(--text-faint);
@@ -246,7 +246,7 @@
 .oneoff-what { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
 .oneoff-note { color: var(--warn); font-size: 0.78rem; margin: 0.6rem 0 0; }
 
-/* The members' letter: the one thing the Circle sells that the store does not,
+/* The members' letter: the one thing membership sells that the store does not,
    so it gets its own panel rather than a bullet in a list. */
 .letter {
   margin: 2.5rem 0 0;
@@ -275,22 +275,22 @@
 .letter-note { color: var(--text-faint); font-size: 0.82rem; margin: 1rem 0 0; }
 
 .fund-intro { margin: 2.5rem 0 0; max-width: 62ch; }
-.club-tag {
+.fund-tag {
   font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.09em;
   color: var(--text-faint); margin-bottom: 0.5rem;
 }
-.club-lede { color: var(--text-muted); font-size: 0.95rem; }
-.club-bullets {
+.fund-lede { color: var(--text-muted); font-size: 0.95rem; }
+.fund-bullets {
   list-style: none; padding: 0; margin: 1rem 0 0;
   font-size: 0.9rem; color: var(--text-muted);
 }
-.club-bullets li { padding-left: 1.1rem; position: relative; }
-.club-bullets li::before {
+.fund-bullets li { padding-left: 1.1rem; position: relative; }
+.fund-bullets li::before {
   content: "+"; position: absolute; left: 0; color: var(--accent);
   font-family: var(--font-mono);
 }
 
-/* ---- seminar ---------------------------------------------------------- */
+/* ---- onsite ------------------------------------------------------------- */
 
 /* Scarcity is stated as a fact, in the same visual language as the numbers
    elsewhere, and placed before the price. */
@@ -310,7 +310,7 @@
   display: flex;
   align-items: baseline;
   gap: 0.5rem;
-  white-space: nowrap;
+  flex-wrap: wrap;
 }
 .scarcity-figure strong { font-size: 2rem; color: var(--accent); line-height: 1; }
 .scarcity-figure span {
