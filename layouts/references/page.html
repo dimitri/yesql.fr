@@ -22,8 +22,10 @@
     </ul>
     {{- end }}
 
-    {{- /* Real, published user quotes. Anonymous at the source, and left that
-           way — an invented name would undo the point of this page. */ -}}
+    {{- /* Real, published user quotes — named, exactly as their authors
+           published them themselves (pgloader's 2018 white paper, or their
+           own tweet). Never invent an attribution that isn't already
+           public. */ -}}
     {{- with .Params.quotes }}
     <section class="quotes" aria-labelledby="quotes-h">
       <h2 id="quotes-h" class="quotes-title">{{ $.Params.quotes_note.title }}</h2>
@@ -31,11 +33,11 @@
         {{- range . }}
         <li class="quote-item" id="quote-{{ .id }}">
           <blockquote><p>{{ .text }}</p></blockquote>
-          <p class="quote-source mono">— {{ .source }}</p>
+          <p class="quote-source mono">— {{ if .url }}<a href="{{ .url }}" rel="noopener">{{ .source }}</a>{{ else }}{{ .source }}{{ end }}</p>
         </li>
         {{- end }}
       </ul>
-      <p class="quote-note">{{ $.Params.quotes_note.note }}</p>
+      <p class="quote-note">{{ $.RenderString $.Params.quotes_note.note }}</p>
     </section>
     {{- end }}
 

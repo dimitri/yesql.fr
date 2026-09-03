@@ -8,14 +8,15 @@ description = "Public, verifiable proof: core PostgreSQL contributions, open sou
 kicker  = "What is verifiable"
 summary = "Public work can be checked without asking me. Contract work is under confidentiality — references are given during the conversation."
 
-# ---------------------------------------------------------------------------
-# Case studies. DELIBERATELY EMPTY FOR NOW: an honest page beats an invented
-# case study.
+# One real case study below, Redpill Linpro, is not a fresh client
+# reference — it is retold from pgloader's own 2018 white paper, where it
+# was already published under that name by its author. Nothing new is being
+# named here without that prior, public permission.
 #
-# To add one, copy this block and fill it in. The shape that convinces is always
-# the same: situation → what I found → what changed, with a number. Get written
-# permission before naming a client; without it, "a European telecoms operator"
-# still beats nothing.
+# To add another, copy this block and fill it in. The shape that convinces is
+# always the same: situation → what I found → what changed, with a number.
+# Get written permission before naming a client; without it, "a European
+# telecoms operator" still beats nothing.
 #
 # [[cases]]
 #   id      = "case-slug"
@@ -26,26 +27,41 @@ summary = "Public work can be checked without asking me. Contract work is under 
 #   outcome = "The result, with a number: migration time, latency, cost, incidents."
 #   quote   = "A sentence from the client, if you have one."
 #   author  = "First Last, role"
+[[cases]]
+  id      = "redpill-linpro"
+  client  = "Redpill Linpro"
+  tag     = "migration"
+  context = "One of Redpill Linpro's customers asked them for the most efficient way to migrate from Microsoft SQL Server to PostgreSQL."
+  finding = "No pgloader source connector covered MS SQL Server at the time — the customer's fastest path didn't exist yet."
+  outcome = "Redpill Linpro sponsored the connector. It shipped as open source, so it now benefits every pgloader user, not only the customer who first needed it."
 # ---------------------------------------------------------------------------
 
-# Real pgloader user quotes, published on pgloader.io. They are anonymous at
-# the source; do not invent an author for them.
+# Real pgloader user quotes, named exactly as their authors published them
+# themselves — in pgloader's own 2018 white paper, or their own tweet. Never
+# invent an attribution that isn't already public at the source.
+[[quotes]]
+  id     = "iwoca"
+  text   = "We were able to migrate our main database from MySQL to Postgres, moving hundreds of tables used by our complex Django project. Dimitri implemented a new feature for us quickly and smoothly."
+  source = "Andrea Crotti, Iwoca"
+[[quotes]]
+  id     = "complex"
+  text   = "Fusionbox used pgloader on a project for a large government agency. We needed to migrate a large set of data from an existing SQL Server cluster to a new PostgreSQL solution. pgloader greatly reduced the time required to accomplish this complex migration."
+  source = "Alexander Groth, Fusionbox"
+  url    = "http://www.fusionbox.com/"
 [[quotes]]
   id     = "one-tb"
   text   = "Made our migration really easy (~1Tb)."
-  source = "pgloader user"
+  source = "CommaFeed, via Twitter"
+  url    = "https://twitter.com/CommaFeed/status/568053907370450944"
 [[quotes]]
   id     = "one-liner"
-  text   = "Almost too easy — I just ran the one-liner and waited for 48 hours."
-  source = "pgloader user"
-[[quotes]]
-  id     = "complex"
-  text   = "Greatly reduced the time required to accomplish this complex migration."
-  source = "pgloader user"
+  text   = "Almost too easy — I just ran the one-liner and waited for 48 hours. Nothing to change in the app, thanks to Hibernate."
+  source = "CommaFeed, via Twitter"
+  url    = "https://twitter.com/CommaFeed/status/568053907370450944"
 
 [quotes_note]
   title = "What users say"
-  note  = "Quotes published on pgloader.io. Their authors are not named at the source, so I do not name them here."
+  note  = "As published in [pgloader's 2018 white paper](https://pgloader.io/MigratingToPostgreSQL.pdf), or in the case of CommaFeed, in their own tweet."
 
 [on_request]
   title = "Client references"
