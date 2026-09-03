@@ -14,21 +14,11 @@ raised     = 7500          # seed money: the maintainer's own investment so far
 backers    = 1             # just the seed; the count that matters starts now
 
 opened     = "2026-01-15"
-deadline   = "2026-06-30"
+# No deadline: not actively promoted yet, and a stale/passed date reads
+# worse than none. Add one back when this is ready for a real push.
 updated    = "2026-09-03"
 
 project    = "pgloader"
 repo       = "https://github.com/dimitri/pgloader"
 license    = "PostgreSQL License"
 pledge_url = "https://sales.theartofpostgresql.com/yesql-oss-campaign/"
-
-# Amounts only. The labels are translated, in the content file's [tier_labels].
-[[tiers]]
-  id     = "individual"
-  amount = 250
-[[tiers]]
-  id     = "company"
-  amount = 5000
-[[tiers]]
-  id     = "sponsor"
-  amount = 15000

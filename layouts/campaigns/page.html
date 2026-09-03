@@ -36,7 +36,9 @@
     {{- end }}
 
     <dl class="campaign-meta mono">
-      <div><dt>{{ i18n "fund_deadline" }}</dt><dd>{{ time.Format ":date_long" $c.deadline }}</dd></div>
+      {{- with $c.deadline }}
+      <div><dt>{{ i18n "fund_deadline" }}</dt><dd>{{ time.Format ":date_long" . }}</dd></div>
+      {{- end }}
       <div><dt>{{ i18n "fund_source" }}</dt><dd><a href="{{ $c.repo }}" rel="noopener">{{ $c.repo }}</a></dd></div>
       <div><dt>{{ i18n "fund_license" }}</dt><dd>{{ $c.license }}</dd></div>
       <div><dt>{{ i18n "fund_updated" }}</dt><dd>{{ time.Format ":date_medium" $c.updated }}</dd></div>

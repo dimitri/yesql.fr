@@ -14,13 +14,6 @@ description = "Campagne de financement : support Oracle dans pgloader v4. Expert
 # plutôt que de promettre un paiement qu'elle ne déclenche pas.
 [cta]
   label = "Contribuer"
-
-# Libellés des paliers, indexés par l'`id` des [[tiers]] du fichier de données.
-# Les montants sont dans le fichier de données, pas ici.
-[tier_labels]
-  individual = "Contributeur — mention dans les notes de version"
-  company    = "Entreprise — un cas de migration réel priorisé dans les tests"
-  sponsor    = "Sponsor — revue d'architecture de votre migration Oracle incluse"
 +++
 
 pgloader n'a jamais su migrer depuis Oracle — ce manque est documenté depuis

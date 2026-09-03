@@ -14,13 +14,6 @@ description = "Funding campaign: Oracle support in pgloader v4. pgloader expert,
 # it doesn't make.
 [cta]
   label = "Back this"
-
-# Tier labels, keyed by the `id` of the [[tiers]] in the data file. The amounts
-# live in the data file, not here.
-[tier_labels]
-  individual = "Backer — credited in the release notes"
-  company    = "Company — one real migration case prioritized in the test suite"
-  sponsor    = "Sponsor — architecture review of your Oracle migration included"
 +++
 
 pgloader has never supported Oracle as a migration source — the gap has been
