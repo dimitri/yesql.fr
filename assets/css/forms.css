@@ -16,25 +16,16 @@
 .form-block .form,
 .form-block .form-privacy { max-width: var(--wrap-narrow); }
 
-/* Quote: the qualifying one. Raised panel, primary button. */
-.form-quote {
-  background: var(--bg-raised);
-  border-top: 2px solid var(--accent);
-}
-/* Club: the low-friction one. Flat, quiet, inline. */
+/* Members: the only form left standing, now that the quote and onsite-booking
+   forms have both been replaced by a plain "email me" block. Flat, quiet,
+   inline — it is a low-friction newsletter signup, not a sales funnel. */
 .form-members {
   background: transparent;
   border-top: 1px dashed var(--line);
 }
-/* Masterclass: the scarce one. Deep accent edge. */
-.form-onsite {
-  background: var(--bg-raised);
-  border-top: 2px solid var(--accent-deep);
-}
 
 .form-title { font-size: 1.15rem; margin-bottom: 0.35rem; }
 .form-note { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem; }
-.form-scarcity { color: var(--warn); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.07em; }
 
 .form { margin: 0; }
 .field { margin: 0 0 1rem; display: flex; flex-direction: column; gap: 0.35rem; }

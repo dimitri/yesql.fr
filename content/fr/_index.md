@@ -9,7 +9,7 @@ headline = "YeSQL : expertise PostgreSQL et portfolio open source"
 description = "Contributeur majeur de PostgreSQL, auteur de The Art of PostgreSQL, mainteneur de pgloader, pgcopydb, pg_auto_failover et pgextwlist. Tout au même endroit : les outils, l'écriture, et comment financer le travail."
 
 kicker  = "YeSQL · Dimitri Fontaine"
-summary = "Contributeur au cœur de PostgreSQL, auteur de *The Art of PostgreSQL*, mainteneur de pgloader, pgcopydb, pg_auto_failover et pgextwlist. Cette page est la carte de tout ça."
+summary = "Tout ce que je fais, au même endroit : contributions au cœur de PostgreSQL, outils open source, conseil, le livre, formation sur site, conférences, leçons gratuites, et le blog."
 
 # La preuve, gardée comme identité plutôt que comme accroche commerciale : le
 # titre qui ne se fabrique pas, en premier.
@@ -22,11 +22,11 @@ available = "Si tout ça vous est directement utile : je prends un petit nombre 
 
 [[proof]]
   value = "Contributeur majeur PostgreSQL"
-  label = "`CREATE EXTENSION` et les Event Triggers sont de moi"
+  label = "co-auteur de `CREATE EXTENSION` et des Event Triggers"
   href  = "https://www.postgresql.org/community/contributors/"
 [[proof]]
-  value = "1999"
-  label = "première base PostgreSQL en production"
+  value = "pgloader, depuis 2005"
+  label = "toujours activement maintenu, vingt ans après"
 [[proof]]
   value = "pgloader · pgcopydb · pg_auto_failover · pgextwlist"
   label = "auteur et mainteneur"
@@ -55,7 +55,8 @@ available = "Si tout ça vous est directement utile : je prends un petit nombre 
   href  = "/fr/membres/"
 +++
 
-Voici la carte : les outils open source que je maintiens, ce que j'écris et
-enseigne, et les deux façons d'aider à financer le travail — une
-fonctionnalité précise, ou la maintenance continue. Tout ce qui suit est
-public et vous pouvez tout vérifier vous-même.
+Une seule page pour tout : les outils open source que je maintiens, le
+conseil et la formation, ce que j'écris et enseigne, et les deux façons
+d'aider à financer le travail — une fonctionnalité précise, ou la
+maintenance continue. Tout ce qui suit est public et vous pouvez tout
+vérifier vous-même.

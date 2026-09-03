@@ -25,16 +25,15 @@ disableKinds = ["taxonomy", "term"]
   defaultLang = "fr"
 
   # ConvertKit / Kit form UIDs. TODO: replace the placeholders with the real
-  # form ids from https://app.kit.com/forms — one form per CTA, deliberately
-  # NOT shared, so the three conversion paths stay measurable separately.
+  # form id from https://app.kit.com/forms — the only form left on the site,
+  # now that the quote and onsite-booking forms were both replaced by plain
+  # "email me" links (see layouts/partials/email-cta.html).
   [params.kit]
     # The account is yesql.ck.page (the embed on pgloader.io uses it). Kit
     # accepts either host for the form POST; keep whichever the embed snippet
-    # for these three forms shows.
+    # shows.
     base        = "https://app.kit.com/forms"
-    quote       = "0000000"   # TODO: enterprise contract — quote request
     members     = "0000000"   # TODO: Members — quarterly letter signup
-    onsite      = "0000000"   # TODO: onsite — booking request
 
   # Reciprocal links, for mutual domain authority. TODO: add the matching
   # inbound links on those sites pointing back here.

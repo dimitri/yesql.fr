@@ -114,23 +114,15 @@
 }
 .btn-primary:hover { background: var(--accent-strong); border-color: var(--accent-strong); color: var(--on-accent); }
 
-/* The Members CTA is deliberately quieter than the quote CTA: it is a low-commitment
-   action and must not compete with it visually. */
+/* The Members CTA is deliberately quieter than the primary button: it is a
+   low-commitment action (a free newsletter signup) and must not compete
+   visually with a page's actual call to action. */
 .btn-members {
   background: transparent;
   color: var(--accent);
   border-color: var(--accent-line);
 }
 .btn-members:hover { background: var(--accent-wash); color: var(--accent-strong); }
-
-/* The onsite CTA is the scarce one: solid, but in the deep tone, so the
-   three CTAs are never mistaken for each other. */
-.btn-onsite {
-  background: var(--accent-deep);
-  color: #fff;
-  border-color: var(--accent-deep);
-}
-.btn-onsite:hover { filter: brightness(1.12); color: #fff; }
 
 .btn-ghost {
   background: transparent;

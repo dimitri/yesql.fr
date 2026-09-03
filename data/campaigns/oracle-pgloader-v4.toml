@@ -10,12 +10,12 @@ currency   = "EUR"
 
 target     = 50000         # full scope
 threshold  = 30000         # below this, development does not start
-raised     = 18750
-backers    = 23
+raised     = 7500          # seed money: the maintainer's own investment so far
+backers    = 1             # just the seed; the count that matters starts now
 
 opened     = "2026-01-15"
 deadline   = "2026-06-30"
-updated    = "2026-09-02"
+updated    = "2026-09-03"
 
 project    = "pgloader"
 repo       = "https://github.com/dimitri/pgloader"

@@ -56,7 +56,7 @@ summary = "Public work can be checked without asking me. Contract work is under 
   id    = "core"
   tag   = "PostgreSQL core"
   title = "Two core features"
-  lede  = "`CREATE EXTENSION` and Event Triggers are mine. That code runs in every PostgreSQL installation, everywhere, since 9.1 and 9.3."
+  lede  = "I contributed `CREATE EXTENSION` and Event Triggers to PostgreSQL core. That code has been running in every PostgreSQL installation, everywhere, since versions 9.1 and 9.3."
   url   = "https://www.postgresql.org/community/contributors/"
   cta   = "Official contributors list"
 [[public]]

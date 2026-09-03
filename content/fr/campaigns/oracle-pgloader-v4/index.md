@@ -24,6 +24,14 @@ technique. Il dépend d'une couche JDBC qui complique l'installation, ne couvre
 pas proprement les partitions, et traite les types `NUMBER` et `CLOB` par
 approximation.
 
+## Où ça en est
+
+Le montant collecté à ce jour est mon propre investissement — une mise de
+départ pour cadrer correctement la réécriture du connecteur avant de demander
+à qui que ce soit d'autre de la soutenir. Les contributions à partir
+d'ici sont ce qui fait franchir le seuil et passe le projet en développement
+actif.
+
 ## Ce qui est financé
 
 - Réécriture complète du connecteur, sans dépendance Java

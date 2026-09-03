@@ -23,6 +23,13 @@ pgloader's Oracle connector works, and it carries ten years of technical debt.
 It depends on a JDBC layer that complicates installation, does not handle
 partitions properly, and treats `NUMBER` and `CLOB` types approximately.
 
+## Where it stands
+
+The amount raised so far is my own investment — seed money to get the
+connector rewrite properly scoped before asking anyone else to back it.
+Backing from here is what moves it past the threshold and into active
+development.
+
 ## What gets built
 
 - A full connector rewrite, with no Java dependency

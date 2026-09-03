@@ -5,21 +5,15 @@ slug    = "onsite"
 weight  = 20
 nav     = "Onsite"
 description = "A full-day, personally-delivered, fully-customized technical session, built on your schema and your queries. €4,500 / €8,000, four sessions a year in total, across all clients."
-kicker  = "Onsite · four a year, total"
-summary = "A complete technical session, prepared for you and delivered in person: half a day of presentation, half a day on your own queries. One or two days, four times a year — not four times per client."
+kicker  = "Onsite · a few sessions a year"
+summary = "A complete technical session, prepared for you and delivered in person: half a day of presentation, half a day on your own queries. One or two days, kept deliberately rare."
 
-[cta]
-  label = "Book a slot"
-  href  = "#form-onsite"
-  note  = "Limited availability: four sessions a year in total, across all clients."
-
-# Scarcity is a calendar fact, not a sales argument, and it applies to the
-# WHOLE calendar, not to any one client: the label and the note both say so
-# explicitly, so there is nothing left to read ambiguously.
+# Scarcity as a quality signal, not a rationing notice: it is a small number
+# because the trade-off it protects is stated plainly, not implied.
 [scarcity]
   max_per_year = 4
-  label = "sessions a year, total — across all clients"
-  note  = "This is not four sessions per client: it is four sessions for the year, across every company combined. The rest of the year goes to support and open source development. Slots are usually booked one to two quarters ahead."
+  label = "onsite sessions a year"
+  note  = "Kept deliberately small. Working directly with production teams is what keeps the material honest — it is also what feeds the book, the training, and the open source tools. Splitting the year between all of that, rather than being booked solid on one of them, is what keeps each part real."
 
 # How a day runs.
 [[agenda]]
@@ -40,7 +34,7 @@ summary = "A complete technical session, prepared for you and delivered in perso
 [[workflow]]
   id    = "book"
   step  = "1"
-  name  = "Book a date"
+  name  = "Get in touch"
   lede  = "As early as possible, and at least six weeks before the session — the time it takes to prepare content that speaks to your code, not a generic example."
 [[workflow]]
   id    = "materials"
@@ -107,6 +101,12 @@ summary = "A complete technical session, prepared for you and delivered in perso
 
 [course]
   mode = "onsite"
+
+[contact]
+  label   = "Book a slot"
+  note    = "Tell me roughly when, and whether one day or two — we work out the rest from there. No form in between."
+  email   = "dim@tapoueh.org"
+  subject = "Onsite session"
 +++
 
 The onsite is a complete technical session: prepared specifically for you, and

@@ -5,21 +5,16 @@ slug    = "immersion"
 weight  = 20
 nav     = "Immersion"
 description = "Journée technique sur site, personnalisée et animée en personne : à partir de votre schéma et de vos requêtes. 4 500 € / 8 000 €, quatre sessions par an au total, tous clients confondus."
-kicker  = "Sur site · quatre par an, au total"
-summary = "Une session technique complète, préparée pour vous et animée en personne : une demi-journée de présentation, une demi-journée sur vos requêtes. Une ou deux journées, quatre fois par an — pas quatre fois par client."
+kicker  = "Sur site · quelques sessions par an"
+summary = "Une session technique complète, préparée pour vous et animée en personne : une demi-journée de présentation, une demi-journée sur vos requêtes. Une ou deux journées, volontairement rare."
 
-[cta]
-  label = "Réserver une session"
-  href  = "#form-onsite"
-  note  = "Disponibilité limitée : quatre sessions par an au total, tous clients confondus."
-
-# La rareté est un fait du calendrier, pas un argument, et elle porte sur le
-# calendrier ENTIER, pas sur un client donné : le libellé et la note le disent
-# explicitement pour ne rien laisser à l'ambiguïté.
+# La rareté comme signal de qualité, pas comme avis de rationnement : c'est un
+# petit nombre parce que l'arbitrage qu'il protège est dit clairement, pas
+# sous-entendu.
 [scarcity]
   max_per_year = 4
-  label = "sessions par an, au total — tous clients confondus"
-  note  = "Ce n'est pas quatre sessions par client : c'est quatre sessions pour l'année, toutes entreprises confondues. Le reste de l'année part en support et en développement open source. Les créneaux se réservent généralement un à deux trimestres à l'avance."
+  label = "sessions sur site par an"
+  note  = "Volontairement peu nombreuses. Le contact direct avec des équipes en production est ce qui garde le contenu honnête — c'est aussi ce qui nourrit le livre, la formation et les outils open source. Répartir l'année entre tout ça, plutôt que d'être occupé à temps plein sur un seul de ces volets, c'est ce qui garde chaque partie réelle."
 
 # Déroulé d'une journée type.
 [[agenda]]
@@ -41,7 +36,7 @@ summary = "Une session technique complète, préparée pour vous et animée en p
 [[workflow]]
   id    = "book"
   step  = "1"
-  name  = "Réserver une date"
+  name  = "Prendre contact"
   lede  = "Au plus tôt, et six semaines avant la session au minimum — le temps de préparer un contenu qui parle de votre code, pas d'un exemple générique."
 [[workflow]]
   id    = "materials"
@@ -108,6 +103,12 @@ summary = "Une session technique complète, préparée pour vous et animée en p
 
 [course]
   mode = "onsite"
+
+[contact]
+  label   = "Réserver une session"
+  note    = "Dites-moi approximativement quand, et une ou deux journées — on affine le reste ensemble. Aucun formulaire entre nous."
+  email   = "dim@tapoueh.org"
+  subject = "Session sur site"
 +++
 
 L'immersion est une session technique complète : préparée spécifiquement pour

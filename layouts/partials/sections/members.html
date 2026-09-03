@@ -23,11 +23,16 @@
       {{- range $i, $p := $c.projects }}{{ if $i }} · {{ end }}{{ $p }}{{ end -}}
     </p>
 
-    {{- /* ---- Recurring tiers ---------------------------------------- */}}
+    {{- /* ---- Recurring tiers ----------------------------------------
+           Each paid tier links straight to the checkout — there used to be
+           one shared button in a note below the grid instead, which meant
+           picking a tier and acting on it were two separate steps. The free
+           Community tier has nothing to check out, so it gets no link. */}}
     <ul class="tier-grid tier-grid-4">
       {{- range $c.tiers }}
       {{- $l := index $labels .id }}
       <li class="tier{{ if .featured }} is-featured{{ end }}" id="tier-{{ .id }}">
+        {{- if .featured }}<span class="tier-badge mono">{{ i18n "tier_recommended" }}</span>{{ end }}
         <h2>{{ $l.name }}</h2>
         <p class="tier-price mono">
           {{- if eq .price 0 -}}
@@ -39,11 +44,14 @@
         </p>
         <p class="tier-lede">{{ $l.lede }}</p>
         <p class="tier-what">{{ $l.what }}</p>
+        {{- if gt .price 0 }}
+        <p class="tier-link"><a href="{{ $c.checkout }}" rel="noopener">{{ i18n "tier_get" }} →</a></p>
+        {{- end }}
       </li>
       {{- end }}
     </ul>
 
-    {{- /* ---- One-off purchases --------------------------------------- */}}
+    {{- /* ---- One-off purchases, same direct-link treatment ------------- */}}
     {{- with .Params.oneoff_labels }}
     {{- $ol := . }}
     <ul class="oneoff-grid">
@@ -57,21 +65,10 @@
         <h3>{{ $l.name }}</h3>
         <p class="oneoff-what">{{ $l.what }}</p>
         {{- with $l.note }}<p class="oneoff-note mono">{{ . }}</p>{{ end }}
+        <p class="tier-link"><a href="{{ $c.checkout }}" rel="noopener">{{ i18n "tier_get" }} →</a></p>
       </li>
       {{- end }}
     </ul>
-    {{- end }}
-
-    {{- /* The store is somewhere else and stays there. */ -}}
-    {{- with .Params.programme }}
-    <aside class="note">
-      <p class="note-title mono">{{ .title }}</p>
-      <p>{{ .note }}</p>
-      <p class="cta-row">
-        <a class="btn btn-primary" href="{{ $c.checkout }}" rel="noopener">{{ $.Params.cta.label }}</a>
-        <a class="btn btn-ghost" href="{{ $c.programme }}" rel="noopener">{{ .cta }}</a>
-      </p>
-    </aside>
     {{- end }}
 
     {{- /* ---- The members' letter — membership's own benefit ----------- */}}

@@ -4,12 +4,25 @@
       <span class="brand-mark" aria-hidden="true">ye</span><span class="brand-word">SQL</span>
     </a>
     <nav class="nav" aria-label="{{ site.Title }}">
-      {{- /* Top-level pages only, ordered by the `weight` in their own front
+      {{- /* Top-level pages, ordered by the `weight` in their own front
              matter, so the nav and the site structure cannot drift apart.
              `nav` is a short label; `title` stays the page's real <h1>.
-             The `.Section` test is what keeps campaign pages out of here. */ -}}
-      {{- range sort (where (where site.RegularPages "Section" "") "Params.nav" "!=" nil) "Weight" }}
-      <a href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ .Params.nav }}</a>
+             The `.Section` test is what keeps individual campaign pages out
+             of this loop — the campaigns section index is added separately
+             below, at a fixed weight, since it is a section page rather than
+             a regular one and never matches that filter. Pointing nav at the
+             section index rather than at any one campaign's slug means this
+             template needs no edit when a campaign finishes and the next one
+             opens — a single-person shop only ever runs one at a time. */ -}}
+      {{- $navItems := slice -}}
+      {{- range where (where site.RegularPages "Section" "") "Params.nav" "!=" nil }}
+        {{- $navItems = $navItems | append (dict "weight" .Weight "label" .Params.nav "href" .RelPermalink "current" (eq $.RelPermalink .RelPermalink)) -}}
+      {{- end -}}
+      {{- with site.GetPage "/campaigns" }}
+        {{- $navItems = $navItems | append (dict "weight" 32 "label" (i18n "nav_campaign") "href" .RelPermalink "current" (eq $.RelPermalink .RelPermalink)) -}}
+      {{- end -}}
+      {{- range sort $navItems "weight" }}
+      <a href="{{ .href }}"{{ if .current }} aria-current="page"{{ end }}>{{ .label }}</a>
       {{- end }}
     </nav>
     <div class="header-actions">

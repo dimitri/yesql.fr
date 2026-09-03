@@ -3,77 +3,64 @@ title   = "Working with me"
 type    = "contract"
 slug    = "enterprise"
 weight  = 10
-nav     = "Companies"
-description = "PostgreSQL enterprise support: I am not a services company. One-off engagements from the author of CREATE EXTENSION, with day-to-day operations handled by Data Bene."
-kicker  = "What I do, and what I do not"
-summary = "I am not a services company. One person, one-off engagements, and a partner for everything that needs a team and an on-call rota."
+nav     = "Enterprise"
+description = "PostgreSQL expertise, direct: onsite sessions and upstream maintenance funding, from the person who does the work — no account layer, no bench, no intermediaries."
+kicker  = "Direct, by design"
+summary = "You talk to the person who does the work. No account manager translating your problem for someone else to solve, no bench of consultants you have not met. That is not a limitation — it is the point."
 
-[cta]
-  label = "Request a quote"
-  href  = "#form-quote"
-  note  = "Answer within two business days. If what you need is day-to-day operations, I will say so immediately and point you elsewhere."
-
-# What I actually do. No rate card here: scope is a conversation, and the only
-# firm price on this site is the Onsite's.
-[[tiers]]
-  id      = "onsite"
-  name    = "The engagement"
-  tag     = "conference format"
-  bullets = [
-    "A day onsite, conference format: a talk, then your own queries",
-    "On your real schema, your query plans, your data volumes",
-    "Four a year in total, across all clients — not four per client",
-    "Firm price, published on the Onsite page",
-  ]
-
-[[tiers]]
-  id      = "review"
-  name    = "The second opinion"
-  tag     = "one-off"
-  bullets = [
-    "One structural decision to settle: modeling, indexing, migration",
-    "Schema review, query plan review, extension strategy",
-    "A few days, a written report, not a yearly commitment",
-    "Most useful before you build, rarely after",
-  ]
-
-[[tiers]]
-  id      = "oss"
-  name    = "My open source tools"
-  tag     = "upstream maintenance"
-  bullets = [
-    "pgloader, pgcopydb, pg_auto_failover, pgextwlist",
-    "Prioritized fixes, releases shipped, influence on the roadmap",
-    "Recurring subscription, public pricing",
-    "That is what Members is for — the tiers are on its own page",
-  ]
-
-# The most important part of this page: say no clearly, and say who to ask
-# instead. Saying yes to everything is the least credible signal there is.
-[not_this]
-  title = "What I do not do"
-  lede  = "I am one person. There is no 24×7 rota, no operations team and no bench behind me, and pretending otherwise would show at the first incident."
-  items = [
-    "24×7 on-call and managed production operations",
-    "Day-to-day DBA work, on site or on secondment",
-    "Level 1 and 2 support across an estate",
-    "Fixed-price delivery over several months",
-  ]
-
-  [not_this.partner]
-    name = "Data Bene"
-    url  = "https://data-bene.io/"
-    note = "For all of that I work with **Data Bene** — the former 2ndQuadrant France team, where I spent several years myself. They have the people, the rota and the process. When a project needs both, we work together: they take operations, I take the one-off work and the open source upstream."
-
-# Feeds the schema.org Service node. Quote-based, so no price.
+# Feeds the schema.org Service node. Quote-based work is discussed by email;
+# the two priced offers already have their own Service/Course pages.
 [service]
   type       = "PostgreSQL expertise and upstream open source maintenance"
   areaServed = "Europe"
+
+# The two things you can actually engage for. Kept to two on purpose: each
+# maps to its own page with its own price and its own commitment.
+[[tiers]]
+  id      = "onsite"
+  name    = "Onsite"
+  tag     = "a day, in person"
+  bullets = [
+    "A day at your office, on your schema and your queries",
+    "Prepared in advance, not a generic deck",
+    "Firm price, published on its own page",
+  ]
+  href = "/en/onsite/"
+  cta  = "See the Onsite page"
+
+[[tiers]]
+  id      = "members"
+  name    = "Upstream maintenance"
+  tag     = "recurring, funds the tools"
+  bullets = [
+    "pgloader, pgcopydb, pg_auto_failover, pgextwlist",
+    "Prioritized fixes, releases shipped, a say in the roadmap",
+    "Public tiers, starting free",
+  ]
+  href = "/en/members/"
+  cta  = "See the tiers"
+
+[contact]
+  label   = "Anything else"
+  note    = "A structural question, a second opinion, something that does not fit either page above — write directly, no form in between."
+  email   = "dim@tapoueh.org"
+  subject = "Working together"
 +++
 
-Most consulting sites say yes to everything. This one starts by saying no,
-because half of what arrives here is day-to-day operations, and I do not do
-day-to-day operations.
+This runs as a single-person practice, on purpose. Talking to the person who
+will actually do the work — not an account manager relaying it to someone
+else — means less gets lost between the problem and the fix, and the
+incentive is to solve it, not to keep a service tier occupied.
 
-What I do fits in a sentence: I come in for one-off work, on structural
-decisions and on the code I write and maintain.
+Staying independent this way needs the same thing any small, focused
+practice needs: to be funded by people who have an actual production need,
+not by a marketing plan or a roadmap set somewhere else. That is what keeps
+the work pointed at what matters to the people paying for it, and it is why
+the two things on offer here are priced and public rather than sold through
+a sales process — an onsite day, and funding for the maintenance of the
+open source tools this work is built on.
+
+For full production operations — a rota, an SLA, a team on call — that is a
+different shape of work, and [Data Bene](https://data-bene.io/), the former
+2ndQuadrant France team, does it well; we work alongside each other when a
+project needs both.

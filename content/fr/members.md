@@ -45,11 +45,6 @@ summary = "Financer ensemble la maintenance des outils dont vos productions dép
     unit = "par ticket"
     what = "Un bloquant précis, traité et livré dans la version suivante."
 
-[programme]
-  title = "Les paliers vivent sur oss.theartofpostgresql.com"
-  note  = "Le programme de maintenance et sa boutique existent déjà : je ne les duplique pas ici. Cette page explique à quoi ils servent et ce que le statut de membre y ajoute ; la souscription se fait là-bas."
-  cta   = "Voir le programme"
-
 # Le bénéfice propre aux membres, celui qui n'existe pas sur la boutique.
 [newsletter]
   title = "La lettre trimestrielle"

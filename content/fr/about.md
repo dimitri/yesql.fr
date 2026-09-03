@@ -6,7 +6,7 @@ weight  = 50
 nav     = "À propos"
 description = "Contributeur majeur de PostgreSQL, auteur de CREATE EXTENSION et des Event Triggers, de The Art of PostgreSQL, de pgloader, pgcopydb et pg_auto_failover."
 kicker  = "À propos"
-summary = "Contributeur majeur de PostgreSQL. Deux fonctionnalités que j'ai écrites sont présentes dans toutes les installations de PostgreSQL du monde."
+summary = "Contributeur majeur de PostgreSQL. Deux de ces contributions — CREATE EXTENSION et les Event Triggers — sont aujourd'hui présentes dans toutes les installations de PostgreSQL du monde."
 
 [photo]
   src = "/img/dimitri-fontaine.png"

@@ -45,11 +45,6 @@ summary = "Fund the maintenance of the tools your production depends on, togethe
     unit = "per issue"
     what = "One specific blocker, handled and shipped in the next release."
 
-[programme]
-  title = "The tiers live on oss.theartofpostgresql.com"
-  note  = "The maintenance programme and its store already exist; I am not duplicating them here. This page explains what they are for and what membership adds to them. You subscribe over there."
-  cta   = "See the programme"
-
 # Membership's own benefit — the one the store does not sell.
 [newsletter]
   title = "The quarterly letter"

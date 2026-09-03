@@ -1,0 +1,13 @@
+{{- /* A plain "email me" block, replacing a lead-capture form on pages where
+       the actual next step is a direct conversation, not a funnel. */ -}}
+{{- with .Params.contact }}
+<div class="contact-block" id="contact">
+  <div class="wrap wrap-narrow">
+    <h2 class="contact-title">{{ .label }}</h2>
+    <p class="contact-note">{{ .note }}</p>
+    <p class="cta-row">
+      <a class="btn btn-primary" href="mailto:{{ .email }}{{ with .subject }}?subject={{ . | urlquery }}{{ end }}">{{ .email }}</a>
+    </p>
+  </div>
+</div>
+{{- end }}

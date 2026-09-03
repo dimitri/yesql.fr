@@ -6,8 +6,9 @@
     <p class="lede">{{ .Params.summary }}</p>
     <div class="prose">{{ .Content }}</div>
 
-    <ul class="tier-grid">
+    <ul class="tier-grid tier-grid-2">
       {{- range .Params.tiers }}
+      {{- $tier := . }}
       <li class="tier" id="tier-{{ .id }}">
         <p class="tier-tag mono">{{ .tag }}</p>
         <h2>{{ .name }}</h2>
@@ -16,31 +17,13 @@
           <li>{{ . }}</li>
           {{- end }}
         </ul>
+        {{- with .href }}
+        <p class="tier-link"><a href="{{ . }}">{{ $tier.cta }} →</a></p>
+        {{- end }}
       </li>
       {{- end }}
     </ul>
-
-    {{- /* Saying no, in as much space as the yes. This block is the reason a
-           reader believes the rest of the page. */ -}}
-    {{- with .Params.not_this }}
-    <aside class="not-this">
-      <h2 class="not-this-title">{{ .title }}</h2>
-      <p class="not-this-lede">{{ .lede }}</p>
-      <ul class="not-this-list">
-        {{- range .items }}
-        <li>{{ . }}</li>
-        {{- end }}
-      </ul>
-      {{- with .partner }}
-      <div class="partner">
-        <p class="partner-tag mono">{{ .name }}</p>
-        <p class="partner-note">{{ $.RenderString .note }}</p>
-        <p class="partner-link"><a href="{{ .url }}" rel="noopener">{{ .url }} →</a></p>
-      </div>
-      {{- end }}
-    </aside>
-    {{- end }}
   </div>
 
-  {{ partial "forms/quote.html" . }}
+  {{ partial "email-cta.html" . }}
 </section>

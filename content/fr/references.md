@@ -56,7 +56,7 @@ summary = "Le travail public se vérifie sans me demander la permission. Le trav
   id    = "core"
   tag   = "cœur de PostgreSQL"
   title = "Deux fonctionnalités du cœur"
-  lede  = "`CREATE EXTENSION` et les Event Triggers sont de moi. Ce code tourne dans toutes les installations de PostgreSQL, partout, depuis les versions 9.1 et 9.3."
+  lede  = "J'ai contribué `CREATE EXTENSION` et les Event Triggers au cœur de PostgreSQL. Ce code tourne dans toutes les installations de PostgreSQL, partout, depuis les versions 9.1 et 9.3."
   url   = "https://www.postgresql.org/community/contributors/"
   cta   = "Liste officielle des contributeurs"
 [[public]]

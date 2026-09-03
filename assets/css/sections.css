@@ -219,9 +219,41 @@
 @media (min-width: 44rem) { .tier-grid-4 { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 68rem) { .tier-grid-4 { grid-template-columns: repeat(4, 1fr); } }
 
+/* Two cards, not three or four: overrides .tier-grid's default 3-column
+   track so two items don't sit lopsided in a row built for more. */
+@media (min-width: 40rem) { .tier-grid-2 { grid-template-columns: repeat(2, 1fr); } }
+
+.tier-link { margin: 1rem 0 0; }
+.tier-link a {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: var(--accent);
+}
+.tier-link a:hover { color: var(--accent-strong); }
+
 /* One tier is marked as the common choice, so the ladder has an entry point
-   instead of four equal-weight options. */
-.tier.is-featured { border-color: var(--accent-line); border-top: 3px solid var(--accent); }
+   instead of four equal-weight options — a small badge and a lifted, tinted
+   card read as "recommended" without the heavy framed-border treatment a
+   flat accent border around the whole card tends toward. */
+.tier { position: relative; }
+.tier.is-featured {
+  background: var(--accent-wash);
+  border-color: var(--accent-line);
+  box-shadow: var(--shadow);
+}
+.tier-badge {
+  position: absolute;
+  top: -0.6rem;
+  left: 1.3rem;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+}
 
 .tier-price { margin: 0 0 0.6rem; display: flex; align-items: baseline; gap: 0.3rem; flex-wrap: wrap; }
 .tier-amount { color: var(--accent); font-size: 1.5rem; font-weight: 600; }
@@ -643,56 +675,6 @@
   border: 0;
 }
 
-/* ---- "what I do not do" --------------------------------------------------- */
-
-/* Given as much room as the offer above it. A consultancy that says no in
-   specifics is the only kind whose yes means anything, so this block is
-   styled as a peer of the offer cards rather than as a footnote. */
-.not-this {
-  margin: 2.5rem 0 0;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 1.6rem 1.5rem;
-  background: var(--bg-sunken);
-}
-.not-this-title { font-size: 1.15rem; margin-bottom: 0.5rem; }
-.not-this-lede { color: var(--text-muted); font-size: 0.95rem; max-width: 60ch; }
-.not-this-list {
-  list-style: none;
-  padding: 0;
-  margin: 1.25rem 0 0;
-  display: grid;
-  gap: 0.4rem;
-  color: var(--text-muted);
-  font-size: 0.93rem;
-}
-@media (min-width: 44rem) { .not-this-list { grid-template-columns: 1fr 1fr; gap: 0.4rem 1.5rem; } }
-.not-this-list li { padding-left: 1.3rem; position: relative; margin: 0; }
-.not-this-list li::before {
-  content: "×";
-  position: absolute;
-  left: 0.15rem;
-  color: var(--text-faint);
-  font-family: var(--font-mono);
-}
-
-.partner {
-  margin-top: 1.5rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--line);
-}
-.partner-tag {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
-}
-.partner-note { color: var(--text-muted); font-size: 0.93rem; max-width: 62ch; }
-.partner-note strong { color: var(--text); }
-.partner-link { margin: 0.75rem 0 0; font-size: 0.88rem; }
-.partner-link a { font-family: var(--font-mono); }
-
 /* A note that carries its own call to action is a panel, not a footnote —
    let it use the full column so the buttons are not crammed. */
 .note:has(.cta-row) { max-width: none; }
@@ -723,3 +705,17 @@
 .quote-item p { color: var(--text); font-size: 0.97rem; }
 .quote-source { color: var(--text-faint); font-size: 0.76rem; margin: 0.5rem 0 0; }
 .quote-note { color: var(--text-faint); font-size: 0.8rem; margin: 1rem 0 0; max-width: 62ch; }
+
+/* ---- contact block ---------------------------------------------------------
+   Replaces a lead-capture form on pages where the actual next step is
+   correspondence, not a funnel: same visual weight as a form-block used to
+   carry (raised panel, accent top edge), so removing the form did not also
+   remove the page's sense of a closing action. */
+.contact-block {
+  margin-top: var(--step);
+  padding: 1.75rem 0 var(--step);
+  border-top: 2px solid var(--accent);
+  background: var(--bg-raised);
+}
+.contact-title { font-size: 1.15rem; margin-bottom: 0.35rem; }
+.contact-note { color: var(--text-muted); font-size: 0.95rem; max-width: 60ch; margin-bottom: 1.25rem; }

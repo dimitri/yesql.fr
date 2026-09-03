@@ -5,8 +5,9 @@
     <h1 id="{{ $anchor }}-h">{{ .Title }}</h1>
     <p class="lede">{{ .Params.summary }}</p>
 
-    {{- /* Scarcity is stated, not implied. It sits above the fold of the
-           section, before the price and before the form. */ -}}
+    {{- /* Scarcity is stated, not implied — and framed as a trade-off with
+           reasons, not as a rationing notice. It sits above the fold, before
+           the price. */ -}}
     {{- with .Params.scarcity }}
     <aside class="scarcity">
       <p class="scarcity-figure mono"><strong>{{ .max_per_year }}</strong> <span>{{ .label }}</span></p>
@@ -86,5 +87,5 @@
     {{- end }}
   </div>
 
-  {{ partial "forms/onsite.html" . }}
+  {{ partial "email-cta.html" . }}
 </section>

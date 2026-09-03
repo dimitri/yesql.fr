@@ -31,14 +31,6 @@ no_open_campaign       = "Aucune campagne en cours. Rejoignez le club pour être
 # --- forms -------------------------------------------------------------------
 form_email        = "Adresse e-mail"
 form_email_ph     = "vous@entreprise.com"
-form_company      = "Société"
-form_need         = "Votre besoin"
-form_need_ph      = "Version de PostgreSQL, volumétrie, contexte, échéance."
-form_format       = "Format"
-form_timeframe    = "Période envisagée"
-form_timeframe_ph = "T2 2026, par exemple"
-form_required     = "obligatoire"
-form_optional     = "facultatif"
 form_privacy      = "Une seule adresse, utilisée pour vous répondre. Désinscription en un clic."
 
 # --- footer ------------------------------------------------------------------
@@ -53,6 +45,13 @@ case_outcome = "Résultat"
 # --- paliers ---------------------------------------------------------------
 per_month = "mois"
 per_year  = "an"
+
+# --- paliers membres --------------------------------------------------------
+tier_recommended = "Recommandé"
+tier_get = "Choisir ce palier"
+
+# --- nav ---------------------------------------------------------------------
+nav_campaign = "Collecte"
 
 # A TOML table swallows every key declared after it, so the one plural form on
 # this site lives at the very end of the file. Add new flat keys ABOVE it.

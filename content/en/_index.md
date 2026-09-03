@@ -9,7 +9,7 @@ headline = "YeSQL: PostgreSQL expertise and open source portfolio"
 description = "PostgreSQL Major Contributor, author of The Art of PostgreSQL, and maintainer of pgloader, pgcopydb, pg_auto_failover and pgextwlist. Everything in one place: the tools, the writing, and how to fund the work."
 
 kicker  = "YeSQL · Dimitri Fontaine"
-summary = "Contributor to PostgreSQL core, author of *The Art of PostgreSQL*, and maintainer of pgloader, pgcopydb, pg_auto_failover and pgextwlist. This page is the map of all of it."
+summary = "Everything I do, in one place: PostgreSQL core contributions, the open source tools, consulting, the book, onsite training, conference talks, free lessons, and the blog."
 
 # Proof, kept as identity rather than as a sales opener: the credential that
 # cannot be manufactured, first.
@@ -22,11 +22,11 @@ available = "If any of this is directly useful to your team: I take on a small n
 
 [[proof]]
   value = "PostgreSQL Major Contributor"
-  label = "`CREATE EXTENSION` and Event Triggers are mine"
+  label = "co-authored `CREATE EXTENSION` and Event Triggers"
   href  = "https://www.postgresql.org/community/contributors/"
 [[proof]]
-  value = "1999"
-  label = "first PostgreSQL database in production"
+  value = "pgloader, since 2005"
+  label = "still actively maintained, twenty years on"
 [[proof]]
   value = "pgloader · pgcopydb · pg_auto_failover · pgextwlist"
   label = "author and maintainer"
@@ -55,6 +55,7 @@ available = "If any of this is directly useful to your team: I take on a small n
   href  = "/en/members/"
 +++
 
-This is the map: the open source tools I maintain, what I write and teach, and
-the two ways to help fund the work — a specific feature, or ongoing
-maintenance. Everything below is public and you can check all of it yourself.
+One page, all of it: the open source tools I maintain, the consulting and
+training work, what I write and teach, and the two ways to help fund the
+work — a specific feature, or ongoing maintenance. Everything below is
+public and you can check all of it yourself.
