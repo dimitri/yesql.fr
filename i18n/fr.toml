@@ -50,6 +50,10 @@ case_context = "Situation"
 case_finding = "Diagnostic"
 case_outcome = "Résultat"
 
+# --- paliers ---------------------------------------------------------------
+per_month = "mois"
+per_year  = "an"
+
 # A TOML table swallows every key declared after it, so the one plural form on
 # this site lives at the very end of the file. Add new flat keys ABOVE it.
 [fund_backers]

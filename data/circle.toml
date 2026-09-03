@@ -1,0 +1,49 @@
+# The Circle — the members' side of the open source maintenance programme.
+#
+# These tiers are NOT invented here. They are the ones already sold at
+# https://oss.theartofpostgresql.com/ and checked out through ThriveCart at
+# https://sales.theartofpostgresql.com/oss-sponsors/. This file mirrors them so
+# the yesql.fr pages can describe them without a second price list drifting
+# away from the real one.
+#
+# LANGUAGE-NEUTRAL: amounts, ids and URLs only. Every label and description is
+# translated in content/<lang>/circle.md, keyed by these ids.
+#
+# When a price changes at oss.theartofpostgresql.com, change it here and both
+# language versions of this site follow.
+
+checkout = "https://sales.theartofpostgresql.com/oss-sponsors/"
+programme = "https://oss.theartofpostgresql.com/"
+currency = "EUR"
+
+projects = ["pgloader", "pgcopydb", "pg_auto_failover", "pgextwlist"]
+
+# Recurring membership.
+[[tiers]]
+  id       = "community"
+  price    = 0
+  period   = "month"
+[[tiers]]
+  id       = "supporter"
+  price    = 100
+  period   = "month"
+[[tiers]]
+  id       = "professional"
+  price    = 800
+  period   = "month"
+  featured = true
+[[tiers]]
+  id       = "sponsor"
+  price    = 2000
+  period   = "month"
+
+# One-off purchases, for a specific release or a specific blocker.
+[[oneoff]]
+  id     = "per-release"
+  price  = 10000
+  unit   = "release"
+  scarce = true          # one sponsor per release
+[[oneoff]]
+  id     = "fast-lane"
+  price  = 3000
+  unit   = "issue"

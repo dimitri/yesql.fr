@@ -8,8 +8,8 @@ kicker  = "YeSQL · Dimitri Fontaine"
 summary = "Contributeur majeur de PostgreSQL, auteur de *The Art of PostgreSQL*, mainteneur de pgloader, pgcopydb et pg_auto_failover."
 
 [cta]
-  label = "Voir le contrat entreprise"
-  href  = "/fr/contrat/"
+  label = "Ce que je fais"
+  href  = "/fr/entreprise/"
 
 # La preuve avant la promesse. Le premier élément est le plus fort dont je
 # dispose : deux fonctionnalités du cœur de PostgreSQL, présentes dans toutes
@@ -28,26 +28,26 @@ summary = "Contributeur majeur de PostgreSQL, auteur de *The Art of PostgreSQL*,
 # Les trois routes du site. Une page par offre, un appel à l'action par page.
 [[routes]]
   id    = "contract"
-  href  = "/fr/contrat/"
-  tag   = "entreprise"
-  title = "Contrat entreprise"
-  lede  = "Support en production, formation, expertise. Contrat annuel, sur devis."
+  href  = "/fr/entreprise/"
+  tag   = "entreprises"
+  title = "Travailler avec moi"
+  lede  = "Interventions ponctuelles et second avis. Pas d'exploitation quotidienne — je vous dis qui la fait."
   cta   = "Demander un devis"
   primary = true
 [[routes]]
-  id    = "masterclass"
-  href  = "/fr/masterclass/"
+  id    = "seminar"
+  href  = "/fr/seminaire/"
   tag   = "sur site · 4 par an"
-  title = "La masterclass"
-  lede  = "The Art of PostgreSQL sur site, une ou deux journées, sur vos requêtes."
+  title = "Le Séminaire"
+  lede  = "Une journée sur site avec l'auteur de The Art of PostgreSQL, sur vos requêtes."
   cta   = "Réserver une session"
 [[routes]]
-  id    = "club"
-  href  = "/fr/club/"
+  id    = "circle"
+  href  = "/fr/cercle/"
   tag   = "open source"
-  title = "Le club utilisateurs"
-  lede  = "Support pro par abonnement, et financement de fonctionnalités open source."
-  cta   = "Rejoindre le club"
+  title = "Le Cercle"
+  lede  = "Financer ensemble la maintenance de pgloader, pgcopydb et pg_auto_failover."
+  cta   = "Rejoindre le Cercle"
 +++
 
 Vous n'achetez pas un niveau 1. Vous parlez directement à la personne qui a

@@ -1,12 +1,12 @@
-{{- /* CTA 3 of 3 — masterclass booking. Qualifying: format and timeframe
+{{- /* CTA 3 of 3 — seminar booking. Qualifying: format and timeframe
        decide whether a slot exists at all. Scarcity is repeated here, at the
        point of decision. */ -}}
 {{- $kit := site.Params.kit -}}
-<div class="form-block form-masterclass" id="form-masterclass">
+<div class="form-block form-seminar" id="form-seminar">
   <div class="wrap wrap-narrow">
     <h2 class="form-title">{{ .Params.cta.label }}</h2>
     <p class="form-note form-scarcity mono">{{ .Params.cta.note }}</p>
-    <form class="form" method="post" action="{{ $kit.base }}/{{ $kit.masterclass }}/subscriptions">
+    <form class="form" method="post" action="{{ $kit.base }}/{{ $kit.seminar }}/subscriptions">
       <p class="field">
         <label for="mc-email">{{ i18n "form_email" }} <span class="req">{{ i18n "form_required" }}</span></label>
         <input id="mc-email" type="email" name="email_address" required
@@ -30,7 +30,7 @@
         <input id="mc-when" type="text" name="fields[timeframe]" placeholder="{{ i18n "form_timeframe_ph" }}">
       </p>
       <p class="field field-submit">
-        <button class="btn btn-masterclass" type="submit">{{ .Params.cta.label }}</button>
+        <button class="btn btn-seminar" type="submit">{{ .Params.cta.label }}</button>
       </p>
       <p class="form-privacy">{{ i18n "form_privacy" }}</p>
     </form>

@@ -1,5 +1,5 @@
 {{- $anchor := .Params.anchor | default .File.ContentBaseName -}}
-<section id="{{ $anchor }}" class="section section-masterclass" aria-labelledby="{{ $anchor }}-h">
+<section id="{{ $anchor }}" class="section section-seminar" aria-labelledby="{{ $anchor }}-h">
   <div class="wrap">
     <p class="kicker mono">{{ .Params.kicker }}</p>
     <h1 id="{{ $anchor }}-h">{{ .Title }}</h1>
@@ -49,5 +49,5 @@
     {{- end }}
   </div>
 
-  {{ partial "forms/masterclass.html" . }}
+  {{ partial "forms/seminar.html" . }}
 </section>

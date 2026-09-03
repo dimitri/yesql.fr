@@ -1,0 +1,21 @@
+{{- /* CTA 2 of 3 — the members' quarterly letter. The low-friction one: email
+       only, no qualifying question. The paid tiers do not go through here —
+       they check out on ThriveCart — so this form's only job is the letter. */ -}}
+{{- $kit := site.Params.kit -}}
+<div class="form-block form-circle" id="form-circle">
+  <div class="wrap wrap-narrow">
+    <h2 class="form-title">{{ .Params.newsletter.title }}</h2>
+    <p class="form-note">{{ .Params.newsletter.note }}</p>
+    <form class="form form-inline" method="post" action="{{ $kit.base }}/{{ $kit.circle }}/subscriptions">
+      <p class="field">
+        <label for="circle-email">{{ i18n "form_email" }}</label>
+        <input id="circle-email" type="email" name="email_address" required
+               autocomplete="email" placeholder="{{ i18n "form_email_ph" }}">
+      </p>
+      <p class="field field-submit">
+        <button class="btn btn-circle" type="submit">{{ .Params.cta.label }}</button>
+      </p>
+    </form>
+    <p class="form-privacy">{{ i18n "form_privacy" }}</p>
+  </div>
+</div>

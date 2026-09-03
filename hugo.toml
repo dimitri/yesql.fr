@@ -28,10 +28,13 @@ disableKinds = ["taxonomy", "term"]
   # form ids from https://app.kit.com/forms — one form per CTA, deliberately
   # NOT shared, so the three conversion paths stay measurable separately.
   [params.kit]
+    # The account is yesql.ck.page (the embed on pgloader.io uses it). Kit
+    # accepts either host for the form POST; keep whichever the embed snippet
+    # for these three forms shows.
     base        = "https://app.kit.com/forms"
     quote       = "0000000"   # TODO: enterprise contract — quote request
-    club        = "0000000"   # TODO: user club — email capture
-    masterclass = "0000000"   # TODO: masterclass — booking request
+    circle      = "0000000"   # TODO: the Circle — quarterly letter signup
+    seminar     = "0000000"   # TODO: seminar — booking request
 
   # Reciprocal links, for mutual domain authority. TODO: add the matching
   # inbound links on those sites pointing back here.

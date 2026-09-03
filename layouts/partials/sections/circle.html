@@ -1,0 +1,129 @@
+{{- /* The Circle.
+
+       The tiers are NOT defined here or in the content file — they are the
+       ones already sold at oss.theartofpostgresql.com, mirrored once in
+       data/circle.toml. The content file supplies only the translated labels,
+       keyed by the same ids. That way there is one price list, not three.
+
+       Order on the page: what you get and what it costs, then the members'
+       letter (the Circle's own benefit), then the threshold campaigns. */ -}}
+{{- $c := hugo.Data.circle -}}
+{{- $labels := .Params.tier_labels -}}
+{{- $anchor := .Params.anchor | default .File.ContentBaseName -}}
+<section id="{{ $anchor }}" class="section section-circle" aria-labelledby="{{ $anchor }}-h">
+  <div class="wrap">
+    <p class="kicker mono">{{ .Params.kicker }}</p>
+    <h1 id="{{ $anchor }}-h">{{ .Title }}</h1>
+    <p class="lede">{{ .Params.summary }}</p>
+    <div class="prose">{{ .Content }}</div>
+
+    <p class="projects mono">
+      {{- range $i, $p := $c.projects }}{{ if $i }} · {{ end }}{{ $p }}{{ end -}}
+    </p>
+
+    {{- /* ---- Recurring tiers ---------------------------------------- */}}
+    <ul class="tier-grid tier-grid-4">
+      {{- range $c.tiers }}
+      {{- $l := index $labels .id }}
+      <li class="tier{{ if .featured }} is-featured{{ end }}" id="tier-{{ .id }}">
+        <h2>{{ $l.name }}</h2>
+        <p class="tier-price mono">
+          {{- if eq .price 0 -}}
+            <span class="tier-amount">{{ lang.FormatCurrency 0 $c.currency 0 }}</span>
+          {{- else -}}
+            <span class="tier-amount">{{ lang.FormatCurrency 0 $c.currency .price }}</span>
+            <span class="tier-period">/ {{ i18n (printf "per_%s" .period) }}</span>
+          {{- end -}}
+        </p>
+        <p class="tier-lede">{{ $l.lede }}</p>
+        <p class="tier-what">{{ $l.what }}</p>
+      </li>
+      {{- end }}
+    </ul>
+
+    {{- /* ---- One-off purchases --------------------------------------- */}}
+    {{- with .Params.oneoff_labels }}
+    {{- $ol := . }}
+    <ul class="oneoff-grid">
+      {{- range $c.oneoff }}
+      {{- $l := index $ol .id }}
+      <li class="oneoff" id="oneoff-{{ .id }}">
+        <p class="oneoff-price mono">
+          <span class="tier-amount">{{ lang.FormatCurrency 0 $c.currency .price }}</span>
+          <span class="tier-period">{{ $l.unit }}</span>
+        </p>
+        <h3>{{ $l.name }}</h3>
+        <p class="oneoff-what">{{ $l.what }}</p>
+        {{- with $l.note }}<p class="oneoff-note mono">{{ . }}</p>{{ end }}
+      </li>
+      {{- end }}
+    </ul>
+    {{- end }}
+
+    {{- /* The store is somewhere else and stays there. */ -}}
+    {{- with .Params.programme }}
+    <aside class="note">
+      <p class="note-title mono">{{ .title }}</p>
+      <p>{{ .note }}</p>
+      <p class="cta-row">
+        <a class="btn btn-primary" href="{{ $c.checkout }}" rel="noopener">{{ $.Params.cta.label }}</a>
+        <a class="btn btn-ghost" href="{{ $c.programme }}" rel="noopener">{{ .cta }}</a>
+      </p>
+    </aside>
+    {{- end }}
+
+    {{- /* ---- The members' letter — the Circle's own benefit ----------- */}}
+    {{- with .Params.newsletter }}
+    <article class="letter" aria-labelledby="letter-h">
+      <p class="letter-tag mono">{{ .tag }}</p>
+      <h2 id="letter-h">{{ .title }}</h2>
+      <p class="letter-lede">{{ .lede }}</p>
+      <ul class="letter-list">
+        {{- range .bullets }}
+        <li>{{ . }}</li>
+        {{- end }}
+      </ul>
+      <p class="letter-note">{{ .note }}</p>
+    </article>
+    {{- end }}
+
+    {{- /* ---- Threshold campaigns ------------------------------------- */}}
+    {{- with .Params.fund }}
+    <div class="fund-intro">
+      <p class="club-tag mono">{{ .tag }}</p>
+      <h2>{{ .title }}</h2>
+      <p class="club-lede">{{ .lede }}</p>
+      <ul class="club-bullets">
+        {{- range .bullets }}
+        <li>{{ . }}</li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+
+    {{- $open := slice }}{{ $past := slice }}
+    {{- range where site.RegularPages "Section" "campaigns" }}
+      {{- $f := partialCached "campaign/facts.html" .Params.campaign .Params.campaign }}
+      {{- if $f.isOpen }}{{ $open = $open | append . }}{{ else }}{{ $past = $past | append . }}{{ end }}
+    {{- end }}
+
+    {{- if $open }}
+    <div class="campaign-grid">
+      {{- range sort $open "Weight" }}{{ partial "campaign/card.html" . }}{{ end }}
+    </div>
+    {{- else }}
+    <p class="empty">{{ i18n "no_open_campaign" }}</p>
+    {{- end }}
+
+    {{- with $past }}
+    <details class="campaign-past">
+      <summary>{{ i18n "past_campaigns" }}</summary>
+      <div class="campaign-grid">
+        {{- range sort . "Weight" }}{{ partial "campaign/card.html" . }}{{ end }}
+      </div>
+    </details>
+    {{- end }}
+  </div>
+
+  {{ partial "forms/circle.html" . }}
+</section>

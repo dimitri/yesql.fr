@@ -21,6 +21,23 @@
     </ul>
     {{- end }}
 
+    {{- /* Real, published user quotes. Anonymous at the source, and left that
+           way — an invented name would undo the point of this page. */ -}}
+    {{- with .Params.quotes }}
+    <section class="quotes" aria-labelledby="quotes-h">
+      <h2 id="quotes-h" class="quotes-title">{{ $.Params.quotes_note.title }}</h2>
+      <ul class="quote-list">
+        {{- range . }}
+        <li class="quote-item" id="quote-{{ .id }}">
+          <blockquote><p>{{ .text }}</p></blockquote>
+          <p class="quote-source mono">— {{ .source }}</p>
+        </li>
+        {{- end }}
+      </ul>
+      <p class="quote-note">{{ $.Params.quotes_note.note }}</p>
+    </section>
+    {{- end }}
+
     {{- /* Case studies, once there are real ones. The template is ready; the
            array in the content file is empty on purpose. */ -}}
     {{- with .Params.cases }}

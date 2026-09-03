@@ -28,6 +28,25 @@ summary = "Public work can be checked without asking me. Contract work is under 
 #   author  = "First Last, role"
 # ---------------------------------------------------------------------------
 
+# Real pgloader user quotes, published on pgloader.io. They are anonymous at
+# the source; do not invent an author for them.
+[[quotes]]
+  id     = "one-tb"
+  text   = "Made our migration really easy (~1Tb)."
+  source = "pgloader user"
+[[quotes]]
+  id     = "one-liner"
+  text   = "Almost too easy — I just ran the one-liner and waited for 48 hours."
+  source = "pgloader user"
+[[quotes]]
+  id     = "complex"
+  text   = "Greatly reduced the time required to accomplish this complex migration."
+  source = "pgloader user"
+
+[quotes_note]
+  title = "What users say"
+  note  = "Quotes published on pgloader.io. Their authors are not named at the source, so I do not name them here."
+
 [on_request]
   title = "Client references"
   note  = "Engagements are covered by confidentiality agreements. I give named references, with those clients' agreement, at quote time — and put you in direct contact where that helps."
@@ -48,12 +67,12 @@ summary = "Public work can be checked without asking me. Contract work is under 
   url   = "https://github.com/dimitri"
   cta   = "The repositories"
 [[public]]
-  id    = "apt"
-  tag   = "infrastructure"
-  title = "apt.postgresql.org"
-  lede  = "Debian maintainer, co-builder of the repository that has kept every supported PostgreSQL version installable on every supported Debian and Ubuntu release for well over a decade."
-  url   = "https://wiki.postgresql.org/wiki/Apt"
-  cta   = "The repository"
+  id    = "migrations"
+  tag   = "migrations"
+  title = "Migrations actually delivered"
+  lede  = "pgloader migrates whole databases from MySQL, SQLite, MS SQL Server and Oracle. The quotes below are from its users, published on pgloader.io."
+  url   = "https://pgloader.io/"
+  cta   = "pgloader.io"
 [[public]]
   id    = "book"
   tag   = "written"

@@ -59,10 +59,14 @@ passé plusieurs années chez 2ndQuadrant à faire du conseil et du développeme
 PostgreSQL, puis rejoint Citus Data pour travailler sur PostgreSQL distribué et
 construire pg_auto_failover. Citus a été racheté par Microsoft en 2019.
 
-## Pourquoi YeSQL
+## Pourquoi « YeSQL »
 
-Parce que la plupart des équipes laissent au sol une puissance de requête
-considérable — non pas parce que PostgreSQL est difficile, mais parce que
-personne ne leur a montré ce qu'il sait réellement faire. C'est la prémisse du
-livre, et c'est le même travail que je fais en contrat, en formation et en
-expertise.
+C'était un jeu de mots sur NoSQL, à l'époque où tout le monde expliquait que le
+relationnel avait fait son temps. La blague a vieilli, la position non : ces
+années-là, les équipes ont déplacé dans leur code applicatif un travail que leur
+base de données faisait déjà mieux — jointures, agrégations, contraintes,
+transactions.
+
+C'est la même idée que le livre : la plupart des équipes laissent au sol une
+puissance de requête considérable, non pas parce que PostgreSQL est difficile,
+mais parce que personne ne leur a montré ce qu'il sait réellement faire.

@@ -1,12 +1,12 @@
 +++
-title   = "The masterclass"
-type    = "masterclass"
-slug    = "masterclass"
+title   = "The Seminar"
+type    = "seminar"
+slug    = "seminar"
 weight  = 20
-nav     = "Masterclass"
-description = "Advanced PostgreSQL training onsite, one or two days, built on your schema and your queries. €3,000 / €5,000, four sessions a year."
-kicker  = "The Art of PostgreSQL · onsite"
-summary = "Advanced PostgreSQL training, onsite, over one or two days, built on your schema and your queries. Four sessions a year, no more."
+nav     = "Seminar"
+description = "Onsite PostgreSQL seminar, one or two days, built on your schema and your queries. €3,000 / €5,000, four sessions a year."
+kicker  = "Onsite · four a year"
+summary = "The onsite PostgreSQL seminar: half a day presented by the author of The Art of PostgreSQL, half a day on your own queries. One or two days, four times a year."
 
 [cta]
   label = "Book a slot"
@@ -55,6 +55,10 @@ summary = "Advanced PostgreSQL training, onsite, over one or two days, built on 
   mode = "onsite"
 +++
 
-The masterclass takes the content of *The Art of PostgreSQL* and puts it against
+The seminar takes the content of *The Art of PostgreSQL* and puts it against
 your code. The point is not to cover a syllabus, it is that your team leaves
 with their own queries rewritten.
+
+Not to be confused with the [Live Masterclass](https://theartofpostgresql.com/masterclass/),
+which is the remote, recurring format open to everyone. The seminar happens at
+your office, once, on your code.

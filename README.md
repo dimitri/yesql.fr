@@ -53,10 +53,10 @@ landing).
 
 ```
 /fr/                          hub — proof, three routes, one primary CTA
-/fr/contrat/                  ← "support PostgreSQL entreprise"   /en/contract/
-/fr/masterclass/              ← "formation PostgreSQL avancée"    /en/masterclass/
-/fr/club/                     subscription + campaigns            /en/club/
-/fr/references/               public proof, case studies          /en/references/
+/fr/entreprise/               ← "support PostgreSQL entreprise"   /en/enterprise/
+/fr/seminaire/                ← "formation PostgreSQL avancée"    /en/seminar/
+/fr/cercle/                   OSS maintenance + campaigns         /en/circle/
+/fr/references/               public proof, user quotes           /en/references/
 /fr/a-propos/                 the person, the core contributions  /en/about/
 /fr/campaigns/<slug>/         one per campaign                    /en/campaigns/<slug>/
 /fr/mentions-legales/                                             /en/legal-notice/
@@ -64,13 +64,37 @@ landing).
 
 URLs are localized by the `slug` in each page's front matter, but **the content
 filenames are language-neutral and identical in both trees** — `contract.md` in
-both, one slugged `contrat`, the other `contract`. That is what makes
-`/fr/contrat/` and `/en/contract/` link to each other as translations, and what
+both, one slugged `entreprise`, the other `enterprise`. That is what makes
+`/fr/entreprise/` and `/en/enterprise/` link to each other as translations, and what
 lets the parity guard find a page's counterpart without a mapping table.
 
 The one exception is the `campaigns/` directory name, which stays English in
 both trees so the campaign layouts are shared. Campaign pages rank on the
 feature name, not on a generic French noun, so the cost is small.
+
+## Where the offers come from
+
+Three offers, three different sources of truth. Getting this wrong is how a
+site ends up quoting three different prices for the same thing.
+
+| Page | The offer | Prices live in |
+|---|---|---|
+| `/entreprise/` | One-off engagements and second opinions. **No day-to-day operations** — the page says so and names Data Bene for that work. | Nowhere: quote-based |
+| `/seminaire/` | The onsite day. Distinct from theartofpostgresql.com's **Live Masterclass**, which is remote, recurring and open to all; the page says so and links to it. | The page's own front matter, guarded by `assert-parity` |
+| `/cercle/` | Upstream maintenance for pgloader, pgcopydb, pg_auto_failover, pgextwlist. | `data/circle.toml` |
+
+**The Circle is not a new product.** It is the programme already sold at
+<https://oss.theartofpostgresql.com/>, checked out through ThriveCart at
+<https://sales.theartofpostgresql.com/oss-sponsors/>. `data/circle.toml`
+mirrors those tiers (€0 / €100 / €800 / €2k a month, plus €10k per release and
+€3k fast-lane) so this site can describe them without a second price list
+drifting away from the real one. **When a price changes over there, change it
+in that one file.** The tier ids are the join between the data file and the
+translated labels in `content/{fr,en}/circle.md`.
+
+What the Circle adds on this side is the **quarterly members' letter** — what
+moved in The Art of PostgreSQL and in the maintained projects. That is the only
+thing on the page that goes through a Kit form; the paid tiers go to ThriveCart.
 
 ## Where the copy lives
 
@@ -217,9 +241,12 @@ analytics. Each posts to its own ConvertKit (Kit) form:
 
 | CTA | Page | Fields | Kit form id |
 |---|---|---|---|
-| Request a quote | `/contrat/` · `/contract/` | email, company, need | `params.kit.quote` |
-| Join the club | `/club/` | email only | `params.kit.club` |
-| Book a slot | `/masterclass/` | email, company, format, timeframe | `params.kit.masterclass` |
+| Request a quote | `/entreprise/` · `/enterprise/` | email, company, need | `params.kit.quote` |
+| Quarterly letter | `/cercle/` · `/circle/` | email only | `params.kit.circle` |
+| Book a slot | `/seminaire/` · `/seminar/` | email, company, format, timeframe | `params.kit.seminar` |
+
+The Circle's *paid* tiers do not go through a form at all — they check out on
+ThriveCart. The Kit form on that page is only the members' letter.
 
 One per page, and never two on the same page: separate pages and separate form
 ids are what make each conversion path measurable on its own. The hub carries a
@@ -239,11 +266,12 @@ Replace the three `0000000` placeholders in `hugo.toml`:
 [params.kit]
   base        = "https://app.kit.com/forms"
   quote       = "0000000"
-  club        = "0000000"
-  masterclass = "0000000"
+  circle      = "0000000"
+  seminar     = "0000000"
 ```
 
 The form ids come from each form's embed snippet in the Kit dashboard. The
+account is `yesql.ck.page` — the embed already running on pgloader.io uses it. The
 markup posts directly — no Kit JavaScript is loaded, so the site stays free of
 third-party requests.
 
@@ -253,6 +281,8 @@ third-party requests.
 
 - `data/campaigns/oracle-pgloader-v4.toml` — the real `pledge_url`
 - **`content/{fr,en}/references.md` — the `[[cases]]` array is empty on purpose.**
+  The `[[quotes]]` above it are real: published pgloader user quotes lifted from
+  pgloader.io. They are anonymous at the source — do not invent authors for them.
   The template is ready and the shape is documented in a comment inside each
   file: *situation → what I found → what changed*, with a number. This is the
   largest remaining gap between this site and every comparable consultancy, and
@@ -272,9 +302,17 @@ check. Remove those exclusions as you fill each one in.
   `assets/css/tokens.css`; light is an override, applied both under
   `prefers-color-scheme: light` and under `[data-theme="light"]` so the toggle
   wins in either direction. Only an explicit choice is stored in `localStorage`.
-- **Accent** is PostgreSQL blue `#336791`. On the dark ground it fails contrast
-  as text, so `--accent` lightens there and `#336791` is kept for fills that
-  carry no text.
+- **Family resemblance, own identity.** The grounds are tinted with The Art of
+  PostgreSQL's deep purple `#372649`, so this reads as part of the same house as
+  theartofpostgresql.com and oss.theartofpostgresql.com. The accent is **green**
+  (`#4fb286` dark, `#1f6a4d` light) rather than TAOP's purple/sky-blue: YeSQL is
+  the company, not the book, and should not be mistaken for either at a glance.
+  `--taop`, `--taop-deep` and `--taop-sky` are kept for the rare cross-reference.
+- **The hero carries one piece of art**: `layouts/partials/hero-graphic.html`,
+  an inline SVG of a query plan drawn the way `EXPLAIN` prints one, with the two
+  index scans picked out in the accent. Original rather than stock, decorative
+  (`aria-hidden`), costs no request, and hidden below 64rem where it would fight
+  the headline instead of sitting beside it.
 - **Fonts** are IBM Plex Sans and IBM Plex Mono, self-hosted from
   `static/fonts/`. No Google Fonts request — a `.fr` commercial site should not
   be handing visitor IPs to a font CDN.

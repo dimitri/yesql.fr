@@ -45,8 +45,59 @@
 
 /* ---- hero ----------------------------------------------------------------- */
 
-.section-hero { padding-top: calc(var(--step) * 0.9); padding-bottom: calc(var(--step) * 0.7); border-bottom: 0; }
-.section-hero h1 { max-width: 20ch; }
+/* The hero carries the one piece of art on the site, so it owns its own
+   stacking context and a faint grid that fades out under the copy. */
+.section-hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: calc(var(--step) * 0.9);
+  padding-bottom: calc(var(--step) * 0.7);
+  border-bottom: 0;
+}
+.section-hero > .wrap { position: relative; z-index: 1; }
+
+/* Hairline grid, masked so it never competes with the text. */
+.section-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(120% 90% at 78% 32%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(120% 90% at 78% 32%, #000 0%, transparent 72%);
+  pointer-events: none;
+}
+
+/* The query plan. Hidden below 64rem: at that width it would sit under the
+   copy rather than beside it, and a decoration that fights the headline is
+   worse than no decoration. */
+.hero-plan {
+  display: none;
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  transform: translateY(-48%);
+  width: min(34rem, 42vw);
+  height: auto;
+  color: var(--accent);
+  opacity: 0.42;
+  pointer-events: none;
+}
+@media (min-width: 64rem) { .hero-plan { display: block; } }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-plan { animation: plan-in 1.1s cubic-bezier(.2,.7,.3,1) both; }
+}
+@keyframes plan-in {
+  from { opacity: 0; transform: translateY(-48%) translateX(1.5rem); }
+  to   { opacity: 0.42; transform: translateY(-48%) translateX(0); }
+}
+.section-hero h1 { max-width: 18ch; }
+@media (min-width: 64rem) {
+  .section-hero .lede,
+  .section-hero .prose { max-width: 46ch; }
+}
 
 /* Proof before promise: the credentials sit above the CTA, not below it. */
 .proof {
@@ -139,7 +190,7 @@
   color: var(--accent);
   margin-bottom: 0.5rem;
 }
-.tier h3 { margin-bottom: 0.75rem; }
+.tier h2 { font-size: 1.15rem; margin-bottom: 0.75rem; }
 .tier-bullets {
   list-style: none;
   padding: 0;
@@ -160,70 +211,91 @@
   font-family: var(--font-mono);
 }
 
-/* ---- club ----------------------------------------------------------------- */
+/* ---- the Circle ----------------------------------------------------------- */
 
-/* Two mechanisms, two cards, visibly separate. */
-.club-grid {
-  display: grid;
-  gap: 1.25rem;
-  margin: 2rem 0;
-}
-@media (min-width: 56rem) { .club-grid { grid-template-columns: 1fr 1fr; align-items: start; } }
-
-.club-card {
-  background: var(--bg-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 1.5rem 1.4rem;
-}
-.club-fund { border-top: 3px solid var(--accent); }
-.club-sub  { border-top: 3px solid var(--accent-deep); }
-.club-tag {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
+.projects {
   color: var(--text-faint);
-  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  margin: 1.5rem 0 0;
+}
+
+.tier-grid-4 { margin-top: 1rem; }
+@media (min-width: 44rem) { .tier-grid-4 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 68rem) { .tier-grid-4 { grid-template-columns: repeat(4, 1fr); } }
+
+/* One tier is marked as the common choice, so the ladder has an entry point
+   instead of four equal-weight options. */
+.tier.is-featured { border-color: var(--accent-line); border-top: 3px solid var(--accent); }
+
+.tier-price { margin: 0 0 0.6rem; display: flex; align-items: baseline; gap: 0.3rem; flex-wrap: wrap; }
+.tier-amount { color: var(--accent); font-size: 1.5rem; font-weight: 600; }
+.tier-period { color: var(--text-faint); font-size: 0.8rem; }
+.tier-lede { color: var(--text); font-size: 0.93rem; margin-bottom: 0.4rem; }
+.tier-what { color: var(--text-muted); font-size: 0.88rem; margin: 0; }
+
+.oneoff-grid {
+  list-style: none; padding: 0; margin: 1rem 0 0;
+  display: grid; gap: 1rem;
+}
+@media (min-width: 44rem) { .oneoff-grid { grid-template-columns: 1fr 1fr; } }
+.oneoff {
+  margin: 0;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.25rem;
+  background: transparent;
+}
+.oneoff-price { margin: 0 0 0.4rem; display: flex; align-items: baseline; gap: 0.4rem; flex-wrap: wrap; }
+.oneoff h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+.oneoff-what { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+.oneoff-note { color: var(--warn); font-size: 0.78rem; margin: 0.6rem 0 0; }
+
+/* The members' letter: the one thing the Circle sells that the store does not,
+   so it gets its own panel rather than a bullet in a list. */
+.letter {
+  margin: 2.5rem 0 0;
+  border: 1px solid var(--accent-line);
+  border-radius: var(--radius);
+  background: var(--accent-wash);
+  padding: 1.6rem 1.5rem;
+}
+.letter-tag {
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.09em;
+  color: var(--accent); margin-bottom: 0.5rem;
+}
+.letter h2 { font-size: 1.25rem; margin-bottom: 0.4rem; }
+.letter-lede { color: var(--text); font-size: 0.97rem; max-width: 60ch; }
+.letter-list {
+  list-style: none; padding: 0; margin: 1.1rem 0 0;
+  display: grid; gap: 0.45rem;
+  color: var(--text-muted); font-size: 0.92rem;
+}
+@media (min-width: 48rem) { .letter-list { grid-template-columns: 1fr 1fr; gap: 0.45rem 1.5rem; } }
+.letter-list li { margin: 0; padding-left: 1.2rem; position: relative; }
+.letter-list li::before {
+  content: "→"; position: absolute; left: 0; color: var(--accent);
+  font-family: var(--font-mono); font-size: 0.85em;
+}
+.letter-note { color: var(--text-faint); font-size: 0.82rem; margin: 1rem 0 0; }
+
+.fund-intro { margin: 2.5rem 0 0; max-width: 62ch; }
+.club-tag {
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.09em;
+  color: var(--text-faint); margin-bottom: 0.5rem;
 }
 .club-lede { color: var(--text-muted); font-size: 0.95rem; }
 .club-bullets {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0 0;
-  font-size: 0.9rem;
-  color: var(--text-muted);
+  list-style: none; padding: 0; margin: 1rem 0 0;
+  font-size: 0.9rem; color: var(--text-muted);
 }
 .club-bullets li { padding-left: 1.1rem; position: relative; }
 .club-bullets li::before {
-  content: "+";
-  position: absolute; left: 0;
-  color: var(--accent);
+  content: "+"; position: absolute; left: 0; color: var(--accent);
   font-family: var(--font-mono);
 }
 
-.sub-tiers { list-style: none; padding: 0; margin: 1.25rem 0 0; display: grid; gap: 0.85rem; }
-.sub-tier {
-  margin: 0;
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius-sm);
-  padding: 0.9rem 1rem;
-  background: var(--bg);
-}
-.sub-tier h4 { margin-bottom: 0.2rem; }
-.sub-price { margin: 0 0 0.35rem; display: flex; align-items: baseline; gap: 0.35rem; flex-wrap: wrap; }
-.sub-amount { color: var(--accent); font-size: 1.15rem; font-weight: 600; }
-.sub-period { color: var(--text-faint); font-size: 0.8rem; }
-.sub-lede { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 0.5rem; }
-.sub-bullets {
-  list-style: none; padding: 0; margin: 0;
-  font-size: 0.85rem; color: var(--text-faint);
-}
-.sub-bullets li { padding-left: 0.9rem; position: relative; margin-bottom: 0.25rem; }
-.sub-bullets li::before {
-  content: "·"; position: absolute; left: 0.15rem; color: var(--accent);
-}
-
-/* ---- masterclass ---------------------------------------------------------- */
+/* ---- seminar ---------------------------------------------------------- */
 
 /* Scarcity is stated as a fact, in the same visual language as the numbers
    elsewhere, and placed before the price. */
@@ -269,8 +341,8 @@
   padding: 0.15rem 0 0.15rem 1rem;
   counter-increment: step;
 }
-.agenda-step h3 { color: var(--accent); font-size: 0.95rem; }
-.agenda-step h3::before { content: counter(step) ". "; color: var(--text-faint); }
+.agenda-step h2 { color: var(--accent); font-size: 0.95rem; }
+.agenda-step h2::before { content: counter(step) ". "; color: var(--text-faint); }
 .agenda-step p { color: var(--text-muted); font-size: 0.92rem; }
 
 .format-grid {
@@ -281,6 +353,7 @@
   gap: 1rem;
 }
 @media (min-width: 44rem) { .format-grid { grid-template-columns: 1fr 1fr; } }
+.format h2 { font-size: 1.15rem; }
 .format {
   margin: 0;
   background: var(--bg-raised);
@@ -492,3 +565,84 @@
   white-space: nowrap;
   border: 0;
 }
+
+/* ---- "what I do not do" --------------------------------------------------- */
+
+/* Given as much room as the offer above it. A consultancy that says no in
+   specifics is the only kind whose yes means anything, so this block is
+   styled as a peer of the offer cards rather than as a footnote. */
+.not-this {
+  margin: 2.5rem 0 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.5rem;
+  background: var(--bg-sunken);
+}
+.not-this-title { font-size: 1.15rem; margin-bottom: 0.5rem; }
+.not-this-lede { color: var(--text-muted); font-size: 0.95rem; max-width: 60ch; }
+.not-this-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+  display: grid;
+  gap: 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.93rem;
+}
+@media (min-width: 44rem) { .not-this-list { grid-template-columns: 1fr 1fr; gap: 0.4rem 1.5rem; } }
+.not-this-list li { padding-left: 1.3rem; position: relative; margin: 0; }
+.not-this-list li::before {
+  content: "×";
+  position: absolute;
+  left: 0.15rem;
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+}
+
+.partner {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+.partner-tag {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.partner-note { color: var(--text-muted); font-size: 0.93rem; max-width: 62ch; }
+.partner-note strong { color: var(--text); }
+.partner-link { margin: 0.75rem 0 0; font-size: 0.88rem; }
+.partner-link a { font-family: var(--font-mono); }
+
+/* A note that carries its own call to action is a panel, not a footnote —
+   let it use the full column so the buttons are not crammed. */
+.note:has(.cta-row) { max-width: none; }
+.note .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; }
+@media (max-width: 30rem) { .note .cta-row .btn { width: 100%; } }
+
+/* ---- user quotes ---------------------------------------------------------- */
+
+/* Real quotes, anonymous at the source. Styled as evidence rather than as
+   marketing: no portraits, no five-star rows, no invented names. */
+.quotes { margin: 2.5rem 0 0; }
+.quotes-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  margin-bottom: 1rem;
+}
+.quote-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
+@media (min-width: 56rem) { .quote-list { grid-template-columns: repeat(3, 1fr); } }
+.quote-item {
+  margin: 0;
+  border-left: 2px solid var(--accent-line);
+  padding: 0.2rem 0 0.2rem 1rem;
+}
+.quote-item blockquote { margin: 0; }
+.quote-item p { color: var(--text); font-size: 0.97rem; }
+.quote-source { color: var(--text-faint); font-size: 0.76rem; margin: 0.5rem 0 0; }
+.quote-note { color: var(--text-faint); font-size: 0.8rem; margin: 1rem 0 0; max-width: 62ch; }

@@ -1,65 +1,79 @@
 +++
-title   = "Contrat entreprise"
+title   = "Travailler avec moi"
 type    = "contract"
-slug    = "contrat"
+slug    = "entreprise"
 weight  = 10
-nav     = "Contrat"
-description = "Support PostgreSQL entreprise, formation PostgreSQL avancée et expertise migration, par un contributeur majeur de PostgreSQL. Contrat annuel, sur devis."
-kicker  = "Support · Formation · Expertise"
-summary = "Support PostgreSQL entreprise à l'année : accès direct à l'auteur de pgloader, pgcopydb et pg_auto_failover, sans niveau 1 intermédiaire."
+nav     = "Entreprises"
+description = "Support PostgreSQL entreprise : je ne suis pas une société de services. Une intervention ponctuelle par l'auteur de CREATE EXTENSION, et l'exploitation quotidienne confiée à Data Bene."
+kicker  = "Ce que je fais, et ce que je ne fais pas"
+summary = "Je ne suis pas une société de services. Une seule personne, des interventions ponctuelles, et un partenaire pour tout ce qui demande une équipe et une astreinte."
 
-# Le service se vend sur devis : pas de tarif affiché ici, volontairement.
-# Les cartes décrivent le périmètre, pas un prix.
 [cta]
   label = "Demander un devis"
   href  = "#form-quote"
-  note  = "Réponse sous deux jours ouvrés."
+  note  = "Réponse sous deux jours ouvrés. Si votre besoin relève de l'exploitation quotidienne, je vous le dis tout de suite et je vous oriente."
 
+# Ce que je fais réellement. Pas de grille tarifaire ici : le périmètre se
+# discute, et le seul tarif ferme du site est celui du séminaire.
 [[tiers]]
-  id      = "support"
-  name    = "Support"
-  tag     = "production"
+  id      = "seminar"
+  name    = "L'intervention"
+  tag     = "format conférence"
   bullets = [
-    "Astreinte sur incident PostgreSQL en production",
-    "Diagnostic de plans d'exécution, de verrous et de saturation",
-    "Support des outils que je maintiens : pgloader, pgcopydb, pg_auto_failover",
-    "Préparation et accompagnement des montées de version majeures",
+    "Une journée sur site, format conférence : présentation puis vos requêtes",
+    "Sur votre schéma réel, vos plans d'exécution, votre volumétrie",
+    "Quatre par an, pas davantage",
+    "Tarif ferme, publié sur la page du séminaire",
   ]
 
 [[tiers]]
-  id      = "training"
-  name    = "Formation"
-  tag     = "équipes"
+  id      = "review"
+  name    = "Le second avis"
+  tag     = "ponctuel"
   bullets = [
-    "Formation PostgreSQL avancée pour développeurs et équipes data",
-    "SQL, modélisation, indexation, concurrence, extensions",
-    "Sur site ou à distance, sessions adaptées à votre schéma réel",
-    "Support de cours dérivé de The Art of PostgreSQL",
+    "Une décision structurante à trancher : modélisation, indexation, migration",
+    "Revue de schéma, de plans d'exécution, de stratégie d'extensions",
+    "Quelques jours, un rapport écrit, pas un engagement à l'année",
+    "Utile surtout avant de construire, rarement après",
   ]
 
 [[tiers]]
-  id      = "expertise"
-  name    = "Expertise"
-  tag     = "audit"
+  id      = "oss"
+  name    = "Mes outils open source"
+  tag     = "maintenance amont"
   bullets = [
-    "Audit de schéma, de configuration et de stratégie d'indexation",
-    "Architecture de migration depuis Oracle, MySQL ou SQL Server",
-    "Revue d'architecture de haute disponibilité et de sauvegarde",
-    "Second avis sur une décision structurante, en quelques jours",
+    "pgloader, pgcopydb, pg_auto_failover, pgextwlist",
+    "Correctifs priorisés, publication des versions, influence sur la feuille de route",
+    "Souscription récurrente, tarifs publics",
+    "C'est le rôle du Cercle — la page dédiée détaille les paliers",
   ]
 
-[subcontracting]
-  title = "Sous-traitance"
-  note  = "Certaines prestations peuvent être réalisées par un partenaire qualifié, sous ma responsabilité contractuelle et avec ma revue. C'est indiqué explicitement au devis — jamais découvert en cours de mission."
+# Le point le plus important de la page : dire non clairement, et dire à qui
+# s'adresser. Un « oui » à tout est le signal le moins crédible qui soit.
+[not_this]
+  title = "Ce que je ne fais pas"
+  lede  = "Je suis seul. Il n'y a ni astreinte 24×7, ni équipe d'exploitation, ni régie derrière moi, et prétendre le contraire se verrait au premier incident."
+  items = [
+    "Astreinte 24×7 et infogérance de production",
+    "DBA au quotidien, en régie ou en délégation",
+    "Support de niveau 1 et 2 sur un parc",
+    "Prestation au forfait sur plusieurs mois",
+  ]
 
-# Alimente le nœud schema.org Service. Pas de prix : offre sur devis.
+  [not_this.partner]
+    name = "Data Bene"
+    url  = "https://data-bene.io/"
+    note = "Pour tout cela, je travaille avec **Data Bene** — l'ancienne équipe 2ndQuadrant France, où j'ai moi-même passé plusieurs années. Ils ont les équipes, l'astreinte et les processus. Quand un projet demande les deux, nous intervenons ensemble : eux sur l'exploitation, moi sur le ponctuel et sur l'amont open source."
+
+# Alimente le nœud schema.org Service. Offre sur devis, donc sans prix.
 [service]
-  type       = "Support, formation et expertise PostgreSQL"
+  type       = "Expertise PostgreSQL et maintenance open source amont"
   areaServed = "Europe"
 +++
 
-Un contrat annuel couvrant le support, la formation et l'expertise sur
-PostgreSQL et sur les outils open source que j'écris et maintiens.
+La plupart des sites de conseil vous disent oui à tout. Celui-ci vous dit
+d'abord non, parce que la moitié des demandes qui arrivent ici relèvent de
+l'exploitation quotidienne, et que je ne la fais pas.
 
-Le périmètre, le volume et le délai d'intervention sont fixés au contrat. Le
-tarif dépend des trois : il n'y a pas de grille, il y a un devis.
+Ce que je fais tient en une phrase : j'interviens ponctuellement, sur les
+décisions structurantes et sur le code que j'écris et que je maintiens.

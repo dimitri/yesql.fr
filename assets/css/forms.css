@@ -22,12 +22,12 @@
   border-top: 2px solid var(--accent);
 }
 /* Club: the low-friction one. Flat, quiet, inline. */
-.form-club {
+.form-circle {
   background: transparent;
   border-top: 1px dashed var(--line);
 }
 /* Masterclass: the scarce one. Deep accent edge. */
-.form-masterclass {
+.form-seminar {
   background: var(--bg-raised);
   border-top: 2px solid var(--accent-deep);
 }

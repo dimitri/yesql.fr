@@ -58,9 +58,13 @@ of years at 2ndQuadrant doing PostgreSQL consulting and development, then joined
 Citus Data to work on distributed PostgreSQL and build pg_auto_failover. Citus
 was acquired by Microsoft in 2019.
 
-## Why YeSQL
+## Why "YeSQL"
 
-Because most teams leave enormous query power on the floor — not because
-PostgreSQL is hard, but because nobody showed them what it can actually do. That
-is the premise of the book, and it is the same work I do under contract, in
-training and in expertise engagements.
+It was a pun on NoSQL, back when everyone was explaining that relational
+databases had had their day. The joke has aged; the position has not. In those
+years teams moved work into their application code that their database was
+already doing better — joins, aggregates, constraints, transactions.
+
+It is the same idea as the book: most teams leave enormous query power on the
+floor, not because PostgreSQL is hard, but because nobody showed them what it
+can actually do.

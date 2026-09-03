@@ -8,8 +8,8 @@ kicker  = "YeSQL · Dimitri Fontaine"
 summary = "PostgreSQL Major Contributor, author of *The Art of PostgreSQL*, maintainer of pgloader, pgcopydb and pg_auto_failover."
 
 [cta]
-  label = "See the enterprise contract"
-  href  = "/en/contract/"
+  label = "What I do"
+  href  = "/en/enterprise/"
 
 # Proof before promise. The first item is the strongest one available: two core
 # PostgreSQL features, shipping in every installation in the world.
@@ -27,26 +27,26 @@ summary = "PostgreSQL Major Contributor, author of *The Art of PostgreSQL*, main
 # The site's three routes. One page per offer, one call to action per page.
 [[routes]]
   id    = "contract"
-  href  = "/en/contract/"
-  tag   = "enterprise"
-  title = "Enterprise contract"
-  lede  = "Production support, training, expertise. Yearly contract, quote-based."
+  href  = "/en/enterprise/"
+  tag   = "companies"
+  title = "Working with me"
+  lede  = "One-off engagements and second opinions. No day-to-day operations — I tell you who does that."
   cta   = "Request a quote"
   primary = true
 [[routes]]
-  id    = "masterclass"
-  href  = "/en/masterclass/"
+  id    = "seminar"
+  href  = "/en/seminar/"
   tag   = "onsite · 4 a year"
-  title = "The masterclass"
-  lede  = "The Art of PostgreSQL onsite, one or two days, on your own queries."
+  title = "The Seminar"
+  lede  = "A day onsite with the author of The Art of PostgreSQL, on your own queries."
   cta   = "Book a slot"
 [[routes]]
-  id    = "club"
-  href  = "/en/club/"
+  id    = "circle"
+  href  = "/en/circle/"
   tag   = "open source"
-  title = "The user club"
-  lede  = "Pro support by subscription, and funding for open source features."
-  cta   = "Join the club"
+  title = "The Circle"
+  lede  = "Fund the maintenance of pgloader, pgcopydb and pg_auto_failover, together."
+  cta   = "Join the Circle"
 +++
 
 You are not buying a level-1 queue. You talk directly to the person who wrote

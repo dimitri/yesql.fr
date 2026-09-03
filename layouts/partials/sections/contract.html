@@ -20,10 +20,24 @@
       {{- end }}
     </ul>
 
-    {{- with .Params.subcontracting }}
-    <aside class="note">
-      <p class="note-title mono">{{ .title }}</p>
-      <p>{{ .note }}</p>
+    {{- /* Saying no, in as much space as the yes. This block is the reason a
+           reader believes the rest of the page. */ -}}
+    {{- with .Params.not_this }}
+    <aside class="not-this">
+      <h2 class="not-this-title">{{ .title }}</h2>
+      <p class="not-this-lede">{{ .lede }}</p>
+      <ul class="not-this-list">
+        {{- range .items }}
+        <li>{{ . }}</li>
+        {{- end }}
+      </ul>
+      {{- with .partner }}
+      <div class="partner">
+        <p class="partner-tag mono">{{ .name }}</p>
+        <p class="partner-note">{{ $.RenderString .note }}</p>
+        <p class="partner-link"><a href="{{ .url }}" rel="noopener">{{ .url }} →</a></p>
+      </div>
+      {{- end }}
     </aside>
     {{- end }}
   </div>

@@ -5,6 +5,7 @@
        next step rather than three competing ones. */ -}}
 
 <section class="section section-hero" aria-labelledby="hero-h">
+  {{ partial "hero-graphic.html" . }}
   <div class="wrap">
     <p class="kicker mono">{{ .Params.kicker }}</p>
     <h1 id="hero-h">{{ .Params.headline | default .Title }}</h1>

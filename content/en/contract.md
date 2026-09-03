@@ -1,65 +1,79 @@
 +++
-title   = "Enterprise contract"
+title   = "Working with me"
 type    = "contract"
-slug    = "contract"
+slug    = "enterprise"
 weight  = 10
-nav     = "Contract"
-description = "PostgreSQL enterprise support, advanced PostgreSQL training and migration expertise, from a PostgreSQL Major Contributor. Yearly contract, quote-based."
-kicker  = "Support · Training · Expertise"
-summary = "PostgreSQL enterprise support on a yearly contract: direct access to the author of pgloader, pgcopydb and pg_auto_failover, with no level-1 queue in between."
+nav     = "Companies"
+description = "PostgreSQL enterprise support: I am not a services company. One-off engagements from the author of CREATE EXTENSION, with day-to-day operations handled by Data Bene."
+kicker  = "What I do, and what I do not"
+summary = "I am not a services company. One person, one-off engagements, and a partner for everything that needs a team and an on-call rota."
 
-# This is sold on a quote basis: deliberately no price on display here.
-# The cards describe scope, not a price.
 [cta]
   label = "Request a quote"
   href  = "#form-quote"
-  note  = "Answer within two business days."
+  note  = "Answer within two business days. If what you need is day-to-day operations, I will say so immediately and point you elsewhere."
 
+# What I actually do. No rate card here: scope is a conversation, and the only
+# firm price on this site is the seminar's.
 [[tiers]]
-  id      = "support"
-  name    = "Support"
-  tag     = "production"
+  id      = "seminar"
+  name    = "The engagement"
+  tag     = "conference format"
   bullets = [
-    "On-call for PostgreSQL production incidents",
-    "Diagnosis of query plans, locking and saturation",
-    "Support for the tools I maintain: pgloader, pgcopydb, pg_auto_failover",
-    "Major version upgrade preparation and execution",
+    "A day onsite, conference format: a talk, then your own queries",
+    "On your real schema, your query plans, your data volumes",
+    "Four a year, no more",
+    "Firm price, published on the seminar page",
   ]
 
 [[tiers]]
-  id      = "training"
-  name    = "Training"
-  tag     = "teams"
+  id      = "review"
+  name    = "The second opinion"
+  tag     = "one-off"
   bullets = [
-    "Advanced PostgreSQL training for developers and data teams",
-    "SQL, modeling, indexing, concurrency, extensions",
-    "Onsite or remote, sessions built around your actual schema",
-    "Course material derived from The Art of PostgreSQL",
+    "One structural decision to settle: modeling, indexing, migration",
+    "Schema review, query plan review, extension strategy",
+    "A few days, a written report, not a yearly commitment",
+    "Most useful before you build, rarely after",
   ]
 
 [[tiers]]
-  id      = "expertise"
-  name    = "Expertise"
-  tag     = "audit"
+  id      = "oss"
+  name    = "My open source tools"
+  tag     = "upstream maintenance"
   bullets = [
-    "Schema, configuration and indexing strategy audit",
-    "Migration architecture from Oracle, MySQL or SQL Server",
-    "High availability and backup architecture review",
-    "A second opinion on a structural decision, within days",
+    "pgloader, pgcopydb, pg_auto_failover, pgextwlist",
+    "Prioritized fixes, releases shipped, influence on the roadmap",
+    "Recurring subscription, public pricing",
+    "That is what the Circle is for — the tiers are on its own page",
   ]
 
-[subcontracting]
-  title = "Subcontracting"
-  note  = "Some engagements can be delivered by a qualified partner, under my contractual responsibility and with my review. It is stated explicitly in the quote — never discovered mid-engagement."
+# The most important part of this page: say no clearly, and say who to ask
+# instead. Saying yes to everything is the least credible signal there is.
+[not_this]
+  title = "What I do not do"
+  lede  = "I am one person. There is no 24×7 rota, no operations team and no bench behind me, and pretending otherwise would show at the first incident."
+  items = [
+    "24×7 on-call and managed production operations",
+    "Day-to-day DBA work, on site or on secondment",
+    "Level 1 and 2 support across an estate",
+    "Fixed-price delivery over several months",
+  ]
 
-# Feeds the schema.org Service node. No price: quote-based offer.
+  [not_this.partner]
+    name = "Data Bene"
+    url  = "https://data-bene.io/"
+    note = "For all of that I work with **Data Bene** — the former 2ndQuadrant France team, where I spent several years myself. They have the people, the rota and the process. When a project needs both, we work together: they take operations, I take the one-off work and the open source upstream."
+
+# Feeds the schema.org Service node. Quote-based, so no price.
 [service]
-  type       = "PostgreSQL support, training and expertise"
+  type       = "PostgreSQL expertise and upstream open source maintenance"
   areaServed = "Europe"
 +++
 
-A yearly contract covering support, training and expertise on PostgreSQL and on
-the open source tools I write and maintain.
+Most consulting sites say yes to everything. This one starts by saying no,
+because half of what arrives here is day-to-day operations, and I do not do
+day-to-day operations.
 
-Scope, volume and response time are set in the contract. The price follows from
-all three: there is no rate card, there is a quote.
+What I do fits in a sentence: I come in for one-off work, on structural
+decisions and on the code I write and maintain.

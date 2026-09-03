@@ -28,6 +28,25 @@ summary = "Le travail public se vérifie sans me demander la permission. Le trav
 #   author  = "Prénom Nom, rôle"
 # ---------------------------------------------------------------------------
 
+# Retours d'utilisateurs de pgloader, publiés sur pgloader.io. Ils sont
+# anonymes chez la source ; ne pas leur inventer d'auteur.
+[[quotes]]
+  id     = "one-tb"
+  text   = "A rendu notre migration vraiment facile (~1 To)."
+  source = "utilisateur de pgloader"
+[[quotes]]
+  id     = "one-liner"
+  text   = "Presque trop facile — j'ai lancé la ligne de commande et j'ai attendu 48 heures."
+  source = "utilisateur de pgloader"
+[[quotes]]
+  id     = "complex"
+  text   = "A considérablement réduit le temps nécessaire pour mener à bien cette migration complexe."
+  source = "utilisateur de pgloader"
+
+[quotes_note]
+  title = "Ce que disent les utilisateurs"
+  note  = "Citations publiées sur pgloader.io. Leurs auteurs ne sont pas nommés à la source — je ne leur invente pas de nom."
+
 [on_request]
   title = "Références clients"
   note  = "Les missions sont couvertes par des accords de confidentialité. Je donne des références nominatives, avec l'accord des clients concernés, au moment du devis — et je vous mets en relation directe quand c'est pertinent."
@@ -48,12 +67,12 @@ summary = "Le travail public se vérifie sans me demander la permission. Le trav
   url   = "https://github.com/dimitri"
   cta   = "Les dépôts"
 [[public]]
-  id    = "apt"
-  tag   = "infrastructure"
-  title = "apt.postgresql.org"
-  lede  = "Mainteneur Debian, co-constructeur du dépôt qui garde chaque version supportée de PostgreSQL installable sur chaque version supportée de Debian et d'Ubuntu, depuis plus de dix ans."
-  url   = "https://wiki.postgresql.org/wiki/Apt"
-  cta   = "Le dépôt"
+  id    = "migrations"
+  tag   = "migrations"
+  title = "Des migrations réellement livrées"
+  lede  = "pgloader migre des bases entières depuis MySQL, SQLite, MS SQL Server et Oracle. Les retours ci-dessous viennent de ses utilisateurs, publiés sur pgloader.io."
+  url   = "https://pgloader.io/"
+  cta   = "pgloader.io"
 [[public]]
   id    = "book"
   tag   = "écrit"
