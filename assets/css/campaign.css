@@ -132,6 +132,10 @@
 
 .campaign { padding: var(--step) 0; }
 .campaign .fund { margin: 2rem 0; }
+/* layout.css gives .cta-row a top margin and no bottom one, which is fine
+   where it ends a block — here the prose follows it directly and would
+   otherwise crowd the button. */
+.campaign .cta-row { margin-bottom: 2rem; }
 
 /* Sits between the prose headings and the metadata, so it reads as a label
    rather than as another section title. */
