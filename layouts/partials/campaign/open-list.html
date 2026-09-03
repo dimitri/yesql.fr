@@ -1,8 +1,8 @@
 {{- /* Discovers and renders every campaign under content/<lang>/campaigns/,
-       split into an open grid and a collapsed "past campaigns" fold. Shared
-       between the homepage's Fund-a-feature section and the full listing on
-       /members/, so a campaign's status is read from data/campaigns/<slug>.toml
-       exactly once and both places agree with each other by construction. */ -}}
+       split into an open grid and a collapsed "past campaigns" fold, for the
+       /campaigns/ index page. A campaign's status is read from
+       data/campaigns/<slug>.toml, so this can never disagree with the
+       individual campaign pages or the homepage's own campaign card. */ -}}
 {{- $open := slice }}{{ $past := slice }}
 {{- range where site.RegularPages "Section" "campaigns" }}
   {{- $f := partialCached "campaign/facts.html" .Params.campaign .Params.campaign }}

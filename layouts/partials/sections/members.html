@@ -87,21 +87,12 @@
     </article>
     {{- end }}
 
-    {{- /* ---- Threshold campaigns ------------------------------------- */}}
-    {{- with .Params.fund }}
-    <div class="fund-intro">
-      <p class="fund-tag mono">{{ .tag }}</p>
-      <h2>{{ .title }}</h2>
-      <p class="fund-lede">{{ .lede }}</p>
-      <ul class="fund-bullets">
-        {{- range .bullets }}
-        <li>{{ . }}</li>
-        {{- end }}
-      </ul>
-    </div>
+    {{- /* Threshold crowdfunding is a different mechanism from a recurring
+           membership, with its own page — a one-line pointer there, not a
+           second pitch duplicated on this one. */}}
+    {{- with .Params.campaign_teaser }}
+    <p class="campaign-teaser">{{ .note }} <a href="{{ .href }}">{{ .cta }} →</a></p>
     {{- end }}
-
-    {{ partial "campaign/open-list.html" . }}
   </div>
 
   {{ partial "forms/members.html" . }}

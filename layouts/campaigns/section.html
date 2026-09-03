@@ -10,9 +10,10 @@
     <p class="kicker mono">{{ .Params.kicker | default (i18n "fund_a_feature") }}</p>
     <h1>{{ .Title | default (i18n "fund_a_feature") }}</h1>
     <div class="prose">{{ .Content }}</div>
-    <div class="campaign-grid">
-      {{- range .Pages.ByWeight }}{{ partial "campaign/card.html" . }}{{ end }}
-    </div>
+    {{- /* "One feature at a time" (see the policy note below) means most of
+           this page's life it renders one open campaign and, eventually, a
+           folded list of past ones — not a flat, ever-growing grid. */ -}}
+    {{ partial "campaign/open-list.html" . }}
 
     {{- with .Params.policy }}
     <aside class="note">

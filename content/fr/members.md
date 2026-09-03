@@ -58,16 +58,14 @@ summary = "Financer ensemble la maintenance des outils dont vos productions dép
   ]
   note = "Quatre envois par an. Désinscription en un clic."
 
-# Financement participatif à seuil, pour une fonctionnalité identifiée.
-[fund]
-  title = "Financer une fonctionnalité"
-  tag   = "campagne à seuil"
-  lede  = "Certaines fonctionnalités dépassent ce qu'un palier récurrent peut financer. Elles font l'objet d'une campagne à part : un périmètre écrit, un montant cible, un seuil de démarrage affiché."
-  bullets = [
-    "Périmètre technique écrit à l'avance, pas une intention",
-    "Seuil de démarrage affiché, pas implicite",
-    "Le résultat est open source, y compris pour ceux qui n'ont pas financé",
-  ]
+# Un renvoi vers la page dédiée au financement à seuil — pas un second
+# argumentaire ici. L'adhésion finance la maintenance au quotidien ; une
+# campagne finance une fonctionnalité nommée, un engagement différent avec
+# sa propre page.
+[campaign_teaser]
+  note = "Vous préférez financer une fonctionnalité précise plutôt qu'un abonnement ?"
+  cta  = "Voir la campagne en cours"
+  href = "/fr/campaigns/"
 +++
 
 Les outils que je maintiens tournent en production chez des gens que je ne

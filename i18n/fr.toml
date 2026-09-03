@@ -26,7 +26,7 @@ fund_license           = "Licence"
 fund_updated           = "Chiffres au"
 fund_pledge_tiers      = "Paliers de contribution"
 past_campaigns         = "Campagnes passées"
-no_open_campaign       = "Aucune campagne en cours. Rejoignez le club pour être prévenu de la prochaine."
+no_open_campaign       = "Aucune campagne en cours. Devenez membre pour être prévenu de la prochaine."
 
 # --- forms -------------------------------------------------------------------
 form_email        = "Adresse e-mail"

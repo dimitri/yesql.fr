@@ -1,5 +1,5 @@
-{{- /* Compact campaign card, used in the club section and on the campaign
-       list page. ctx: the campaign Page. */ -}}
+{{- /* Compact campaign card, used on the campaign list page.
+       ctx: the campaign Page. */ -}}
 {{- $c := partialCached "campaign/facts.html" .Params.campaign .Params.campaign -}}
 <article class="campaign-card" data-status="{{ $c.status }}">
   <p class="campaign-kicker mono">

@@ -26,7 +26,7 @@ fund_license           = "License"
 fund_updated           = "Figures as of"
 fund_pledge_tiers      = "Pledge tiers"
 past_campaigns         = "Past campaigns"
-no_open_campaign       = "No campaign is open right now. Join the club to hear about the next one."
+no_open_campaign       = "No campaign is open right now. Become a member to hear about the next one."
 
 # --- forms -------------------------------------------------------------------
 form_email        = "Email address"

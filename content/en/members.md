@@ -58,16 +58,13 @@ summary = "Fund the maintenance of the tools your production depends on, togethe
   ]
   note = "Four sends a year. One-click unsubscribe."
 
-# Threshold crowdfunding, for one identified feature.
-[fund]
-  title = "Fund a feature"
-  tag   = "threshold campaign"
-  lede  = "Some features are bigger than a recurring tier can fund. Those get their own campaign: a written scope, a target amount, and a published start threshold."
-  bullets = [
-    "Technical scope written up front, not an intention",
-    "Start threshold shown, not implied",
-    "The result is open source, including for those who did not fund it",
-  ]
+# A pointer to the separate threshold-crowdfunding page — not a second
+# pitch here. Membership funds day-to-day maintenance; a campaign funds one
+# named feature, which is a different commitment with its own page.
+[campaign_teaser]
+  note = "Prefer backing one specific feature outright instead of a subscription?"
+  cta  = "See the current campaign"
+  href = "/en/campaigns/"
 +++
 
 The tools I maintain run in production for people I have never met, and that
