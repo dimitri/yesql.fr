@@ -43,11 +43,27 @@ summary = "PostgreSQL Major Contributor. Two of the contributions — CREATE EXT
   url   = "https://tapoueh.org/conf/"
 [[facts]]
   label = "Background"
-  value = "Founded Dalibo (2005) and 2ndQuadrant France (2012); Citus Data, then Microsoft by acquisition (2018–2025)"
+  value = "Founded [Dalibo](https://www.dalibo.com/) (2005) and [2ndQuadrant France](https://www.2ndquadrant.com/) (2012); [Citus Data](https://www.citusdata.com/), then Microsoft by acquisition (2018–2025)"
 [[facts]]
   label = "Book"
   value = "The Art of PostgreSQL, 52 chapters"
   url   = "https://theartofpostgresql.com/"
+
+# Labels for data/org.toml's [[elsewhere]], keyed by id. The URLs live in the
+# data file — this is translation only, same split as [tier_labels] elsewhere.
+[elsewhere_labels]
+  [elsewhere_labels.pgloader]
+    label = "pgloader"
+    blurb = "The flagship tool: migrations to PostgreSQL from MySQL, SQLite, and MS SQL Server."
+  [elsewhere_labels.book]
+    label = "The Art of PostgreSQL"
+    blurb = "The book, the courses, and the free Lab."
+  [elsewhere_labels.blog]
+    label = "tapoueh.org"
+    blurb = "Twenty years of technical writing on PostgreSQL."
+  [elsewhere_labels.github]
+    label = "GitHub"
+    blurb = "Every commit, in public."
 +++
 
 PostgreSQL developer, author and open source builder, based near Paris. Most of

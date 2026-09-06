@@ -12,6 +12,8 @@
 {{- $org := hugo.Data.org -}}
 {{- $home := site.Home.Permalink -}}
 {{- $orgID := printf "%s#org" $home -}}
+{{- $sameAs := slice -}}
+{{- range $org.elsewhere }}{{ $sameAs = $sameAs | append .url }}{{ end -}}
 
 {{- $orgNode := dict
       "@type"        "Organization"
@@ -21,7 +23,7 @@
       "url"          $home
       "email"        $org.email
       "logo"         ($org.logo | absURL)
-      "sameAs"       $org.sameAs
+      "sameAs"       $sameAs
       "foundingDate" $org.foundingDate
       "vatID"        $org.vatID
       "taxID"        (replace $org.siret " " "")
@@ -37,7 +39,7 @@
       "@id"        (printf "%s#founder" $home)
       "name"       $org.founder
       "jobTitle"   $org.role
-      "sameAs"     $org.sameAs
+      "sameAs"     $sameAs
       "worksFor"   (dict "@id" $orgID) -}}
 {{- with site.GetPage "/about" -}}
   {{- $person = merge $person (dict

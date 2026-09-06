@@ -43,11 +43,28 @@ summary = "Contributeur majeur de PostgreSQL. Deux de ces contributions — CREA
   url   = "https://tapoueh.org/conf/"
 [[facts]]
   label = "Parcours"
-  value = "Fondateur de Dalibo (2005) et 2ndQuadrant France (2012) ; Citus Data, puis Microsoft par acquisition (2018–2025)"
+  value = "Fondateur de [Dalibo](https://www.dalibo.com/) (2005) et [2ndQuadrant France](https://www.2ndquadrant.com/) (2012) ; [Citus Data](https://www.citusdata.com/), puis Microsoft par acquisition (2018–2025)"
 [[facts]]
   label = "Livre"
   value = "The Art of PostgreSQL, 52 chapitres"
   url   = "https://theartofpostgresql.com/"
+
+# Libellés pour le [[elsewhere]] de data/org.toml, indexés par id. Les URL
+# sont dans le fichier de données — ici, uniquement la traduction, même
+# répartition que [tier_labels] ailleurs sur le site.
+[elsewhere_labels]
+  [elsewhere_labels.pgloader]
+    label = "pgloader"
+    blurb = "L'outil phare : migrations vers PostgreSQL depuis MySQL, SQLite et MS SQL Server."
+  [elsewhere_labels.book]
+    label = "The Art of PostgreSQL"
+    blurb = "Le livre, les cours, et le Lab gratuit."
+  [elsewhere_labels.blog]
+    label = "tapoueh.org"
+    blurb = "Vingt ans d'écriture technique sur PostgreSQL."
+  [elsewhere_labels.github]
+    label = "GitHub"
+    blurb = "Chaque commit, en public."
 +++
 
 Développeur PostgreSQL, auteur et constructeur open source, basé près de Paris.

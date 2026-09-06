@@ -27,11 +27,23 @@ foundingDate = "2018-04-09"
 # First PostgreSQL database in production — drives the "25+ years" claim.
 pgSince = 1999
 
-sameAs = [
-  "https://github.com/dimitri",
-  "https://tapoueh.org/",
-  "https://theartofpostgresql.com/",
-]
+# Other properties, all the same person — the single source for both the
+# visible "Elsewhere" list on /about/ and the schema.org sameAs property
+# (built from this same array in head/ld-json.html, so the two can never
+# drift apart). Labels and blurbs are translated in content/<lang>/about.md's
+# [elsewhere_labels], keyed by this id.
+[[elsewhere]]
+  id  = "pgloader"
+  url = "https://pgloader.io/"
+[[elsewhere]]
+  id  = "book"
+  url = "https://theartofpostgresql.com/"
+[[elsewhere]]
+  id  = "blog"
+  url = "https://tapoueh.org/"
+[[elsewhere]]
+  id  = "github"
+  url = "https://github.com/dimitri"
 
 [address]
   streetAddress   = "209 rue Saint-Honoré"

@@ -32,6 +32,8 @@ no_open_campaign       = "No campaign is open right now. Become a member to hear
 # --- forms -------------------------------------------------------------------
 form_privacy      = "One address, used to reply to you. One-click unsubscribe."
 
+about_elsewhere   = "Elsewhere"
+
 # --- footer ------------------------------------------------------------------
 footer_legal   = "Legal notice"
 footer_contact = "Contact"
