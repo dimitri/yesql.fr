@@ -591,12 +591,50 @@
 
 /* The "elsewhere" close: a clear break from the archive photo above it
    (its own heading + lede, not just another kicker), then one kicker per
-   category so a domain's role reads before its name does. */
+   category so a domain's role reads before its name does. The "code"
+   category alone runs past a dozen entries, so it renders as a dense
+   scannable row-list rather than the card treatment above — one line per
+   project, name and blurb and doc link all readable left to right. */
 .elsewhere { margin-top: 3rem; }
 .elsewhere h2 { margin-bottom: 0.5rem; }
 .elsewhere .lede { margin-bottom: 2rem; }
 .elsewhere .kicker { margin-top: 2rem; }
 .elsewhere .kicker:first-of-type { margin-top: 0; }
+
+.elsewhere-list { list-style: none; padding: 0; margin: 0; }
+.elsewhere-row {
+  display: grid;
+  grid-template-columns: 11rem 1fr auto;
+  align-items: baseline;
+  column-gap: 1.25rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.elsewhere-row:first-child { border-top: 1px solid var(--line-soft); }
+.elsewhere-row h3 { font-size: 0.95rem; margin: 0; }
+.elsewhere-row h3 a { color: var(--accent); text-decoration: none; }
+.elsewhere-row h3 a:hover { text-decoration: underline; }
+.elsewhere-row p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+.elsewhere-docs {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  justify-self: end;
+}
+.elsewhere-docs:hover { color: var(--accent); text-decoration: underline; }
+.elsewhere-figure {
+  grid-column: 1 / -1;
+  max-width: 26rem;
+  margin: 0.75rem 0 0.25rem;
+}
+.elsewhere-figure img { width: 100%; display: block; border-radius: var(--radius-sm); }
+.elsewhere-figure figcaption { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; }
+
+@media (max-width: 34rem) {
+  .elsewhere-row { grid-template-columns: 1fr; row-gap: 0.25rem; }
+  .elsewhere-docs { justify-self: start; }
+}
 
 .portrait { margin: 0 0 1.5rem; }
 .portrait img {

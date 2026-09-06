@@ -32,8 +32,10 @@
                to the sameAs entries in this page's own JSON-LD (built from
                the same data/org.toml array), so a reader gets the same
                "this is one person" signal a crawler already gets. Grouped by
-               category (writing, tools, programs, code) in a fixed order, so
-               a domain's role is clear rather than one flat list of names. */}}
+               category (writing, tools, programs, code) in a fixed order.
+               The "code" category alone runs past a dozen entries, so this
+               renders as a dense scannable row-list rather than the card
+               grid used for the two-item core-contributions list above. */}}
         {{- with hugo.Data.org.elsewhere }}
         {{- $items := . }}
         {{- $labels := $.Params.elsewhere_labels }}
@@ -47,12 +49,21 @@
           {{- $cat := . }}
           {{- with where $items "category" $cat }}
           <p class="kicker mono">{{ index $catLabels $cat }}</p>
-          <ul class="core-list">
+          <ul class="elsewhere-list">
             {{- range . }}
             {{- $l := index $labels .id }}
-            <li class="core-item">
+            <li class="elsewhere-row">
               <h3 class="mono"><a href="{{ .url }}" rel="noopener">{{ $l.label }}</a></h3>
               <p>{{ $l.blurb }}</p>
+              {{- with .docs }}
+              <a class="elsewhere-docs mono" href="{{ . }}" rel="noopener">{{ i18n "elsewhere_docs" }}</a>
+              {{- end }}
+              {{- with .image }}
+              <figure class="elsewhere-figure">
+                <img src="{{ . }}" alt="{{ $l.image_caption }}" loading="lazy">
+                <figcaption>{{ $l.image_caption }}</figcaption>
+              </figure>
+              {{- end }}
             </li>
             {{- end }}
           </ul>

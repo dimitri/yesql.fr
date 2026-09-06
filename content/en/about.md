@@ -89,9 +89,31 @@ summary = "PostgreSQL Major Contributor. Two of the contributions — CREATE EXT
   [elsewhere_labels.pgautofailover]
     label = "pg_auto_failover"
     blurb = "Automated PostgreSQL high availability."
+    image_caption = "Application, primary, secondary and monitor: the architecture pg_auto_failover manages."
   [elsewhere_labels.pgextwlist]
     label = "pgextwlist"
     blurb = "A sudo model for PostgreSQL extension whitelisting."
+  [elsewhere_labels.pgcharts]
+    label = "pgcharts"
+    blurb = "Turn PostgreSQL queries into charts, no dashboard required."
+  [elsewhere_labels.regresql]
+    label = "regresql"
+    blurb = "Regression testing for hand-written SQL queries."
+  [elsewhere_labels.sqlfmt]
+    label = "sqlfmt"
+    blurb = "A gofmt-style formatter for PostgreSQL SQL."
+  [elsewhere_labels.pginstall]
+    label = "pginstall"
+    blurb = "The extension installer PostgreSQL never shipped with."
+  [elsewhere_labels.prefix]
+    label = "prefix"
+    blurb = "A range type for prefix matching — phone numbers, IPs, IBANs."
+  [elsewhere_labels.base36]
+    label = "base36"
+    blurb = "A base36 data type, stored internally as a bigint."
+  [elsewhere_labels.elget]
+    label = "el-get"
+    blurb = "A package manager for Emacs, before Emacs had one."
 +++
 
 PostgreSQL developer, author and open source builder, based near Paris. Most of

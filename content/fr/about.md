@@ -90,9 +90,31 @@ summary = "Contributeur majeur de PostgreSQL. Deux de ces contributions — CREA
   [elsewhere_labels.pgautofailover]
     label = "pg_auto_failover"
     blurb = "Haute disponibilité PostgreSQL automatisée."
+    image_caption = "Application, primaire, secondaire et moniteur : l'architecture que pg_auto_failover gère."
   [elsewhere_labels.pgextwlist]
     label = "pgextwlist"
     blurb = "Un modèle « sudo » pour la liste blanche d'extensions PostgreSQL."
+  [elsewhere_labels.pgcharts]
+    label = "pgcharts"
+    blurb = "Transformer des requêtes PostgreSQL en graphiques, sans tableau de bord."
+  [elsewhere_labels.regresql]
+    label = "regresql"
+    blurb = "Tests de non-régression pour vos requêtes SQL écrites à la main."
+  [elsewhere_labels.sqlfmt]
+    label = "sqlfmt"
+    blurb = "Un formateur de SQL PostgreSQL, à la gofmt."
+  [elsewhere_labels.pginstall]
+    label = "pginstall"
+    blurb = "L'installateur d'extensions que PostgreSQL n'a jamais eu."
+  [elsewhere_labels.prefix]
+    label = "prefix"
+    blurb = "Un type intervalle pour le préfixage — numéros de téléphone, IP, IBAN."
+  [elsewhere_labels.base36]
+    label = "base36"
+    blurb = "Un type de donnée base36, stocké en interne comme un bigint."
+  [elsewhere_labels.elget]
+    label = "el-get"
+    blurb = "Un gestionnaire de paquets pour Emacs, avant qu'Emacs en ait un."
 +++
 
 Développeur PostgreSQL, auteur et constructeur open source, basé près de Paris.

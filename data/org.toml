@@ -70,18 +70,50 @@ pgSince = 1999
   category = "code"
   id       = "pgloader"
   url      = "https://github.com/dimitri/pgloader"
+  docs     = "https://pgloader.readthedocs.io/"
 [[elsewhere]]
   category = "code"
   id       = "pgcopydb"
   url      = "https://github.com/dimitri/pgcopydb"
+  docs     = "https://pgcopydb.readthedocs.io/"
 [[elsewhere]]
   category = "code"
   id       = "pgautofailover"
   url      = "https://github.com/hapostgres/pg_auto_failover"
+  docs     = "https://pg-auto-failover.readthedocs.io/"
+  image    = "/img/pg-auto-failover-architecture.png"
 [[elsewhere]]
   category = "code"
   id       = "pgextwlist"
   url      = "https://github.com/dimitri/pgextwlist"
+[[elsewhere]]
+  category = "code"
+  id       = "pgcharts"
+  url      = "https://github.com/dimitri/pgcharts"
+[[elsewhere]]
+  category = "code"
+  id       = "regresql"
+  url      = "https://github.com/dimitri/regresql"
+[[elsewhere]]
+  category = "code"
+  id       = "sqlfmt"
+  url      = "https://github.com/dimitri/sqlfmt"
+[[elsewhere]]
+  category = "code"
+  id       = "pginstall"
+  url      = "https://github.com/dimitri/pginstall"
+[[elsewhere]]
+  category = "code"
+  id       = "prefix"
+  url      = "https://github.com/dimitri/prefix"
+[[elsewhere]]
+  category = "code"
+  id       = "base36"
+  url      = "https://github.com/dimitri/base36"
+[[elsewhere]]
+  category = "code"
+  id       = "elget"
+  url      = "https://github.com/dimitri/el-get"
 
 [address]
   streetAddress   = "209 rue Saint-Honoré"
