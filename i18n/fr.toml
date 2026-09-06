@@ -32,8 +32,6 @@ no_open_campaign       = "Aucune campagne en cours. Devenez membre pour être pr
 # --- forms -------------------------------------------------------------------
 form_privacy      = "Une seule adresse, utilisée pour vous répondre. Désinscription en un clic."
 
-about_elsewhere   = "Ailleurs"
-
 # --- footer ------------------------------------------------------------------
 footer_legal   = "Mentions légales"
 footer_contact = "Contact"

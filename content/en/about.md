@@ -51,19 +51,47 @@ summary = "PostgreSQL Major Contributor. Two of the contributions — CREATE EXT
 
 # Labels for data/org.toml's [[elsewhere]], keyed by id. The URLs live in the
 # data file — this is translation only, same split as [tier_labels] elsewhere.
+[elsewhere_intro]
+  title = "Elsewhere"
+  lede  = "One person, several domains: the writing, the tools, and the code that backs all of it."
+
+[elsewhere_categories]
+  writing  = "Writing"
+  tools    = "Tools"
+  programs = "Programs"
+  code     = "GitHub"
+
 [elsewhere_labels]
-  [elsewhere_labels.pgloader]
-    label = "pgloader"
-    blurb = "The flagship tool: migrations to PostgreSQL from MySQL, SQLite, and MS SQL Server."
-  [elsewhere_labels.book]
-    label = "The Art of PostgreSQL"
-    blurb = "The book, the courses, and the free Lab."
   [elsewhere_labels.blog]
     label = "tapoueh.org"
     blurb = "Twenty years of technical writing on PostgreSQL."
+  [elsewhere_labels.book]
+    label = "The Art of PostgreSQL"
+    blurb = "The book, the courses, and the free Lab."
+  [elsewhere_labels.pgloaderio]
+    label = "pgloader.io"
+    blurb = "The tool's own site: install, usage, and format documentation."
+  [elsewhere_labels.mysqltopgsql]
+    label = "mysqltopgsql.com"
+    blurb = "Migration methodology and PostgreSQL answers for MySQL developers."
+  [elsewhere_labels.ossmembers]
+    label = "oss.theartofpostgresql.com"
+    blurb = "Members: fund the maintenance of pgloader, pgcopydb, pg_auto_failover and pgextwlist."
   [elsewhere_labels.github]
-    label = "GitHub"
+    label = "github.com/dimitri"
     blurb = "Every commit, in public."
+  [elsewhere_labels.pgloader]
+    label = "pgloader"
+    blurb = "Migrations to PostgreSQL from MySQL, SQLite, and MS SQL Server."
+  [elsewhere_labels.pgcopydb]
+    label = "pgcopydb"
+    blurb = "Parallel PostgreSQL-to-PostgreSQL copy and migration."
+  [elsewhere_labels.pgautofailover]
+    label = "pg_auto_failover"
+    blurb = "Automated PostgreSQL high availability."
+  [elsewhere_labels.pgextwlist]
+    label = "pgextwlist"
+    blurb = "A sudo model for PostgreSQL extension whitelisting."
 +++
 
 PostgreSQL developer, author and open source builder, based near Paris. Most of

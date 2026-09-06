@@ -31,19 +31,34 @@
         {{- /* One identity, several domains — the human-readable counterpart
                to the sameAs entries in this page's own JSON-LD (built from
                the same data/org.toml array), so a reader gets the same
-               "this is one person" signal a crawler already gets. */}}
+               "this is one person" signal a crawler already gets. Grouped by
+               category (writing, tools, programs, code) in a fixed order, so
+               a domain's role is clear rather than one flat list of names. */}}
         {{- with hugo.Data.org.elsewhere }}
+        {{- $items := . }}
         {{- $labels := $.Params.elsewhere_labels }}
-        <p class="kicker mono">{{ i18n "about_elsewhere" }}</p>
-        <ul class="core-list">
-          {{- range . }}
-          {{- $l := index $labels .id }}
-          <li class="core-item">
-            <h2 class="mono"><a href="{{ .url }}" rel="noopener">{{ $l.label }}</a></h2>
-            <p>{{ $l.blurb }}</p>
-          </li>
+        {{- $catLabels := $.Params.elsewhere_categories }}
+        <div class="elsewhere">
+          {{- with $.Params.elsewhere_intro }}
+          <h2>{{ .title }}</h2>
+          <p class="lede">{{ .lede }}</p>
           {{- end }}
-        </ul>
+          {{- range slice "writing" "tools" "programs" "code" }}
+          {{- $cat := . }}
+          {{- with where $items "category" $cat }}
+          <p class="kicker mono">{{ index $catLabels $cat }}</p>
+          <ul class="core-list">
+            {{- range . }}
+            {{- $l := index $labels .id }}
+            <li class="core-item">
+              <h3 class="mono"><a href="{{ .url }}" rel="noopener">{{ $l.label }}</a></h3>
+              <p>{{ $l.blurb }}</p>
+            </li>
+            {{- end }}
+          </ul>
+          {{- end }}
+          {{- end }}
+        </div>
         {{- end }}
       </div>
 

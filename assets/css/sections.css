@@ -584,10 +584,19 @@
   border-radius: 0 var(--radius) var(--radius) 0;
   padding: 1.15rem 1.25rem;
 }
-.core-item h2 { font-size: 1.05rem; margin-bottom: 0.4rem; }
-.core-item h2 a { color: var(--accent); text-decoration: none; }
-.core-item h2 a:hover { text-decoration: underline; }
+.core-item h2, .core-item h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+.core-item h2 a, .core-item h3 a { color: var(--accent); text-decoration: none; }
+.core-item h2 a:hover, .core-item h3 a:hover { text-decoration: underline; }
 .core-item p { color: var(--text-muted); font-size: 0.93rem; margin: 0; }
+
+/* The "elsewhere" close: a clear break from the archive photo above it
+   (its own heading + lede, not just another kicker), then one kicker per
+   category so a domain's role reads before its name does. */
+.elsewhere { margin-top: 3rem; }
+.elsewhere h2 { margin-bottom: 0.5rem; }
+.elsewhere .lede { margin-bottom: 2rem; }
+.elsewhere .kicker { margin-top: 2rem; }
+.elsewhere .kicker:first-of-type { margin-top: 0; }
 
 .portrait { margin: 0 0 1.5rem; }
 .portrait img {

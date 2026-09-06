@@ -27,23 +27,61 @@ foundingDate = "2018-04-09"
 # First PostgreSQL database in production — drives the "25+ years" claim.
 pgSince = 1999
 
-# Other properties, all the same person — the single source for both the
-# visible "Elsewhere" list on /about/ and the schema.org sameAs property
-# (built from this same array in head/ld-json.html, so the two can never
-# drift apart). Labels and blurbs are translated in content/<lang>/about.md's
-# [elsewhere_labels], keyed by this id.
+# Other properties, all the same person — the single source for the visible
+# "Elsewhere" list on /about/, grouped there by `category`. Labels, blurbs
+# and category headings are translated in content/<lang>/about.md's
+# [elsewhere_labels] / [elsewhere_categories], keyed by `id` / `category`.
+#
+# `sameAs = true` marks entries also fed into the schema.org sameAs property
+# (built from this same array in head/ld-json.html, so the two lists can
+# never drift apart) — kept to entity-level pages (the person's own
+# properties), not individual repos, which are works rather than profiles.
 [[elsewhere]]
-  id  = "pgloader"
-  url = "https://pgloader.io/"
+  category = "writing"
+  id       = "blog"
+  url      = "https://tapoueh.org/"
+  sameAs   = true
 [[elsewhere]]
-  id  = "book"
-  url = "https://theartofpostgresql.com/"
+  category = "writing"
+  id       = "book"
+  url      = "https://theartofpostgresql.com/"
+  sameAs   = true
 [[elsewhere]]
-  id  = "blog"
-  url = "https://tapoueh.org/"
+  category = "tools"
+  id       = "pgloaderio"
+  url      = "https://pgloader.io/"
+  sameAs   = true
 [[elsewhere]]
-  id  = "github"
-  url = "https://github.com/dimitri"
+  category = "tools"
+  id       = "mysqltopgsql"
+  url      = "http://mysqltopgsql.com/"   # no valid cert for https yet
+  sameAs   = true
+[[elsewhere]]
+  category = "programs"
+  id       = "ossmembers"
+  url      = "https://oss.theartofpostgresql.com/"
+  sameAs   = true
+[[elsewhere]]
+  category = "code"
+  id       = "github"
+  url      = "https://github.com/dimitri"
+  sameAs   = true
+[[elsewhere]]
+  category = "code"
+  id       = "pgloader"
+  url      = "https://github.com/dimitri/pgloader"
+[[elsewhere]]
+  category = "code"
+  id       = "pgcopydb"
+  url      = "https://github.com/dimitri/pgcopydb"
+[[elsewhere]]
+  category = "code"
+  id       = "pgautofailover"
+  url      = "https://github.com/hapostgres/pg_auto_failover"
+[[elsewhere]]
+  category = "code"
+  id       = "pgextwlist"
+  url      = "https://github.com/dimitri/pgextwlist"
 
 [address]
   streetAddress   = "209 rue Saint-Honoré"

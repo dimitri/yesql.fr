@@ -13,7 +13,7 @@
 {{- $home := site.Home.Permalink -}}
 {{- $orgID := printf "%s#org" $home -}}
 {{- $sameAs := slice -}}
-{{- range $org.elsewhere }}{{ $sameAs = $sameAs | append .url }}{{ end -}}
+{{- range where $org.elsewhere "sameAs" true }}{{ $sameAs = $sameAs | append .url }}{{ end -}}
 
 {{- $orgNode := dict
       "@type"        "Organization"
