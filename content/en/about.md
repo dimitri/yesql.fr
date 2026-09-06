@@ -89,7 +89,6 @@ summary = "PostgreSQL Major Contributor. Two of the contributions — CREATE EXT
   [elsewhere_labels.pgautofailover]
     label = "pg_auto_failover"
     blurb = "Automated PostgreSQL high availability."
-    image_caption = "Application, primary, secondary and monitor: the architecture pg_auto_failover manages."
   [elsewhere_labels.pgextwlist]
     label = "pgextwlist"
     blurb = "A sudo model for PostgreSQL extension whitelisting."

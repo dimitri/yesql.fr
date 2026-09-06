@@ -54,16 +54,7 @@
             {{- $l := index $labels .id }}
             <li class="elsewhere-row">
               <h3 class="mono"><a href="{{ .url }}" rel="noopener">{{ $l.label }}</a></h3>
-              <p>{{ $l.blurb }}</p>
-              {{- with .docs }}
-              <a class="elsewhere-docs mono" href="{{ . }}" rel="noopener">{{ i18n "elsewhere_docs" }}</a>
-              {{- end }}
-              {{- with .image }}
-              <figure class="elsewhere-figure">
-                <img src="{{ . }}" alt="{{ $l.image_caption }}" loading="lazy">
-                <figcaption>{{ $l.image_caption }}</figcaption>
-              </figure>
-              {{- end }}
+              <p>{{ $l.blurb }}{{ with .docs }} <a class="elsewhere-docs mono" href="{{ . }}" rel="noopener">{{ i18n "elsewhere_docs" }}</a>{{ end }}</p>
             </li>
             {{- end }}
           </ul>

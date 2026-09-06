@@ -81,7 +81,6 @@ pgSince = 1999
   id       = "pgautofailover"
   url      = "https://github.com/hapostgres/pg_auto_failover"
   docs     = "https://pg-auto-failover.readthedocs.io/"
-  image    = "/img/pg-auto-failover-architecture.png"
 [[elsewhere]]
   category = "code"
   id       = "pgextwlist"

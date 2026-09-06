@@ -90,7 +90,6 @@ summary = "Contributeur majeur de PostgreSQL. Deux de ces contributions — CREA
   [elsewhere_labels.pgautofailover]
     label = "pg_auto_failover"
     blurb = "Haute disponibilité PostgreSQL automatisée."
-    image_caption = "Application, primaire, secondaire et moniteur : l'architecture que pg_auto_failover gère."
   [elsewhere_labels.pgextwlist]
     label = "pgextwlist"
     blurb = "Un modèle « sudo » pour la liste blanche d'extensions PostgreSQL."
