@@ -43,7 +43,7 @@ summary = "PostgreSQL Major Contributor. Two of the contributions — CREATE EXT
   url   = "https://tapoueh.org/conf/"
 [[facts]]
   label = "Background"
-  value = "Founded [Dalibo](https://www.dalibo.com/) (2005) and [2ndQuadrant France](https://www.2ndquadrant.com/) (2012); [Citus Data](https://www.citusdata.com/), then Microsoft by acquisition (2018–2025)"
+  value = "Founded [Dalibo](https://www.dalibo.com/) (2005) and [2ndQuadrant France](https://www.2ndquadrant.com/) (2012); joined [Citus Data](https://www.citusdata.com/blog/2018/01/12/dimitri-fontaine-postgresql-contributor-joins-citus-data/) (2018), acquired by Microsoft (2019–2025)"
 [[facts]]
   label = "Book"
   value = "The Art of PostgreSQL, 52 chapters"

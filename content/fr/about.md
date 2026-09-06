@@ -43,7 +43,7 @@ summary = "Contributeur majeur de PostgreSQL. Deux de ces contributions — CREA
   url   = "https://tapoueh.org/conf/"
 [[facts]]
   label = "Parcours"
-  value = "Fondateur de [Dalibo](https://www.dalibo.com/) (2005) et [2ndQuadrant France](https://www.2ndquadrant.com/) (2012) ; [Citus Data](https://www.citusdata.com/), puis Microsoft par acquisition (2018–2025)"
+  value = "Fondateur de [Dalibo](https://www.dalibo.com/) (2005) et [2ndQuadrant France](https://www.2ndquadrant.com/) (2012) ; a rejoint [Citus Data](https://www.citusdata.com/blog/2018/01/12/dimitri-fontaine-postgresql-contributor-joins-citus-data/) (2018), racheté par Microsoft (2019–2025)"
 [[facts]]
   label = "Livre"
   value = "The Art of PostgreSQL, 52 chapitres"
