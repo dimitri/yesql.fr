@@ -45,9 +45,8 @@ summary = "PostgreSQL Major Contributor. Two of the contributions — CREATE EXT
   label = "Background"
   value = "Founded Dalibo (2005) and 2ndQuadrant France (2012; now [Data Bene](https://data-bene.io/)); joined [Citus Data](https://www.citusdata.com/blog/2018/01/12/dimitri-fontaine-postgresql-contributor-joins-citus-data/) (2018), acquired by Microsoft (2019–2025)"
 [[facts]]
-  label = "Book"
-  value = "The Art of PostgreSQL, 52 chapters"
-  url   = "https://theartofpostgresql.com/"
+  label = "Learning"
+  value = "[The Art of PostgreSQL](https://theartofpostgresql.com/), 52 chapters, plus a [course](https://theartofpostgresql.com/course/), live [masterclass](https://theartofpostgresql.com/masterclass/) sessions, and [team](https://theartofpostgresql.com/teams/) pricing"
 
 # Labels for data/org.toml's [[elsewhere]], keyed by id. The URLs live in the
 # data file — this is translation only, same split as [tier_labels] elsewhere.

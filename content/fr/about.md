@@ -45,9 +45,8 @@ summary = "Contributeur majeur de PostgreSQL. Deux de ces contributions — CREA
   label = "Parcours"
   value = "Fondateur de Dalibo (2005) et 2ndQuadrant France (2012 ; aujourd'hui [Data Bene](https://data-bene.io/)) ; a rejoint [Citus Data](https://www.citusdata.com/blog/2018/01/12/dimitri-fontaine-postgresql-contributor-joins-citus-data/) (2018), racheté par Microsoft (2019–2025)"
 [[facts]]
-  label = "Livre"
-  value = "The Art of PostgreSQL, 52 chapitres"
-  url   = "https://theartofpostgresql.com/"
+  label = "Apprentissage"
+  value = "[The Art of PostgreSQL](https://theartofpostgresql.com/), 52 chapitres, plus un [cours](https://theartofpostgresql.com/course/), des sessions de [masterclass](https://theartofpostgresql.com/masterclass/) en direct, et une offre [équipe](https://theartofpostgresql.com/teams/)"
 
 # Libellés pour le [[elsewhere]] de data/org.toml, indexés par id. Les URL
 # sont dans le fichier de données — ici, uniquement la traduction, même
