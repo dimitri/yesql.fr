@@ -27,6 +27,41 @@
           <figcaption class="mono">{{ .caption }}</figcaption>
         </figure>
         {{- end }}
+
+        {{- /* One identity, several domains — the human-readable counterpart
+               to the sameAs entries in this page's own JSON-LD (built from
+               the same data/org.toml array), so a reader gets the same
+               "this is one person" signal a crawler already gets. Grouped by
+               category (writing, tools, programs, code) in a fixed order.
+               The "code" category alone runs past a dozen entries, so this
+               renders as a dense scannable row-list rather than the card
+               grid used for the two-item core-contributions list above. */}}
+        {{- with hugo.Data.org.elsewhere }}
+        {{- $items := . }}
+        {{- $labels := $.Params.elsewhere_labels }}
+        {{- $catLabels := $.Params.elsewhere_categories }}
+        <div class="elsewhere">
+          {{- with $.Params.elsewhere_intro }}
+          <h2>{{ .title }}</h2>
+          <p class="lede">{{ .lede }}</p>
+          {{- end }}
+          {{- range slice "writing" "tools" "programs" "code" }}
+          {{- $cat := . }}
+          {{- with where $items "category" $cat }}
+          <p class="kicker mono">{{ index $catLabels $cat }}</p>
+          <ul class="elsewhere-list">
+            {{- range . }}
+            {{- $l := index $labels .id }}
+            <li class="elsewhere-row">
+              <h3 class="mono"><a href="{{ .url }}" rel="noopener">{{ $l.label }}</a></h3>
+              <p>{{ $l.blurb }}{{ with .docs }} <a class="elsewhere-docs mono" href="{{ . }}" rel="noopener">{{ i18n "elsewhere_docs" }}</a>{{ end }}</p>
+            </li>
+            {{- end }}
+          </ul>
+          {{- end }}
+          {{- end }}
+        </div>
+        {{- end }}
       </div>
 
       <aside class="about-side">
@@ -41,7 +76,10 @@
           {{- range . }}
           <div>
             <dt>{{ .label }}</dt>
-            <dd>{{ if .url }}<a href="{{ .url }}" rel="noopener">{{ .value }}</a>{{ else }}{{ .value }}{{ end }}</dd>
+            {{- /* Most facts wrap the whole value in one link (.url). Background
+                   names several companies, each with its own link, so its value
+                   carries inline markdown links instead and skips .url entirely. */}}
+            <dd>{{ if .url }}<a href="{{ .url }}" rel="noopener">{{ .value }}</a>{{ else }}{{ $.RenderString .value }}{{ end }}</dd>
           </div>
           {{- end }}
         </dl>

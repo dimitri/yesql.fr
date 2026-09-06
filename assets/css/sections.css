@@ -584,10 +584,43 @@
   border-radius: 0 var(--radius) var(--radius) 0;
   padding: 1.15rem 1.25rem;
 }
-.core-item h2 { font-size: 1.05rem; margin-bottom: 0.4rem; }
-.core-item h2 a { color: var(--accent); text-decoration: none; }
-.core-item h2 a:hover { text-decoration: underline; }
+.core-item h2, .core-item h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+.core-item h2 a, .core-item h3 a { color: var(--accent); text-decoration: none; }
+.core-item h2 a:hover, .core-item h3 a:hover { text-decoration: underline; }
 .core-item p { color: var(--text-muted); font-size: 0.93rem; margin: 0; }
+
+/* The "elsewhere" close: a clear break from the archive photo above it
+   (its own heading + lede, not just another kicker), then one kicker per
+   category so a domain's role reads before its name does. The "code"
+   category alone runs past a dozen entries, so it renders as a compact
+   divided list rather than the card treatment above — name, then blurb
+   and doc link flowing as one line of text, same type treatment as the
+   rest of the page (mono accent heading, muted paragraph) so it reads as
+   a continuation of the page rather than a separate table-like widget. */
+.elsewhere { margin-top: 3rem; }
+.elsewhere h2 { margin-bottom: 0.5rem; }
+.elsewhere .lede { margin-bottom: 2rem; }
+.elsewhere .kicker { margin-top: 2rem; }
+.elsewhere .kicker:first-of-type { margin-top: 0; }
+
+.elsewhere-list { list-style: none; padding: 0; margin: 0; }
+.elsewhere-row {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.elsewhere-row:first-child { border-top: 1px solid var(--line-soft); }
+.elsewhere-row h3 { font-size: 0.95rem; margin: 0 0 0.2rem; }
+.elsewhere-row h3 a { color: var(--accent); text-decoration: none; }
+.elsewhere-row h3 a:hover { text-decoration: underline; }
+.elsewhere-row p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+.elsewhere-docs {
+  margin-left: 0.35rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.elsewhere-docs:hover { color: var(--accent); text-decoration: underline; }
 
 .portrait { margin: 0 0 1.5rem; }
 .portrait img {

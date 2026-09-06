@@ -43,11 +43,76 @@ summary = "Contributeur majeur de PostgreSQL. Deux de ces contributions — CREA
   url   = "https://tapoueh.org/conf/"
 [[facts]]
   label = "Parcours"
-  value = "Fondateur de Dalibo (2005) et 2ndQuadrant France (2012) ; Citus Data, puis Microsoft par acquisition (2018–2025)"
+  value = "Fondateur de Dalibo (2005) et 2ndQuadrant France (2012 ; aujourd'hui [Data Bene](https://data-bene.io/)) ; a rejoint [Citus Data](https://www.citusdata.com/blog/2018/01/12/dimitri-fontaine-postgresql-contributor-joins-citus-data/) (2018), racheté par Microsoft (2019–2025)"
 [[facts]]
-  label = "Livre"
-  value = "The Art of PostgreSQL, 52 chapitres"
-  url   = "https://theartofpostgresql.com/"
+  label = "Apprentissage"
+  value = "[The Art of PostgreSQL](https://theartofpostgresql.com/), 52 chapitres, plus un [cours](https://theartofpostgresql.com/course/), des sessions de [masterclass](https://theartofpostgresql.com/masterclass/) en direct, et une offre [équipe](https://theartofpostgresql.com/teams/)"
+
+# Libellés pour le [[elsewhere]] de data/org.toml, indexés par id. Les URL
+# sont dans le fichier de données — ici, uniquement la traduction, même
+# répartition que [tier_labels] ailleurs sur le site.
+[elsewhere_intro]
+  title = "Ailleurs"
+  lede  = "Une personne, plusieurs domaines : l'écriture, les outils, et le code qui les porte."
+
+[elsewhere_categories]
+  writing  = "Écriture"
+  tools    = "Outils"
+  programs = "Programmes"
+  code     = "GitHub"
+
+[elsewhere_labels]
+  [elsewhere_labels.blog]
+    label = "tapoueh.org"
+    blurb = "Vingt ans d'écriture technique sur PostgreSQL."
+  [elsewhere_labels.book]
+    label = "The Art of PostgreSQL"
+    blurb = "Le livre, les cours, et le Lab gratuit."
+  [elsewhere_labels.pgloaderio]
+    label = "pgloader.io"
+    blurb = "Le site de l'outil : installation, usage et documentation du format."
+  [elsewhere_labels.mysqltopgsql]
+    label = "mysqltopgsql.com"
+    blurb = "Méthodologie de migration et réponses PostgreSQL pour les développeurs MySQL."
+  [elsewhere_labels.ossmembers]
+    label = "oss.theartofpostgresql.com"
+    blurb = "Membres : financer la maintenance de pgloader, pgcopydb, pg_auto_failover et pgextwlist."
+  [elsewhere_labels.github]
+    label = "github.com/dimitri"
+    blurb = "Chaque commit, en public."
+  [elsewhere_labels.pgloader]
+    label = "pgloader"
+    blurb = "Migrations vers PostgreSQL depuis MySQL, SQLite et MS SQL Server."
+  [elsewhere_labels.pgcopydb]
+    label = "pgcopydb"
+    blurb = "Copie et migration PostgreSQL vers PostgreSQL en parallèle."
+  [elsewhere_labels.pgautofailover]
+    label = "pg_auto_failover"
+    blurb = "Haute disponibilité PostgreSQL automatisée."
+  [elsewhere_labels.pgextwlist]
+    label = "pgextwlist"
+    blurb = "Un modèle « sudo » pour la liste blanche d'extensions PostgreSQL."
+  [elsewhere_labels.pgcharts]
+    label = "pgcharts"
+    blurb = "Transformer des requêtes PostgreSQL en graphiques, sans tableau de bord."
+  [elsewhere_labels.regresql]
+    label = "regresql"
+    blurb = "Tests de non-régression pour vos requêtes SQL écrites à la main."
+  [elsewhere_labels.sqlfmt]
+    label = "sqlfmt"
+    blurb = "Un formateur de SQL PostgreSQL, à la gofmt."
+  [elsewhere_labels.pginstall]
+    label = "pginstall"
+    blurb = "L'installateur d'extensions que PostgreSQL n'a jamais eu."
+  [elsewhere_labels.prefix]
+    label = "prefix"
+    blurb = "Un type intervalle pour le préfixage — numéros de téléphone, IP, IBAN."
+  [elsewhere_labels.base36]
+    label = "base36"
+    blurb = "Un type de donnée base36, stocké en interne comme un bigint."
+  [elsewhere_labels.elget]
+    label = "el-get"
+    blurb = "Un gestionnaire de paquets pour Emacs, avant qu'Emacs en ait un."
 +++
 
 Développeur PostgreSQL, auteur et constructeur open source, basé près de Paris.
