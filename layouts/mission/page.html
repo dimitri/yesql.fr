@@ -36,7 +36,14 @@
     {{- with .Params.vision }}
     <div class="mission-block">
       <h2 id="vision-h">{{ $labels.vision }}</h2>
-      <p>{{ .body }}</p>
+      {{- /* An array, not one string: the argument moves in three beats
+             (the general claim landing on PostgreSQL specifically, the
+             general shape of any open source blind spot, then its actual
+             instance today) and reads better as three paragraphs than
+             one dense one. */}}
+      {{- range .body }}
+      <p>{{ . }}</p>
+      {{- end }}
     </div>
     {{- end }}
 
