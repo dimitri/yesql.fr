@@ -53,7 +53,7 @@ values = [
 
 [mission]
   lede = "Apporter l'Open Source au monde de l'entreprise."
-  body = "Faire en sorte que les entreprises obtiennent de PostgreSQL et de son écosystème libre la même confiance, la même structure de responsabilité, qu'elles n'obtiennent aujourd'hui que d'un fournisseur propriétaire — sans en payer la licence. Les entreprises n'achètent que rarement du propriétaire pour la qualité d'ingénierie ; elles achètent le contrat qui évite à la personne qui a fait le choix de porter le blâme."
+  body = "Faire en sorte que les entreprises obtiennent de PostgreSQL et de son écosystème libre la même confiance, la même structure de responsabilité, qu'elles n'obtiennent aujourd'hui que d'un fournisseur propriétaire — sans l'enfermement propriétaire, ni le coût total de possession qu'il entraîne. Les entreprises n'achètent que rarement du propriétaire pour la qualité d'ingénierie ; elles achètent le contrat qui évite à la personne qui a fait le choix de porter le blâme."
 
 [vision]
   body = [

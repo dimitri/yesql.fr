@@ -51,7 +51,7 @@ values = [
 
 [mission]
   lede = "Bring open source into the enterprise."
-  body = "Make it so companies can get the same trust and accountability structure from PostgreSQL and its open source ecosystem that they currently only get from a proprietary vendor — without paying the license that usually comes with it. Companies rarely buy proprietary software for its engineering; they buy the contract that keeps the person who chose it from being the one who gets blamed."
+  body = "Make it so companies can get the same trust and accountability structure from PostgreSQL and its open source ecosystem that they currently only get from a proprietary vendor — without the vendor lock-in, and the total cost of ownership that comes with it. Companies rarely buy proprietary software for its engineering; they buy the contract that keeps the person who chose it from being the one who gets blamed."
 
 [vision]
   body = [
