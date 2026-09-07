@@ -41,7 +41,7 @@ values = [
 [[toc]]
   id      = "vision"
   label   = "Vision"
-  preview = "Une synergie entre le développement indépendant et la structure attendue par les entreprises."
+  preview = "Le pont entre le fonctionnement de l'entreprise et l'open source, angles morts compris."
 [[toc]]
   id      = "strategy"
   label   = "Stratégie"
@@ -53,10 +53,10 @@ values = [
 
 [mission]
   lede = "Apporter l'Open Source au monde de l'entreprise."
-  body = "Faire en sorte que les entreprises puissent s'appuyer sur PostgreSQL et son écosystème libre avec la même structure de responsabilité qu'un fournisseur propriétaire — un contrat, un SLA, quelqu'un à appeler en cas d'incident majeur — sans payer la dépendance en licence qui va généralement avec. Les entreprises n'achètent que rarement du propriétaire pour la qualité d'ingénierie ; elles achètent le contrat qui évite à la personne qui a fait le choix de porter le blâme."
+  body = "Faire en sorte que les entreprises obtiennent de PostgreSQL et de son écosystème libre la même confiance, la même structure de responsabilité, qu'elles n'obtiennent aujourd'hui que d'un fournisseur propriétaire — sans en payer la licence. Les entreprises n'achètent que rarement du propriétaire pour la qualité d'ingénierie ; elles achètent le contrat qui évite à la personne qui a fait le choix de porter le blâme."
 
 [vision]
-  body = "Une synergie entre le développement indépendant et la structure attendue par les entreprises. Le pont actuel : des outils de production pour PostgreSQL — pg_auto_failover, pgloader, pgcopydb — pensés pour l'autonomie numérique face aux géants du cloud."
+  body = "Faire le pont entre deux façons de travailler : la manière dont l'entreprise a l'habitude de fonctionner — sous-traitance, régie ou forfait, licences, lignes de support — et la manière dont l'open source fonctionne réellement. Ce modèle a déjà fait ses preuves : il produit un meilleur résultat sur tout ce qui compte — qualité, ingénierie, tenue en production, adéquation au besoin. Mais il a aussi ses angles morts aujourd'hui : l'archivage et le disaster recovery, notamment. L'écosystème est solide sur les architectures en production (pg_auto_failover, pgextwlist, pginstall, pgcopydb) et sur la migration vers PostgreSQL (pgloader, pgcopydb — et désormais IvorySQL et Babelfish, en dehors de ce que je maintiens moi-même) ; il ne couvre pas encore tout."
 
 # Réutilise le composant workflow-step numéroté de la page onsite (mêmes
 # classes) plutôt qu'une seconde version du même motif.

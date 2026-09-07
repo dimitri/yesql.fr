@@ -39,7 +39,7 @@ values = [
 [[toc]]
   id      = "vision"
   label   = "Vision"
-  preview = "A synergy between independent development and the structure companies expect."
+  preview = "The bridge between enterprise engagement and open source, blind spots included."
 [[toc]]
   id      = "strategy"
   label   = "Strategy"
@@ -51,10 +51,10 @@ values = [
 
 [mission]
   lede = "Bring open source into the enterprise."
-  body = "Make it so companies can rely on PostgreSQL and its open source ecosystem with the same accountability structure as a proprietary vendor — a contract, an SLA, someone to call when a major incident hits — without paying for the licensing dependency that usually comes bundled with it. Companies rarely buy proprietary software for its engineering; they buy the contract that keeps the person who chose it from being the one who gets blamed."
+  body = "Make it so companies can get the same trust and accountability structure from PostgreSQL and its open source ecosystem that they currently only get from a proprietary vendor — without paying the license that usually comes with it. Companies rarely buy proprietary software for its engineering; they buy the contract that keeps the person who chose it from being the one who gets blamed."
 
 [vision]
-  body = "A synergy between independent development and the structure companies expect. The bridge today: production-grade tools for PostgreSQL — pg_auto_failover, pgloader, pgcopydb — built for digital autonomy in the face of the cloud giants."
+  body = "Bridge two different ways of working: how the enterprise is used to operating — subcontracting, time-and-materials or fixed-price, licensing, support lines — and how open source actually works. That model has already proven itself: it produces the better result on everything that counts — quality, engineering, production fitness, fit for the problem. But it has its blind spots today too: archiving and disaster recovery, notably. The ecosystem is strong on production architecture (pg_auto_failover, pgextwlist, pginstall, pgcopydb) and on migrating onto PostgreSQL (pgloader, pgcopydb — and now IvorySQL and Babelfish, outside what I maintain myself); it doesn't cover everything yet."
 
 # Reuses the onsite page's numbered workflow-step component (same class
 # names) rather than a second version of the same pattern.
