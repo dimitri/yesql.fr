@@ -782,3 +782,58 @@
 }
 .contact-title { font-size: 1.15rem; margin-bottom: 0.35rem; }
 .contact-note { color: var(--text-muted); font-size: 0.95rem; max-width: 60ch; margin-bottom: 1.25rem; }
+
+/* ---- mission ---------------------------------------------------------------
+   Mission/vision/strategy/values. Strategy reuses the onsite page's
+   numbered .workflow-step component rather than a second version of the
+   same pattern — just h3 instead of h2, since it now nests under this
+   page's own h2s (extended below, added to the existing selector). The
+   overview strip reuses showcase-grid/-card/-link (the homepage's
+   card-as-anchor component) rather than a bespoke ToC widget — the only
+   addition is a 4-column desktop row, since showcase-grid's own 3-column
+   breakpoint would strand a 4th card alone on its own row. */
+
+.mission-overview { margin-top: 2.5rem; }
+@media (min-width: 64rem) { .mission-overview { grid-template-columns: repeat(4, 1fr); } }
+
+.mission-icon { width: 1em; height: 1em; vertical-align: -0.08em; margin-right: 0.25em; color: var(--accent); }
+
+.mission-block { margin-top: 3rem; }
+.mission-block:first-of-type { margin-top: 2rem; }
+.mission-block h2 { margin-bottom: 0.75rem; }
+.mission-lede { color: var(--text); font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
+
+.workflow-step h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+
+/* Same row-list shape as the About page's GitHub links: a hairline
+   divider and a small mono marker per row, not a card, not a pill —
+   each value is already a specific phrase, not a bare word, so the
+   fix here is visual weight, not added explanation. Nine values divide
+   evenly into a 3x3 desktop grid; each item supplies its own right/
+   bottom border, so the container only needs a top+left edge and a
+   complete grid falls out with no last-row/last-column special-casing. */
+.values-list { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; }
+.value-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.value-item:first-child { border-top: 1px solid var(--line-soft); }
+.value-num { color: var(--accent); font-size: 0.8rem; flex: none; width: 1.5rem; }
+.value-item p { margin: 0; color: var(--text); font-size: 0.95rem; }
+
+@media (min-width: 48rem) {
+  .values-list {
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--line-soft);
+    border-left: 1px solid var(--line-soft);
+  }
+  .value-item {
+    border-top: none;
+    border-right: 1px solid var(--line-soft);
+    padding: 0.85rem 1rem;
+  }
+  .value-item:first-child { border-top: none; }
+}

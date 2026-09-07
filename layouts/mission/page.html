@@ -1,0 +1,99 @@
+{{ define "main" }}
+<article class="section section-mission">
+  <div class="wrap">
+    <p class="kicker mono">{{ .Params.kicker }}</p>
+    <h1>
+      {{- /* A small hand-drawn mark, same currentColor/stroke-width-4
+             style as the header's own brand icon, rather than pulling in
+             an icon-font library for one glyph. */}}
+      <svg class="mission-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M32 8 L58 54 H6 Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M12 44 H52" stroke="currentColor" stroke-width="4"/>
+        <path d="M18 32 H46" stroke="currentColor" stroke-width="4"/>
+      </svg>
+      {{ .Title }}
+    </h1>
+    <p class="lede">{{ .Params.summary }}</p>
+
+    {{- $labels := .Params.section_labels }}
+
+    {{- /* A real content preview, not a labeled shape: each card shows the
+           actual statement a reader would otherwise only find by scrolling
+           past a wall of category names first. Reuses the homepage's own
+           card-as-anchor component (showcase-grid/-card/-link) rather than
+           a bespoke ToC widget. */}}
+    {{- with .Params.toc }}
+    <ul class="showcase-grid mission-overview">
+      {{- range . }}
+      <li class="showcase-card">
+        <a class="showcase-link" href="#{{ .id }}-h">
+          <h3 class="mono">{{ .label }}</h3>
+          <p class="showcase-blurb">{{ .preview }}</p>
+        </a>
+      </li>
+      {{- end }}
+    </ul>
+    {{- end }}
+
+    {{- with .Params.mission }}
+    <div class="mission-block">
+      <h2 id="mission-h">{{ $labels.mission }}</h2>
+      <p class="mission-lede">{{ .lede }}</p>
+      <p>{{ .body }}</p>
+    </div>
+    {{- end }}
+
+    {{- with .Params.vision }}
+    <div class="mission-block">
+      <h2 id="vision-h">{{ $labels.vision }}</h2>
+      {{- /* An array, not one string: the argument moves in three beats
+             (the general claim landing on PostgreSQL specifically, the
+             general shape of any open source blind spot, then its actual
+             instance today) and reads better as three paragraphs than
+             one dense one. RenderString rather than a plain print, since
+             the PostgreSQL proof point below links out to DB-Engines and
+             the Stack Overflow survey. */}}
+      {{- range .body }}
+      <p>{{ $.RenderString . }}</p>
+      {{- end }}
+    </div>
+    {{- end }}
+
+    {{- with .Params.strategy }}
+    <div class="mission-block">
+      <h2 id="strategy-h">{{ $labels.strategy }}</h2>
+      <ol class="workflow">
+        {{- range . }}
+        <li class="workflow-step">
+          <span class="workflow-num mono">{{ .step }}</span>
+          <h3>{{ .name }}</h3>
+          <p>{{ .lede }}</p>
+        </li>
+        {{- end }}
+      </ol>
+    </div>
+    {{- end }}
+
+    {{- with .Params.values }}
+    <div class="mission-block">
+      <h2 id="values-h">{{ $labels.values }}</h2>
+      {{- /* A numbered row-list, not a tag cloud: each value is already a
+             specific phrase rather than a one-word abstraction ("Integrity"),
+             so it doesn't need added explanation — it needs the visual
+             weight a flat pill cloud was flattening away. Echoes the row-list
+             already used for the About page's GitHub links. */}}
+      <ol class="values-list">
+        {{- range $i, $v := . }}
+        <li class="value-item">
+          <span class="value-num mono">{{ printf "%02d" (add $i 1) }}</span>
+          <p>{{ $v }}</p>
+        </li>
+        {{- end }}
+      </ol>
+    </div>
+    {{- end }}
+
+    {{ partial "cta-contract.html" . }}
+  </div>
+</article>
+{{ end }}
