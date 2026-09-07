@@ -12,7 +12,11 @@
         <rect x="43" y="39" width="14" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="4"/>
         <path d="M32 21 V30 M32 30 L17 41 M32 30 L47 41" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
       </svg>
-      <span class="brand-mark" aria-hidden="true">ye</span><span class="brand-word">SQL</span>
+      {{- /* One wrapper around both spans: .brand's flex `gap` applies
+             between every direct child, so without it "ye" and "SQL" would
+             get the same 0.4rem gap as the icon does, splitting the
+             wordmark in two. */}}
+      <span class="brand-text"><span class="brand-mark" aria-hidden="true">ye</span><span class="brand-word">SQL</span></span>
     </a>
     <nav class="nav" aria-label="{{ site.Title }}">
       {{- /* Top-level pages, ordered by the `weight` in their own front

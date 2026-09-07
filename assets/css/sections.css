@@ -796,6 +796,8 @@
 .mission-overview { margin-top: 2.5rem; }
 @media (min-width: 64rem) { .mission-overview { grid-template-columns: repeat(4, 1fr); } }
 
+.mission-icon { width: 1em; height: 1em; vertical-align: -0.08em; margin-right: 0.25em; color: var(--accent); }
+
 .mission-block { margin-top: 3rem; }
 .mission-block:first-of-type { margin-top: 2rem; }
 .mission-block h2 { margin-bottom: 0.75rem; }
@@ -806,8 +808,11 @@
 /* Same row-list shape as the About page's GitHub links: a hairline
    divider and a small mono marker per row, not a card, not a pill —
    each value is already a specific phrase, not a bare word, so the
-   fix here is visual weight, not added explanation. */
-.values-list { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+   fix here is visual weight, not added explanation. Nine values divide
+   evenly into a 3x3 desktop grid; each item supplies its own right/
+   bottom border, so the container only needs a top+left edge and a
+   complete grid falls out with no last-row/last-column special-casing. */
+.values-list { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; }
 .value-item {
   display: flex;
   align-items: baseline;
@@ -818,3 +823,17 @@
 .value-item:first-child { border-top: 1px solid var(--line-soft); }
 .value-num { color: var(--accent); font-size: 0.8rem; flex: none; width: 1.5rem; }
 .value-item p { margin: 0; color: var(--text); font-size: 0.95rem; }
+
+@media (min-width: 48rem) {
+  .values-list {
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--line-soft);
+    border-left: 1px solid var(--line-soft);
+  }
+  .value-item {
+    border-top: none;
+    border-right: 1px solid var(--line-soft);
+    padding: 0.85rem 1rem;
+  }
+  .value-item:first-child { border-top: none; }
+}

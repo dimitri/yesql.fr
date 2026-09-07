@@ -22,6 +22,7 @@ values = [
   "Concrete decisions, no committee politics",
   "Skill transfer",
   "Continuous improvement",
+  "Fast iterations",
 ]
 
 [section_labels]
@@ -47,7 +48,7 @@ values = [
 [[toc]]
   id      = "values"
   label   = "Values"
-  preview = "Eight principles, from autonomy to continuous improvement."
+  preview = "Nine principles, from autonomy to fast iterations."
 
 [mission]
   lede = "Bring open source into the enterprise."

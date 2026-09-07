@@ -2,7 +2,17 @@
 <article class="section section-mission">
   <div class="wrap">
     <p class="kicker mono">{{ .Params.kicker }}</p>
-    <h1>{{ .Title }}</h1>
+    <h1>
+      {{- /* A small hand-drawn mark, same currentColor/stroke-width-4
+             style as the header's own brand icon, rather than pulling in
+             an icon-font library for one glyph. */}}
+      <svg class="mission-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M32 8 L58 54 H6 Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M12 44 H52" stroke="currentColor" stroke-width="4"/>
+        <path d="M18 32 H46" stroke="currentColor" stroke-width="4"/>
+      </svg>
+      {{ .Title }}
+    </h1>
     <p class="lede">{{ .Params.summary }}</p>
 
     {{- $labels := .Params.section_labels }}

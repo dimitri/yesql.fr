@@ -23,6 +23,7 @@ values = [
   "Décisions concrètes, sans jeux politiques de comité",
   "Transfert de compétences",
   "Amélioration continue",
+  "Itérations rapides",
 ]
 
 [section_labels]
@@ -49,7 +50,7 @@ values = [
 [[toc]]
   id      = "values"
   label   = "Valeurs"
-  preview = "Huit principes, de l'autonomie à l'amélioration continue."
+  preview = "Neuf principes, de l'autonomie aux itérations rapides."
 
 [mission]
   lede = "Apporter l'Open Source au monde de l'entreprise."
