@@ -782,3 +782,44 @@
 }
 .contact-title { font-size: 1.15rem; margin-bottom: 0.35rem; }
 .contact-note { color: var(--text-muted); font-size: 0.95rem; max-width: 60ch; margin-bottom: 1.25rem; }
+
+/* ---- mission ---------------------------------------------------------------
+   Mission/vision/strategy/values. Strategy reuses the onsite page's
+   numbered .workflow-step component rather than a second version of the
+   same pattern — just h3 instead of h2, since it now nests under this
+   page's own h2s (extended below, added to the existing selector). */
+
+.mission-block { margin-top: 3rem; }
+.mission-block:first-of-type { margin-top: 2rem; }
+.mission-block h2 { margin-bottom: 0.75rem; }
+.mission-lede { color: var(--text); font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
+
+.workflow-step h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+
+.pyramid { margin: 2rem auto; max-width: 26rem; }
+.pyramid svg { display: block; width: 100%; height: auto; }
+.pyramid-label {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+
+/* white-space: pre-wrap (rather than base.css's overflow-x: auto on <pre>)
+   is what keeps this from ever needing a horizontal scrollbar — a longer
+   translated comment just wraps to another line. */
+.conf-block {
+  background: var(--bg-sunken);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin: 0;
+  overflow-x: hidden;
+  white-space: pre-wrap;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+.conf-comment { color: var(--text-faint); }
+.conf-key { color: var(--accent); }
+.conf-val { color: var(--text); }
