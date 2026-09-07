@@ -65,11 +65,19 @@
     {{- with .Params.values }}
     <div class="mission-block">
       <h2 id="values-h">{{ $labels.values }}</h2>
-      <ul class="values-cloud">
-        {{- range . }}
-        <li class="value-chip">{{ . }}</li>
+      {{- /* A numbered row-list, not a tag cloud: each value is already a
+             specific phrase rather than a one-word abstraction ("Integrity"),
+             so it doesn't need added explanation — it needs the visual
+             weight a flat pill cloud was flattening away. Echoes the row-list
+             already used for the About page's GitHub links. */}}
+      <ol class="values-list">
+        {{- range $i, $v := . }}
+        <li class="value-item">
+          <span class="value-num mono">{{ printf "%02d" (add $i 1) }}</span>
+          <p>{{ $v }}</p>
+        </li>
         {{- end }}
-      </ul>
+      </ol>
     </div>
     {{- end }}
 

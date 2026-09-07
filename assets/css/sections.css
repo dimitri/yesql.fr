@@ -803,24 +803,18 @@
 
 .workflow-step h3 { font-size: 1rem; margin-bottom: 0.4rem; }
 
-/* Values read as human statements, not data — flex-wrap handles the
-   uneven lengths ("Autonomy" next to "Technique in service of people,
-   not the reverse") without ever needing a fixed grid or truncation. */
-.values-cloud {
-  list-style: none;
-  padding: 0;
-  margin: 1.5rem 0 0;
+/* Same row-list shape as the About page's GitHub links: a hairline
+   divider and a small mono marker per row, not a card, not a pill —
+   each value is already a specific phrase, not a bare word, so the
+   fix here is visual weight, not added explanation. */
+.values-list { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+.value-item {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
+  align-items: baseline;
+  gap: 0.85rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--line-soft);
 }
-.value-chip {
-  background: var(--accent-wash);
-  border: 1px solid var(--accent-line);
-  border-radius: 999px;
-  padding: 0.55rem 1.1rem;
-  font-size: 0.94rem;
-  font-weight: 500;
-  color: var(--text);
-  line-height: 1.3;
-}
+.value-item:first-child { border-top: 1px solid var(--line-soft); }
+.value-num { color: var(--accent); font-size: 0.8rem; flex: none; width: 1.5rem; }
+.value-item p { margin: 0; color: var(--text); font-size: 0.95rem; }

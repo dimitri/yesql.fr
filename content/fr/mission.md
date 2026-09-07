@@ -45,7 +45,7 @@ values = [
 [[toc]]
   id      = "strategy"
   label   = "Stratégie"
-  preview = "Quatre piliers, des priorités utilisateurs jusqu'au code qui tourne."
+  preview = "Priorités utilisateurs, transmission, modèle soutenable, itérations rapides."
 [[toc]]
   id      = "values"
   label   = "Valeurs"
