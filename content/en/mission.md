@@ -14,6 +14,25 @@ summary = "The mission, the vision, the strategy, and the values behind YeSQL â€
   strategy = "Strategy"
   values   = "Values"
 
+# The top-of-page preview strip: real statements, not category names, so a
+# reader knows what is actually in each section before scrolling past it.
+[[toc]]
+  id      = "mission"
+  label   = "Mission"
+  preview = "Bring open source into the enterprise."
+[[toc]]
+  id      = "vision"
+  label   = "Vision"
+  preview = "A synergy between independent development and the structure companies expect."
+[[toc]]
+  id      = "strategy"
+  label   = "Strategy"
+  preview = "Four pillars, from user priorities to running code."
+[[toc]]
+  id      = "values"
+  label   = "Values"
+  preview = "Eight principles, from autonomy to continuous improvement."
+
 [mission]
   lede = "Bring open source into the enterprise."
   body = "Make it so companies can rely on PostgreSQL and its open source ecosystem with the same rigor as a proprietary solution â€” without paying for the dependency."

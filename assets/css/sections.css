@@ -787,7 +787,14 @@
    Mission/vision/strategy/values. Strategy reuses the onsite page's
    numbered .workflow-step component rather than a second version of the
    same pattern — just h3 instead of h2, since it now nests under this
-   page's own h2s (extended below, added to the existing selector). */
+   page's own h2s (extended below, added to the existing selector). The
+   overview strip reuses showcase-grid/-card/-link (the homepage's
+   card-as-anchor component) rather than a bespoke ToC widget — the only
+   addition is a 4-column desktop row, since showcase-grid's own 3-column
+   breakpoint would strand a 4th card alone on its own row. */
+
+.mission-overview { margin-top: 2.5rem; }
+@media (min-width: 64rem) { .mission-overview { grid-template-columns: repeat(4, 1fr); } }
 
 .mission-block { margin-top: 3rem; }
 .mission-block:first-of-type { margin-top: 2rem; }
@@ -795,15 +802,6 @@
 .mission-lede { color: var(--text); font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
 
 .workflow-step h3 { font-size: 1rem; margin-bottom: 0.4rem; }
-
-.pyramid { margin: 2rem auto; max-width: 26rem; }
-.pyramid svg { display: block; width: 100%; height: auto; }
-.pyramid-label {
-  font-family: var(--font-mono);
-  font-weight: 600;
-  font-size: 15px;
-  letter-spacing: -0.01em;
-}
 
 /* white-space: pre-wrap (rather than base.css's overflow-x: auto on <pre>)
    is what keeps this from ever needing a horizontal scrollbar — a longer

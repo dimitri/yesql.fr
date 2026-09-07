@@ -7,25 +7,23 @@
 
     {{- $labels := .Params.section_labels }}
 
-    {{- /* Four stacked tiers, narrowing upward — values are the widest base,
-           mission the point at the top. Decorative only: aria-hidden, since
-           every label it draws is repeated as real text right below it.
-           Band fills are restricted to pairings already proven elsewhere on
-           the site (accent/on-accent from the buttons, bg-raised/text from
-           the cards) rather than a fifth new combination, after accent-deep
-           paired with on-accent measured under 4.5:1 and got ruled out. */}}
-    <figure class="pyramid" aria-hidden="true">
-      <svg viewBox="0 0 320 220" focusable="false">
-        <path d="M125,10 L185,10 L216.25,60 L103.75,60 Z" fill="var(--accent-strong)" stroke="var(--bg)" stroke-width="3"/>
-        <path d="M103.75,60 L216.25,60 L247.5,110 L72.5,110 Z" fill="var(--accent)" stroke="var(--bg)" stroke-width="3"/>
-        <path d="M72.5,110 L247.5,110 L278.75,160 L41.25,160 Z" fill="var(--accent-wash)" stroke="var(--accent-line)" stroke-width="1"/>
-        <path d="M41.25,160 L278.75,160 L310,210 L10,210 Z" fill="var(--bg-raised)" stroke="var(--line)" stroke-width="1"/>
-        <text x="160" y="40" text-anchor="middle" class="pyramid-label" fill="var(--on-accent)">{{ $labels.mission }}</text>
-        <text x="160" y="90" text-anchor="middle" class="pyramid-label" fill="var(--on-accent)">{{ $labels.vision }}</text>
-        <text x="160" y="140" text-anchor="middle" class="pyramid-label" fill="var(--text)">{{ $labels.strategy }}</text>
-        <text x="160" y="190" text-anchor="middle" class="pyramid-label" fill="var(--text)">{{ $labels.values }}</text>
-      </svg>
-    </figure>
+    {{- /* A real content preview, not a labeled shape: each card shows the
+           actual statement a reader would otherwise only find by scrolling
+           past a wall of category names first. Reuses the homepage's own
+           card-as-anchor component (showcase-grid/-card/-link) rather than
+           a bespoke ToC widget. */}}
+    {{- with .Params.toc }}
+    <ul class="showcase-grid mission-overview">
+      {{- range . }}
+      <li class="showcase-card">
+        <a class="showcase-link" href="#{{ .id }}-h">
+          <h3 class="mono">{{ .label }}</h3>
+          <p class="showcase-blurb">{{ .preview }}</p>
+        </a>
+      </li>
+      {{- end }}
+    </ul>
+    {{- end }}
 
     {{- with .Params.mission }}
     <div class="mission-block">

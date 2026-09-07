@@ -14,6 +14,26 @@ summary = "La mission, la vision, la stratégie et les valeurs de YeSQL — éno
   strategy = "Stratégie"
   values   = "Valeurs"
 
+# Le bandeau d'aperçu en haut de page : les énoncés réels, pas les noms de
+# catégorie, pour que le contenu de chaque section soit clair avant de
+# défiler.
+[[toc]]
+  id      = "mission"
+  label   = "Mission"
+  preview = "Apporter l'Open Source au monde de l'entreprise."
+[[toc]]
+  id      = "vision"
+  label   = "Vision"
+  preview = "Une synergie entre le développement indépendant et la structure attendue par les entreprises."
+[[toc]]
+  id      = "strategy"
+  label   = "Stratégie"
+  preview = "Quatre piliers, des priorités utilisateurs jusqu'au code qui tourne."
+[[toc]]
+  id      = "values"
+  label   = "Valeurs"
+  preview = "Huit principes, de l'autonomie à l'amélioration continue."
+
 [mission]
   lede = "Apporter l'Open Source au monde de l'entreprise."
   body = "Faire en sorte que les entreprises s'appuient sur PostgreSQL et son écosystème libre avec la même exigence qu'une solution propriétaire, sans en payer la dépendance."
