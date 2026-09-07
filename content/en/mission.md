@@ -35,7 +35,7 @@ summary = "The mission, the vision, the strategy, and the values behind YeSQL �
 
 [mission]
   lede = "Bring open source into the enterprise."
-  body = "Make it so companies can rely on PostgreSQL and its open source ecosystem with the same rigor as a proprietary solution — without paying for the dependency."
+  body = "Make it so companies can rely on PostgreSQL and its open source ecosystem with the same accountability structure as a proprietary vendor — a contract, an SLA, someone to call when a major incident hits — without paying for the licensing dependency that usually comes bundled with it. Companies rarely buy proprietary software for its engineering; they buy the contract that keeps the person who chose it from being the one who gets blamed."
 
 [vision]
   body = "A synergy between independent development and the structure companies expect. The bridge today: production-grade tools for PostgreSQL — pg_auto_failover, pgloader, pgcopydb — built for digital autonomy in the face of the cloud giants."

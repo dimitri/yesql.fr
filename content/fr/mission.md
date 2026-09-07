@@ -4,7 +4,7 @@ type    = "mission"
 slug    = "mission"
 weight  = 15
 nav     = "Mission"
-description = "Pourquoi YeSQL existe et comment l'entreprise fonctionne : apporter l'open source aux entreprises, la stratégie derrière les outils, et les valeurs qui maintiennent une pratique indépendante."
+description = "Pourquoi YeSQL existe et comment l'entreprise fonctionne : apporter l'open source aux entreprises, la stratégie derrière les outils, et les valeurs qui maintiennent une pratique indépendante."
 kicker  = "Pourquoi cela existe"
 summary = "La mission, la vision, la stratégie et les valeurs de YeSQL — énoncées en entier, pas en slogan."
 
@@ -36,7 +36,7 @@ summary = "La mission, la vision, la stratégie et les valeurs de YeSQL — éno
 
 [mission]
   lede = "Apporter l'Open Source au monde de l'entreprise."
-  body = "Faire en sorte que les entreprises s'appuient sur PostgreSQL et son écosystème libre avec la même exigence qu'une solution propriétaire, sans en payer la dépendance."
+  body = "Faire en sorte que les entreprises puissent s'appuyer sur PostgreSQL et son écosystème libre avec la même structure de responsabilité qu'un fournisseur propriétaire — un contrat, un SLA, quelqu'un à appeler en cas d'incident majeur — sans payer la dépendance en licence qui va généralement avec. Les entreprises n'achètent que rarement du propriétaire pour la qualité d'ingénierie ; elles achètent le contrat qui évite à la personne qui a fait le choix de porter le blâme."
 
 [vision]
   body = "Une synergie entre le développement indépendant et la structure attendue par les entreprises. Le pont actuel : des outils de production pour PostgreSQL — pg_auto_failover, pgloader, pgcopydb — pensés pour l'autonomie numérique face aux géants du cloud."
