@@ -40,9 +40,11 @@
              (the general claim landing on PostgreSQL specifically, the
              general shape of any open source blind spot, then its actual
              instance today) and reads better as three paragraphs than
-             one dense one. */}}
+             one dense one. RenderString rather than a plain print, since
+             the PostgreSQL proof point below links out to DB-Engines and
+             the Stack Overflow survey. */}}
       {{- range .body }}
-      <p>{{ . }}</p>
+      <p>{{ $.RenderString . }}</p>
       {{- end }}
     </div>
     {{- end }}
