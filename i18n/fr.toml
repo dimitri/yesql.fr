@@ -55,9 +55,6 @@ nav_campaign = "Collecte"
 # --- ailleurs (page à propos) -------------------------------------------------
 elsewhere_docs = "Doc"
 
-# --- page mission ----------------------------------------------------------
-mission_conf_header = "# yesql.conf — {{ .Count }} principes, toujours activés"
-
 # A TOML table swallows every key declared after it, so the one plural form on
 # this site lives at the very end of the file. Add new flat keys ABOVE it.
 [fund_backers]

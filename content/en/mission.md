@@ -8,6 +8,22 @@ description = "Why YeSQL exists and how it operates: bringing open source into t
 kicker  = "Why this exists"
 summary = "The mission, the vision, the strategy, and the values behind YeSQL — stated in full, not as a slogan."
 
+# A bare key placed after ANY table header (single [table] or [[array]])
+# belongs to that table until the next header appears — not just to the
+# immediately preceding array of tables (see the TOML footgun note in
+# README.md). This flat array has to sit above every [table]/[[array]]
+# header in the file, not just above [[strategy]].
+values = [
+  "Autonomy",
+  "Technical excellence",
+  "Respect for individuals over process",
+  "Service to users",
+  "Technique in service of people, not the reverse",
+  "Concrete decisions, no committee politics",
+  "Skill transfer",
+  "Continuous improvement",
+]
+
 [section_labels]
   mission  = "Mission"
   vision   = "Vision"
@@ -58,34 +74,6 @@ summary = "The mission, the vision, the strategy, and the values behind YeSQL �
   step = "4"
   name = "A working prototype beats a design document"
   lede = "Decisions are settled on running code, not on specifications."
-
-# Rendered as a yesql.conf-style block. `key` is a stable, language-neutral
-# identifier (postgresql.conf directives are never translated either); the
-# label carries the actual value as a trailing comment.
-[[values]]
-  key   = "autonomy"
-  label = "Autonomy"
-[[values]]
-  key   = "technical_excellence"
-  label = "Technical excellence"
-[[values]]
-  key   = "respect_for_individuals"
-  label = "Respect for individuals over process"
-[[values]]
-  key   = "user_service"
-  label = "Service to users"
-[[values]]
-  key   = "technique_serves_people"
-  label = "Technique in service of people, not the reverse"
-[[values]]
-  key   = "concrete_decisions"
-  label = "Concrete decisions, no committee politics"
-[[values]]
-  key   = "skill_transfer"
-  label = "Skill transfer"
-[[values]]
-  key   = "continuous_improvement"
-  label = "Continuous improvement"
 +++
 
 This is the frame behind [Enterprise](/en/enterprise/) and the tools

@@ -58,10 +58,11 @@
     {{- with .Params.values }}
     <div class="mission-block">
       <h2 id="values-h">{{ $labels.values }}</h2>
-      {{- /* Built with explicit \n actions rather than literal template
-             linebreaks, so the file's own indentation never leaks into this
-             <pre> block's text content. */}}
-      <pre class="conf-block"><code>{{ i18n "mission_conf_header" (dict "Count" (len .)) }}{{ range . }}{{ "\n\n" }}<span class="conf-comment"># {{ .label }}</span>{{ "\n" }}<span class="conf-key">{{ .key }}</span> = <span class="conf-val">on</span>{{ end }}</code></pre>
+      <ul class="values-cloud">
+        {{- range . }}
+        <li class="value-chip">{{ . }}</li>
+        {{- end }}
+      </ul>
     </div>
     {{- end }}
 
