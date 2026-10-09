@@ -342,6 +342,23 @@
 }
 .letter-note { color: var(--text-faint); font-size: 0.82rem; margin: 1rem 0 0; }
 
+/* The procurement door. Quieter than .letter (which is an offer) and
+   louder than .campaign-teaser (which is a footnote): a buyer who cannot
+   use the checkout has to see this without hunting, but it must not
+   compete with the prices it follows. A rule above rather than a filled
+   card does that — it reads as "and also", not as a fourth product. */
+.procurement {
+  margin: 2.5rem 0 0;
+  padding: 1.5rem 0 0;
+  border-top: 1px solid var(--line);
+  max-width: 62ch;
+}
+.procurement h2 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+.procurement p { color: var(--text-muted); font-size: 0.93rem; }
+.procurement .cta-row { margin-top: 1rem; display: flex; align-items: baseline; gap: 1.1rem; flex-wrap: wrap; }
+.procurement-legal { color: var(--text-faint); font-size: 0.85rem; }
+.procurement-legal:hover { color: var(--accent); }
+
 .campaign-teaser {
   margin: 2.5rem 0 0;
   max-width: 62ch;

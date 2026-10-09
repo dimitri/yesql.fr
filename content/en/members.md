@@ -60,6 +60,16 @@ summary = "Fund the maintenance of the tools your production depends on, togethe
   note = "Prefer backing one specific feature outright instead of a subscription?"
   cta  = "See the current campaign"
   href = "/en/campaigns/"
+# Enterprise procurement. The tier grid above sends every buyer to a
+# ThriveCart checkout that takes a card — which is precisely what a large
+# company's policy forbids. This block is the other door, and it exists
+# because a real buyer wrote in unable to use the first one.
+[procurement]
+  title = "Buying through procurement?"
+  note  = "Every tier is available on invoice: annual or monthly, paid by bank transfer, with your purchase-order number on the invoice. YeSQL is a French SAS — registration, VAT number and bank details are on the legal notice, and supplier-onboarding paperwork is no trouble."
+  cta   = "Ask for an invoice"
+  link_label = "legal notice"
+  link_href  = "/en/legal-notice/"
 +++
 
 The tools I maintain run in production for people I have never met, and that
