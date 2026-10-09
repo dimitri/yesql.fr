@@ -72,6 +72,23 @@
     </ul>
     {{- end }}
 
+    {{- /* ---- The other door ----------------------------------------
+           Every price above links to a card checkout. A company large
+           enough to want the Professional tier is frequently a company
+           whose policy forbids cards outright, and that buyer currently
+           has nowhere to go from this page. One line, directly after the
+           prices, where the objection actually occurs. */}}
+    {{- with .Params.procurement }}
+    <aside class="procurement" aria-labelledby="procurement-h">
+      <h2 id="procurement-h">{{ .title }}</h2>
+      <p>{{ .note }}</p>
+      <p class="cta-row">
+        <a class="btn btn-primary" href="mailto:{{ hugo.Data.org.email }}?subject={{ .title | urlquery }}">{{ .cta }} →</a>
+        <a class="procurement-legal" href="{{ .link_href }}">{{ .link_label }}</a>
+      </p>
+    </aside>
+    {{- end }}
+
     {{- /* ---- The members' letter — membership's own benefit ----------- */}}
     {{- with .Params.newsletter }}
     <article class="letter" aria-labelledby="letter-h">

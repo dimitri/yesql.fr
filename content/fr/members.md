@@ -61,6 +61,17 @@ summary = "Financer ensemble la maintenance des outils dont vos productions dép
   note = "Vous préférez financer une fonctionnalité précise plutôt qu'un abonnement ?"
   cta  = "Voir la campagne en cours"
   href = "/fr/campaigns/"
+# Achats par un service procurement. La grille ci-dessus envoie chaque
+# acheteur vers un paiement par carte chez ThriveCart — ce que la politique
+# interne d'un grand groupe interdit justement. Ce bloc est l'autre porte ;
+# il existe parce qu'un acheteur réel a écrit sans pouvoir utiliser la
+# première.
+[procurement]
+  title = "Vous passez par un service achats ?"
+  note  = "Chaque niveau est disponible sur facture : à l'année ou au mois, par virement, avec votre numéro de bon de commande sur la facture. YeSQL est une SAS française — immatriculation, numéro de TVA et coordonnées bancaires figurent sur les mentions légales, et les formalités de référencement fournisseur ne posent aucun problème."
+  cta   = "Demander une facture"
+  link_label = "mentions légales"
+  link_href  = "/fr/mentions-legales/"
 +++
 
 Les outils que je maintiens tournent en production chez des gens que je ne
